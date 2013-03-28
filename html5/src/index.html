@@ -1,11 +1,14 @@
-<html>
+<html>                                                            
   <body>
-    <canvas id="myCanvas" width="578" height="200"></canvas>
+    <canvas id="mainCanvas" width="300" height="150" style="border:1px solid #d3d3d3;">
+      Your browser does not support the HTML5 canvas tag.</canvas>
+    <script></script>     
+    <script src="js/actor.js"></script> 
+    <script src="js/game.js"></script>
+    <script src="js/zombiegame.js"></script>
     <script>
-      var canvas = document.getElementById('myCanvas');
-      var context = canvas.getContext('2d');
-  
       // do stuff here
-    </script>
+      zeGame = new ZombieGame();  
+    </script> 
   </body>
 </html>
