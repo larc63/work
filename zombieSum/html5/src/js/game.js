@@ -1,17 +1,28 @@
+Game = function() {
+	var BACKGROUND_COLOR = "#666600";
+	
+	console.log("Game Constructor!");
 
- function Game(){             
-  console.log("Game Constructor!");
-  this.canvas = document.getElementById('mainCanvas');
-  this.context = this.canvas.getContext('2d');
- 
- }
+	var canvas = document.getElementById('mainCanvas');
+	this.context = canvas.getContext('2d');
+	this.actor = new Actor();
+	
 
-Game.prototype.initGame = function (){
-  console.log("initGame!");
-}
 
-Game.prototype.paint = function () {
-  console.log("painting!");
+	this.paint = function() {
+//		console.log("painting!");
+		this.context.fillStyle = BACKGROUND_COLOR;
+		this.context.fillRect(0, 0, 800, 600);
+		this.actor.paint(this.context);
+	};
 
-  this.context.drawImage(imageObj, 0, 0);
-}
+	this.update = function(self) {
+		
+		this.actor.update();
+		
+		this.paint();
+	};
+	
+	
+	
+};
