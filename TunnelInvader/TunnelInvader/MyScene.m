@@ -8,6 +8,7 @@
 
 
 #import "MyScene.h"
+#import "WallPieceFactory.h"
 
 @implementation MyScene
 
@@ -32,6 +33,9 @@
         self.sprite = [SpaceShip spaceShipWithImage:@"Spaceship" location:location];
         [self addChild:self.sprite];
         
+        SKSpriteNode* wall = [WallPieceFactory wallPieceWithWidth:[NSNumber numberWithInt:500]];
+        wall.position = location;
+        [self addChild:wall];
     }
     return self;
 }

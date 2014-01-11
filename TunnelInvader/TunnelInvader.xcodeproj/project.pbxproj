@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F887A88F188121E40080E37B /* WallPieceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F887A88E188121E40080E37B /* WallPieceFactory.m */; };
+		F887A890188121E40080E37B /* WallPieceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F887A88E188121E40080E37B /* WallPieceFactory.m */; };
+		F887A892188123A30080E37B /* Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = F887A891188123A30080E37B /* Wall.png */; };
+		F887A893188123A30080E37B /* Wall.png in Resources */ = {isa = PBXBuildFile; fileRef = F887A891188123A30080E37B /* Wall.png */; };
 		F8B5C09C187DD85900C1B4C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B5C09B187DD85900C1B4C3 /* Cocoa.framework */; };
 		F8B5C09E187DD85900C1B4C3 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B5C09D187DD85900C1B4C3 /* SpriteKit.framework */; };
 		F8B5C0A8187DD85900C1B4C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8B5C0A6187DD85900C1B4C3 /* InfoPlist.strings */; };
@@ -35,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F887A88D188121E40080E37B /* WallPieceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WallPieceFactory.h; sourceTree = "<group>"; };
+		F887A88E188121E40080E37B /* WallPieceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WallPieceFactory.m; sourceTree = "<group>"; };
+		F887A891188123A30080E37B /* Wall.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Wall.png; sourceTree = "<group>"; };
 		F8B5C098187DD85900C1B4C3 /* TunnelInvader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TunnelInvader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B5C09B187DD85900C1B4C3 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		F8B5C09D187DD85900C1B4C3 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -127,6 +134,7 @@
 		F8B5C0A3187DD85900C1B4C3 /* TunnelInvader */ = {
 			isa = PBXGroup;
 			children = (
+				F887A891188123A30080E37B /* Wall.png */,
 				F8B5C0AF187DD85900C1B4C3 /* MainMenu.xib */,
 				F8B5C0B1187DD85900C1B4C3 /* MyScene.m */,
 				F8B5C0B3187DD85900C1B4C3 /* MyScene.h */,
@@ -137,6 +145,8 @@
 				F8B5C0A4187DD85900C1B4C3 /* Supporting Files */,
 				F8B89F85187E6F40001FB906 /* SpaceShip.h */,
 				F8B89F86187E6F40001FB906 /* SpaceShip.m */,
+				F887A88D188121E40080E37B /* WallPieceFactory.h */,
+				F887A88E188121E40080E37B /* WallPieceFactory.m */,
 			);
 			path = TunnelInvader;
 			sourceTree = "<group>";
@@ -249,6 +259,7 @@
 				F8B5C0B8187DD85900C1B4C3 /* Spaceship.png in Resources */,
 				F8B5C0BA187DD85900C1B4C3 /* Images.xcassets in Resources */,
 				F8B5C0A8187DD85900C1B4C3 /* InfoPlist.strings in Resources */,
+				F887A892188123A30080E37B /* Wall.png in Resources */,
 				F8B5C0AE187DD85900C1B4C3 /* Credits.rtf in Resources */,
 				F8B5C0B0187DD85900C1B4C3 /* MainMenu.xib in Resources */,
 			);
@@ -259,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B5C0CA187DD85900C1B4C3 /* InfoPlist.strings in Resources */,
+				F887A893188123A30080E37B /* Wall.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +283,7 @@
 			files = (
 				F8B5C0B2187DD85900C1B4C3 /* MyScene.m in Sources */,
 				F8B5C0AA187DD85900C1B4C3 /* main.m in Sources */,
+				F887A88F188121E40080E37B /* WallPieceFactory.m in Sources */,
 				F8B89F87187E6F40001FB906 /* SpaceShip.m in Sources */,
 				F8B5C0B5187DD85900C1B4C3 /* AppDelegate.m in Sources */,
 			);
@@ -281,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8B5C0CC187DD85900C1B4C3 /* TunnelInvaderTests.m in Sources */,
+				F887A890188121E40080E37B /* WallPieceFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
