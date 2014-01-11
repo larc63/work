@@ -29,10 +29,7 @@
         
         CGPoint location = CGPointMake(CGRectGetMidX(self.frame),
                                        CGRectGetMinY(self.frame) + 20);
-        self.sprite = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-        
-        self.sprite.position = location;
-        self.sprite.scale = 0.5;
+        self.sprite = [SpaceShip spaceShipWithImage:@"Spaceship" location:location];
         [self addChild:self.sprite];
         
     }

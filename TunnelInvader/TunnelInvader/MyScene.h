@@ -7,9 +7,10 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "SpaceShip.h"
 
 @interface MyScene : SKScene
 
-@property (strong) SKSpriteNode* sprite;
+@property (strong) SpaceShip* sprite;
 
 @end

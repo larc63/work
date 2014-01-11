@@ -21,6 +21,7 @@
 		F8B5C0C2187DD85900C1B4C3 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8B5C09B187DD85900C1B4C3 /* Cocoa.framework */; };
 		F8B5C0CA187DD85900C1B4C3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F8B5C0C8187DD85900C1B4C3 /* InfoPlist.strings */; };
 		F8B5C0CC187DD85900C1B4C3 /* TunnelInvaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B5C0CB187DD85900C1B4C3 /* TunnelInvaderTests.m */; };
+		F8B89F87187E6F40001FB906 /* SpaceShip.m in Sources */ = {isa = PBXBuildFile; fileRef = F8B89F86187E6F40001FB906 /* SpaceShip.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		F8B5C0C7187DD85900C1B4C3 /* TunnelInvaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TunnelInvaderTests-Info.plist"; sourceTree = "<group>"; };
 		F8B5C0C9187DD85900C1B4C3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		F8B5C0CB187DD85900C1B4C3 /* TunnelInvaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TunnelInvaderTests.m; sourceTree = "<group>"; };
+		F8B89F85187E6F40001FB906 /* SpaceShip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpaceShip.h; sourceTree = "<group>"; };
+		F8B89F86187E6F40001FB906 /* SpaceShip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpaceShip.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				F8B5C0B7187DD85900C1B4C3 /* Spaceship.png */,
 				F8B5C0B9187DD85900C1B4C3 /* Images.xcassets */,
 				F8B5C0A4187DD85900C1B4C3 /* Supporting Files */,
+				F8B89F85187E6F40001FB906 /* SpaceShip.h */,
+				F8B89F86187E6F40001FB906 /* SpaceShip.m */,
 			);
 			path = TunnelInvader;
 			sourceTree = "<group>";
@@ -266,6 +271,7 @@
 			files = (
 				F8B5C0B2187DD85900C1B4C3 /* MyScene.m in Sources */,
 				F8B5C0AA187DD85900C1B4C3 /* main.m in Sources */,
+				F8B89F87187E6F40001FB906 /* SpaceShip.m in Sources */,
 				F8B5C0B5187DD85900C1B4C3 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,6 +477,7 @@
 				F8B5C0D1187DD85900C1B4C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8B5C0D2187DD85900C1B4C3 /* Build configuration list for PBXNativeTarget "TunnelInvaderTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +486,7 @@
 				F8B5C0D4187DD85900C1B4C3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
