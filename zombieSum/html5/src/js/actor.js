@@ -27,8 +27,25 @@ Actor = function() {
 		}
 	};
 
+	this.changeState = function(newState) {
+		switch(newState) {
+			case ZOMBIE_STATE_INIT:
+				break;
+			case ZOMBIE_STATE_MOVE_FRONT:
+			case ZOMBIE_STATE_MOVE_FRONT_STOP:
+			case ZOMBIE_STATE_MOVE_RIGHT:
+			case ZOMBIE_STATE_MOVE_RIGHT_STOP:
+			case ZOMBIE_STATE_MOVE_LEFT:
+			case ZOMBIE_STATE_MOVE_LEFT_STOP:
+			case ZOMBIE_STATE_DIE:
+				this.sprite.setAnimation(newState);
+				this.sprite.resetAnimation();
+				this.state = newState;
+				break;
+		}
+	}
+
 	this.update = function() {
-		this.sprite.setAnimation(this.state);
 		this.sprite.update();
 	};
 };

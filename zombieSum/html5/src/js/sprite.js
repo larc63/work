@@ -30,23 +30,32 @@ this.loaded = false;
 this.image.onload = function() {
 	// console.log("image.onLoad!");
 	self.loaded = true;
-	caller.state++;
+	caller.changeState(caller.state+1);
 };
 this.image.src = imageSrc;
 
 this.paint = function(context, x, y) {
+	var row, column;
 	switch(this.animationIndex) {
 		case ZOMBIE_ANIMATION_INIT:
 			break;
 		case ZOMBIE_ANIMATION_MOVE_FRONT:
-			context.drawImage(this.image, this.frame * FRAME_WIDTH, this.animationIndex * FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT, x, y, FRAME_WIDTH, FRAME_HEIGHT);
+			row = this.frameIndices[this.animationIndex][this.frame]%FRAMES_PER_ROW;
+			column = (this.frameIndices[this.animationIndex][this.frame]/FRAMES_PER_ROW) >>> 0;
+			context.drawImage(this.image, row * FRAME_WIDTH, column * FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT, x, y, FRAME_WIDTH, FRAME_HEIGHT);
 			break;
 	}
 };
+
 this.update = function() {
 	this.frame = (this.frame + 1) % this.frameIndices[this.animationIndex].length;
 };
+
 this.setAnimation = function(index){
 	this.animationIndex = index;
-}
+};
+
+this.resetAnimation = function(){
+	this.frame = 0;
+};
 };
