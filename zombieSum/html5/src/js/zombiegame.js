@@ -5,8 +5,8 @@ ZombieGame = function() {
 		self.game.update();		
 	};
 	this.init = function() {
-		self.updateTimer = window.setInterval(self.update, 1000);
+		self.updateTimer = window.setInterval(self.update, 500);
 		self.update();
 	};
-	window.setTimeout(self.init(), 2000);
+	setTimeout(self.init(), 2000);
 };
