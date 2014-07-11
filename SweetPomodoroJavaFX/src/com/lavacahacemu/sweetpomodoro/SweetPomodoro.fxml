@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.BorderPane?>
 
 
-<BorderPane prefHeight="131.0" prefWidth="267.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="application.Main">
+<BorderPane prefHeight="131.0" prefWidth="267.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.lavacahacemu.sweetpomodoro.Main">
    <center>
       <Label fx:id="lblTime" alignment="CENTER" prefHeight="92.0" prefWidth="267.0" text="00:00" textAlignment="CENTER" BorderPane.alignment="CENTER">
          <font>
