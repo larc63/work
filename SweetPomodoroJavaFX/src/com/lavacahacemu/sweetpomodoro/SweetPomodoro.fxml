@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane prefHeight="131.0" prefWidth="267.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="com.lavacahacemu.sweetpomodoro.Main">
+   <center>
+      <Label fx:id="lblTime" alignment="CENTER" prefHeight="92.0" prefWidth="267.0" text="00:00" textAlignment="CENTER" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="Doctor Soos Bold" size="96.0" />
+         </font>
+      </Label>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_RIGHT" prefHeight="34.0" prefWidth="267.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnReset" mnemonicParsing="false" text="Reset" />
+            <Button fx:id="btnStartStop" mnemonicParsing="false" onAction="#handleStartStopAction" text="Start" />
+         </children>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>
