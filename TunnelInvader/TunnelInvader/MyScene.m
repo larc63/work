@@ -10,6 +10,7 @@
 #import "MyScene.h"
 #import "WallPieceFactory.h"
 
+
 @implementation MyScene
 
 -(id)initWithSize:(CGSize)size {
@@ -33,25 +34,14 @@
         self.sprite = [SpaceShip spaceShipWithImage:@"Spaceship" location:location];
         [self addChild:self.sprite];
         
+        SKAction *action = [SKAction moveBy:CGVectorMake(0, -20) duration:0.5];
+        
         SKSpriteNode* wall = [WallPieceFactory wallPieceWithWidth:[NSNumber numberWithInt:500]];
-        wall.position = location;
+        wall.position = CGPointMake(CGRectGetMidX(self.frame), CGRectGetMaxY(self.frame));
         [self addChild:wall];
     }
     return self;
 }
-
-//-(void)mouseDown:(NSEvent *)theEvent {
-//     /* Called when a mouse click occurs */
-//
-//
-//
-//
-//
-//
-//    [sprite runAction:[SKAction repeatActionForever:action]];
-//
-//
-//}
 
 -(void)keyDown:(NSEvent *)theEvent{
     NSString* s = [theEvent charactersIgnoringModifiers];
