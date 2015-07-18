@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Coin Hoarder</title>
+    <link href='style.css' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div>
+        <table class="metals-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Active</th>
+                    <th>Country</th>
+                    <th>Mint</th>
+                    <th>Series</th>
+                    <th>Metal</th>
+                    <th>Weight</th>
+                    <th>Diameter</th>
+                    <th>Width</th>
+                    <th>Purchase Price</th>
+                    <th>Melt Price</th>
+                    <th>Current Price</th>
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: coins">
+                <tr>
+                    <td data-bind="text: id" class="numerical-value">--</td>
+                    <td data-bind="text: active">--</td>
+                    <td data-bind="text: country">--</td>
+                    <td data-bind="text: mint">--</td>
+                    <td data-bind="text: series">--</td>
+                    <td data-bind="text: metal">--</td>
+                    <td data-bind="text: weight" class="numerical-value">--</td>
+                    <td data-bind="text: diameter" class="numerical-value">--</td>
+                    <td data-bind="text: width" class="numerical-value">--</td>
+                    <td data-bind="text: formatCurrency(purchasePrice())" class="numerical-value">--</td>
+                    <td data-bind="text: formatCurrency(meltPrice())" class="numerical-value">--</td>
+                    <td data-bind="text: formatCurrency(currentPrice())" class="numerical-value">--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="js/knockout-3.3.0.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
