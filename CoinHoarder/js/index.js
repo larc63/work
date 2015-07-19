@@ -1,4 +1,4 @@
-/**global: ko**/
+/*global ko, coinData */
 
 function formatCurrency(value) {
     "use strict";
@@ -18,11 +18,9 @@ function formatCurrency(value) {
 var CURRENT_GOLD_SPOT = 1150.10;
 var CURRENT_SILVER_SPOT = 15.10;
 
-function Coin(data) {
+function CoinType(data) {
     "use strict";
     this.id = ko.observable(data.id);
-    this.active = ko.observable(data.active);
-    this.premium = ko.observable(data.premium);
     this.country = ko.observable(data.country);
     this.mint = ko.observable(data.mint);
     this.series = ko.observable(data.series);
@@ -38,6 +36,21 @@ function Coin(data) {
     } else {
         this.width = ko.observable("--");
     }
+}
+
+function Coin(data) {
+    "use strict";
+    this.id = ko.observable(data.id);
+    this.active = ko.observable(data.active);
+    this.coinType = data.type;
+    this.premium = ko.observable(data.premium);
+    this.country = this.coinType.country; //ko.observable(data.country);
+    this.mint = this.coinType.mint; //ko.observable(data.mint);
+    this.series = this.coinType.series; //ko.observable(data.series);
+    this.weight = this.coinType.weight; //ko.observable(data.weight);
+    this.metal = this.coinType.metal; //ko.observable(data.metal);
+    this.diameter = this.coinType.diameter; //ko.observable(data.diameter);
+    this.width = this.coinType.width; //ko.observable(data.width);
     this.purchasePrice = ko.observable(data.purchasePrice);
     this.meltPrice = ko.computed(function () {
         if (this.metal() === "silver") {
@@ -55,10 +68,27 @@ function Coin(data) {
 
 function ViewModel() {
     "use strict";
-    var i, c;
+    var i, c, type;
     this.coins = ko.observableArray([]);
+    this.coinTypes = [];
 
+    this.getCoinType = function (data) {
+        var i, type;
+        for (i = 0; i < this.coinTypes; i += 1) {
+            type = this.coinTypes[i];
+            if (type.country === data.country && type.year === data.year && type.mint === data.mint && type.weight === data.weight && type.metal === data.metal) {
+                return type;
+            }
+        }
+        type = new CoinType(data);
+        this.coinTypes.push(type);
+        return type;
+    };
+
+    //    for (i = 0; i < 5; i += 1) {
     for (i = 0; i < coinData.length; i += 1) {
+        type = this.getCoinType(coinData[i]);
+        coinData[i].type = type;
         c = new Coin(coinData[i]);
         this.coins().push(c);
     }
