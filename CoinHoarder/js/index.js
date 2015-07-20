@@ -6,6 +6,7 @@ function formatCurrency(value) {
 }
 
 var CURRENT_GOLD_SPOT = 1150.10;
+var CURRENT_PLATINUM_SPOT = 1150.10;
 var CURRENT_SILVER_SPOT = 15.10;
 
 function CoinSet() {
@@ -41,6 +42,7 @@ function Coin(data) {
     this.active = ko.observable(data.active);
     this.coinType = data.type;
     this.premium = ko.observable(data.premium);
+    this.year = this.coinType.year;
     this.country = this.coinType.country; //ko.observable(data.country);
     this.mint = this.coinType.mint; //ko.observable(data.mint);
     this.series = this.coinType.series; //ko.observable(data.series);
@@ -56,6 +58,10 @@ function Coin(data) {
         if (this.metal() === "gold") {
             return this.weight() * CURRENT_GOLD_SPOT;
         }
+        if (this.metal() === "platinum") {
+            return this.weight() * CURRENT_PLATINUM_SPOT;
+        }
+        return 0;
     }, this);
     this.currentPrice = ko.computed(function () {
         return this.meltPrice() * this.premium();
@@ -117,8 +123,8 @@ function ViewModel() {
         }
     }
 
-    for (i = 0; i < 15; i += 1) {
-        //    for (i = 0; i < coinData.length; i += 1) {
+    //for (i = 0; i < 15; i += 1) {
+            for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].type = type;
         coinData[i].country = this.getCountry(coinData[i]);
