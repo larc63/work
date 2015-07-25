@@ -18,7 +18,11 @@ function CoinType(data) {
     "use strict";
 
     this.id = ko.observable(data.id);
-    this.country = data.country;
+    if (data.country) {
+        this.country = data.country;
+    } else {
+        this.country = "--";
+    }
     this.year = ko.observable(data.year);
     this.mint = ko.observable(data.mint);
     this.series = ko.observable(data.series);
@@ -124,7 +128,7 @@ function ViewModel() {
     }
 
     //for (i = 0; i < 15; i += 1) {
-            for (i = 0; i < coinData.length; i += 1) {
+    for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].type = type;
         coinData[i].country = this.getCountry(coinData[i]);
@@ -134,8 +138,13 @@ function ViewModel() {
     }
     this.currentSet = new CoinSet();
     this.currentSet.name = "Lunar Series Goats";
+    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 0.5));
     this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 1));
+    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 2));
+    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 5));
     this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 10));
+//    this.currentSet.name = "Libertdad 2014";
+//    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 0.5));
 }
 
 var vm = new ViewModel();

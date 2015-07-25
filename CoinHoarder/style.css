@@ -11,6 +11,9 @@ td {
     border: 0.1rem solid black;
 }
 
-.numerical-value {
+.numericalvalue {
     text-align: center;
+}
+.redborder{
+    color: red;
 }
