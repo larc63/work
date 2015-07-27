@@ -7,37 +7,58 @@
 </head>
 
 <body>
-    <div>
-        <table class="metals-table">
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Year</th>
-                    <th>Country</th>
-                    <th>Mint</th>
-                    <th>Series</th>
-                    <th>Metal</th>
-                    <th>Weight</th>
-                    <th>Diameter</th>
-                    <th>Width</th>
-                </tr>
-            </thead>
-            <tbody data-bind="foreach: coinTypes">
-                <tr>
-                    <td data-bind="text: id" class="numericalvalue">--</td>
-                    <td data-bind="text: year">--</td>
-                    <td data-bind="text: country">--</td>
-                    <td data-bind="text: mint">--</td>
-                    <td data-bind="text: series">--</td>
-                    <td data-bind="text: metal">--</td>
-                    <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
-                    <td data-bind="text: diameter" class="numericalvalue">--</td>
-                    <td data-bind="text: width" class="numericalvalue">--</td>
-                </tr>
-            </tbody>
-        </table>
+    <div data-bind="with: stagedCoinType">
+        Id: <input data-bind="value: id" readonly></input>
+        <br/>
+        Year: <input data-bind="value: year"></input>
+        <br/>
+        Country: <select data-bind="options: $parent.countries, value: selectedCountry"></select>
+        <br/>
+        Mint: <input data-bind="value: mint"></input>
+        <br/>
+        Series: <input data-bind="value: series"></input>
+        <br/>
+        Metal: <input data-bind="value: metal"></input>
+        <br/>
+        Weight: <input data-bind="value: weight"></input>
+        <br/>
+        Diameter: <input data-bind="value: diameter"></input>
+        <br/>
+        Width: <input data-bind="value: width"></input>
+        <br/>
+        <button name="button" data-bind="click: $parent.addCoinType">Add</button>
     </div>
-<!--
+    <div>
+    <table class="metals-table" id="coin-types-view">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Year</th>
+                <th>Country</th>
+                <th>Mint</th>
+                <th>Series</th>
+                <th>Metal</th>
+                <th>Weight</th>
+                <th>Diameter</th>
+                <th>Width</th>
+            </tr>
+        </thead>
+        <tbody data-bind="foreach: coinTypes">
+            <tr>
+                <td data-bind="text: id" class="numericalvalue">--</td>
+                <td data-bind="text: year">--</td>
+                <td data-bind="text: country">--</td>
+                <td data-bind="text: mint">--</td>
+                <td data-bind="text: series">--</td>
+                <td data-bind="text: metal">--</td>
+                <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
+                <td data-bind="text: diameter" class="numericalvalue">--</td>
+                <td data-bind="text: width" class="numericalvalue">--</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <!--
     <div>
         <table class="metals-table">
             <thead>
@@ -77,7 +98,7 @@
         </table>
     </div>
 -->
-<!--
+    <!--
     <div>
         <table class="metals-table">
             <thead>

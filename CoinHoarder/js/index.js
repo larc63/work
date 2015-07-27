@@ -16,13 +16,17 @@ function CoinSet() {
 
 function CoinType(data) {
     "use strict";
+    var generateID = function () {
+        return 100 + Math.floor(Math.random() * 1000);
+    }
 
-    this.id = ko.observable(data.id);
+    this.id = ko.observable(data.id ? data.id : generateID());
     if (data.country) {
         this.country = data.country;
     } else {
         this.country = "--";
     }
+    this.selectedCountry = ko.observable();
     this.year = ko.observable(data.year);
     this.mint = ko.observable(data.mint);
     this.series = ko.observable(data.series);
@@ -75,21 +79,21 @@ function Coin(data) {
 
 function ViewModel() {
     "use strict";
-    var i, c, type;
+    var i, c, type, self = this;
     this.coins = ko.observableArray([]);
-    this.coinTypes = [];
-    this.countries = [];
+    this.coinTypes = ko.observableArray([]);
+    this.countries = ko.observableArray([]);
     this.mints = [];
 
     this.getCountry = function (data) {
         var i, country;
-        for (i = 0; i < this.countries.length; i += 1) {
-            country = this.countries[i];
+        for (i = 0; i < this.countries().length; i += 1) {
+            country = this.countries()[i];
             if (country === data.country) {
                 return country;
             }
         }
-        this.countries.push(data.country);
+        this.countries().push(data.country);
         return data.country;
     };
 
@@ -107,8 +111,8 @@ function ViewModel() {
 
     this.getCoinType = function (data) {
         var i, type;
-        for (i = 0; i < this.coinTypes.length; i += 1) {
-            type = this.coinTypes[i];
+        for (i = 0; i < this.coinTypes().length; i += 1) {
+            type = this.coinTypes()[i];
             if (type.country === data.country && type.year() === data.year && type.mint() === data.mint && type.weight() === data.weight && type.metal() === data.metal) {
                 return type;
             }
@@ -119,8 +123,8 @@ function ViewModel() {
     };
 
     this.findCoin = function (year, country, series, metal, weight) {
-        for (i = 0; i < this.coinTypes.length; i += 1) {
-            type = this.coinTypes[i];
+        for (i = 0; i < this.coinTypes().length; i += 1) {
+            type = this.coinTypes()[i];
             if (type.country === country && type.year() === year && type.weight() === weight && type.metal() === metal) {
                 return type;
             }
@@ -136,6 +140,14 @@ function ViewModel() {
         c = new Coin(coinData[i]);
         this.coins().push(c);
     }
+
+    this.stagedCoinType = ko.observable(new CoinType({}))
+    this.addCoinType = function (event) {
+        self.stagedCoinType().country = self.stagedCoinType().selectedCountry();
+        self.coinTypes.push(self.stagedCoinType());
+    }
+
+
     this.currentSet = new CoinSet();
     this.currentSet.name = "Lunar Series Goats";
     this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 0.5));
@@ -143,8 +155,8 @@ function ViewModel() {
     this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 2));
     this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 5));
     this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 10));
-//    this.currentSet.name = "Libertdad 2014";
-//    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 0.5));
+    //    this.currentSet.name = "Libertdad 2014";
+    //    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 0.5));
 }
 
 var vm = new ViewModel();
