@@ -29,6 +29,5 @@ class ZipcodeTextFieldDelegate : NSObject, UITextFieldDelegate {
         }else{
             return false
         }
-        return true
     }
 }

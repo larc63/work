@@ -15,25 +15,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField2: UITextField!
     @IBOutlet weak var textField3: UITextField!
     @IBOutlet weak var characterCountLabel: UILabel!
+    @IBOutlet weak var textField3Switch: UISwitch!
     
     // Text Field Delegate objects
     let emojiDelegate = EmojiTextFieldDelegate()
     let colorizerDelegate = ColorizerTextFieldDelegate()
     let randomColorizerDelegate = RandomColorTextFieldDelegate()
     let zipcodeDelegate = ZipcodeTextFieldDelegate()
-    
+    let currencyFormattingDelegate = CurrencyTextFieldDelegate()
+    let switchableDelegate = SwitchableTextFieldDelegate()
     // Life Cycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
         // set the label to be hidden
         self.characterCountLabel.hidden = true
         
         // Set the three delegates
         self.textField1.delegate = zipcodeDelegate
-        self.textField2.delegate = colorizerDelegate
-        self.textField3.delegate = randomColorizerDelegate
+        self.textField2.delegate = currencyFormattingDelegate
+        self.textField3.delegate = switchableDelegate
     }
 
     
@@ -53,6 +54,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         // returning true gives the text field permission to change its text
         return true;
+    }
+    
+    @IBAction func textField3SwitchValueChanged(sender: UISwitch) {
+        if sender.on {
+            switchableDelegate.isLocked = false
+        } else {
+            switchableDelegate.isLocked = true
+        }
     }
 }
 
