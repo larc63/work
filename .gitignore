@@ -1,2 +1,10 @@
 
 *.zip
+
+benchmark/benchmark.js/
+
+benchmark/platform.js/
+
+*.xccheckout
+
+*.xcuserstate
