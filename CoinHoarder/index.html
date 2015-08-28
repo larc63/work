@@ -8,7 +8,7 @@
 
 <body>
 
-    <button name="button" data-bind="click: doDatabaseStuff">Do database stuff</button>
+    <button name="button" data-bind="click: exportCoins">Export</button>
     <div data-bind="with: stagedCoinType">
         Id:
         <input data-bind="value: id" readonly></input>
@@ -130,6 +130,7 @@
     </div>
 -->
     <script src="js/knockout-3.3.0.js"></script>
+    <script src="js/coin.js"></script>
     <script src="js/data.js"></script>
     <script src="js/index.js"></script>
 </body>

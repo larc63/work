@@ -1,4 +1,7 @@
 /*global ko, coinData */
+function pad(num, size) {
+    return ('000000000' + num).substr(-size);
+}
 
 function formatCurrency(value) {
     "use strict";
@@ -10,6 +13,7 @@ var CURRENT_PLATINUM_SPOT = 1150.10;
 var CURRENT_SILVER_SPOT = 15.10;
 
 function CoinSet() {
+    "use strict";
     this.name = "";
     this.coins = ko.observableArray([]);
 };
@@ -17,10 +21,10 @@ function CoinSet() {
 function CoinType(data) {
     "use strict";
     var generateID = function () {
-        return 100 + Math.floor(Math.random() * 1000);
+        return "ct" + pad(Math.floor(Math.random() * 100000000), 8);
     }
 
-    this.id = ko.observable(data.id ? data.id : generateID());
+    this.id = ko.observable(generateID());
     if (data.country) {
         this.country = data.country;
     } else {
@@ -42,39 +46,7 @@ function CoinType(data) {
     } else {
         this.width = ko.observable("--");
     }
-}
-
-function Coin(data) {
-    "use strict";
-    this.id = ko.observable(data.id);
-    this.active = ko.observable(data.active);
-    this.coinType = data.type;
-    this.premium = ko.observable(data.premium);
-    this.year = this.coinType.year;
-    this.country = this.coinType.country; //ko.observable(data.country);
-    this.mint = this.coinType.mint; //ko.observable(data.mint);
-    this.series = this.coinType.series; //ko.observable(data.series);
-    this.weight = this.coinType.weight; //ko.observable(data.weight);
-    this.metal = this.coinType.metal; //ko.observable(data.metal);
-    this.diameter = this.coinType.diameter; //ko.observable(data.diameter);
-    this.width = this.coinType.width; //ko.observable(data.width);
-    this.purchasePrice = ko.observable(data.purchasePrice);
-    this.meltPrice = ko.computed(function () {
-        if (this.metal() === "silver") {
-            return this.weight() * CURRENT_SILVER_SPOT;
-        }
-        if (this.metal() === "gold") {
-            return this.weight() * CURRENT_GOLD_SPOT;
-        }
-        if (this.metal() === "platinum") {
-            return this.weight() * CURRENT_PLATINUM_SPOT;
-        }
-        return 0;
-    }, this);
-    this.currentPrice = ko.computed(function () {
-        return this.meltPrice() * this.premium();
-    }, this);
-}
+};
 
 
 function ViewModel() {
@@ -131,13 +103,18 @@ function ViewModel() {
         }
     }
 
-    //for (i = 0; i < 15; i += 1) {
-    for (i = 0; i < coinData.length; i += 1) {
+//    for (i = 0; i < 15; i += 1) {
+            for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].type = type;
         coinData[i].country = this.getCountry(coinData[i]);
         coinData[i].mint = this.getMint(coinData[i]);
-        c = new Coin(coinData[i]);
+        if (localStorage.hasOwnProperty(coinData[i].id)) {
+            c = JSON.parse(localStorage.getItem(coinData[i].id));
+        } else {
+            c = new Coin(coinData[i]);
+            localStorage.setItem(c.id(), ko.toJSON(c));
+        }
         this.coins().push(c);
     }
 
@@ -146,43 +123,9 @@ function ViewModel() {
         self.stagedCoinType().country = self.stagedCoinType().selectedCountry();
         self.coinTypes.push(self.stagedCoinType());
     }
-    this.doDatabaseStuff = function () {
-        var request = window.indexedDB.open("coin-hoarder", 3);
-        request.onerror = function (event) {
-            // Handle errors.
-        };
-        request.onupgradeneeded = function (event) {
-            var db = event.target.result;
-
-            // Create an objectStore to hold information about our customers. We're
-            // going to use "ssn" as our key path because it's guaranteed to be
-            // unique - or at least that's what I was told during the kickoff meeting.
-            var objectStore = db.createObjectStore("customers", {
-                keyPath: "ssn"
-            });
-
-            // Create an index to search customers by name. We may have duplicates
-            // so we can't use a unique index.
-            objectStore.createIndex("name", "name", {
-                unique: false
-            });
-
-            // Create an index to search customers by email. We want to ensure that
-            // no two customers have the same email, so use a unique index.
-            objectStore.createIndex("email", "email", {
-                unique: true
-            });
-
-            // Use transaction oncomplete to make sure the objectStore creation is 
-            // finished before adding data into it.
-            objectStore.transaction.oncomplete = function (event) {
-                // Store values in the newly created objectStore.
-                var customerObjectStore = db.transaction("customers", "readwrite").objectStore("customers");
-                for (var i in customerData) {
-                    customerObjectStore.add(customerData[i]);
-                }
-            }
-        };
+    this.exportCoins = function () {
+        console.log(ko.toJSON(this.coins()));
+        saveAs()
     };
 
     this.currentSet = new CoinSet();
