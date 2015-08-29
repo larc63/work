@@ -11,8 +11,8 @@
         <div class="tabs">
             <div id="tab1"> <a href="#tab1">My Coins</a>
                 <div>
-                    <div data-bind="visible: stagedCoin !== undefined">
-                        You will see this message only when "shouldShowMessage" holds a true value.
+                    <div data-bind="css: {hidden: stagedCoin() === undefined, numericalvalue: true}">
+                        You will see this message only when "staged" holds a true value.
                     </div>
                     <table class="metals-table">
                         <thead>
@@ -37,6 +37,7 @@
                             <tr>
                                 <td>
                                     <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin" />
+                                    <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
                                 </td>
                                 <td data-bind="text: id" class="numerical-value">--</td>
                                 <td data-bind="text: active">--</td>
@@ -59,63 +60,67 @@
 
             <div id="tab2"> <a href="#tab2">Coin Types</a>
                 <div>
+                    <!--
                     <table class="metals-table" id="coin-types-view">
-                        <thead>
-                            <tr>
-                                <th>Id</th>
-                                <th>Year</th>
-                                <th>Country</th>
-                                <th>Mint</th>
-                                <th>Series</th>
-                                <th>Metal</th>
-                                <th>Weight</th>
-                                <th>Diameter</th>
-                                <th>Width</th>
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: coinTypes">
-                            <tr>
-                                <td data-bind="text: id" class="numericalvalue">--</td>
-                                <td data-bind="text: year">--</td>
-                                <td data-bind="text: country">--</td>
-                                <td data-bind="text: mint">--</td>
-                                <td data-bind="text: series">--</td>
-                                <td data-bind="text: metal">--</td>
-                                <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
-                                <td data-bind="text: diameter" class="numericalvalue">--</td>
-                                <td data-bind="text: width" class="numericalvalue">--</td>
-                            </tr>
-                        </tbody>
-                    </table>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Year</th>
+            <th>Country</th>
+            <th>Mint</th>
+            <th>Series</th>
+            <th>Metal</th>
+            <th>Weight</th>
+            <th>Diameter</th>
+            <th>Width</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: coinTypes">
+        <tr>
+            <td data-bind="text: id" class="numericalvalue">--</td>
+            <td data-bind="text: year">--</td>
+            <td data-bind="text: country">--</td>
+            <td data-bind="text: mint">--</td>
+            <td data-bind="text: series">--</td>
+            <td data-bind="text: metal">--</td>
+            <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
+            <td data-bind="text: diameter" class="numericalvalue">--</td>
+            <td data-bind="text: width" class="numericalvalue">--</td>
+        </tr>
+    </tbody>
+</table>
+-->
                 </div>
             </div>
 
             <div id="tab3"> <a href="#tab3">Sets</a>
                 <div>
-                    <table class="metals-table">
-                        <thead>
-                            <tr>
-                                <th>Country</th>
-                                <th>Mint</th>
-                                <th>Series</th>
-                                <th>Metal</th>
-                                <th>Weight</th>
-                                <th>Diameter</th>
-                                <th>Width</th>
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: currentSet.coins">
-                            <tr>
-                                <td data-bind="text: country">--</td>
-                                <td data-bind="text: mint">--</td>
-                                <td data-bind="text: series">--</td>
-                                <td data-bind="text: metal">--</td>
-                                <td data-bind="text: weight" class="numerical-value">--</td>
-                                <td data-bind="text: diameter" class="numerical-value">--</td>
-                                <td data-bind="text: width" class="numerical-value">--</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <!--
+                   <table class="metals-table">
+    <thead>
+        <tr>
+            <th>Country</th>
+            <th>Mint</th>
+            <th>Series</th>
+            <th>Metal</th>
+            <th>Weight</th>
+            <th>Diameter</th>
+            <th>Width</th>
+        </tr>
+    </thead>
+    <tbody data-bind="foreach: currentSet.coins">
+        <tr>
+            <td data-bind="text: country">--</td>
+            <td data-bind="text: mint">--</td>
+            <td data-bind="text: series">--</td>
+            <td data-bind="text: metal">--</td>
+            <td data-bind="text: weight" class="numerical-value">--</td>
+            <td data-bind="text: diameter" class="numerical-value">--</td>
+            <td data-bind="text: width" class="numerical-value">--</td>
+        </tr>
+    </tbody>
+</table>
+-->
                 </div>
             </div>
 
@@ -159,6 +164,7 @@
 -->
     <script src="js/knockout-3.3.0.js"></script>
     <script src="js/coin.js"></script>
+    <script src="js/cointype.js"></script>
     <script src="js/data.js"></script>
     <script src="js/index.js"></script>
 </body>

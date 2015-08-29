@@ -20,6 +20,10 @@ td {
     color: red;
 }
 
+.hidden {
+    display: none;
+}
+
 div.tabs {
     min-height: 80rem;
     /* No height: can grow if :target doesn't work */
@@ -56,9 +60,11 @@ div.tabs > div > a {
     border-bottom: 0.1em solid aliceblue;
 }
 /* Visually connect tab and tab body */
+
 div.tabs > div:not(:target) > a {
     border-bottom: none;
     /* Make the bottom border disappear */
+    
     background: lightskyblue;
 }
 /* Inactive tabs are dark gray */
