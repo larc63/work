@@ -103,8 +103,8 @@ function ViewModel() {
         }
     }
 
-    //for (i = 0; i < 15; i += 1) {
-    for (i = 0; i < coinData.length; i += 1) {
+    for (i = 0; i < 1; i += 1) {
+    //for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].type = type;
         coinData[i].country = this.getCountry(coinData[i]);
@@ -128,6 +128,12 @@ function ViewModel() {
         console.log(ko.toJSON(this.coins()));
         saveAs()
     };
+    this.stagedCoin = ko.observable();
+    
+    this.editMyCoin = function(index){
+        alert("edit" + this.id());
+        this.stagedCoin(this);
+    }
 
     this.currentSet = new CoinSet();
     this.currentSet.name = "Lunar Series Goats";

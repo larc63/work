@@ -11,9 +11,13 @@
         <div class="tabs">
             <div id="tab1"> <a href="#tab1">My Coins</a>
                 <div>
+                    <div data-bind="visible: stagedCoin !== undefined">
+                        You will see this message only when "shouldShowMessage" holds a true value.
+                    </div>
                     <table class="metals-table">
                         <thead>
                             <tr>
+                                <th>Actions</th>
                                 <th>Id</th>
                                 <th>Active</th>
                                 <th>Year</th>
@@ -31,6 +35,9 @@
                         </thead>
                         <tbody data-bind="foreach: coins">
                             <tr>
+                                <td>
+                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin" />
+                                </td>
                                 <td data-bind="text: id" class="numerical-value">--</td>
                                 <td data-bind="text: active">--</td>
                                 <td data-bind="text: year">--</td>

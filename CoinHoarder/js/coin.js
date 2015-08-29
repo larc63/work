@@ -1,5 +1,3 @@
-
-
 function Coin(data) {
     "use strict";
     var generateID = function () {
