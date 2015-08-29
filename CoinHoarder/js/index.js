@@ -31,9 +31,9 @@ function CoinType(data) {
         this.country = "--";
     }
     this.selectedCountry = ko.observable();
-    this.year = ko.observable(data.year);
-    this.mint = ko.observable(data.mint);
-    this.series = ko.observable(data.series);
+    this.year = ko.observable(data.year ? data.year : "");
+    this.mint = ko.observable(data.mint ? data.mint : "");
+    this.series = ko.observable(data.series ? data.series : "");
     this.weight = ko.observable(data.weight);
     this.metal = ko.observable(data.metal);
     if (data.diameter) {
@@ -103,8 +103,8 @@ function ViewModel() {
         }
     }
 
-//    for (i = 0; i < 15; i += 1) {
-            for (i = 0; i < coinData.length; i += 1) {
+    //for (i = 0; i < 15; i += 1) {
+    for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].type = type;
         coinData[i].country = this.getCountry(coinData[i]);
@@ -113,7 +113,8 @@ function ViewModel() {
             c = JSON.parse(localStorage.getItem(coinData[i].id));
         } else {
             c = new Coin(coinData[i]);
-            localStorage.setItem(c.id(), ko.toJSON(c));
+            //console.log("added ", c);
+            //localStorage.setItem(c.id(), ko.toJSON(c));
         }
         this.coins().push(c);
     }
