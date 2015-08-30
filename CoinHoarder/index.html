@@ -41,8 +41,8 @@
                             <br/> Part of the permanent stack:
                             <input type="checkbox" data-bind="checked: isPermaStack"></input>
                             <br/>
-                            <button name="button" data-bind="click: $parent.addCoin">Add</button>
-                            <button name="button" data-bind="click: $parent.cancel">Cancel</button>
+                            <button name="button" data-bind="click: $parent.commitCoin">Save</button>
+                            <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
                         </div>
                     </div>
                     <table class="metals-table">
@@ -67,22 +67,22 @@
                         <tbody data-bind="foreach: coins">
                             <tr>
                                 <td>
-                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin" />
+                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
                                     <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
                                 </td>
                                 <td data-bind="text: id" class="numerical-value">--</td>
                                 <td data-bind="text: active">--</td>
-                                <td data-bind="text: year">--</td>
-                                <td data-bind="text: country">--</td>
-                                <td data-bind="text: mint">--</td>
-                                <td data-bind="text: series">--</td>
-                                <td data-bind="text: metal">--</td>
-                                <td data-bind="text: weight" class="numerical-value">--</td>
-                                <td data-bind="text: diameter" class="numerical-value">--</td>
-                                <td data-bind="text: width" class="numerical-value">--</td>
-                                <td data-bind="text: formatCurrency(purchasePrice())" class="numerical-value">--</td>
-                                <td data-bind="text: formatCurrency(meltPrice())" class="numerical-value">--</td>
-                                <td data-bind="text: formatCurrency(currentPrice())" class="numerical-value">--</td>
+                                <td data-bind="text: coinType().year">--</td>
+                                <td data-bind="text: coinType().country">--</td>
+                                <td data-bind="text: coinType().mint">--</td>
+                                <td data-bind="text: coinType().series">--</td>
+                                <td data-bind="text: coinType().metal">--</td>
+                                <td data-bind="text: coinType().weight" class="numerical-value">--</td>
+                                <td data-bind="text: coinType().diameter" class="numerical-value">--</td>
+                                <td data-bind="text: coinType().width" class="numerical-value">--</td>
+                                <td data-bind="text: purchasePrice" class="numerical-value">--</td>
+                                <td data-bind="text: meltPrice" class="numerical-value">--</td>
+                                <td data-bind="text: currentPrice" class="numerical-value">--</td>
                             </tr>
                         </tbody>
                     </table>

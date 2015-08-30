@@ -5,6 +5,9 @@ function pad(num, size) {
 
 function formatCurrency(value) {
     "use strict";
+    if(value instanceof String){
+        value = Number(value);
+    }
     return "$" + value.toFixed(2);
 }
 
@@ -75,7 +78,7 @@ function ViewModel() {
     //for (i = 0; i < 2; i += 1) {
     for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
-        coinData[i].type = type;
+        coinData[i].coinType = type;
         coinData[i].country = this.getCountry(coinData[i]);
         coinData[i].mint = this.getMint(coinData[i]);
         if (localStorage.hasOwnProperty(coinData[i].id)) {
@@ -87,7 +90,7 @@ function ViewModel() {
         }
         this.coins().push(c);
     }
-
+    this.stagedIndex = 0;
     this.stagedCoinType = ko.observable(new CoinType({}))
     this.addCoinType = function (event) {
         self.stagedCoinType().country = self.stagedCoinType().selectedCountry();
@@ -99,9 +102,22 @@ function ViewModel() {
     };
     this.stagedCoin = ko.observable();
 
-    this.editMyCoin = function () {
+    this.editMyCoin = function (index) {
         //alert("edit " + this.id() + " setting to parent " + self.stagedCoin());
-        self.stagedCoin(this);
+        self.stagedCoin(this.clone());
+        self.stagedIndex = index;
+    }
+    this.commitCoin = function(){
+        self.coins()[self.stagedIndex] = self.stagedCoin();
+        self.stagedCoin(undefined);
+        self.stagedIndex = 0;
+        self.coins.valueHasMutated();
+    }
+    this.addCoin = function(){
+        self.stagedCoin();
+    }
+    this.cancelCoinOperation = function(){
+        self.stagedCoin(undefined);
     }
 
     this.currentSet = new CoinSet();
