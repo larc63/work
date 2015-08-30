@@ -72,8 +72,8 @@ function ViewModel() {
         }
     }
 
-    for (i = 0; i < 2; i += 1) {
-        //for (i = 0; i < coinData.length; i += 1) {
+    //for (i = 0; i < 2; i += 1) {
+    for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].type = type;
         coinData[i].country = this.getCountry(coinData[i]);

@@ -7,12 +7,43 @@
 </head>
 
 <body>
+    <!--    <button name="button" data-bind="click: exportCoins">Export</button>-->
     <div class="example">
         <div class="tabs">
             <div id="tab1"> <a href="#tab1">My Coins</a>
                 <div>
                     <div data-bind="css: {hidden: stagedCoin() === undefined, numericalvalue: true}">
                         You will see this message only when "staged" holds a true value.
+                        <div data-bind="with: stagedCoin">
+                            Id:
+                            <input data-bind="value: id" readonly></input>
+                            <br/> Coin Type:
+                            <select data-bind="options: $parent.coinTypes, optionsText: function(item) {
+                                               var words = [];
+                                               words.push(item.year());
+                                               words.push(item.country);
+                                               words.push(item.metal());
+                                               words.push(item.series());
+                                               words.push(item.weight() + ' ozt');
+                                            return words.join(' ');
+                                        },
+                                        value: coinType"></select>
+                            <br/> Purchase Date:
+                            <input data-bind="value: purchaseDate"></input>
+                            <br/> Purchase Price:
+                            <input data-bind="value: purchasePrice"></input>
+                            <br/> Sell Date:
+                            <input data-bind="value: saleDate"></input>
+                            <br/> Sell Price:
+                            <input data-bind="value: salePrice"></input>
+                            <br/> Active:
+                            <input type="checkbox" data-bind="checked: active"></input>
+                            <br/> Part of the permanent stack:
+                            <input type="checkbox" data-bind="checked: isPermaStack"></input>
+                            <br/>
+                            <button name="button" data-bind="click: $parent.addCoin">Add</button>
+                            <button name="button" data-bind="click: $parent.cancel">Cancel</button>
+                        </div>
                     </div>
                     <table class="metals-table">
                         <thead>
@@ -60,67 +91,63 @@
 
             <div id="tab2"> <a href="#tab2">Coin Types</a>
                 <div>
-                    <!--
                     <table class="metals-table" id="coin-types-view">
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Year</th>
-            <th>Country</th>
-            <th>Mint</th>
-            <th>Series</th>
-            <th>Metal</th>
-            <th>Weight</th>
-            <th>Diameter</th>
-            <th>Width</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: coinTypes">
-        <tr>
-            <td data-bind="text: id" class="numericalvalue">--</td>
-            <td data-bind="text: year">--</td>
-            <td data-bind="text: country">--</td>
-            <td data-bind="text: mint">--</td>
-            <td data-bind="text: series">--</td>
-            <td data-bind="text: metal">--</td>
-            <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
-            <td data-bind="text: diameter" class="numericalvalue">--</td>
-            <td data-bind="text: width" class="numericalvalue">--</td>
-        </tr>
-    </tbody>
-</table>
--->
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Year</th>
+                                <th>Country</th>
+                                <th>Mint</th>
+                                <th>Series</th>
+                                <th>Metal</th>
+                                <th>Weight</th>
+                                <th>Diameter</th>
+                                <th>Width</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: coinTypes">
+                            <tr>
+                                <td data-bind="text: id" class="numericalvalue">--</td>
+                                <td data-bind="text: year">--</td>
+                                <td data-bind="text: country">--</td>
+                                <td data-bind="text: mint">--</td>
+                                <td data-bind="text: series">--</td>
+                                <td data-bind="text: metal">--</td>
+                                <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
+                                <td data-bind="text: diameter" class="numericalvalue">--</td>
+                                <td data-bind="text: width" class="numericalvalue">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
             <div id="tab3"> <a href="#tab3">Sets</a>
                 <div>
-                    <!--
-                   <table class="metals-table">
-    <thead>
-        <tr>
-            <th>Country</th>
-            <th>Mint</th>
-            <th>Series</th>
-            <th>Metal</th>
-            <th>Weight</th>
-            <th>Diameter</th>
-            <th>Width</th>
-        </tr>
-    </thead>
-    <tbody data-bind="foreach: currentSet.coins">
-        <tr>
-            <td data-bind="text: country">--</td>
-            <td data-bind="text: mint">--</td>
-            <td data-bind="text: series">--</td>
-            <td data-bind="text: metal">--</td>
-            <td data-bind="text: weight" class="numerical-value">--</td>
-            <td data-bind="text: diameter" class="numerical-value">--</td>
-            <td data-bind="text: width" class="numerical-value">--</td>
-        </tr>
-    </tbody>
-</table>
--->
+                    <table class="metals-table">
+                        <thead>
+                            <tr>
+                                <th>Country</th>
+                                <th>Mint</th>
+                                <th>Series</th>
+                                <th>Metal</th>
+                                <th>Weight</th>
+                                <th>Diameter</th>
+                                <th>Width</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: currentSet.coins">
+                            <tr>
+                                <td data-bind="text: country">--</td>
+                                <td data-bind="text: mint">--</td>
+                                <td data-bind="text: series">--</td>
+                                <td data-bind="text: metal">--</td>
+                                <td data-bind="text: weight" class="numerical-value">--</td>
+                                <td data-bind="text: diameter" class="numerical-value">--</td>
+                                <td data-bind="text: width" class="numerical-value">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -129,15 +156,6 @@
             </div>
         </div>
     </div>
-
-    <!--    <button name="button" data-bind="click: exportCoins">Export</button>-->
-    <!--
-    <div class="tab-buttons"> 
-        <a href="#myCoins">My Coins</a>
-        <a href="#cointypes">Coin Types</a>
-        <a href="#sets">Sets</a>
-    </div>
--->
     <!--
     <div data-bind="with: stagedCoinType">
         Id:

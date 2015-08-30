@@ -15,7 +15,11 @@ function Coin(data) {
     this.metal = this.coinType.metal; //ko.observable(data.metal);
     this.diameter = this.coinType.diameter; //ko.observable(data.diameter);
     this.width = this.coinType.width; //ko.observable(data.width);
+    this.purchaseDate = ko.observable(data.purchaseDate ? data.purchaseDate : "");
     this.purchasePrice = ko.observable(data.purchasePrice);
+    this.saleDate = ko.observable(data.saleDate ? data.saleDate : "");
+    this.salePrice = ko.observable(data.salePrice ? data.salePrice : "");
+    this.isPermaStack = ko.observable(false);
     this.meltPrice = ko.computed(function () {
         if (this.metal() === "silver") {
             return this.weight() * CURRENT_SILVER_SPOT;
