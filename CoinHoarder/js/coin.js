@@ -28,7 +28,7 @@ function Coin(data) {
         return this.meltPrice() * this.premium();
     }, this);
     this.clone = function(){
-        var data = {}, retVal;
+        var data = {};
         data.id = this.id();
         data.active = this.active();
         data.coinType = this.coinType();
@@ -38,8 +38,6 @@ function Coin(data) {
         data.saleDate = this.saleDate();
         data.salePrice = this.salePrice();
         data.isPermaStack = this.isPermaStack();
-        retVal = new Coin(data);
-        retVal.id(this.id());
-        return retVal;
+        return new Coin(data);
     }
 }

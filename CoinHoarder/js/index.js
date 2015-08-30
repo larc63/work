@@ -102,13 +102,28 @@ function ViewModel() {
     };
     this.stagedCoin = ko.observable();
 
-    this.editMyCoin = function (index) {
-        //alert("edit " + this.id() + " setting to parent " + self.stagedCoin());
+    this.copyMyCoin = function (index) {
         self.stagedCoin(this.clone());
+        self.stagedIndex = -1;
+    }
+
+    this.editMyCoin = function (index) {
+        self.stagedCoin(this.clone());
+        self.stagedCoin().id(this.id());
         self.stagedIndex = index;
     }
+
+    this.deleteMyCoin = function (index) {
+        self.coins().splice(index, 1);
+        self.coins.valueHasMutated();
+    }
+    
     this.commitCoin = function(){
-        self.coins()[self.stagedIndex] = self.stagedCoin();
+        if(self.stagedIndex > 0){
+            self.coins()[self.stagedIndex] = self.stagedCoin();
+        }else{
+            self.coins().push(self.stagedCoin());
+        }
         self.stagedCoin(undefined);
         self.stagedIndex = 0;
         self.coins.valueHasMutated();

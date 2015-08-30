@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
     <title>Coin Hoarder</title>
     <link href='style.css' rel='stylesheet' type='text/css'>
 </head>
@@ -51,6 +52,7 @@
                                 <th>Actions</th>
                                 <th>Id</th>
                                 <th>Active</th>
+                                <th>Is Permanent</th>
                                 <th>Year</th>
                                 <th>Country</th>
                                 <th>Mint</th>
@@ -69,9 +71,11 @@
                                 <td>
                                     <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
                                     <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
+                                    <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
                                 </td>
                                 <td data-bind="text: id" class="numerical-value">--</td>
-                                <td data-bind="text: active">--</td>
+                                <td class="centered"><input type="checkbox" data-bind="checked: active" disabled></input></td>
+                                <td class="centered"><input type="checkbox" data-bind="checked: isPermaStack" disabled></input></td>
                                 <td data-bind="text: coinType().year">--</td>
                                 <td data-bind="text: coinType().country">--</td>
                                 <td data-bind="text: coinType().mint">--</td>

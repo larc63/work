@@ -24,6 +24,11 @@ td {
     display: none;
 }
 
+
+.centered {
+    text-align: center;
+}
+
 div.tabs {
     min-height: 80rem;
     /* No height: can grow if :target doesn't work */
