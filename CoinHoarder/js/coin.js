@@ -12,6 +12,7 @@ function Coin(data) {
     this.saleDate = ko.observable(data.saleDate ? data.saleDate : "");
     this.salePrice = ko.observable(data.salePrice ? data.salePrice : "");
     this.isPermaStack = ko.observable(false);
+    
     this.meltPrice = ko.computed(function () {
         if (this.coinType().metal() === "silver") {
             return this.coinType().weight() * CURRENT_SILVER_SPOT;
@@ -24,9 +25,11 @@ function Coin(data) {
         }
         return 0;
     }, this);
+    
     this.currentPrice = ko.computed(function () {
         return this.meltPrice() * this.premium();
     }, this);
+    
     this.clone = function(){
         var data = {};
         data.id = this.id();

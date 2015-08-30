@@ -95,9 +95,36 @@
 
             <div id="tab2"> <a href="#tab2">Coin Types</a>
                 <div>
+                    <div data-bind="css: {hidden: stagedCoinType() === undefined, numericalvalue: true}">
+                        You will see this message only when "staged" holds a true value.
+                            <div data-bind="with: stagedCoinType">
+                                Id:
+                                <input data-bind="value: id" readonly></input>
+                                <br/> Year:
+                                <input data-bind="value: year"></input>
+                                <br/> Country:
+                                <select data-bind="options: $parent.countries, value: country"></select>
+                                <br/> Mint:
+                                <input data-bind="value: mint"></input>
+                                <br/> Series:
+                                <input data-bind="value: series"></input>
+                                <br/> Metal:
+                                <input data-bind="value: metal"></input>
+                                <br/> Weight:
+                                <input data-bind="value: weight"></input>
+                                <br/> Diameter:
+                                <input data-bind="value: diameter"></input>
+                                <br/> Width:
+                                <input data-bind="value: width"></input>
+                                <br/>
+                                <button name="button" data-bind="click: $parent.commitCoinType">Save</button>
+                            <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
+                            </div>
+                    </div>
                     <table class="metals-table" id="coin-types-view">
                         <thead>
                             <tr>
+                                <th>Actions</th>
                                 <th>Id</th>
                                 <th>Year</th>
                                 <th>Country</th>
@@ -111,6 +138,11 @@
                         </thead>
                         <tbody data-bind="foreach: coinTypes">
                             <tr>
+                                <td>
+                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editCoinType.bind($data, $index())" />
+                                    <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyCoinType" />
+                                    <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteCoinType.bind($data, $index())" />
+                                </td>
                                 <td data-bind="text: id" class="numericalvalue">--</td>
                                 <td data-bind="text: year">--</td>
                                 <td data-bind="text: country">--</td>
@@ -160,30 +192,6 @@
             </div>
         </div>
     </div>
-    <!--
-    <div data-bind="with: stagedCoinType">
-        Id:
-        <input data-bind="value: id" readonly></input>
-        <br/> Year:
-        <input data-bind="value: year"></input>
-        <br/> Country:
-        <select data-bind="options: $parent.countries, value: selectedCountry"></select>
-        <br/> Mint:
-        <input data-bind="value: mint"></input>
-        <br/> Series:
-        <input data-bind="value: series"></input>
-        <br/> Metal:
-        <input data-bind="value: metal"></input>
-        <br/> Weight:
-        <input data-bind="value: weight"></input>
-        <br/> Diameter:
-        <input data-bind="value: diameter"></input>
-        <br/> Width:
-        <input data-bind="value: width"></input>
-        <br/>
-        <button name="button" data-bind="click: $parent.addCoinType">Add</button>
-    </div>
--->
     <script src="js/knockout-3.3.0.js"></script>
     <script src="js/coin.js"></script>
     <script src="js/cointype.js"></script>

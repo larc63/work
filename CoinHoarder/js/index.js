@@ -91,10 +91,30 @@ function ViewModel() {
         this.coins().push(c);
     }
     this.stagedIndex = 0;
-    this.stagedCoinType = ko.observable(new CoinType({}))
-    this.addCoinType = function (event) {
-        self.stagedCoinType().country = self.stagedCoinType().selectedCountry();
-        self.coinTypes.push(self.stagedCoinType());
+    this.stagedCoinType = ko.observable();
+    this.stagedCoinTypeIndex = 0;
+    this.copyCoinType = function (index) {
+        self.stagedCoinType(this.clone());
+        self.stagedCoinTypeIndex = -1;
+    }
+    this.deleteCoinType = function (index) {
+        self.coinTypes.splice(index, 1);
+        self.coinTypes.valueHasMutated();
+    }
+    this.editCoinType = function (index) {
+        self.stagedCoinType(this.clone());
+        self.stagedCoinType().id(this.id());
+        self.stagedCoinTypeIndex = index;
+    }
+    this.commitCoinType = function(){
+        if(self.stagedCoinTypeIndex > 0){
+            self.coinTypes()[self.stagedCoinTypeIndex] = self.stagedCoinType();
+        }else{
+            self.coinTypes().push(self.stagedCoinType());
+        }
+        self.stagedCoinType(undefined);
+        self.stagedCoinTypeIndex = 0;
+        self.coinTypes.valueHasMutated();
     }
     this.exportCoins = function () {
         console.log(ko.toJSON(this.coins()));
@@ -133,6 +153,7 @@ function ViewModel() {
     }
     this.cancelCoinOperation = function(){
         self.stagedCoin(undefined);
+        self.stagedCoinType(undefined);
     }
 
     this.currentSet = new CoinSet();
