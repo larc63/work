@@ -12,8 +12,24 @@ td {
     border: 0.1rem solid black;
 }
 
+tr:nth-child(2n) {
+    background: #ddd;
+}
+
 .numericalvalue {
     text-align: center;
+}
+
+.inactive{
+    -moz-box-shadow: 1px 1px 2px 2px red;
+    -webkit-box-shadow: 1px 1px 2px 2px red;
+    box-shadow: 1px 1px 2px 2px red;
+}
+
+.permastack{
+    -moz-box-shadow: 1px 1px 2px 2px orange;
+    -webkit-box-shadow: 1px 1px 2px 2px orange;
+    box-shadow: 1px 1px 2px 2px orange;
 }
 
 .redborder {
@@ -23,7 +39,6 @@ td {
 .hidden {
     display: none;
 }
-
 
 .centered {
     text-align: center;

@@ -5,7 +5,7 @@ function pad(num, size) {
 
 function formatCurrency(value) {
     "use strict";
-    if(value instanceof String){
+    if (value instanceof String) {
         value = Number(value);
     }
     return "$" + value.toFixed(2);
@@ -90,6 +90,24 @@ function ViewModel() {
         }
         this.coins().push(c);
     }
+
+    this.coinTypes().sort(function (a, b) {
+        if (a.country > b.country) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+
+    this.coins().sort(function (a, b) {
+        if (a.coinType().country > b.coinType().country) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+
+
     this.stagedIndex = 0;
     this.stagedCoinType = ko.observable();
     this.stagedCoinTypeIndex = 0;
@@ -106,10 +124,10 @@ function ViewModel() {
         self.stagedCoinType().id(this.id());
         self.stagedCoinTypeIndex = index;
     }
-    this.commitCoinType = function(){
-        if(self.stagedCoinTypeIndex > 0){
+    this.commitCoinType = function () {
+        if (self.stagedCoinTypeIndex > 0) {
             self.coinTypes()[self.stagedCoinTypeIndex] = self.stagedCoinType();
-        }else{
+        } else {
             self.coinTypes().push(self.stagedCoinType());
         }
         self.stagedCoinType(undefined);
@@ -137,21 +155,21 @@ function ViewModel() {
         self.coins().splice(index, 1);
         self.coins.valueHasMutated();
     }
-    
-    this.commitCoin = function(){
-        if(self.stagedIndex > 0){
+
+    this.commitCoin = function () {
+        if (self.stagedIndex > 0) {
             self.coins()[self.stagedIndex] = self.stagedCoin();
-        }else{
+        } else {
             self.coins().push(self.stagedCoin());
         }
         self.stagedCoin(undefined);
         self.stagedIndex = 0;
         self.coins.valueHasMutated();
     }
-    this.addCoin = function(){
+    this.addCoin = function () {
         self.stagedCoin();
     }
-    this.cancelCoinOperation = function(){
+    this.cancelCoinOperation = function () {
         self.stagedCoin(undefined);
         self.stagedCoinType(undefined);
     }
