@@ -8,7 +8,6 @@
 </head>
 
 <body>
-    <!--    <button name="button" data-bind="click: exportCoins">Export</button>-->
     <div class="example">
         <div class="tabs">
             <div id="tab1"> <a href="#tab1">My Coins</a>
@@ -22,7 +21,7 @@
                             <select data-bind="options: $parent.coinTypes, optionsText: function(item) {
                                                var words = [];
                                                words.push(item.year());
-                                               words.push(item.country);
+                                               words.push(item.country());
                                                words.push(item.metal());
                                                words.push(item.series());
                                                words.push(item.weight() + ' ozt');
@@ -74,8 +73,8 @@
                                     <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
                                 </td>
                                 <td data-bind="text: id" class="numerical-value">--</td>
-                                <td class="centered"><input type="checkbox" data-bind="checked: active" disabled></input></td>
-                                <td class="centered"><input type="checkbox" data-bind="checked: isPermaStack" disabled></input></td>
+                                <td class="centered" data-bind="css: {inactive: false}"><input type="checkbox" data-bind="checked: active"></input></td>
+                                <td class="centered" data-bind="css: {permastack: false}"><input type="checkbox" data-bind="checked: isPermaStack"></input></td>
                                 <td data-bind="text: coinType().year">--</td>
                                 <td data-bind="text: coinType().country">--</td>
                                 <td data-bind="text: coinType().mint">--</td>
@@ -103,7 +102,7 @@
                                 <br/> Year:
                                 <input data-bind="value: year"></input>
                                 <br/> Country:
-                                <select data-bind="options: $parent.countries, value: country"></select>
+                                <input data-bind="value: country"></input>
                                 <br/> Mint:
                                 <input data-bind="value: mint"></input>
                                 <br/> Series:
@@ -187,11 +186,18 @@
                 </div>
             </div>
 
-            <div id="default2"> <a href="#default2">Default</a>
-                <div>... it works!</div>
+            <div id="default2"> <a href="#default2">Summary</a>
+                <div><ul>
+                    <li data-bind="text: numberOfCoins"></li>
+                    <li data-bind="text: numberOfCoinsPermaStack"></li>
+                    <li data-bind="text: numberOfOunces"></li>
+                    <li data-bind="text: numberOfOuncesInPermaStack"></li>
+                    <li data-bind="text: meltTotal"></li>
+                    </ul></div>
             </div>
         </div>
     </div>
+        <button name="button" data-bind="click: exportCoins">Export</button>
     <script src="js/knockout-3.3.0.js"></script>
     <script src="js/coin.js"></script>
     <script src="js/cointype.js"></script>

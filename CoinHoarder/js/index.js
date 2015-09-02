@@ -11,9 +11,9 @@ function formatCurrency(value) {
     return "$" + value.toFixed(2);
 }
 
-var CURRENT_GOLD_SPOT = 1150.10;
-var CURRENT_PLATINUM_SPOT = 1150.10;
-var CURRENT_SILVER_SPOT = 15.10;
+var CURRENT_GOLD_SPOT = 1140.68;
+var CURRENT_PLATINUM_SPOT = 1012.00;
+var CURRENT_SILVER_SPOT = 14.67;
 
 function CoinSet() {
     "use strict";
@@ -26,42 +26,16 @@ function ViewModel() {
     var i, c, type, self = this;
     this.coins = ko.observableArray([]);
     this.coinTypes = ko.observableArray([]);
-    this.countries = ko.observableArray([]);
-    this.mints = [];
-
-    this.getCountry = function (data) {
-        var i, country;
-        for (i = 0; i < this.countries().length; i += 1) {
-            country = this.countries()[i];
-            if (country === data.country) {
-                return country;
-            }
-        }
-        this.countries().push(data.country);
-        return data.country;
-    };
-
-    this.getMint = function (data) {
-        var i, mint;
-        for (i = 0; i < this.mints.length; i += 1) {
-            mint = this.mints[i];
-            if (mint === data.mint) {
-                return mint;
-            }
-        }
-        this.mints.push(data.mint);
-        return data.mint;
-    };
 
     this.getCoinType = function (data) {
         var i, type;
         for (i = 0; i < this.coinTypes().length; i += 1) {
             type = this.coinTypes()[i];
-            if (type.country === data.country && type.year() === data.year && type.mint() === data.mint && type.weight() === data.weight && type.metal() === data.metal) {
+            if (type.country() === data.coinType.country && type.year() === data.coinType.year && type.mint() === data.coinType.mint && type.weight() === data.coinType.weight && type.metal() === data.coinType.metal) {
                 return type;
             }
         }
-        type = new CoinType(data);
+        type = new CoinType(data.coinType);
         this.coinTypes.push(type);
         return type;
     };
@@ -69,18 +43,71 @@ function ViewModel() {
     this.findCoin = function (year, country, series, metal, weight) {
         for (i = 0; i < this.coinTypes().length; i += 1) {
             type = this.coinTypes()[i];
-            if (type.country === country && type.year() === year && type.weight() === weight && type.metal() === metal) {
+            if (type.country() === country && type.year() === year && type.weight() === weight && type.metal() === metal) {
                 return type;
             }
         }
+    }
+
+
+    this.sortCoins = function () {
+        this.coinTypes().sort(function (a, b) {
+            var t1 = a,
+                t2 = b,
+                c1 = t1.country(),
+                c2 = t2.country(),
+                y1 = Number(t1.year()),
+                y2 = Number(t2.year()),
+                m1 = t1.mint(),
+                m2 = t2.mint(),
+                s1 = t1.series(),
+                s2 = t2.series(),
+                w1 = Number(t1.weight()),
+                w2 = Number(t2.weight());
+            if (c1 < c2) return -1;
+            if (c1 > c2) return 1;
+            if (m1 < m2) return -1;
+            if (m1 > m2) return 1;
+            if (y1 < y2) return -1;
+            if (y1 > y2) return 1;
+            if (s1 < s2) return -1;
+            if (s1 > s2) return 1;
+            if (w1 < w2) return -1;
+            if (w1 > w2) return 1;
+            return 0;
+        });
+
+        this.coins().sort(function (a, b) {
+            var t1 = a.coinType(),
+                t2 = b.coinType(),
+                c1 = t1.country(),
+                c2 = t2.country(),
+                y1 = Number(t1.year()),
+                y2 = Number(t2.year()),
+                m1 = t1.mint(),
+                m2 = t2.mint(),
+                s1 = t1.series(),
+                s2 = t2.series(),
+                w1 = Number(t1.weight()),
+                w2 = Number(t2.weight());
+            if (c1 < c2) return -1;
+            if (c1 > c2) return 1;
+            if (m1 < m2) return -1;
+            if (m1 > m2) return 1;
+            if (y1 < y2) return -1;
+            if (y1 > y2) return 1;
+            if (s1 < s2) return -1;
+            if (s1 > s2) return 1;
+            if (w1 < w2) return -1;
+            if (w1 > w2) return 1;
+            return 0;
+        });
     }
 
     //for (i = 0; i < 2; i += 1) {
     for (i = 0; i < coinData.length; i += 1) {
         type = this.getCoinType(coinData[i]);
         coinData[i].coinType = type;
-        coinData[i].country = this.getCountry(coinData[i]);
-        coinData[i].mint = this.getMint(coinData[i]);
         if (localStorage.hasOwnProperty(coinData[i].id)) {
             c = JSON.parse(localStorage.getItem(coinData[i].id));
         } else {
@@ -90,22 +117,7 @@ function ViewModel() {
         }
         this.coins().push(c);
     }
-
-    this.coinTypes().sort(function (a, b) {
-        if (a.country > b.country) {
-            return 1;
-        } else {
-            return -1;
-        }
-    });
-
-    this.coins().sort(function (a, b) {
-        if (a.coinType().country > b.coinType().country) {
-            return 1;
-        } else {
-            return -1;
-        }
-    });
+    this.sortCoins();
 
 
     this.stagedIndex = 0;
@@ -132,7 +144,9 @@ function ViewModel() {
         }
         self.stagedCoinType(undefined);
         self.stagedCoinTypeIndex = 0;
+        self.sortCoins();
         self.coinTypes.valueHasMutated();
+        self.coins.valueHasMutated();
     }
     this.exportCoins = function () {
         console.log(ko.toJSON(this.coins()));
@@ -164,6 +178,7 @@ function ViewModel() {
         }
         self.stagedCoin(undefined);
         self.stagedIndex = 0;
+        self.sortCoins();
         self.coins.valueHasMutated();
     }
     this.addCoin = function () {
@@ -173,6 +188,61 @@ function ViewModel() {
         self.stagedCoin(undefined);
         self.stagedCoinType(undefined);
     }
+
+
+    this.numberOfCoins = ko.computed(function () {
+        return self.coins().filter(function (e) {
+            return e.active();
+        }).length + " Coins";
+    });
+    this.numberOfCoinsPermaStack = ko.computed(function () {
+        return self.coins().filter(function (e) {
+            return e.active() && e.isPermaStack();
+        }).length + " Coins in permastack";
+    });
+    this.numberOfOunces = ko.computed(function () {
+        var retVal = 0,
+            activeCoins = self.coins().filter(function (e) {
+                return e.active();
+            });
+        if (activeCoins.length > 0) {
+            retVal = activeCoins.reduce(function (a, b) {
+                if (a instanceof Coin) {
+                    return Number(a.coinType().weight()) + Number(b.coinType().weight());
+                } else {
+                    return a + Number(b.coinType().weight());
+                }
+            });
+        }
+        return retVal + " Ounces";
+    });
+    this.numberOfOuncesInPermaStack = ko.computed(function () {
+        var retVal = 0,
+            activeCoins = self.coins().filter(function (e) {
+                return e.active() && e.isPermaStack();
+            });
+        if (activeCoins.length > 0) {
+            retVal = activeCoins.reduce(function (a, b) {
+                if (a instanceof Coin) {
+                    return Number(a.coinType().weight()) + Number(b.coinType().weight());
+                } else {
+                    return a + Number(b.coinType().weight());
+                }
+            });
+        }
+        return retVal + " Ounces";
+    });
+    this.meltTotal = ko.computed(function () {
+        return formatCurrency(self.coins().filter(function (e) {
+            return e.active();
+        }).reduce(function (a, b) {
+            if (a instanceof Coin) {
+                return Number(a.meltPrice()) + Number(b.meltPrice());
+            } else {
+                return a + Number(b.meltPrice());
+            }
+        }));
+    });
 
     this.currentSet = new CoinSet();
     //    this.currentSet.name = "Lunar Series Goats";

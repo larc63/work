@@ -5,11 +5,7 @@ function CoinType(data) {
     }
 
     this.id = ko.observable(generateID());
-    if (data.country) {
-        this.country = data.country;
-    } else {
-        this.country = "--";
-    }
+    this.country = ko.observable(data.country ? data.country : "");
     this.year = ko.observable(data.year ? data.year : "");
     this.mint = ko.observable(data.mint ? data.mint : "");
     this.series = ko.observable(data.series ? data.series : "");
@@ -21,7 +17,7 @@ function CoinType(data) {
     this.clone = function(){
         var data = {};
         data.id = this.id();
-        data.country = this.country;
+        data.country = this.country();
         data.year = this.year();
         data.mint = this.mint();
         data.series = this.series();
