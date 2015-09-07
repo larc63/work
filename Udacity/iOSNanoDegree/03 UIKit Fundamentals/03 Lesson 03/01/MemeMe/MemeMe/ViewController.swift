@@ -8,11 +8,17 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var theImage: UIImageView!
+    @IBOutlet weak var cameraButton: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    override func viewWillAppear(animated: Bool) {
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
 
     override func didReceiveMemoryWarning() {
@@ -20,6 +26,30 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func pickActionPressed(sender: UIBarButtonItem) {
+        let nextController = UIImagePickerController()
+        nextController.delegate = self;
+        nextController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        self.presentViewController(nextController, animated: true, completion: nil)
+    }
+    
+    @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
+        let nextController = UIImagePickerController()
+        nextController.delegate = self;
+        nextController.sourceType = UIImagePickerControllerSourceType.Camera
+        self.presentViewController(nextController, animated: true, completion: nil)
+        
+    }
 
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        if let anImage = image{
+            theImage.image = anImage
+        }
+    }
+
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 
