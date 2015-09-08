@@ -31,7 +31,7 @@ function ViewModel() {
         var i, type;
         for (i = 0; i < this.coinTypes().length; i += 1) {
             type = this.coinTypes()[i];
-            if (type.country() === data.coinType.country && type.year() === data.coinType.year && type.mint() === data.coinType.mint && type.weight() === data.coinType.weight && type.metal() === data.coinType.metal) {
+            if (type.country() === data.coinType.country && type.year() === data.coinType.year && type.mint() === data.coinType.mint && type.weight() === data.coinType.weight && type.metal() === data.coinType.metal && type.series() === data.coinType.series) {
                 return type;
             }
         }
@@ -66,14 +66,14 @@ function ViewModel() {
                 w2 = Number(t2.weight());
             if (c1 < c2) return -1;
             if (c1 > c2) return 1;
-            if (m1 < m2) return -1;
-            if (m1 > m2) return 1;
             if (y1 < y2) return -1;
             if (y1 > y2) return 1;
             if (s1 < s2) return -1;
             if (s1 > s2) return 1;
             if (w1 < w2) return -1;
             if (w1 > w2) return 1;
+            if (m1 < m2) return -1;
+            if (m1 > m2) return 1;
             return 0;
         });
 
