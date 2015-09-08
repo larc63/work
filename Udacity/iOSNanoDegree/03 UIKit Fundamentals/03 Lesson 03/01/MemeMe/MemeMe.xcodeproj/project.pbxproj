@@ -13,6 +13,7 @@
 		F8764B841B96B440006DABA9 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8764B831B96B440006DABA9 /* Images.xcassets */; };
 		F8764B871B96B440006DABA9 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8764B851B96B440006DABA9 /* LaunchScreen.xib */; };
 		F8764B931B96B440006DABA9 /* MemeMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8764B921B96B440006DABA9 /* MemeMeTests.swift */; };
+		F88A72C81B9E68B7006DD5F5 /* myMemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88A72C71B9E68B7006DD5F5 /* myMemeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		F8764B8C1B96B440006DABA9 /* MemeMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MemeMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8764B911B96B440006DABA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8764B921B96B440006DABA9 /* MemeMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeMeTests.swift; sourceTree = "<group>"; };
+		F88A72C71B9E68B7006DD5F5 /* myMemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myMemeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				F8764B7C1B96B440006DABA9 /* AppDelegate.swift */,
 				F8764B7E1B96B440006DABA9 /* ViewController.swift */,
+				F88A72C71B9E68B7006DD5F5 /* myMemeModel.swift */,
 				F8764B801B96B440006DABA9 /* Main.storyboard */,
 				F8764B831B96B440006DABA9 /* Images.xcassets */,
 				F8764B851B96B440006DABA9 /* LaunchScreen.xib */,
@@ -213,6 +216,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8764B7F1B96B440006DABA9 /* ViewController.swift in Sources */,
+				F88A72C81B9E68B7006DD5F5 /* myMemeModel.swift in Sources */,
 				F8764B7D1B96B440006DABA9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -409,6 +413,7 @@
 				F8764B981B96B440006DABA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8764B991B96B440006DABA9 /* Build configuration list for PBXNativeTarget "MemeMeTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				F8764B9B1B96B440006DABA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
