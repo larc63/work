@@ -3,11 +3,21 @@ function pad(num, size) {
     return ('000000000' + num).substr(-size);
 }
 
-function formatCurrency(value) {
+function format4(value) {
     "use strict";
-    if (value instanceof String) {
+    if (value instanceof String || typeof value === "string") {
         value = Number(value);
     }
+    //console.log(typeof value + " !!! " + value);
+    return value.toFixed(4);
+}
+
+function formatCurrency(value) {
+    "use strict";
+    if (value instanceof String || typeof value === "string") {
+        value = Number(value);
+    }
+    //console.log(typeof value + " !!! " + value);
     return "$" + value.toFixed(2);
 }
 
@@ -137,7 +147,7 @@ function ViewModel() {
         self.stagedCoinTypeIndex = index;
     }
     this.commitCoinType = function () {
-        if (self.stagedCoinTypeIndex > 0) {
+        if (self.stagedCoinTypeIndex >= 0) {
             self.coinTypes()[self.stagedCoinTypeIndex] = self.stagedCoinType();
         } else {
             self.coinTypes().push(self.stagedCoinType());
@@ -171,7 +181,7 @@ function ViewModel() {
     }
 
     this.commitCoin = function () {
-        if (self.stagedIndex > 0) {
+        if (self.stagedIndex >= 0) {
             self.coins()[self.stagedIndex] = self.stagedCoin();
         } else {
             self.coins().push(self.stagedCoin());
@@ -200,19 +210,24 @@ function ViewModel() {
             return e.active() && e.isPermaStack();
         }).length + " Coins in permastack";
     });
+    this.numberOfCoinsNotPermaStack = ko.computed(function () {
+        return self.coins().filter(function (e) {
+            return e.active() && !e.isPermaStack();
+        }).length + " Coins not in permastack";
+    });
     this.numberOfOunces = ko.computed(function () {
         var retVal = 0,
             activeCoins = self.coins().filter(function (e) {
                 return e.active();
             });
         if (activeCoins.length > 0) {
-            retVal = activeCoins.reduce(function (a, b) {
+            retVal = format4(activeCoins.reduce(function (a, b) {
                 if (a instanceof Coin) {
                     return Number(a.coinType().weight()) + Number(b.coinType().weight());
                 } else {
                     return a + Number(b.coinType().weight());
                 }
-            });
+            }));
         }
         return retVal + " Ounces";
     });
@@ -222,15 +237,31 @@ function ViewModel() {
                 return e.active() && e.isPermaStack();
             });
         if (activeCoins.length > 0) {
-            retVal = activeCoins.reduce(function (a, b) {
+            retVal = format4(activeCoins.reduce(function (a, b) {
                 if (a instanceof Coin) {
                     return Number(a.coinType().weight()) + Number(b.coinType().weight());
                 } else {
                     return a + Number(b.coinType().weight());
                 }
-            });
+            }));
         }
-        return retVal + " Ounces";
+        return retVal + " Ounces in permastack";
+    });
+    this.numberOfOuncesNotInPermaStack = ko.computed(function () {
+        var retVal = 0,
+            activeCoins = self.coins().filter(function (e) {
+                return e.active() && !e.isPermaStack();
+            });
+        if (activeCoins.length > 0) {
+            retVal = format4(activeCoins.reduce(function (a, b) {
+                if (a instanceof Coin) {
+                    return Number(a.coinType().weight()) + Number(b.coinType().weight());
+                } else {
+                    return a + Number(b.coinType().weight());
+                }
+            }));
+        }
+        return retVal + " Ounces not in permastack";
     });
     this.meltTotal = ko.computed(function () {
         return formatCurrency(self.coins().filter(function (e) {
@@ -240,6 +271,39 @@ function ViewModel() {
                 return Number(a.meltPrice()) + Number(b.meltPrice());
             } else {
                 return a + Number(b.meltPrice());
+            }
+        }));
+    });
+    this.investmentTotal = ko.computed(function () {
+        return formatCurrency(self.coins().filter(function (e) {
+            return e.active();
+        }).reduce(function (a, b) {
+            if (a instanceof Coin) {
+                return Number(a.purchasePrice()) + Number(b.purchasePrice());
+            } else {
+                return a + Number(b.purchasePrice());
+            }
+        }));
+    });
+    this.permaStackValue = ko.computed(function () {
+        return formatCurrency(self.coins().filter(function (e) {
+            return e.active() && e.isPermaStack();
+        }).reduce(function (a, b) {
+            if (a instanceof Coin) {
+                return Number(a.currentPrice()) + Number(b.currentPrice());
+            } else {
+                return a + Number(b.currentPrice());
+            }
+        }));
+    });
+    this.possibleSale = ko.computed(function () {
+        return formatCurrency(self.coins().filter(function (e) {
+            return e.active() && !e.isPermaStack();
+        }).reduce(function (a, b) {
+            if (a instanceof Coin) {
+                return Number(a.currentPrice()) + Number(b.currentPrice());
+            } else {
+                return a + Number(b.currentPrice());
             }
         }));
     });
