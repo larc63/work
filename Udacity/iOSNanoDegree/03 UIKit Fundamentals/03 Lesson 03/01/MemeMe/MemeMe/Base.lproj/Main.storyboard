@@ -17,16 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnC-Ch-Keh">
-                                <rect key="frame" x="27" y="124" width="320" height="320"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="320" id="MJ8-V9-foA"/>
-                                </constraints>
-                            </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zWs-BJ-517">
                                 <rect key="frame" x="0.0" y="623" width="600" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="600" id="Zuy-lU-NtB"/>
+                                    <constraint firstAttribute="width" constant="600" id="PbF-Jq-8Iu"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem title="Pick" id="Cvj-1h-PDD">
@@ -41,49 +35,27 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="CrK-vW-aCm">
-                                <rect key="frame" x="0.0" y="20" width="375" height="30"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="TOP">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="izR-jw-Gbo">
-                                <rect key="frame" x="0.0" y="593" width="375" height="30"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="BOTTOM">
-                                        <attributes>
-                                            <font key="NSFont" metaFont="smallSystem"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
-                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tXY-eu-6RJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="eeX-b9-9Af"/>
+                                    <constraint firstAttribute="height" constant="623" id="s7d-IJ-Grh"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="izR-jw-Gbo" secondAttribute="centerX" id="4Et-yB-Esm"/>
-                            <constraint firstItem="SnC-Ch-Keh" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="11" id="7aq-RG-8Oz"/>
-                            <constraint firstAttribute="centerX" secondItem="CrK-vW-aCm" secondAttribute="centerX" id="BwE-bj-vcP"/>
+                            <constraint firstAttribute="centerX" secondItem="tXY-eu-6RJ" secondAttribute="centerX" id="Q3D-pi-f8Q"/>
                             <constraint firstItem="zWs-BJ-517" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Usa-mO-qBU"/>
                             <constraint firstItem="zWs-BJ-517" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="WhQ-w4-1kC"/>
-                            <constraint firstItem="CrK-vW-aCm" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="ooV-Ia-tp4"/>
-                            <constraint firstItem="zWs-BJ-517" firstAttribute="top" secondItem="izR-jw-Gbo" secondAttribute="bottom" id="s1m-eQ-vl8"/>
+                            <constraint firstItem="tXY-eu-6RJ" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="fAV-V2-j1f"/>
                         </constraints>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="bottomText" destination="izR-jw-Gbo" id="vHA-y6-xsX"/>
                         <outlet property="cameraButton" destination="Kdh-he-w7Q" id="UTO-Kj-b7N"/>
-                        <outlet property="theImage" destination="SnC-Ch-Keh" id="mVh-ne-f6J"/>
-                        <outlet property="topText" destination="CrK-vW-aCm" id="7RD-X7-bmY"/>
+                        <outlet property="theImage" destination="tXY-eu-6RJ" id="gbn-d1-HHc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

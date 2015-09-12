@@ -21,16 +21,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.whiteColor(),
-            NSForegroundColorAttributeName : UIColor.blackColor(),
+            NSStrokeColorAttributeName : UIColor.blackColor(),
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
             NSStrokeWidthAttributeName : CGFloat(3.0)
         ]
         
-        topText.delegate = self
-        topText.defaultTextAttributes = memeTextAttributes
-        bottomText.delegate = self
-        bottomText.defaultTextAttributes = memeTextAttributes
+//        topText.delegate = self
+//        topText.defaultTextAttributes = memeTextAttributes
+//        bottomText.delegate = self
+//        bottomText.defaultTextAttributes = memeTextAttributes
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -74,11 +74,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification){
-        self.view.frame.origin.y -= getKeyboardHeight(notification)
+//        self.view.frame.origin.y -= getKeyboardHeight(notification)
     }
     
     func keyboardWillHide(notification: NSNotification){
-        self.view.frame.origin.y += getKeyboardHeight(notification)
+//        self.view.frame.origin.y += getKeyboardHeight(notification)
     }
 
     @IBAction func pickActionPressed(sender: UIBarButtonItem) {
@@ -100,6 +100,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
         if let anImage = image{
             theImage.image = anImage
+        }else{
+            println("something bad happened when the image was picked");
         }
     }
 
