@@ -21,14 +21,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         let memeTextAttributes = [
-            NSStrokeColorAttributeName : UIColor.blackColor(),
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
             NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSStrokeWidthAttributeName : CGFloat(3.0)
+            NSForegroundColorAttributeName : UIColor.whiteColor(),
+            NSStrokeWidthAttributeName : CGFloat(-3.0),
+            NSStrokeColorAttributeName : UIColor.blackColor()
         ]
         
-//        topText.delegate = self
-//        topText.defaultTextAttributes = memeTextAttributes
+        topText.delegate = self
+        topText.defaultTextAttributes = memeTextAttributes
+        topText.textAlignment = NSTextAlignment.Center;
 //        bottomText.delegate = self
 //        bottomText.defaultTextAttributes = memeTextAttributes
         

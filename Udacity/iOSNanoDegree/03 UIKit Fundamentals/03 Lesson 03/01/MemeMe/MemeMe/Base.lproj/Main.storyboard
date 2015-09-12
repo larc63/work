@@ -42,8 +42,20 @@
                                     <constraint firstAttribute="height" constant="623" id="s7d-IJ-Grh"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" usesAttributedText="YES" allowsEditingTextAttributes="YES" minimumFontSize="40" translatesAutoresizingMaskIntoConstraints="NO" id="mcz-ok-o3s">
+                                <rect key="frame" x="16" y="41" width="343" height="40"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="TOP">
+                                        <attributes>
+                                            <font key="NSFont" size="12" name="Helvetica"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
+                            </textField>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="tXY-eu-6RJ" secondAttribute="centerX" id="Q3D-pi-f8Q"/>
                             <constraint firstItem="zWs-BJ-517" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="Usa-mO-qBU"/>
@@ -56,6 +68,7 @@
                     <connections>
                         <outlet property="cameraButton" destination="Kdh-he-w7Q" id="UTO-Kj-b7N"/>
                         <outlet property="theImage" destination="tXY-eu-6RJ" id="gbn-d1-HHc"/>
+                        <outlet property="topText" destination="mcz-ok-o3s" id="pEy-Zc-EK4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
