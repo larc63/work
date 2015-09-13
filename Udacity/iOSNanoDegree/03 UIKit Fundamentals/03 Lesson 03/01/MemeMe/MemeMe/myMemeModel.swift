@@ -12,10 +12,13 @@ class myMemeModel{
     var topText: String?
     var bottomText: String?
     var image: UIImage?
+    var memedImage: UIImage?
     
-    func initWithTopText(topText: String, bottomText: String, image: UIImage){
-        self.topText = topText
-        self.bottomText = bottomText
+    
+    init(top: String, bottom: String, image: UIImage, meme: UIImage){
+        topText = top
+        bottomText = bottom
         self.image = image
+        memedImage = meme
     }
 }

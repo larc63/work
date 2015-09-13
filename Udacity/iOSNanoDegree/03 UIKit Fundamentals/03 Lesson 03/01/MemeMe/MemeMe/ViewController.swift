@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
+    @IBOutlet weak var theToolbar: UIToolbar!
     @IBOutlet weak var theImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
@@ -55,9 +56,29 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         // Dispose of any resources that can be recreated.
     }
     
+    func generateMemedImage() -> UIImage
+    {
+        theToolbar.hidden = true
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        // Render view to an image
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        self.view.drawViewHierarchyInRect(self.view.frame,
+            afterScreenUpdates: true)
+        let memedImage : UIImage =
+        UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        theToolbar.hidden = false
+        return memedImage
+    }
+    
     func save() {
+        let memedImage = generateMemedImage()
         //Create the meme
-        let meme = myMemeModel( text: textField.text!, image:imageView.image, memedImage: memedImage)
+        if let image = theImage.image{
+            let meme = myMemeModel(top: topText.text, bottom:bottomText.text, image: image, meme: memedImage)
+        }
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {

@@ -67,6 +67,7 @@
                         <outlet property="bottomText" destination="k83-2R-Cjn" id="kVj-PI-Mfa"/>
                         <outlet property="cameraButton" destination="Kdh-he-w7Q" id="UTO-Kj-b7N"/>
                         <outlet property="theImage" destination="tXY-eu-6RJ" id="gbn-d1-HHc"/>
+                        <outlet property="theToolbar" destination="zWs-BJ-517" id="vXq-Qq-Muk"/>
                         <outlet property="topText" destination="5O9-qr-fr4" id="a5r-Q8-VIQ"/>
                     </connections>
                 </viewController>
