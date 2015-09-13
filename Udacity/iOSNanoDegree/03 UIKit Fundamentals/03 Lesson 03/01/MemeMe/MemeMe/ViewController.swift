@@ -28,10 +28,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ]
         
         topText.delegate = self
+        topText.text = "TOP"
         topText.defaultTextAttributes = memeTextAttributes
-        topText.textAlignment = NSTextAlignment.Center;
-//        bottomText.delegate = self
-//        bottomText.defaultTextAttributes = memeTextAttributes
+        topText.textAlignment = NSTextAlignment.Center
+        bottomText.delegate = self
+        bottomText.text = "BOTTOM"
+        bottomText.defaultTextAttributes = memeTextAttributes
+        bottomText.textAlignment = NSTextAlignment.Center
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -50,6 +53,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func save() {
+        //Create the meme
+        let meme = myMemeModel( text: textField.text!, image:imageView.image, memedImage: memedImage)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
@@ -75,11 +83,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func keyboardWillShow(notification: NSNotification){
-//        self.view.frame.origin.y -= getKeyboardHeight(notification)
+        if bottomText.isFirstResponder(){
+            self.view.frame.origin.y -= getKeyboardHeight(notification)
+        }
     }
     
     func keyboardWillHide(notification: NSNotification){
-//        self.view.frame.origin.y += getKeyboardHeight(notification)
+        if bottomText.isFirstResponder(){
+            self.view.frame.origin.y += getKeyboardHeight(notification)
+        }
     }
 
     @IBAction func pickActionPressed(sender: UIBarButtonItem) {
