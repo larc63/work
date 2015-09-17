@@ -77,14 +77,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func save() {
-        let memedImage = generateMemedImage()
         //Create the meme
         if let image = theImage.image{
-            let meme = myMemeModel(top: topText.text, bottom:bottomText.text, image: image, meme: memedImage)
+            let meme = myMemeModel(top: topText.text, bottom:bottomText.text, image: image)
         }
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {
+        let memedImage = generateMemedImage()
+        let nextController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        nextController.completionWithItemsHandler = { activity, success, items, error in
+                self.save()
+        }
+        self.presentViewController(nextController, animated: true, completion: nil)
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
