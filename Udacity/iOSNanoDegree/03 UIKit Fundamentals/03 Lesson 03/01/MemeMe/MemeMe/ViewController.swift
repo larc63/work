@@ -15,6 +15,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var shareButton: UIButton!
     
     var hasClearedTop = false, hasClearedBottom = false
     
@@ -36,6 +37,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.text = "BOTTOM"
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.textAlignment = NSTextAlignment.Center
+        
+        shareButton.enabled = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
@@ -81,14 +84,17 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
+    @IBAction func shareTheMeme(sender: AnyObject) {
+    }
+    
     func textFieldDidBeginEditing(textField: UITextField) {
         if textField.text == "BOTTOM" && !hasClearedBottom{
             hasClearedBottom = true
-            textField.text = "";
+            textField.text = ""
         }
         if textField.text == "TOP" && !hasClearedTop{
             hasClearedTop = true
-            textField.text = "";
+            textField.text = ""
         }
     }
     
@@ -124,7 +130,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
         let nextController = UIImagePickerController()
-        nextController.delegate = self;
+        nextController.delegate = self
         nextController.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(nextController, animated: true, completion: nil)
         
@@ -134,6 +140,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
         if let anImage = image{
             theImage.image = anImage
+            shareButton.enabled = true
         }else{
             println("something bad happened when the image was picked");
         }
