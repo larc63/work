@@ -21,9 +21,9 @@ function formatCurrency(value) {
     return "$" + value.toFixed(2);
 }
 
-var CURRENT_GOLD_SPOT = 1140.68;
-var CURRENT_PLATINUM_SPOT = 1012.00;
-var CURRENT_SILVER_SPOT = 14.67;
+var CURRENT_GOLD_SPOT = 1140.20;
+var CURRENT_PLATINUM_SPOT = 983.00;
+var CURRENT_SILVER_SPOT = 15.23;
 
 function CoinSet() {
     "use strict";
@@ -38,13 +38,23 @@ function ViewModel() {
     this.coinTypes = ko.observableArray([]);
 
     this.getCoinType = function (data) {
-        var i, type;
+        var i, type = this.coinTypes().find(function (e) {
+            return e.id() === data.coinTypeId
+        });
+        if (type) {
+            return type;
+        }
+        console.log("didn't find the coin type in the array with .find");
         for (i = 0; i < this.coinTypes().length; i += 1) {
             type = this.coinTypes()[i];
             if (type.country() === data.coinType.country && type.year() === data.coinType.year && type.mint() === data.coinType.mint && type.weight() === data.coinType.weight && type.metal() === data.coinType.metal && type.series() === data.coinType.series) {
                 return type;
             }
         }
+        if (data.coinTypeId === undefined) {
+            debugger;
+        }
+        console.log("adding a new type for " + data.coinTypeId);
         type = new CoinType(data.coinType);
         this.coinTypes.push(type);
         return type;
@@ -114,8 +124,14 @@ function ViewModel() {
         });
     }
 
+    for (i = 0; i < coinTypeData.length; i += 1) {
+        this.coinTypes().push(new CoinType(coinTypeData[i]));
+    }
+
     //for (i = 0; i < 2; i += 1) {
     for (i = 0; i < coinData.length; i += 1) {
+        coinData[i].coinType = undefined;
+
         type = this.getCoinType(coinData[i]);
         coinData[i].coinType = type;
         if (localStorage.hasOwnProperty(coinData[i].id)) {
@@ -159,8 +175,24 @@ function ViewModel() {
         self.coins.valueHasMutated();
     }
     this.exportCoins = function () {
-        console.log(ko.toJSON(this.coins()));
-        saveAs()
+        var coins = this.coins().map(function (c) {
+            var newCoin = {
+                id: c.id,
+                coinTypeId: c.coinTypeId,
+                active: c.active,
+                premium: c.premium,
+                purchaseDate: c.purchaseDate,
+                purchasePrice: c.purchasePrice,
+                saleDate: c.saleDate,
+                salePrice: c.salePrice,
+                isPermaStack: c.isPermaStack
+            };
+            return newCoin;
+        });
+        console.log(ko.toJSON(coins));
+        console.log(ko.toJSON(this.coinTypes()));
+        //        console.log(ko.toJSON(this.coins()));
+        //        saveAs()
     };
     this.stagedCoin = ko.observable();
 

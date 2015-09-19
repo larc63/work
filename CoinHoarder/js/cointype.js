@@ -4,17 +4,17 @@ function CoinType(data) {
         return "ct" + pad(Math.floor(Math.random() * 100000000), 8);
     }
 
-    this.id = ko.observable(generateID());
+    this.id = ko.observable(data.id ? data.id : generateID());
     this.country = ko.observable(data.country ? data.country : "");
     this.year = ko.observable(data.year ? data.year : "");
     this.mint = ko.observable(data.mint ? data.mint : "");
     this.series = ko.observable(data.series ? data.series : "");
     this.weight = ko.observable(data.weight ? data.weight : "");
     this.metal = ko.observable(data.metal);
-    this.diameter = ko.observable(data.diameter? data.diameter: "--");
-    this.width = ko.observable(data.width? data.width: "--");
-    
-    this.clone = function(){
+    this.diameter = ko.observable(data.diameter ? data.diameter : "--");
+    this.width = ko.observable(data.width ? data.width : "--");
+
+    this.clone = function () {
         var data = {};
         data.id = this.id();
         data.country = this.country();

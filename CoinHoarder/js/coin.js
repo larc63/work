@@ -6,6 +6,7 @@ function Coin(data) {
     this.id = ko.observable(generateID());
     this.active = ko.observable(data.active);
     this.coinType = ko.observable(data.coinType);
+    this.coinTypeId = this.coinType().id();
     this.premium = ko.observable(data.premium);
     this.purchaseDate = ko.observable(data.purchaseDate ? data.purchaseDate : "");
     this.purchasePrice = ko.observable(data.purchasePrice);
