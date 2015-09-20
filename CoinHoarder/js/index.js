@@ -61,12 +61,10 @@ function ViewModel() {
     };
 
     this.findCoin = function (year, country, series, metal, weight) {
-        for (i = 0; i < this.coinTypes().length; i += 1) {
-            type = this.coinTypes()[i];
-            if (type.country() === country && type.year() === year && type.weight() === weight && type.metal() === metal) {
-                return type;
-            }
-        }
+        var type = this.coinTypes().find(function (e) {
+            return e.year() === year && e.country() === country && e.series() === series && e.metal() === metal && e.weight() === weight;
+        });
+        return type;
     }
 
 
@@ -347,8 +345,14 @@ function ViewModel() {
     //    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 2));
     //    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 5));
     //    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 10));
-    //    this.currentSet.name = "Libertdad 2014";
-    //    this.currentSet.coins.push(this.findCoin(2015, "Australia", "Lunar Series II", "silver", 0.5));
+    this.currentSet.name = "Libertad 2014";
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 0.05));
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 0.1));
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 0.25));
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 0.5));
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 1));
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 2));
+    this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 5));
 }
 
 var vm = new ViewModel();

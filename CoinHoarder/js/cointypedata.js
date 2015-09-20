@@ -578,6 +578,26 @@ var coinTypeData = [{
     "metal": "silver",
     "diameter": 27,
     "width": 1.7
+},{
+    "id": "ct63325213",
+    "country": "Mexico",
+    "year": 2014,
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 0.05,
+    "metal": "silver",
+    "diameter": 16,
+    "width": 1
+},{
+    "id": "ct63335213",
+    "country": "Mexico",
+    "year": 2014,
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 0.1,
+    "metal": "silver",
+    "diameter": 20,
+    "width": 1.4
 }, {
     "id": "ct92063722",
     "country": "Mexico",
