@@ -24,11 +24,16 @@ class ViewController: UIViewController, UITableViewDataSource {
     // Add the two essential table data source methods here
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //TODO: Implement method to return the correct number of rows. asdfdfasd
+        //TODO: Implement method to return the correct number of rows.
+        return 3
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         //TODO: Implement method to return cell with the correct reuseidentifier and populated with the correct data.
+        let t = tableView.dequeueReusableCellWithIdentifier("MyCellReuseIdentifier") as! UITableViewCell
+        t.textLabel?.text = "Thing 1"
+        t.detailTextLabel?.text = "description for thing 1 "
+        return t
     }
 
 }
