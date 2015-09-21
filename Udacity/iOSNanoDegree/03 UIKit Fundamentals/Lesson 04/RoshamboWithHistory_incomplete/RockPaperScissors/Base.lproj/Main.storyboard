@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iYZ-Mq-4iF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="iYZ-Mq-4iF">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Rock Paper Scissors View Controller-->
@@ -53,10 +54,19 @@
                                     <action selector="makeYourMove:" destination="iYZ-Mq-4iF" eventType="touchUpInside" id="fGy-X8-GSq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3B-yK-y91">
+                                <rect key="frame" x="16" y="20" width="56" height="22"/>
+                                <state key="normal" title="History"/>
+                                <connections>
+                                    <segue destination="VFU-87-0eK" kind="modal" identifier="ViewHistory" id="LI9-RX-Wcg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="V3B-yK-y91" firstAttribute="leading" secondItem="uZk-oR-UzU" secondAttribute="leadingMargin" id="A7r-Zm-IFl"/>
                             <constraint firstItem="fqQ-nG-h6S" firstAttribute="top" secondItem="Fgh-U1-uLB" secondAttribute="bottom" constant="69" id="DGs-Ua-fFS"/>
+                            <constraint firstItem="V3B-yK-y91" firstAttribute="top" secondItem="HUJ-al-Ubx" secondAttribute="bottom" id="IGm-MZ-dTF"/>
                             <constraint firstAttribute="centerX" secondItem="Fgh-U1-uLB" secondAttribute="centerX" id="nzP-dG-aub"/>
                         </constraints>
                     </view>
@@ -70,7 +80,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AH7-9D-0G1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373" y="141"/>
+            <point key="canvasLocation" x="335" y="464"/>
         </scene>
         <!--ResultViewController-->
         <scene sceneID="1ng-f0-WIA">
@@ -122,6 +132,76 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2li-T9-sgs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="809" y="141"/>
+        </scene>
+        <!--History View Controller-->
+        <scene sceneID="cGb-77-pso">
+            <objects>
+                <viewController storyboardIdentifier="HistoryViewController" id="VFU-87-0eK" customClass="HistoryViewController" customModule="RockPaperScissors" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U3e-iv-5PX"/>
+                        <viewControllerLayoutGuide type="bottom" id="7WP-hu-0PP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="jCv-zE-SGT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8dP-Yk-nyU">
+                                <rect key="frame" x="0.0" y="20" width="320" height="528"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RSBHistory" textLabel="NPF-sg-neU" detailTextLabel="WMM-hj-wJ6" style="IBUITableViewCellStyleSubtitle" id="Skt-xh-e3m">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Skt-xh-e3m" id="9cI-ME-1iO">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NPF-sg-neU">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="WMM-hj-wJ6">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="VFU-87-0eK" id="oOw-3b-nTT"/>
+                                    <outlet property="delegate" destination="VFU-87-0eK" id="22H-1d-u0M"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NRa-mX-l1f">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <items>
+                                    <barButtonItem title="OK" id="1p1-78-r0B">
+                                        <connections>
+                                            <action selector="dismissView:" destination="VFU-87-0eK" id="ihl-ZW-8Uf"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NRa-mX-l1f" firstAttribute="leading" secondItem="jCv-zE-SGT" secondAttribute="leadingMargin" constant="-16" id="7aQ-CV-H5m"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NRa-mX-l1f" secondAttribute="trailing" constant="-16" id="Chq-ee-Bmq"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="8dP-Yk-nyU" secondAttribute="bottom" id="Nom-is-bqi"/>
+                            <constraint firstItem="8dP-Yk-nyU" firstAttribute="leading" secondItem="jCv-zE-SGT" secondAttribute="leadingMargin" constant="-16" id="R9E-pQ-s3O"/>
+                            <constraint firstItem="8dP-Yk-nyU" firstAttribute="top" secondItem="U3e-iv-5PX" secondAttribute="bottom" id="UpS-mF-n6Y"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8dP-Yk-nyU" secondAttribute="trailing" constant="-16" id="Xyu-us-ING"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="NRa-mX-l1f" secondAttribute="bottom" id="pAn-cT-9WI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="30Z-ta-KSJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9tb-g0-obK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="809" y="782"/>
         </scene>
     </scenes>
     <resources>
