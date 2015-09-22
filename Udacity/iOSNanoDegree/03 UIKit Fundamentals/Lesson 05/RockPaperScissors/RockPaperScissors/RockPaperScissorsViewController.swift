@@ -54,7 +54,8 @@ class RockPaperScissorsViewController: UIViewController {
         
             // Communicate the match
             resultVC.match = self.match
-            self.presentViewController(resultVC, animated: true, completion: nil)
+            self.navigationController?.pushViewController(resultVC, animated: true)
+//            self.presentViewController(resultVC, animated: true, completion: nil)
         }
         
         // 2nd Way: Code plus Segue

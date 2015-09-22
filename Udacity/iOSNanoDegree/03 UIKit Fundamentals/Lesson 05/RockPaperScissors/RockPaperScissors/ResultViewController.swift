@@ -9,7 +9,7 @@
 import UIKit
 
 class ResultViewController: UIViewController {
-
+    
     @IBOutlet weak var resultImageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     
@@ -26,20 +26,24 @@ class ResultViewController: UIViewController {
         self.messageLabel.text = messageForMatch(match)
         self.resultImageView.image = imageForMatch(match)
     }
-
+    
     override func viewDidAppear(animated: Bool)
     {
         super.viewDidAppear(animated)
-
+        
         UIView.animateWithDuration(1.5)
-        {
-            self.resultImageView.alpha = 1;
+            {
+                self.resultImageView.alpha = 1;
         }
     }
     
     @IBAction func playAgainButtonPressed(sender: AnyObject)
     {
-        dismissViewControllerAnimated(true, completion: nil)
+        //        dismissViewControllerAnimated(true, completion: nil)
+        
+        if let navigationController = self.navigationController {
+            navigationController.popToRootViewControllerAnimated(true)
+        }
     }
     
     func messageForMatch(match: RPSMatch) -> String {
