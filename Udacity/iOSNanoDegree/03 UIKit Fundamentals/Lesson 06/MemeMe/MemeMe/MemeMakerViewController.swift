@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var theToolbar: UIToolbar!
     @IBOutlet weak var theImage: UIImageView!
@@ -18,6 +18,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shareButton: UIButton!
     
     var hasClearedTop = false, hasClearedBottom = false
+//    var memes
     
     override func viewDidLoad() {
         super.viewDidLoad()

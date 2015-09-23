@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  MemeMe
+//  BondVillains
 //
-//  Created by Luis Antonio Rodriguez on 9/1/15.
-//  Copyright (c) 2015 Luis Antonio Rodriguez. All rights reserved.
+//  Created by Jason on 11/19/14.
+//  Copyright (c) 2014 Udacity. All rights reserved.
 //
 
 import UIKit
@@ -12,7 +12,6 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var memes = [myMemeModel]()
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
