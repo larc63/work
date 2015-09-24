@@ -26,12 +26,16 @@ class MemeTableViewController: UITableViewController, UITableViewDataSource, UIT
     override func viewDidLoad() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.memes = appDelegate.memes
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
     }
     
     

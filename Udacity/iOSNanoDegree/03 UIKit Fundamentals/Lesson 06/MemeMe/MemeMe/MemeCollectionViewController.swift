@@ -26,12 +26,15 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.memes = appDelegate.memes
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-        self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(topText: "thetop string", bottomText: "the bottom", image: UIImage(named: "testData")!, memedImage: UIImage(named: "testData")!))
     }
     
     override func viewDidLoad() {
@@ -76,7 +79,7 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     func addAMeme() {
         let memeMakerViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeGeneratorViewController") as! MemeGeneratorViewController
         //        memeMakerViewController = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(memeMakerViewController, animated: true)
+        self.navigationController!.presentViewController(memeMakerViewController, animated: true, completion: nil)
     }
     
     
