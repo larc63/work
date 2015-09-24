@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
-
+    @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     var hasClearedTop = false, hasClearedBottom = false
     
@@ -40,10 +40,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.textAlignment = NSTextAlignment.Center
         
+        cancelButton.enabled = false
         shareButton.enabled = false
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        // now way that the camera will magically become available, regardless of the view being shown or not
+        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
     override func prefersStatusBarHidden() -> Bool {
@@ -51,10 +52,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     override func viewWillAppear(animated: Bool) {
-        cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewDidDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
@@ -96,6 +98,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         topText.text = "TOP"
         bottomText.text = "BOTTOM"
         hasClearedBottom = false
+        cancelButton.enabled = false
         shareButton.enabled = false
     }
     
@@ -117,6 +120,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             hasClearedTop = true
             textField.text = ""
         }
+        cancelButton.enabled = true
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -160,6 +164,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.dismissViewControllerAnimated(true, completion: nil)
         if let anImage = image{
             theImage.image = anImage
+            cancelButton.enabled = true
             shareButton.enabled = true
         }else{
             println("something bad happened when the image was picked");
