@@ -99,11 +99,12 @@
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="bottomText" destination="k83-2R-Cjn" id="kVj-PI-Mfa"/>
+                        <outlet property="bottomToolbar" destination="zWs-BJ-517" id="F1a-bN-zqs"/>
                         <outlet property="cameraButton" destination="Kdh-he-w7Q" id="UTO-Kj-b7N"/>
                         <outlet property="shareButton" destination="Er9-mO-zqD" id="wsN-gy-0kn"/>
                         <outlet property="theImage" destination="tXY-eu-6RJ" id="gbn-d1-HHc"/>
-                        <outlet property="theToolbar" destination="zWs-BJ-517" id="vXq-Qq-Muk"/>
                         <outlet property="topText" destination="5O9-qr-fr4" id="a5r-Q8-VIQ"/>
+                        <outlet property="topToolbar" destination="bg2-Ox-r6b" id="McQ-r2-qk2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

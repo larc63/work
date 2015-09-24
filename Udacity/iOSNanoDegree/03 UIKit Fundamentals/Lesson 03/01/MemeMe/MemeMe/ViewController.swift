@@ -10,7 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
-    @IBOutlet weak var theToolbar: UIToolbar!
+    @IBOutlet weak var topToolbar: UIToolbar!
+    @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var theImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
@@ -66,7 +67,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func generateMemedImage() -> UIImage
     {
-        theToolbar.hidden = true
+        topToolbar.hidden = true
+        bottomToolbar.hidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         // Render view to an image
         UIGraphicsBeginImageContext(self.view.frame.size)
@@ -77,7 +79,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIGraphicsEndImageContext()
         
         navigationController?.setNavigationBarHidden(false, animated: false)
-        theToolbar.hidden = false
+        bottomToolbar.hidden = false
+        topToolbar.hidden = false
         return memedImage
     }
     
