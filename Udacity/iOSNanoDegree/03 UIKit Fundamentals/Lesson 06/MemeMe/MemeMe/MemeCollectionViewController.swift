@@ -11,6 +11,7 @@ import UIKit
 
 class MemeCollectionViewController: UICollectionViewController, UICollectionViewDataSource {
     var memes:[myMemeModel] = []
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,8 +32,45 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
         self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
         self.memes.append(myMemeModel(top: "thetop string", bottom: "the bottom", image: UIImage(named: "testData")!))
-
     }
+    
+    override func viewDidLoad() {
+        let space: CGFloat = 3.0
+        let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        flowLayout.minimumInteritemSpacing = space
+        flowLayout.minimumLineSpacing = space
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+    }
+    
+    //MARK: rotation stuff
+//    override func shouldAutorotate() -> Bool {
+//        return true
+//    }
+//    
+//    override func supportedInterfaceOrientations() -> Int {
+//        return UIInterfaceOrientation.LandscapeLeft.rawValue | UIInterfaceOrientation.LandscapeRight.rawValue | UIInterfaceOrientation.PortraitUpsideDown.rawValue | UIInterfaceOrientation.Portrait.rawValue
+//    }
+//    
+//    override func willRotateToInterfaceOrientation(toInterfaceOrientation: UIInterfaceOrientation, duration: NSTimeInterval) {
+//        switch (toInterfaceOrientation){
+//        case UIInterfaceOrientation.LandscapeLeft, UIInterfaceOrientation.LandscapeRight:
+//            let space: CGFloat = 3.0
+//            let dimension = (self.view.frame.size.height - (2 * space)) / 3.0
+//            flowLayout.minimumInteritemSpacing = space
+//            flowLayout.minimumLineSpacing = space
+//            flowLayout.itemSize = CGSizeMake(dimension, dimension)
+//            break;
+//        case UIInterfaceOrientation.Portrait, UIInterfaceOrientation.PortraitUpsideDown:
+//            let space: CGFloat = 3.0
+//            let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+//            flowLayout.minimumInteritemSpacing = space
+//            flowLayout.minimumLineSpacing = space
+//            flowLayout.itemSize = CGSizeMake(dimension, dimension)
+//            break;
+//        default:
+//            break;
+//        }
+//    }
     
     // MARK: Navigation button
     func addAMeme() {

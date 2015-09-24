@@ -77,6 +77,9 @@
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="ugg-9Y-Vkq"/>
+                    <connections>
+                        <outlet property="flowLayout" destination="RTI-QI-vCt" id="eG3-Rh-NfI"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c4r-8O-5Dh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
