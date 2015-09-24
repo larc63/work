@@ -32,7 +32,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         self.characterCountLabel.hidden = true
         
         // Set the three delegates
-        self.textField1.delegate = zipcodeDelegate
+        self.textField1.delegate = ZipcodeTextFieldDelegate()
         self.textField2.delegate = currencyFormattingDelegate
         self.textField3.delegate = switchableDelegate
     }

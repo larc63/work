@@ -8,14 +8,14 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var topToolbar: UIToolbar!
     @IBOutlet weak var bottomToolbar: UIToolbar!
     @IBOutlet weak var theImage: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
-    @IBOutlet weak var topText: UITextField!
-    @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var topText: MemeTextField!
+    @IBOutlet weak var bottomText: MemeTextField!
     @IBOutlet weak var shareButton: UIBarButtonItem!
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
@@ -23,23 +23,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     // MARK: view controller lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        // Create a dictionary with the text attributes to use on the text fields
-        let memeTextAttributes = [
-            NSFontAttributeName : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSForegroundColorAttributeName : UIColor.whiteColor(),
-            NSStrokeWidthAttributeName : CGFloat(-3.0),
-            NSStrokeColorAttributeName : UIColor.blackColor()
-        ]
-        // set up the top text field
-        topText.delegate = self
-        topText.defaultTextAttributes = memeTextAttributes
-        topText.textAlignment = NSTextAlignment.Center
-        // set up the bottom text field
-        bottomText.delegate = self
-        bottomText.defaultTextAttributes = memeTextAttributes
-        bottomText.textAlignment = NSTextAlignment.Center
-
+        // tie this view's cancel button to the text field delegates so that they can enable the button when text has begun to be edited
+        topText.memeTextFieldDelegate.cancelButton = cancelButton
+        bottomText.memeTextFieldDelegate.cancelButton = cancelButton
         reset()
         
         // Determine if the camera button should be enabled
@@ -67,6 +53,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
     // MARK: meme_model helper methods
     func generateMemedImage() -> UIImage
     {
@@ -74,8 +61,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         bottomToolbar.hidden = true
         navigationController?.setNavigationBarHidden(true, animated: false)
         // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame,
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame,
             afterScreenUpdates: true)
         let memedImage : UIImage =
         UIGraphicsGetImageFromCurrentImageContext()
@@ -113,33 +100,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func keyboardWillShow(notification: NSNotification){
         if bottomText.isFirstResponder(){
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
     func keyboardWillHide(notification: NSNotification){
         if bottomText.isFirstResponder(){
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            view.frame.origin.y += getKeyboardHeight(notification)
         }
     }
-    // MARK: UITextFieldDelegate methods
-    func textFieldDidBeginEditing(textField: UITextField) {
-        if textField.text == "BOTTOM" && !hasClearedBottom{
-            hasClearedBottom = true
-            textField.text = ""
-        }
-        if textField.text == "TOP" && !hasClearedTop{
-            hasClearedTop = true
-            textField.text = ""
-        }
-        cancelButton.enabled = true
-    }
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return false
-    }
-    
+        
     // MARK: Top toolbar handlers
     @IBAction func clearMeme(sender: AnyObject) {
         reset()
@@ -149,9 +119,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memedImage = generateMemedImage()
         let nextController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         nextController.completionWithItemsHandler = { activity, success, items, error in
-            self.save()
+            if success {
+                self.save()
+            }
         }
-        self.presentViewController(nextController, animated: true, completion: nil)
+        presentViewController(nextController, animated: true, completion: nil)
     }
     
     // MARK: Bottom toolbar handlers
@@ -159,19 +131,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let nextController = UIImagePickerController()
         nextController.delegate = self;
         nextController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(nextController, animated: true, completion: nil)
+        presentViewController(nextController, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera(sender: UIBarButtonItem) {
         let nextController = UIImagePickerController()
         nextController.delegate = self
         nextController.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(nextController, animated: true, completion: nil)
+        presentViewController(nextController, animated: true, completion: nil)
     }
     
     // MARK: Image picker controller methods
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         if let anImage = image{
             theImage.image = anImage
             cancelButton.enabled = true
@@ -182,7 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
 
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
