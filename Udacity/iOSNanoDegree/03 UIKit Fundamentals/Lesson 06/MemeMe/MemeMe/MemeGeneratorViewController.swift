@@ -39,6 +39,8 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
         bottomText.defaultTextAttributes = memeTextAttributes
         bottomText.textAlignment = NSTextAlignment.Center
         
+        theImage.image = UIImage(named: "testData")!
+        
         shareButton.enabled = false
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
@@ -129,13 +131,15 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
     
     func keyboardWillShow(notification: NSNotification){
         if bottomText.isFirstResponder(){
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            let navBarHeight = self.navigationController?.navigationBar.frame.size.height
+            self.view.frame.origin.y -= (getKeyboardHeight(notification) - navBarHeight!)
         }
     }
     
     func keyboardWillHide(notification: NSNotification){
         if bottomText.isFirstResponder(){
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            let navBarHeight = self.navigationController?.navigationBar.frame.size.height
+            self.view.frame.origin.y += (getKeyboardHeight(notification) - navBarHeight!)
         }
     }
 
