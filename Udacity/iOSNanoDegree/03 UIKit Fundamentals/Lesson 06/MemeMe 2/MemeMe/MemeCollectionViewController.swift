@@ -16,10 +16,25 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
         super.viewWillAppear(animated)
         self.tabBarController?.tabBar.hidden = false
         
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem (
+            title: "+",
+            style: UIBarButtonItemStyle.Plain,
+            target: self,
+            action: "addAMeme")
+
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         self.memes = appDelegate.memes
 
     }
+    
+    // MARK: Navigation button
+    func addAMeme() {
+        let memeMakerViewController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeMakerViewController") as! MemeMakerViewController
+        //        memeMakerViewController = self.memes[indexPath.row]
+        self.navigationController!.pushViewController(memeMakerViewController, animated: true)
+    }
+    
     
     // MARK: Collection View Data Source
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

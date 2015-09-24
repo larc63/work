@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var theToolbar: UIToolbar!
     @IBOutlet weak var theImage: UIImageView!
@@ -18,7 +18,7 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
     @IBOutlet weak var shareButton: UIButton!
     
     var hasClearedTop = false, hasClearedBottom = false
-//    var memes
+    var memes: [myMemeModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +43,18 @@ class MemeMakerViewController: UIViewController, UIImagePickerControllerDelegate
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.memes = appDelegate.memes
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
+        self.memes.append(myMemeModel(top: "top string", bottom: "bottom string", image: UIImage(named: "testData")!))
     }
     
     override func viewWillAppear(animated: Bool) {
