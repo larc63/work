@@ -15,7 +15,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topText: UITextField!
     @IBOutlet weak var bottomText: UITextField!
-    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var shareButton: UIBarButtonItem!
+
     
     var hasClearedTop = false, hasClearedBottom = false
     
@@ -42,6 +43,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -79,8 +84,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func save() {
         //Create the meme
         if let image = theImage.image{
-            let meme = myMemeModel(top: topText.text, bottom:bottomText.text, image: image)
+            let meme = myMemeModel(topText: topText.text, bottomText: bottomText.text, image: image, memedImage: generateMemedImage())
         }
+    }
+    
+    @IBAction func clearMeme(sender: AnyObject) {
+        theImage.image = nil
+        topText.text = "TOP"
+        bottomText.text = "BOTTOM"
+        hasClearedBottom = false
+        shareButton.enabled = false
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {
@@ -138,7 +151,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         nextController.delegate = self
         nextController.sourceType = UIImagePickerControllerSourceType.Camera
         self.presentViewController(nextController, animated: true, completion: nil)
-        
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {

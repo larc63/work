@@ -8,15 +8,9 @@
 
 import Foundation
 import UIKit
-class myMemeModel{
-    var topText: String?
-    var bottomText: String?
-    var image: UIImage?
-    
-    
-    init(top: String, bottom: String, image: UIImage){
-        topText = top
-        bottomText = bottom
-        self.image = image
-    }
+struct myMemeModel{
+    var topText: String
+    var bottomText: String
+    var image: UIImage
+    var memedImage: UIImage
 }
