@@ -60,6 +60,7 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
     }
     
     override func viewWillAppear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = true
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
     }
     
@@ -95,6 +96,7 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
         //Create the meme
         if let image = theImage.image{
             let meme = myMemeModel(top: topText.text, bottom:bottomText.text, image: image)
+            self.memes.append(meme)
         }
     }
     
