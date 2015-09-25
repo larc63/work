@@ -25,7 +25,4 @@ class MemeDetailViewController : UIViewController{
         (UIApplication.sharedApplication().delegate as! AppDelegate).memes.removeAtIndex(selectedMemeIndex)
         navigationController?.popToRootViewControllerAnimated(true)
     }
-    
-    @IBAction func editMeme(sender: AnyObject) {
-    }
 }
