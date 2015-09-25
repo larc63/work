@@ -31,6 +31,8 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
         reset()
         // Determine if the camera button should be enabled
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     }
     
     // Subscribe to keyboard notifications here
@@ -79,6 +81,7 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
     func save() {
         if let image = theImage.image{
             let meme = myMemeModel(topText: topText.text, bottomText: bottomText.text, image: image, memedImage: generateMemedImage())
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
         }
     }
     // Put the helper variables and meme variables back to their default values
@@ -114,6 +117,7 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
     // MARK: Top toolbar handlers
     @IBAction func clearMeme(sender: AnyObject) {
         reset()
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     @IBAction func shareTheMeme(sender: AnyObject) {
@@ -122,6 +126,7 @@ class MemeGeneratorViewController: UIViewController, UIImagePickerControllerDele
         nextController.completionWithItemsHandler = { activity, success, items, error in
             if success {
                 self.save()
+                self.dismissViewControllerAnimated(true, completion: nil)
             }
         }
         presentViewController(nextController, animated: true, completion: nil)

@@ -46,6 +46,9 @@
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gg9-lc-2cr">
                                             <rect key="frame" x="20" y="8" width="60" height="60"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="60" id="VF7-GD-h2I"/>
+                                            </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GFF-4w-ohF">
                                             <rect key="frame" x="0.0" y="71" width="100" height="21"/>
@@ -62,7 +65,7 @@
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="GFF-4w-ohF" secondAttribute="centerX" id="Zk1-RI-N77"/>
                                     <constraint firstItem="GFF-4w-ohF" firstAttribute="bottom" secondItem="93L-VF-z89" secondAttribute="bottomMargin" id="fln-2R-tGw"/>
-                                    <constraint firstAttribute="centerX" secondItem="Gg9-lc-2cr" secondAttribute="centerX" id="hzf-Nj-ofV"/>
+                                    <constraint firstAttribute="centerX" secondItem="Gg9-lc-2cr" secondAttribute="centerX" id="vnb-lu-dPb"/>
                                     <constraint firstItem="Gg9-lc-2cr" firstAttribute="top" secondItem="93L-VF-z89" secondAttribute="topMargin" id="ySI-Dl-O4e"/>
                                 </constraints>
                                 <connections>
@@ -163,6 +166,9 @@
                         <subviews>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rFy-Rr-Yc3" userLabel="TopToolbar">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="cHr-N8-yvJ"/>
+                                </constraints>
                                 <items>
                                     <barButtonItem systemItem="action" id="wBu-IA-jDp">
                                         <connections>
@@ -177,10 +183,10 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-lK-f0H" userLabel="BottomToolbar">
-                                <rect key="frame" x="0.0" y="557" width="600" height="44"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fA9-lK-f0H" userLabel="BottomToolbar">
+                                <rect key="frame" x="0.0" y="555" width="600" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="nOf-rx-uEY"/>
+                                    <constraint firstAttribute="height" constant="45" id="nOf-rx-uEY"/>
                                 </constraints>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="sjG-hi-9gp"/>
@@ -197,16 +203,22 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3fa-rm-0KN"/>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSM-bZ-yBt">
-                                <rect key="frame" x="0.0" y="44" width="600" height="513"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="rSM-bZ-yBt">
+                                <rect key="frame" x="0.0" y="45" width="600" height="510"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sva-wF-SuD" userLabel="TOP Label" customClass="MemeTextField" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="16" y="60" width="568" height="48"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="sva-wF-SuD" userLabel="TOP Label" customClass="MemeTextField" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="16" y="61" width="568" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="OAO-UN-GRm"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-gO-U6T" userLabel="BOTTOM Label" customClass="MemeTextField" customModule="MemeMe" customModuleProvider="target">
-                                <rect key="frame" x="16" y="493" width="568" height="48"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="kdq-gO-U6T" userLabel="BOTTOM Label" customClass="MemeTextField" customModule="MemeMe" customModuleProvider="target">
+                                <rect key="frame" x="16" y="491" width="568" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="cER-AX-1eW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
@@ -257,7 +269,70 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2te-Ps-FAv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1294" y="1194"/>
+            <point key="canvasLocation" x="-1348" y="1216"/>
+        </scene>
+        <!--Meme Detail-->
+        <scene sceneID="BX0-BB-QPj">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailViewController" title="Meme Detail" id="3r3-IK-qct" customClass="MemeDetailViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="TxD-Xc-I2E"/>
+                        <viewControllerLayoutGuide type="bottom" id="S5T-Pf-aih"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aSO-5i-q3j">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jY4-nv-MaF" userLabel="BottomToolbar">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="mEC-ej-mR2"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="trash" id="pn5-uC-Gzj">
+                                        <connections>
+                                            <action selector="deleteMeme:" destination="3r3-IK-qct" id="2km-dC-N2H"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XrT-lM-scf"/>
+                                    <barButtonItem enabled="NO" systemItem="edit" id="8pF-HZ-tar">
+                                        <connections>
+                                            <action selector="editMeme:" destination="3r3-IK-qct" id="kXd-Rl-SFO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="piD-1d-riq">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="556"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jY4-nv-MaF" firstAttribute="leading" secondItem="aSO-5i-q3j" secondAttribute="leadingMargin" constant="-16" id="8V3-82-qja"/>
+                            <constraint firstItem="piD-1d-riq" firstAttribute="leading" secondItem="aSO-5i-q3j" secondAttribute="leadingMargin" constant="-16" id="EON-VL-eA3"/>
+                            <constraint firstAttribute="centerX" secondItem="jY4-nv-MaF" secondAttribute="centerX" id="FbA-yU-t92"/>
+                            <constraint firstItem="S5T-Pf-aih" firstAttribute="top" secondItem="jY4-nv-MaF" secondAttribute="bottom" id="KQU-fp-KYh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="piD-1d-riq" secondAttribute="trailing" constant="-16" id="eHA-0p-oBh"/>
+                            <constraint firstAttribute="centerY" secondItem="piD-1d-riq" secondAttribute="centerY" id="geQ-KQ-X36"/>
+                            <constraint firstItem="jY4-nv-MaF" firstAttribute="top" secondItem="piD-1d-riq" secondAttribute="bottom" id="jsa-VY-UjU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jY4-nv-MaF" secondAttribute="trailing" constant="-16" id="nf3-y3-IEW"/>
+                            <constraint firstItem="piD-1d-riq" firstAttribute="top" secondItem="TxD-Xc-I2E" secondAttribute="bottom" id="q9e-qW-PaO"/>
+                            <constraint firstAttribute="centerX" secondItem="piD-1d-riq" secondAttribute="centerX" id="zxz-Fs-ojn"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="geQ-KQ-X36"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <connections>
+                        <outlet property="theImage" destination="piD-1d-riq" id="unE-k7-9Ez"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DPe-zL-eWo" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1140" y="794"/>
         </scene>
     </scenes>
 </document>
