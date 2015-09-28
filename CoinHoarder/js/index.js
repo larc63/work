@@ -36,7 +36,7 @@ function ViewModel() {
     var i, c, type, self = this;
     this.coins = ko.observableArray([]);
     this.coinTypes = ko.observableArray([]);
-
+    this.sellableCoins = ko.observableArray([]);
     this.getCoinType = function (data) {
         var i, type = this.coinTypes().find(function (e) {
             return e.id() === data.coinTypeId
@@ -142,7 +142,19 @@ function ViewModel() {
         this.coins().push(c);
     }
     this.sortCoins();
+    this.sellableCoins(this.coins().filter(function (c) {
+        return c.isPermaStack() === false && c.active() === true;
+    }));
 
+    this.sellableCoins().sort(function (a, b) {
+        var t1 = a.purchasePrice(),
+            t2 = b.purchasePrice(),
+            c1 = a.currentPrice(),
+            c2 = c.currentPrice();
+        if (c1 - t1 < c2 - t2) return 1;
+        if (c1 - t1 > c2 - t2) return -1;
+        return 0;
+    });
 
     this.stagedIndex = 0;
     this.stagedCoinType = ko.observable();
