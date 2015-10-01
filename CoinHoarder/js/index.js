@@ -21,9 +21,10 @@ function formatCurrency(value) {
     return "$" + value.toFixed(2);
 }
 
-var CURRENT_GOLD_SPOT = 1140.20;
-var CURRENT_PLATINUM_SPOT = 983.00;
-var CURRENT_SILVER_SPOT = 15.23;
+var CURRENT_GOLD_SPOT = 1115.20;
+var CURRENT_PLATINUM_SPOT = 916.00;
+var CURRENT_SILVER_SPOT = 14.68;
+var CURRENT_COPPER_SPOT = 14.68;
 
 function CoinSet() {
     "use strict";

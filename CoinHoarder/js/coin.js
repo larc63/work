@@ -24,6 +24,9 @@ function Coin(data) {
         if (this.coinType().metal() === "platinum") {
             return this.coinType().weight() * CURRENT_PLATINUM_SPOT;
         }
+        if (this.coinType().metal() === "copper") {
+            return this.coinType().weight() * CURRENT_COPPER_SPOT;
+        }
         return 0;
     }, this);
 
