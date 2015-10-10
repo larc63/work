@@ -239,6 +239,16 @@ var coinTypeData = [{
     "diameter": "90",
     "width": 3.29
 }, {
+    "id": "ct08254004",
+    "country": "China",
+    "year": 2015,
+    "mint": "China",
+    "series": "Panda",
+    "weight": 1,
+    "metal": "silver",
+    "diameter": "40",
+    "width": "3.2"
+}, {
     "id": "ct69138694",
     "country": "España",
     "year": 1990,
@@ -278,6 +288,16 @@ var coinTypeData = [{
     "metal": "silver",
     "diameter": 38.61,
     "width": 3
+}, {
+    "id": "ct11919037",
+    "country": "Italy",
+    "year": "1863",
+    "mint": "Rome",
+    "series": "1 Lira",
+    "weight": "0.1342",
+    "metal": "silver",
+    "diameter": "23",
+    "width": "1.5"
 }, {
     "id": "ct17598979",
     "country": "Mexico",
@@ -348,6 +368,16 @@ var coinTypeData = [{
     "metal": "gold",
     "diameter": "15.5",
     "width": "0.86"
+}, {
+    "id": "ct77605757",
+    "country": "Mexico",
+    "year": "1947",
+    "mint": "Casa de moneda",
+    "series": "5 pesos Cuhahutemoc",
+    "weight": "0.8681392881258",
+    "metal": "silver",
+    "diameter": 40,
+    "width": "4"
 }, {
     "id": "ct77605757",
     "country": "Mexico",
@@ -569,16 +599,6 @@ var coinTypeData = [{
     "diameter": 48,
     "width": 4.5
 }, {
-    "id": "ct63345213",
-    "country": "Mexico",
-    "year": 2014,
-    "mint": "Casa de moneda",
-    "series": "Libertad",
-    "weight": 0.25,
-    "metal": "silver",
-    "diameter": 27,
-    "width": 1.7
-},{
     "id": "ct63325213",
     "country": "Mexico",
     "year": 2014,
@@ -588,7 +608,7 @@ var coinTypeData = [{
     "metal": "silver",
     "diameter": 16,
     "width": 1
-},{
+}, {
     "id": "ct63335213",
     "country": "Mexico",
     "year": 2014,
@@ -598,6 +618,16 @@ var coinTypeData = [{
     "metal": "silver",
     "diameter": 20,
     "width": 1.4
+}, {
+    "id": "ct63345213",
+    "country": "Mexico",
+    "year": 2014,
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 0.25,
+    "metal": "silver",
+    "diameter": 27,
+    "width": 1.7
 }, {
     "id": "ct92063722",
     "country": "Mexico",
@@ -699,16 +729,6 @@ var coinTypeData = [{
     "diameter": "48",
     "width": "4.5"
 }, {
-    "id": "ct91069558",
-    "country": "Suiza",
-    "year": "",
-    "mint": "Pamp suisse",
-    "series": "Fortuna",
-    "weight": 0.03215,
-    "metal": "gold",
-    "diameter": "--",
-    "width": "--"
-}, {
     "id": "ct57021566",
     "country": "Suiza",
     "year": "",
@@ -716,6 +736,16 @@ var coinTypeData = [{
     "series": "Fortuna",
     "weight": 0.03215,
     "metal": "platinum",
+    "diameter": "--",
+    "width": "--"
+}, {
+    "id": "ct91069558",
+    "country": "Suiza",
+    "year": "",
+    "mint": "Pamp suisse",
+    "series": "Fortuna",
+    "weight": 0.03215,
+    "metal": "gold",
     "diameter": "--",
     "width": "--"
 }, {
@@ -829,16 +859,6 @@ var coinTypeData = [{
     "diameter": 40.6,
     "width": 2.98
 }, {
-    "id": "ct21957452",
-    "country": "USA",
-    "year": 2015,
-    "mint": "Provident Mint",
-    "series": "Año de la cabra",
-    "weight": 1,
-    "metal": "copper",
-    "diameter": 40,
-    "width": "--"
-}, {
     "id": "ct05959409",
     "country": "USA",
     "year": 2015,
@@ -846,6 +866,16 @@ var coinTypeData = [{
     "series": "Año de la cabra",
     "weight": 1,
     "metal": "silver",
+    "diameter": 40,
+    "width": "--"
+}, {
+    "id": "ct21957452",
+    "country": "USA",
+    "year": 2015,
+    "mint": "Provident Mint",
+    "series": "Año de la cabra",
+    "weight": 1,
+    "metal": "copper",
     "diameter": 40,
     "width": "--"
 }, {
