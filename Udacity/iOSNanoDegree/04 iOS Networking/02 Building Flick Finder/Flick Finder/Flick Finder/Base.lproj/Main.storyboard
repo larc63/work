@@ -117,6 +117,7 @@
                         <outlet property="imageView" destination="INz-YI-F4R" id="ldI-ue-2N7"/>
                         <outlet property="latitudeText" destination="21R-UL-gxL" id="lRB-4X-8pt"/>
                         <outlet property="longitudeText" destination="iYa-mv-tck" id="CHT-b8-GB8"/>
+                        <outlet property="photoTitle" destination="4TQ-b3-jw1" id="LRO-yd-0uK"/>
                         <outlet property="searchByCoordinatesButton" destination="S0u-wQ-RNA" id="yAf-Ep-z1I"/>
                         <outlet property="searchByPhraseButton" destination="TTr-Yq-8NT" id="ZAu-Ec-GQ2"/>
                         <outlet property="searchByPhraseTextField" destination="cgd-WP-nKA" id="DI5-br-jaZ"/>
