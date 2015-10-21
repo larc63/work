@@ -31,7 +31,7 @@ class EmojiTextFieldDelegate : NSObject, UITextFieldDelegate {
         var emojiStringRange: NSRange
         
         // Construct the text that will be in the field if this change is accepted
-        var newText = textField.text as NSString
+        var newText = textField.text! as NSString
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
 
         // For each dictionary entry in translations, pull out a string to search for
@@ -40,7 +40,7 @@ class EmojiTextFieldDelegate : NSObject, UITextFieldDelegate {
         for (emojiString, emoji) in translations {
         
             // Search for all occurances of key (ie. "dog"), and replace with emoji (ie. 🐶)
-            do {
+            repeat {
                 emojiStringRange = newText.rangeOfString(emojiString, options: NSStringCompareOptions.CaseInsensitiveSearch)
             
                 // found one

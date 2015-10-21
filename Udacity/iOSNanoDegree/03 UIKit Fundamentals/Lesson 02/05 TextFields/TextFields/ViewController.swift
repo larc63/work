@@ -43,7 +43,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 
         // Figure out what the new text will be, if we return true
-        var newText: NSString = textField.text
+        var newText: NSString = textField.text!
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
         
         // hide the label if the newText will be an empty string

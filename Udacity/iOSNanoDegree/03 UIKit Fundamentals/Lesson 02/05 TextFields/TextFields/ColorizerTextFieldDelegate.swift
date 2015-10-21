@@ -36,7 +36,7 @@ class ColorizerTextFieldDelegate : NSObject, UITextFieldDelegate {
         var newText: NSString
         
         // Construct the text that will be in the field if this change is accepted
-        newText = textField.text
+        newText = textField.text!
         newText = newText.stringByReplacingCharactersInRange(range, withString: string)
         
         // For each dictionary entry in translations, pull out a string to search for

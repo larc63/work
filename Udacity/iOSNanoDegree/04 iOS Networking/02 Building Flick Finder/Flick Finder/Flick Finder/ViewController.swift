@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var searchByPhraseButton: UIButton!
     @IBOutlet weak var searchByPhraseTextField: UITextField!
@@ -26,55 +26,100 @@ class ViewController: UIViewController, UITextFieldDelegate {
     let DATA_FORMAT = "json"
     let NO_JSON_CALLBACK = "1"
     
+    var isKeyboardVisible = false
+    var tapRecognizer: UITapGestureRecognizer?
+    
+    // Subscribe to keyboard notifications here
+    override func viewWillAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    // Unsubscribe to keyboard notifications here
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        searchByPhraseTextField.delegate = self;
-        latitudeText.delegate = self;
-        longitudeText.delegate = self;
+        searchByPhraseTextField.delegate = self
+        latitudeText.delegate = NumericalTextDelegate()
+        longitudeText.delegate = NumericalTextDelegate()
+        tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        tapRecognizer?.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapRecognizer!)
+//        tapRecognizer!.delegate = self;
+        //        latitudeText.delegate = NumericalTextDelegate(maxLimit: 90, minLimit: -90)
+        //        longitudeText.delegate = NumericalTextDelegate(maxLimit: 180, minLimit: -180)
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    
+    // MARK: keyboard related methods
+    func getKeyboardHeight(notification: NSNotification) -> CGFloat{
+        let userInfo = notification.userInfo
+        let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
+        return keyboardSize.CGRectValue().height
+    }
+    
+    func keyboardWillShow(notification: NSNotification){
+        if !isKeyboardVisible{
+            view.frame.origin.y -= getKeyboardHeight(notification)
+            isKeyboardVisible = true
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        if isKeyboardVisible{
+            view.frame.origin.y += getKeyboardHeight(notification)
+            isKeyboardVisible = false
+        }
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        print("End editing here")
+        view.endEditing(true)
+    }
+    
+    // MARK: Textfield delegate methods
+    func textFieldDidEndEditing(textField: UITextField) {
+    }    
+    // MARK: Networking methods
+    
     /* Helper function: Given a dictionary of parameters, convert to a string for a url */
     func escapedParameters(parameters: [String : AnyObject]) -> String {
-        
         var urlVars = [String]()
-        
         for (key, value) in parameters {
-            
             /* Make sure that it is a string value */
             let stringValue = "\(value)"
-            
-            /* Escape it */
-            let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            
-            /* Append it */
-            urlVars += [key + "=" + "\(escapedValue!)"]
-            
+            if(!stringValue.isEmpty){
+                /* Escape it */
+                let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
+                /* Append it */
+                urlVars += [key + "=" + "\(escapedValue!)"]
+            }
         }
-        
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
     }
     
-    func doSearch(){
-        
-        searchByPhraseTextField.text = ""
+    func doSearch(phrase: String, latitude: String, longitude: String){
+        //        searchByPhraseTextField.text = ""
         //        searchByPhraseTextField.text = "cat"
-        latitudeText.text = "32.9210919"
-        longitudeText.text = "-96.7502917"
-        let searchString = searchByPhraseTextField.text!
-        let latitude = latitudeText.text!
-        let longitude = longitudeText.text!
+        //        latitudeText.text = "32.9210919"
+        //        longitudeText.text = "-96.7502917"
         
         /* 2 - API method arguments */
         var methodArguments = [
             "method": METHOD_NAME,
             "api_key": API_KEY,
-            "text": searchString,
+            "text": phrase,
             "lon": longitude,
             "lat": latitude,
             //                "extras": EXTRAS,
@@ -85,6 +130,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         /* 3 - Initialize session and url */
         let session = NSURLSession.sharedSession()
         let urlString = BASE_URL + escapedParameters(methodArguments)
+        print("Running search as: \(urlString)")
         let url = NSURL(string: urlString)!
         let request = NSURLRequest(URL: url)
         
@@ -156,6 +202,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
                 /* 3 - Initialize session and url */
                 let session = NSURLSession.sharedSession()
                 let urlString = self.BASE_URL + self.escapedParameters(methodArguments)
+                print("Running search as: \(urlString)")
                 let url = NSURL(string: urlString)!
                 let request = NSURLRequest(URL: url)
                 let task = session.dataTaskWithRequest(request) { (data, response, error) in
@@ -210,11 +257,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
                         var width:CGFloat?
                         if let widthString = sd["width"] as? String {
                             width = CGFloat(Float(widthString)!)
-                            print("with for \(i) is \(width) as a String")
+//                            print("with for \(i) is \(width) as a String")
                         }else if let cgwidth = sd["width"] as? CGFloat{
                             width = cgwidth
-                            print("with for \(i) is \(width) as a CGFloat")
-                            
+//                            print("with for \(i) is \(width) as a CGFloat")
                         }
                         if let width = width{
                             if width > self.imageView.frame.width{
@@ -248,13 +294,59 @@ class ViewController: UIViewController, UITextFieldDelegate {
         task.resume()
     }
     
-
+    
     @IBAction func searchByPhrase(sender: AnyObject) {
-        doSearch()
+        if let searchText = searchByPhraseTextField.text{
+            if !searchText.isEmpty{
+                doSearch(searchText, latitude: "", longitude: "")
+            }else{
+                photoTitle.text = "Please enter a search term"
+            }
+        }
     }
-
+    
     @IBAction func searchByCoordinates(sender: AnyObject) {
-        doSearch()
+        if let latitudeText = latitudeText.text{
+            if let longitudeText = longitudeText.text{
+                if !latitudeText.isEmpty && !longitudeText.isEmpty{
+                    if let latitude = Float(latitudeText){
+                        if let longitude = Float(longitudeText){
+                            if latitude > -90 && latitude < 90 && longitude > -180 && longitude < 180{
+                                doSearch("", latitude: "", longitude: "")
+                            }else{
+                                photoTitle.text = "Please enter valid lon/lat data to search on"
+                            }
+                        }
+                    }else{
+                        photoTitle.text = "Please enter lon/lat data to search on"
+                    }
+                }else{
+                    photoTitle.text = "Please enter lon/lat data to search on"
+                }
+            }
+        }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

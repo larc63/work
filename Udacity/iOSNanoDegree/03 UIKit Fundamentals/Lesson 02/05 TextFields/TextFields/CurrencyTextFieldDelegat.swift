@@ -13,25 +13,25 @@ class CurrencyTextFieldDelegate : NSObject, UITextFieldDelegate {
     var localString = "000"
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         //TODO: ask if current text can be converted to a number and if the size is under 5
-        println("Textfield = \(textField.text) would add \(string)")
+        print("Textfield = \(textField.text) would add \(string)")
         23
-        if count(string) > 0 {
+        if string.characters.count > 0 {
             let c = string[string.startIndex]
             if c >= "0" && c <= "9"{
-                var tempString = textField.text + string
+                var tempString = textField.text! + string
                 if tempString[tempString.startIndex] == "$"{
-                    let index = advance(string.startIndex, 1)
+                    let index = string.startIndex.advancedBy(1)
                     tempString = tempString.substringFromIndex(index)
                 }
                 let arr = tempString.componentsSeparatedByString(".")
-                var integer: Int = arr[0].toInt()!
-                var decimals: Int = arr[1].toInt()!
+                var integer: Int = Int(arr[0])!
+                var decimals: Int = Int(arr[1])!
                 integer *= 10
                 integer += (decimals/100)
                 decimals %= 100
                 var leftPart = String(integer)
                 var rightPart = String(decimals)
-                if count(rightPart) < 2{
+                if rightPart.characters.count < 2{
                     rightPart = "0" + rightPart
                 }
                 textField.text = "$" + leftPart + "." + rightPart

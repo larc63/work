@@ -14,6 +14,8 @@
 		F8D5DB1E1BC8DC2D00E7883A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8D5DB1C1BC8DC2D00E7883A /* LaunchScreen.storyboard */; };
 		F8D5DB291BC8DC2D00E7883A /* Flick_FinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB281BC8DC2D00E7883A /* Flick_FinderTests.swift */; };
 		F8D5DB341BC8DC2D00E7883A /* Flick_FinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5DB331BC8DC2D00E7883A /* Flick_FinderUITests.swift */; };
+		F8EB78EF1BCC6BF700657276 /* SearchTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB78EE1BCC6BF700657276 /* SearchTextDelegate.swift */; settings = {ASSET_TAGS = (); }; };
+		F8EB78F11BCC6D5700657276 /* NumericalTextDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8EB78F01BCC6D5700657276 /* NumericalTextDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		F8D5DB2F1BC8DC2D00E7883A /* Flick FinderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Flick FinderUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D5DB331BC8DC2D00E7883A /* Flick_FinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flick_FinderUITests.swift; sourceTree = "<group>"; };
 		F8D5DB351BC8DC2D00E7883A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8EB78EE1BCC6BF700657276 /* SearchTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTextDelegate.swift; sourceTree = "<group>"; };
+		F8EB78F01BCC6D5700657276 /* NumericalTextDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NumericalTextDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 			children = (
 				F8D5DB131BC8DC2D00E7883A /* AppDelegate.swift */,
 				F8D5DB151BC8DC2D00E7883A /* ViewController.swift */,
+				F8EB78EE1BCC6BF700657276 /* SearchTextDelegate.swift */,
+				F8EB78F01BCC6D5700657276 /* NumericalTextDelegate.swift */,
 				F8D5DB171BC8DC2D00E7883A /* Main.storyboard */,
 				F8D5DB1A1BC8DC2D00E7883A /* Assets.xcassets */,
 				F8D5DB1C1BC8DC2D00E7883A /* LaunchScreen.storyboard */,
@@ -255,7 +261,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8EB78EF1BCC6BF700657276 /* SearchTextDelegate.swift in Sources */,
 				F8D5DB161BC8DC2D00E7883A /* ViewController.swift in Sources */,
+				F8EB78F11BCC6D5700657276 /* NumericalTextDelegate.swift in Sources */,
 				F8D5DB141BC8DC2D00E7883A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,6 +489,7 @@
 				F8D5DB3A1BC8DC2D00E7883A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8D5DB3B1BC8DC2D00E7883A /* Build configuration list for PBXNativeTarget "Flick FinderTests" */ = {
 			isa = XCConfigurationList;
@@ -489,6 +498,7 @@
 				F8D5DB3D1BC8DC2D00E7883A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8D5DB3E1BC8DC2D00E7883A /* Build configuration list for PBXNativeTarget "Flick FinderUITests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +507,7 @@
 				F8D5DB401BC8DC2D00E7883A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
