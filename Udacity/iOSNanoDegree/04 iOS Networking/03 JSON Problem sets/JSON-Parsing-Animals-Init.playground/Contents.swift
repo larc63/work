@@ -22,6 +22,23 @@ var parsedAnimalsJSON = try! NSJSONSerialization.JSONObjectWithData(rawAnimalsJS
 
 func parseJSONAsDictionary(dictionary: NSDictionary) {
     /* Start playing with JSON here... */
+    let photos = dictionary["photos"] as! NSDictionary
+    let photo = photos["photo"] as! NSArray
+    photo.count
+    for i in 0..<photo.count {
+        let p = photo[i] as! NSDictionary
+        let comment = p["comment"] as! NSDictionary
+        let content = comment["_content"] as! String
+        if content.rangeOfString("interrufftion") != nil{
+            _ = photo[i]["id"] as! String
+            content
+        }
+        if i == 2 {
+            _ = photo[i]["id"] as! String
+            content
+        }
+        
+    }
 }
 
 parseJSONAsDictionary(parsedAnimalsJSON)
