@@ -47,7 +47,9 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        usernameTextField.text = "larc63"
+        passwordTextField.text = "vacaloca"
+
         self.addKeyboardDismissRecognizer()
         self.subscribeToKeyboardNotifications()
     }

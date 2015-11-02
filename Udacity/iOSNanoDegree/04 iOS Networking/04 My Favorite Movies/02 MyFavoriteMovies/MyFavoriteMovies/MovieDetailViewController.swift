@@ -49,16 +49,80 @@ class MovieDetailViewController: UIViewController {
             posterImageView.image = UIImage(named: "film342.png")
             titleLabel.text = movie.title
             unFavoriteButton.hidden = true
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
             
-            /* TASK A: Get favorite movies, then update the favorite buttons */
-            /* 1A. Set the parameters */
-            /* 2A. Build the URL */
-            /* 3A. Configure the request */
-            /* 4A. Make the request */
-            /* 5A. Parse the data */
-            /* 6A. Use the data! */
-            /* 7A. Start the request */
-        
+            if let userFavorites = appDelegate.userFavorites {
+                enableFavoritesButton(userFavorites)
+            }else{
+                /* TASK A: Get favorite movies, then update the favorite buttons */
+                /* 1A. Set the parameters */
+                /* 2A. Build the URL */
+                /* 3A. Configure the request */
+                /* 4A. Make the request */
+                /* 5A. Parse the data */
+                /* 6A. Use the data! */
+                /* 7A. Start the request */
+                /* TASK: Get a request token, then store it (appDelegate.requestToken) and login with the token */
+                let apiKey = appDelegate.apiKey
+                let sessionId = appDelegate.sessionID
+                let userId = appDelegate.userID
+                let baseURLString = appDelegate.baseURLSecureString
+                /* 1. Set the parameters */
+                let methodParameters = [
+                    "api_key": apiKey,
+                    "session_id": sessionId!
+                ]
+                
+                /* 2. Build the URL */
+                let urlString = baseURLString + "account/\(userId!)/favorite/movies" + appDelegate.escapedParameters(methodParameters)
+                let url = NSURL(string: urlString)!
+                
+                /* 3. Configure the request */
+                let request = NSMutableURLRequest(URL: url)
+                request.addValue("application/json", forHTTPHeaderField: "Accept")
+                
+                /* 4. Make the request */
+                let task = self.session.dataTaskWithRequest(request) { (data, response, error) in
+                    
+                    /* GUARD: Was there an error? */
+                    guard (error == nil) else {
+                        print("getRequestToken: Print an error message")
+                        return
+                    }
+                    
+                    /* GUARD: Did we get a successful 2XX response? */
+                    guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                        if let response = response as? NSHTTPURLResponse {
+                            print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                        } else if let response = response {
+                            print("Your request returned an invalid response! Response: \(response)!")
+                        } else {
+                            print("Your request returned an invalid response!")
+                        }
+                        return
+                    }
+                    
+                    /* GUARD: Was there any data returned? */
+                    guard let data = data else {
+                        print("No data was returned by the request!")
+                        return
+                    }
+                    
+                    /* 5. Parse the data */
+                    print("getRequestToken: Parse the data \(data)")
+                    let dictionary = try! NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments) as! NSDictionary
+                    
+                    /* 6. Use the data! */
+                    print("getRequestToken: Use the data")
+                    let results = dictionary["results"] as! NSArray
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).userFavorites = results
+                    enableFavoritesButton(results)
+                }
+                /* 7. Start the request */
+                task.resume()
+            }
+            
+            
             /* TASK B: Get the poster image, then populate the image view */
             if let posterPath = movie.posterPath {
                 
@@ -116,6 +180,10 @@ class MovieDetailViewController: UIViewController {
                 task.resume()
             }
         }
+    }
+    
+    func enableFavoritesButton(favorites: NSArray){
+        
     }
     
     // MARK: Favorite Actions
