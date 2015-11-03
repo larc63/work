@@ -114,9 +114,9 @@ class MovieDetailViewController: UIViewController {
                     
                     /* 6. Use the data! */
                     print("getRequestToken: Use the data")
-                    let results = dictionary["results"] as! NSArray
-                    (UIApplication.sharedApplication().delegate as! AppDelegate).userFavorites = results
-                    enableFavoritesButton(results)
+                    let results = dictionary["results"] as! [[String: AnyObject]]
+                    (UIApplication.sharedApplication().delegate as! AppDelegate).userFavorites = Movie.moviesFromResults(results)
+                    self.enableFavoritesButton((UIApplication.sharedApplication().delegate as! AppDelegate).userFavorites!)
                 }
                 /* 7. Start the request */
                 task.resume()
@@ -182,8 +182,24 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
-    func enableFavoritesButton(favorites: NSArray){
-        
+    func enableFavoritesButton(favorites: [Movie]){
+        var isFavorite = false
+        if let movie = movie {
+            for m in favorites {
+                if m.id == movie.id {
+                    isFavorite = true
+                }
+            }
+        }
+        dispatch_async(dispatch_get_main_queue(), {
+            if isFavorite {
+                self.favoriteButton.hidden = true
+                self.unFavoriteButton.hidden = false
+            }else{
+                self.favoriteButton.hidden = false
+                self.unFavoriteButton.hidden = true
+            }
+        });
     }
     
     // MARK: Favorite Actions

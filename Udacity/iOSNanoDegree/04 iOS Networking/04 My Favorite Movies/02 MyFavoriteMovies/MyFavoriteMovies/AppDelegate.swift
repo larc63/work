@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var requestToken: String? = nil
     var sessionID: String? = nil
     var userID: Int? = nil
-    var userFavorites: NSArray? = nil
+    var userFavorites: [Movie]? = nil
     
     /* Configuration for TheMovieDB, we'll take care of this for you =)... */
     var config = Config()
