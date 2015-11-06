@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  MyFavoriteMovies
+//  TheMovieManager
 //
-//  Created by Jarrod Parkes on 1/23/15.
-//  Copyright (c) 2015 Udacity. All rights reserved.
+//  Created by Jarrod Parkes on 2/11/15.
+//  Copyright (c) 2015 Jarrod Parkes. All rights reserved.
 //
 
 import UIKit
@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     /* Constants for TheMovieDB */
-    let apiKey = "8cbbcacdb67090ef07e2401eb8470e14"
-//    let baseURLString = "http://api.themoviedb.org/3/"
+    let apiKey = "ENTER_YOUR_API_KEY_HERE"
+    let baseURLString = "http://api.themoviedb.org/3/"
     let baseURLSecureString = "https://api.themoviedb.org/3/"
     
     /* Need these for login */
@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var userID: Int? = nil
     
     /* Configuration for TheMovieDB, we'll take care of this for you =)... */
-    var config = Config()
+    var config = TMDBConfig()
     
     // MARK: UIApplicationDelegate
     
@@ -62,7 +62,7 @@ extension AppDelegate {
             urlVars += [key + "=" + "\(escapedValue!)"]
             
         }
-                        
+        
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
     }
 }

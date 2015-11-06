@@ -195,33 +195,98 @@ class MovieDetailViewController: UIViewController {
         }
     }
     
+    func setFavoriteState(makeFavorite: Bool) {
+        if let movie = movie {
+            /* 1A. Set the parameters */
+            let methodParameters = [
+                "api_key": appDelegate.apiKey,
+                "session_id": appDelegate.sessionID!
+            ]
+            
+            /* 2A. Build the URL */
+            let urlString = appDelegate.baseURLSecureString + "account/\(appDelegate.userID!)/favorite" + appDelegate.escapedParameters(methodParameters)
+            let url = NSURL(string: urlString)!
+            
+            /* 3A. Configure the request */
+            let request = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            let bodyData = "{\"media_type\": \"movie\", \"media_id\": \(movie.id), \"favorite\": \(makeFavorite)}"
+            request.HTTPBody = bodyData.dataUsingEncoding(NSUTF8StringEncoding)
+            
+            /* 4A. Make the request */
+            let task = session.dataTaskWithRequest(request) { (data, response, error) in
+                
+                /* GUARD: Was there an error? */
+                guard (error == nil) else {
+                    print("There was an error with your request: \(error)")
+                    return
+                }
+                
+                /* GUARD: Did we get a successful 2XX response? */
+                guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                    if let response = response as? NSHTTPURLResponse {
+                        print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                    } else if let response = response {
+                        print("Your request returned an invalid response! Response: \(response)!")
+                    } else {
+                        print("Your request returned an invalid response!")
+                    }
+                    return
+                }
+                
+                /* GUARD: Was there any data returned? */
+                guard let data = data else {
+                    print("No data was returned by the request!")
+                    return
+                }
+                
+                /* 5A. Parse the data */
+                let parsedResult: AnyObject!
+                do {
+                    parsedResult = try NSJSONSerialization.JSONObjectWithData(data, options: .AllowFragments)
+                } catch {
+                    parsedResult = nil
+                    print("Could not parse the data as JSON: '\(data)'")
+                    return
+                }
+                
+                let dictionary = parsedResult as! NSDictionary
+                
+                let status = dictionary["status_code"] as! Int
+                if status == 12 { //if it was a 12, record was updated correctly
+                    /* 6A. Use the data! */
+                    let isFavorite = makeFavorite
+                    dispatch_async(dispatch_get_main_queue()) {
+                        if isFavorite {
+                            self.favoriteButton.hidden = true
+                            self.unFavoriteButton.hidden = false
+                        } else {
+                            self.favoriteButton.hidden = false
+                            self.unFavoriteButton.hidden = true
+                        }
+                    }
+                }
+            }
+            
+            /* 7A. Start the request */
+            task.resume()
+        }
+    }
+    
     // MARK: Favorite Actions
     
     @IBAction func unFavoriteButtonTouchUpInside(sender: AnyObject) {
         
         print("unFavoriteButtonTouchUpInside: implement me!")
+        setFavoriteState(false)
         
-        /* TASK: Remove movie as favorite, then update favorite buttons */
-        /* 1. Set the parameters */
-        /* 2. Build the URL */
-        /* 3. Configure the request */
-        /* 4. Make the request */
-        /* 5. Parse the data */
-        /* 6. Use the data! */
-        /* 7. Start the request */
     }
     
     @IBAction func favoriteButtonTouchUpInside(sender: AnyObject) {
         
         print("favoriteButtonTouchUpInside: implement me!")
-        
-        /* TASK: Add movie as favorite, then update favorite buttons */
-        /* 1. Set the parameters */
-        /* 2. Build the URL */
-        /* 3. Configure the request */
-        /* 4. Make the request */
-        /* 5. Parse the data */
-        /* 6. Use the data! */
-        /* 7. Start the request */
+        setFavoriteState(true)
     }
 }
