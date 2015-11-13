@@ -16,7 +16,7 @@ function CoinType(data) {
 
     this.clone = function () {
         var data = {};
-        data.id = this.id();
+        data.id = generateID();
         data.country = this.country();
         data.year = this.year();
         data.mint = this.mint();

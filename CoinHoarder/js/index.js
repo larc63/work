@@ -85,8 +85,8 @@ function ViewModel() {
                 s2 = t2.series(),
                 w1 = Number(t1.weight()),
                 w2 = Number(t2.weight());
-            if (i1 < i2) return -1;
-            if (i1 > i2) return 1;
+//            if (i1 < i2) return -1;
+//            if (i1 > i2) return 1;
             if (c1 < c2) return -1;
             if (c1 > c2) return 1;
             if (y1 < y2) return -1;

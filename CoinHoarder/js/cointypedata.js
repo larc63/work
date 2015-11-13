@@ -299,6 +299,16 @@ var coinTypeData = [{
     "diameter": "18",
     "width": "1.18"
 }, {
+    "id": "ct08166697",
+    "country": "Mexico",
+    "year": "1928",
+    "mint": "Casa de moneda",
+    "series": "20 centavos",
+    "weight": "0.07709076878558",
+    "metal": "silver",
+    "diameter": "19",
+    "width": "1.18"
+}, {
     "id": "ct97233002",
     "country": "Mexico",
     "year": "1922",
@@ -459,6 +469,16 @@ var coinTypeData = [{
     "diameter": 40,
     "width": 2.9
 }, {
+    "id": "ct73704560",
+    "country": "Mexico",
+    "year": "1979",
+    "mint": "Casa de moneda",
+    "series": "100 pesos",
+    "weight": 0.643,
+    "metal": "silver",
+    "diameter": 40,
+    "width": 2.9
+}, {
     "id": "ct59717514",
     "country": "Mexico",
     "year": 1979,
@@ -569,9 +589,39 @@ var coinTypeData = [{
     "diameter": 40.6,
     "width": 3
 }, {
+    "id": "mc76180889",
+    "country": "Mexico",
+    "year": 2006,
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 1,
+    "metal": "silver",
+    "diameter": 40.6,
+    "width": 3
+}, {
     "id": "ct20170447",
     "country": "Mexico",
     "year": 2008,
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 1,
+    "metal": "silver",
+    "diameter": 40.6,
+    "width": 3
+}, {
+    "id": "mc30447922",
+    "country": "Mexico",
+    "year": 2011,
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 1,
+    "metal": "silver",
+    "diameter": 40.6,
+    "width": 3
+}, {
+    "id": "mc87359291",
+    "country": "Mexico",
+    "year": 2012,
     "mint": "Casa de moneda",
     "series": "Libertad",
     "weight": 1,
