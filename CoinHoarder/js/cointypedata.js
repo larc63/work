@@ -9,16 +9,6 @@ var coinTypeData = [{
     "diameter": "--",
     "width": "--"
 }, {
-    "id": "ct11919037",
-    "country": "Australia",
-    "year": "2013",
-    "mint": "Perth Mint",
-    "series": "Koala",
-    "weight": "0.5",
-    "metal": "silver",
-    "diameter": "36.6",
-    "width": "2.3"
-}, {
     "id": "ct01021621",
     "country": "Australia",
     "year": "2013",
@@ -239,7 +229,7 @@ var coinTypeData = [{
     "diameter": "90",
     "width": 3.29
 }, {
-    "id": "ct08254004",
+    "id": "ct08254404",
     "country": "China",
     "year": 2015,
     "mint": "China",
@@ -379,7 +369,7 @@ var coinTypeData = [{
     "diameter": 40,
     "width": "4"
 }, {
-    "id": "ct77605757",
+    "id": "ct93859603",
     "country": "Mexico",
     "year": 1953,
     "mint": "Casa de moneda",
@@ -559,6 +549,16 @@ var coinTypeData = [{
     "diameter": 40.6,
     "width": 3
 }, {
+    "id": "ct63874757",
+    "country": "Mexico",
+    "year": "2004",
+    "mint": "Casa de moneda",
+    "series": "Libertad",
+    "weight": 1,
+    "metal": "silver",
+    "diameter": 40.6,
+    "width": 3
+}, {
     "id": "ct40145040",
     "country": "Mexico",
     "year": 2005,
@@ -729,16 +729,6 @@ var coinTypeData = [{
     "diameter": "48",
     "width": "4.5"
 }, {
-    "id": "ct57021566",
-    "country": "Suiza",
-    "year": "",
-    "mint": "Pamp suisse",
-    "series": "Fortuna",
-    "weight": 0.03215,
-    "metal": "platinum",
-    "diameter": "--",
-    "width": "--"
-}, {
     "id": "ct91069558",
     "country": "Suiza",
     "year": "",
@@ -746,6 +736,16 @@ var coinTypeData = [{
     "series": "Fortuna",
     "weight": 0.03215,
     "metal": "gold",
+    "diameter": "--",
+    "width": "--"
+}, {
+    "id": "ct57021566",
+    "country": "Suiza",
+    "year": "",
+    "mint": "Pamp suisse",
+    "series": "Fortuna",
+    "weight": 0.03215,
+    "metal": "platinum",
     "diameter": "--",
     "width": "--"
 }, {

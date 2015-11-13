@@ -36,7 +36,7 @@ function Coin(data) {
 
     this.clone = function () {
         var data = {};
-        data.id = this.id();
+        data.id = generateID();
         data.active = this.active();
         data.coinType = this.coinType();
         data.premium = this.premium();

@@ -1,4 +1,9 @@
 /*global ko, coinData */
+var CURRENT_GOLD_SPOT = 1084.78;
+var CURRENT_SILVER_SPOT = 14.35;
+var CURRENT_PLATINUM_SPOT = 879.00;
+var CURRENT_COPPER_SPOT = 2.17;
+
 function pad(num, size) {
     return ('000000000' + num).substr(-size);
 }
@@ -20,11 +25,6 @@ function formatCurrency(value) {
     //console.log(typeof value + " !!! " + value);
     return "$" + value.toFixed(2);
 }
-
-var CURRENT_GOLD_SPOT = 1115.20;
-var CURRENT_PLATINUM_SPOT = 916.00;
-var CURRENT_SILVER_SPOT = 14.68;
-var CURRENT_COPPER_SPOT = 14.68;
 
 function CoinSet() {
     "use strict";
@@ -73,6 +73,8 @@ function ViewModel() {
         this.coinTypes().sort(function (a, b) {
             var t1 = a,
                 t2 = b,
+                i1 = t1.id(),
+                i2 = t2.id(),
                 c1 = t1.country(),
                 c2 = t2.country(),
                 y1 = Number(t1.year()),
@@ -83,6 +85,8 @@ function ViewModel() {
                 s2 = t2.series(),
                 w1 = Number(t1.weight()),
                 w2 = Number(t2.weight());
+            if (i1 < i2) return -1;
+            if (i1 > i2) return 1;
             if (c1 < c2) return -1;
             if (c1 > c2) return 1;
             if (y1 < y2) return -1;
@@ -224,6 +228,9 @@ function ViewModel() {
     }
 
     this.commitCoin = function () {
+        if(self.stagedCoin().coinType().id() !== this.coinTypeId){
+            this.coinTypeId = self.stagedCoin().coinType().id();
+        }
         if (self.stagedIndex >= 0) {
             self.coins()[self.stagedIndex] = self.stagedCoin();
         } else {

@@ -68,7 +68,8 @@
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: coins">
-                            <tr data-bind="css: {redborder: purchasePrice() <= 0}">
+<!--                            <tr data-bind="css: {redborder: purchasePrice() <= 0}">-->
+                            <tr>
                                 <td>
                                     <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
                                     <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
@@ -129,7 +130,8 @@
                     <table class="metals-table" id="coin-types-view">
                         <thead>
                             <tr>
-                                <th>Actions</th>
+                                <th>ID</th>
+                                <th>ID</th>
                                 <!--                                <th>Id</th>-->
                                 <th>Year</th>
                                 <th>Country</th>
@@ -142,13 +144,14 @@
                             </tr>
                         </thead>
                         <tbody data-bind="foreach: coinTypes">
-                            <tr>
+                            <tr data-bind="css: {redborder: $index()>1 && $parent.coinTypes()[$index()].id() === id}">
                                 <td>
                                     <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editCoinType.bind($data, $index())" />
                                     <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyCoinType" />
                                     <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteCoinType.bind($data, $index())" />
                                 </td>
                                 <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
+                                <td data-bind="text: id">--</td>
                                 <td data-bind="text: year">--</td>
                                 <td data-bind="text: country">--</td>
                                 <td data-bind="text: mint">--</td>
