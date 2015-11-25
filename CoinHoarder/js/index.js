@@ -85,8 +85,8 @@ function ViewModel() {
                 s2 = t2.series(),
                 w1 = Number(t1.weight()),
                 w2 = Number(t2.weight());
-//            if (i1 < i2) return -1;
-//            if (i1 > i2) return 1;
+            //            if (i1 < i2) return -1;
+            //            if (i1 > i2) return 1;
             if (c1 < c2) return -1;
             if (c1 > c2) return 1;
             if (y1 < y2) return -1;
@@ -176,7 +176,7 @@ function ViewModel() {
         self.stagedCoinType(this.clone());
         self.stagedCoinType().id(this.id());
         self.stagedCoinTypeIndex = index;
-    }
+    };
     this.commitCoinType = function () {
         if (self.stagedCoinTypeIndex >= 0) {
             self.coinTypes()[self.stagedCoinTypeIndex] = self.stagedCoinType();
@@ -188,7 +188,7 @@ function ViewModel() {
         self.sortCoins();
         self.coinTypes.valueHasMutated();
         self.coins.valueHasMutated();
-    }
+    };
     this.exportCoins = function () {
         var coins = this.coins().map(function (c) {
             var newCoin = {
@@ -203,11 +203,15 @@ function ViewModel() {
                 isPermaStack: c.isPermaStack
             };
             return newCoin;
-        });
-        console.log(ko.toJSON(coins));
-        console.log(ko.toJSON(this.coinTypes()));
+        }), e;
+        //        console.log(ko.toJSON(coins));
+        //        console.log(ko.toJSON(this.coinTypes()));
         //        console.log(ko.toJSON(this.coins()));
-        //        saveAs()
+        e = {
+            coins: ko.toJS(coins),
+            coinTypes: ko.toJS(this.coinTypes())
+        };
+        window.open('data:application/text,' + JSON.stringify(e));
     };
     this.stagedCoin = ko.observable();
 
@@ -228,7 +232,7 @@ function ViewModel() {
     }
 
     this.commitCoin = function () {
-        if(self.stagedCoin().coinType().id() !== this.coinTypeId){
+        if (self.stagedCoin().coinType().id() !== this.coinTypeId) {
             this.coinTypeId = self.stagedCoin().coinType().id();
         }
         if (self.stagedIndex >= 0) {
