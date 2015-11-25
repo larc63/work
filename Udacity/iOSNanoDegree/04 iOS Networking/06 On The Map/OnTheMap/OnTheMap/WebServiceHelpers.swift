@@ -122,12 +122,12 @@ class WebServiceHelpers : NSObject {
     
     // MARK: Shared Instance
     
-    class func sharedInstance() -> TMDBClient {
-        
-        struct Singleton {
-            static var sharedInstance = TMDBClient()
-        }
-        
-        return Singleton.sharedInstance
-    }
+//    class func sharedInstance() -> TMDBClient {
+//        
+//        struct Singleton {
+//            static var sharedInstance = TMDBClient()
+//        }
+//        
+//        return Singleton.sharedInstance
+//    }
 }

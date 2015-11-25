@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C01C063F7000AFA252 /* AppDelegate.swift */; };
-		F8F360C31C063F7000AFA252 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* ViewController.swift */; };
+		F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* LoginViewController.swift */; };
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
 		F8F360C81C063F7000AFA252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C71C063F7000AFA252 /* Assets.xcassets */; };
 		F8F360CB1C063F7000AFA252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C91C063F7000AFA252 /* LaunchScreen.storyboard */; };
@@ -16,6 +16,7 @@
 		F8F360E11C063F7000AFA252 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360E01C063F7000AFA252 /* OnTheMapUITests.swift */; };
 		F8F360F21C0646BF00AFA252 /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360F11C0646BF00AFA252 /* WebServiceHelpers.swift */; };
 		F8F360F41C06475A00AFA252 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360F31C06475A00AFA252 /* UdacityClient.swift */; };
+		F8F360F81C0662A700AFA252 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360F71C0662A700AFA252 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +39,7 @@
 /* Begin PBXFileReference section */
 		F8F360BD1C063F7000AFA252 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360C01C063F7000AFA252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F8F360C21C063F7000AFA252 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F8F360C21C063F7000AFA252 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F8F360C51C063F7000AFA252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F8F360C71C063F7000AFA252 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8F360CA1C063F7000AFA252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +52,7 @@
 		F8F360E21C063F7000AFA252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F360F11C0646BF00AFA252 /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHelpers.swift; sourceTree = "<group>"; };
 		F8F360F31C06475A00AFA252 /* UdacityClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
+		F8F360F71C0662A700AFA252 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,9 +103,10 @@
 		F8F360BF1C063F7000AFA252 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				F8F360F61C06626D00AFA252 /* Controller */,
+				F8F360F51C06626500AFA252 /* View */,
 				F8F360EE1C06457600AFA252 /* Model */,
 				F8F360C01C063F7000AFA252 /* AppDelegate.swift */,
-				F8F360C21C063F7000AFA252 /* ViewController.swift */,
 				F8F360C41C063F7000AFA252 /* Main.storyboard */,
 				F8F360C71C063F7000AFA252 /* Assets.xcassets */,
 				F8F360C91C063F7000AFA252 /* LaunchScreen.storyboard */,
@@ -153,6 +156,22 @@
 				F8F360F31C06475A00AFA252 /* UdacityClient.swift */,
 			);
 			name = Udacity;
+			sourceTree = "<group>";
+		};
+		F8F360F51C06626500AFA252 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F8F360F61C06626D00AFA252 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F8F360C21C063F7000AFA252 /* LoginViewController.swift */,
+				F8F360F71C0662A700AFA252 /* MainViewController.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,9 +306,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F360F41C06475A00AFA252 /* UdacityClient.swift in Sources */,
-				F8F360C31C063F7000AFA252 /* ViewController.swift in Sources */,
+				F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */,
 				F8F360F21C0646BF00AFA252 /* WebServiceHelpers.swift in Sources */,
 				F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */,
+				F8F360F81C0662A700AFA252 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
