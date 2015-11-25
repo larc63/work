@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A97281D81A8C38C900703354"
-               BuildableName = "TheMovieManager.app"
-               BlueprintName = "TheMovieManager"
-               ReferencedContainer = "container:TheMovieManager.xcodeproj">
+               BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+               BuildableName = "PinSample.app"
+               BlueprintName = "PinSample"
+               ReferencedContainer = "container:PinSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8C298E11C06146D00439489"
-               BuildableName = "TheMovieManagerTests.xctest"
-               BlueprintName = "TheMovieManagerTests"
-               ReferencedContainer = "container:TheMovieManager.xcodeproj">
+               BlueprintIdentifier = "4DFABCF61AC0CBAC00D21C43"
+               BuildableName = "PinSampleTests.xctest"
+               BlueprintName = "PinSampleTests"
+               ReferencedContainer = "container:PinSample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+            BuildableName = "PinSample.app"
+            BlueprintName = "PinSample"
+            ReferencedContainer = "container:PinSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,10 +65,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+            BuildableName = "PinSample.app"
+            BlueprintName = "PinSample"
+            ReferencedContainer = "container:PinSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -84,10 +84,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+            BuildableName = "PinSample.app"
+            BlueprintName = "PinSample"
+            ReferencedContainer = "container:PinSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

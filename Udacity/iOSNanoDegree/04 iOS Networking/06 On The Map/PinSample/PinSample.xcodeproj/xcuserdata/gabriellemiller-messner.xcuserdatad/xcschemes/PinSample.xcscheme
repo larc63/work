@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0710"
+   LastUpgradeVersion = "0620"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,80 +14,91 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A97281D81A8C38C900703354"
-               BuildableName = "TheMovieManager.app"
-               BlueprintName = "TheMovieManager"
-               ReferencedContainer = "container:TheMovieManager.xcodeproj">
+               BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+               BuildableName = "PinSample.app"
+               BlueprintName = "PinSample"
+               ReferencedContainer = "container:PinSample.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "4DFABCF61AC0CBAC00D21C43"
+               BuildableName = "PinSampleTests.xctest"
+               BlueprintName = "PinSampleTests"
+               ReferencedContainer = "container:PinSample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      buildConfiguration = "Debug">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8C298E11C06146D00439489"
-               BuildableName = "TheMovieManagerTests.xctest"
-               BlueprintName = "TheMovieManagerTests"
-               ReferencedContainer = "container:TheMovieManager.xcodeproj">
+               BlueprintIdentifier = "4DFABCF61AC0CBAC00D21C43"
+               BuildableName = "PinSampleTests.xctest"
+               BlueprintName = "PinSampleTests"
+               ReferencedContainer = "container:PinSample.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+            BuildableName = "PinSample.app"
+            BlueprintName = "PinSample"
+            ReferencedContainer = "container:PinSample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <AdditionalOptions>
-      </AdditionalOptions>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+            BuildableName = "PinSample.app"
+            BlueprintName = "PinSample"
+            ReferencedContainer = "container:PinSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
-      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
+      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "4DFABCE11AC0CBAC00D21C43"
+            BuildableName = "PinSample.app"
+            BlueprintName = "PinSample"
+            ReferencedContainer = "container:PinSample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

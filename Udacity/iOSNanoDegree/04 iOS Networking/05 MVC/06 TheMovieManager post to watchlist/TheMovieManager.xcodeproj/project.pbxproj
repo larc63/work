@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A94A45FA1A8E5F9B000A4B61 /* TMDBConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94A45F91A8E5F9B000A4B61 /* TMDBConfig.swift */; };
-		A94D62081BA08EB90094A052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94D62071BA08EB90094A052 /* LaunchScreen.storyboard */; settings = {ASSET_TAGS = (); }; };
+		A94D62081BA08EB90094A052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94D62071BA08EB90094A052 /* LaunchScreen.storyboard */; };
 		A950E3AC1A8D31A5009A69C1 /* TMDBMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E3A61A8D31A5009A69C1 /* TMDBMovie.swift */; };
 		A950E3AE1A8D31A5009A69C1 /* TMDBConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E3A81A8D31A5009A69C1 /* TMDBConstants.swift */; };
 		A950E3B01A8D31A5009A69C1 /* TMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A950E3AA1A8D31A5009A69C1 /* TMDBClient.swift */; };
@@ -22,33 +22,45 @@
 		A97281E61A8C38C900703354 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A97281E51A8C38C900703354 /* Assets.xcassets */; };
 		A97281FF1A8C3A5800703354 /* BorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97281FE1A8C3A5800703354 /* BorderedButton.swift */; };
 		A972821A1A8C4B7300703354 /* MoviePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97282191A8C4B7300703354 /* MoviePickerViewController.swift */; };
-		A9956AE61BA071DC009A1F2F /* camera_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ACD1BA071DC009A1F2F /* camera_64.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AE71BA071DC009A1F2F /* camera_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ACE1BA071DC009A1F2F /* camera_128.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AE81BA071DC009A1F2F /* camera_256.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ACF1BA071DC009A1F2F /* camera_256.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AE91BA071DC009A1F2F /* film_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD01BA071DC009A1F2F /* film_64.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AEA1BA071DC009A1F2F /* film_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD11BA071DC009A1F2F /* film_128.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AEB1BA071DC009A1F2F /* film_256.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD21BA071DC009A1F2F /* film_256.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AEC1BA071DC009A1F2F /* film_512.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD31BA071DC009A1F2F /* film_512.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AED1BA071DC009A1F2F /* genre_30.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD41BA071DC009A1F2F /* genre_30.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AEE1BA071DC009A1F2F /* genre_60.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD51BA071DC009A1F2F /* genre_60.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AEF1BA071DC009A1F2F /* genre_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD61BA071DC009A1F2F /* genre_120.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF01BA071DC009A1F2F /* heart_32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD71BA071DC009A1F2F /* heart_32.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF11BA071DC009A1F2F /* heart_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD81BA071DC009A1F2F /* heart_64.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF21BA071DC009A1F2F /* heart_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD91BA071DC009A1F2F /* heart_128.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF31BA071DC009A1F2F /* list_32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADA1BA071DC009A1F2F /* list_32.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF41BA071DC009A1F2F /* list_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADB1BA071DC009A1F2F /* list_64.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF51BA071DC009A1F2F /* list_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADC1BA071DC009A1F2F /* list_128.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF61BA071DC009A1F2F /* u_29.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADD1BA071DC009A1F2F /* u_29.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF71BA071DC009A1F2F /* u_40.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADE1BA071DC009A1F2F /* u_40.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF81BA071DC009A1F2F /* u_58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADF1BA071DC009A1F2F /* u_58.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AF91BA071DC009A1F2F /* u_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE01BA071DC009A1F2F /* u_76.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AFA1BA071DC009A1F2F /* u_80.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE11BA071DC009A1F2F /* u_80.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AFB1BA071DC009A1F2F /* u_87.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE21BA071DC009A1F2F /* u_87.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AFC1BA071DC009A1F2F /* u_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE31BA071DC009A1F2F /* u_120.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AFD1BA071DC009A1F2F /* u_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE41BA071DC009A1F2F /* u_152.png */; settings = {ASSET_TAGS = (); }; };
-		A9956AFE1BA071DC009A1F2F /* u_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE51BA071DC009A1F2F /* u_180.png */; settings = {ASSET_TAGS = (); }; };
+		A9956AE61BA071DC009A1F2F /* camera_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ACD1BA071DC009A1F2F /* camera_64.png */; };
+		A9956AE71BA071DC009A1F2F /* camera_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ACE1BA071DC009A1F2F /* camera_128.png */; };
+		A9956AE81BA071DC009A1F2F /* camera_256.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ACF1BA071DC009A1F2F /* camera_256.png */; };
+		A9956AE91BA071DC009A1F2F /* film_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD01BA071DC009A1F2F /* film_64.png */; };
+		A9956AEA1BA071DC009A1F2F /* film_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD11BA071DC009A1F2F /* film_128.png */; };
+		A9956AEB1BA071DC009A1F2F /* film_256.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD21BA071DC009A1F2F /* film_256.png */; };
+		A9956AEC1BA071DC009A1F2F /* film_512.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD31BA071DC009A1F2F /* film_512.png */; };
+		A9956AED1BA071DC009A1F2F /* genre_30.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD41BA071DC009A1F2F /* genre_30.png */; };
+		A9956AEE1BA071DC009A1F2F /* genre_60.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD51BA071DC009A1F2F /* genre_60.png */; };
+		A9956AEF1BA071DC009A1F2F /* genre_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD61BA071DC009A1F2F /* genre_120.png */; };
+		A9956AF01BA071DC009A1F2F /* heart_32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD71BA071DC009A1F2F /* heart_32.png */; };
+		A9956AF11BA071DC009A1F2F /* heart_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD81BA071DC009A1F2F /* heart_64.png */; };
+		A9956AF21BA071DC009A1F2F /* heart_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AD91BA071DC009A1F2F /* heart_128.png */; };
+		A9956AF31BA071DC009A1F2F /* list_32.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADA1BA071DC009A1F2F /* list_32.png */; };
+		A9956AF41BA071DC009A1F2F /* list_64.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADB1BA071DC009A1F2F /* list_64.png */; };
+		A9956AF51BA071DC009A1F2F /* list_128.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADC1BA071DC009A1F2F /* list_128.png */; };
+		A9956AF61BA071DC009A1F2F /* u_29.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADD1BA071DC009A1F2F /* u_29.png */; };
+		A9956AF71BA071DC009A1F2F /* u_40.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADE1BA071DC009A1F2F /* u_40.png */; };
+		A9956AF81BA071DC009A1F2F /* u_58.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956ADF1BA071DC009A1F2F /* u_58.png */; };
+		A9956AF91BA071DC009A1F2F /* u_76.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE01BA071DC009A1F2F /* u_76.png */; };
+		A9956AFA1BA071DC009A1F2F /* u_80.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE11BA071DC009A1F2F /* u_80.png */; };
+		A9956AFB1BA071DC009A1F2F /* u_87.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE21BA071DC009A1F2F /* u_87.png */; };
+		A9956AFC1BA071DC009A1F2F /* u_120.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE31BA071DC009A1F2F /* u_120.png */; };
+		A9956AFD1BA071DC009A1F2F /* u_152.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE41BA071DC009A1F2F /* u_152.png */; };
+		A9956AFE1BA071DC009A1F2F /* u_180.png in Resources */ = {isa = PBXBuildFile; fileRef = A9956AE51BA071DC009A1F2F /* u_180.png */; };
 		A9B8EE201AA6419200D273C0 /* TMDBConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B8EE1F1AA6419200D273C0 /* TMDBConvenience.swift */; };
+		F8C298E51C06146D00439489 /* TheMovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C298E41C06146D00439489 /* TheMovieManagerTests.swift */; };
+		F8C298EC1C06147400439489 /* testTMDBClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C298DC1C059C2F00439489 /* testTMDBClient.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F8C298E71C06146D00439489 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A97281D11A8C38C900703354 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A97281D81A8C38C900703354;
+			remoteInfo = TheMovieManager;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A94A45F91A8E5F9B000A4B61 /* TMDBConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBConfig.swift; sourceTree = "<group>"; };
@@ -94,10 +106,21 @@
 		A9956AE41BA071DC009A1F2F /* u_152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = u_152.png; path = Images/u_152.png; sourceTree = "<group>"; };
 		A9956AE51BA071DC009A1F2F /* u_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = u_180.png; path = Images/u_180.png; sourceTree = "<group>"; };
 		A9B8EE1F1AA6419200D273C0 /* TMDBConvenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TMDBConvenience.swift; sourceTree = "<group>"; };
+		F8C298DC1C059C2F00439489 /* testTMDBClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testTMDBClient.swift; sourceTree = "<group>"; };
+		F8C298E21C06146D00439489 /* TheMovieManagerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheMovieManagerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8C298E41C06146D00439489 /* TheMovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieManagerTests.swift; sourceTree = "<group>"; };
+		F8C298E61C06146D00439489 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A97281D61A8C38C900703354 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F8C298DF1C06146D00439489 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -153,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				A97281DB1A8C38C900703354 /* TheMovieManager */,
+				F8C298E31C06146D00439489 /* TheMovieManagerTests */,
 				A97281DA1A8C38C900703354 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -161,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				A97281D91A8C38C900703354 /* TheMovieManager.app */,
+				F8C298E21C06146D00439489 /* TheMovieManagerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -168,6 +193,7 @@
 		A97281DB1A8C38C900703354 /* TheMovieManager */ = {
 			isa = PBXGroup;
 			children = (
+				F8C298DB1C059C0C00439489 /* Tests */,
 				A97281DE1A8C38C900703354 /* AppDelegate.swift */,
 				A9B7BA6D1AA52D9900FDD45B /* Model */,
 				A9B7BA6B1AA52D5D00FDD45B /* View */,
@@ -236,6 +262,23 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		F8C298DB1C059C0C00439489 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				F8C298DC1C059C2F00439489 /* testTMDBClient.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		F8C298E31C06146D00439489 /* TheMovieManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				F8C298E41C06146D00439489 /* TheMovieManagerTests.swift */,
+				F8C298E61C06146D00439489 /* Info.plist */,
+			);
+			path = TheMovieManagerTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -256,18 +299,40 @@
 			productReference = A97281D91A8C38C900703354 /* TheMovieManager.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F8C298E11C06146D00439489 /* TheMovieManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F8C298E91C06146D00439489 /* Build configuration list for PBXNativeTarget "TheMovieManagerTests" */;
+			buildPhases = (
+				F8C298DE1C06146D00439489 /* Sources */,
+				F8C298DF1C06146D00439489 /* Frameworks */,
+				F8C298E01C06146D00439489 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F8C298E81C06146D00439489 /* PBXTargetDependency */,
+			);
+			name = TheMovieManagerTests;
+			productName = TheMovieManagerTests;
+			productReference = F8C298E21C06146D00439489 /* TheMovieManagerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		A97281D11A8C38C900703354 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Jarrod Parkes";
 				TargetAttributes = {
 					A97281D81A8C38C900703354 = {
 						CreatedOnToolsVersion = 6.1.1;
+					};
+					F8C298E11C06146D00439489 = {
+						CreatedOnToolsVersion = 7.1.1;
+						TestTargetID = A97281D81A8C38C900703354;
 					};
 				};
 			};
@@ -285,6 +350,7 @@
 			projectRoot = "";
 			targets = (
 				A97281D81A8C38C900703354 /* TheMovieManager */,
+				F8C298E11C06146D00439489 /* TheMovieManagerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -325,6 +391,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F8C298E01C06146D00439489 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -348,7 +421,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F8C298DE1C06146D00439489 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8C298E51C06146D00439489 /* TheMovieManagerTests.swift in Sources */,
+				F8C298EC1C06147400439489 /* testTMDBClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F8C298E81C06146D00439489 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A97281D81A8C38C900703354 /* TheMovieManager */;
+			targetProxy = F8C298E71C06146D00439489 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A97281E21A8C38C900703354 /* Main.storyboard */ = {
@@ -464,6 +554,37 @@
 			};
 			name = Release;
 		};
+		F8C298EA1C06146D00439489 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = TheMovieManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lavacahacemu.TheMovieManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheMovieManager.app/TheMovieManager";
+			};
+			name = Debug;
+		};
+		F8C298EB1C06146D00439489 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = TheMovieManagerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lavacahacemu.TheMovieManagerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheMovieManager.app/TheMovieManager";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -484,6 +605,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		F8C298E91C06146D00439489 /* Build configuration list for PBXNativeTarget "TheMovieManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F8C298EA1C06146D00439489 /* Debug */,
+				F8C298EB1C06146D00439489 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

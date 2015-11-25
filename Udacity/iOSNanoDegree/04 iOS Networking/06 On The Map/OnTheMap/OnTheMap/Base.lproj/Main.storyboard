@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Login-->
+        <scene sceneID="cC5-uz-LMg">
+            <objects>
+                <viewController id="3SU-Xh-hRc" userLabel="Login" customClass="LoginViewController" customModule="MyFavoriteMovies" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gBx-84-aKz"/>
+                        <viewControllerLayoutGuide type="bottom" id="lrP-JK-bzh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kjo-9h-yRk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfA-64-asx" customClass="BorderedButton" customModule="MyFavoriteMovies" customModuleProvider="target">
+                                <rect key="frame" x="175" y="341" width="250" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Igm-7A-SK2"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="loginButtonTouch:" destination="3SU-Xh-hRc" eventType="touchUpInside" id="dK4-NT-5SX"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="My Favorite Movies" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMP-4a-54H">
+                                <rect key="frame" x="198" y="188" width="206" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="qyh-ch-WrS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-Cf-esy">
+                                <rect key="frame" x="175" y="237" width="250" height="44"/>
+                                <color key="backgroundColor" red="0.67632260870000005" green="0.92051799479999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dRg-4h-e2g"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="nbp-tk-i99"/>
+                                </constraints>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAr-h9-b5I">
+                                <rect key="frame" x="175" y="289" width="250" height="44"/>
+                                <color key="backgroundColor" red="0.67632260870000005" green="0.92051799479999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="RFy-RM-eW0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_128.png" translatesAutoresizingMaskIntoConstraints="NO" id="frD-ap-JPl">
+                                <rect key="frame" x="236" y="50" width="128" height="128"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXX-kl-mt5">
+                                <rect key="frame" x="175" y="393" width="250" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="FTQ-ND-q7l"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="xKL-ay-ZxL"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.35070900710000003" green="0.79530321839999996" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jnf-Cf-esy" firstAttribute="width" secondItem="fAr-h9-b5I" secondAttribute="width" id="08l-cR-6r2"/>
+                            <constraint firstItem="frD-ap-JPl" firstAttribute="top" secondItem="gBx-84-aKz" secondAttribute="bottom" constant="30" id="15I-Hy-TfU"/>
+                            <constraint firstItem="Jnf-Cf-esy" firstAttribute="width" secondItem="VfA-64-asx" secondAttribute="width" id="1Rv-nH-R68"/>
+                            <constraint firstAttribute="centerX" secondItem="fAr-h9-b5I" secondAttribute="centerX" id="Bjb-Is-6mK"/>
+                            <constraint firstItem="VfA-64-asx" firstAttribute="top" secondItem="fAr-h9-b5I" secondAttribute="bottom" constant="8" symbolic="YES" id="CZq-cf-Cbw"/>
+                            <constraint firstAttribute="centerX" secondItem="frD-ap-JPl" secondAttribute="centerX" id="FOw-k2-3ED"/>
+                            <constraint firstItem="fAr-h9-b5I" firstAttribute="top" secondItem="Jnf-Cf-esy" secondAttribute="bottom" constant="8" symbolic="YES" id="PVs-su-j5M"/>
+                            <constraint firstAttribute="centerX" secondItem="VfA-64-asx" secondAttribute="centerX" id="RSa-Ek-OWT"/>
+                            <constraint firstItem="Jnf-Cf-esy" firstAttribute="top" secondItem="JMP-4a-54H" secondAttribute="bottom" constant="8" symbolic="YES" id="akQ-GM-Ulm"/>
+                            <constraint firstItem="RXX-kl-mt5" firstAttribute="width" secondItem="fAr-h9-b5I" secondAttribute="width" id="hJp-1R-jPE"/>
+                            <constraint firstAttribute="centerX" secondItem="JMP-4a-54H" secondAttribute="centerX" id="hiv-YT-8VV"/>
+                            <constraint firstItem="JMP-4a-54H" firstAttribute="top" secondItem="frD-ap-JPl" secondAttribute="bottom" constant="10" id="jHk-Tf-FnL"/>
+                            <constraint firstAttribute="centerX" secondItem="RXX-kl-mt5" secondAttribute="centerX" id="kqc-I0-dhf"/>
+                            <constraint firstItem="RXX-kl-mt5" firstAttribute="top" secondItem="VfA-64-asx" secondAttribute="bottom" constant="8" id="lJw-FI-iT3"/>
+                            <constraint firstAttribute="centerX" secondItem="Jnf-Cf-esy" secondAttribute="centerX" id="sc9-H9-3gS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="debugTextLabel" destination="RXX-kl-mt5" id="eP6-Aw-2Np"/>
+                        <outlet property="headerTextLabel" destination="JMP-4a-54H" id="1U9-7i-Xed"/>
+                        <outlet property="loginButton" destination="VfA-64-asx" id="KJy-T1-apR"/>
+                        <outlet property="passwordTextField" destination="fAr-h9-b5I" id="Y9b-x0-KIY"/>
+                        <outlet property="usernameTextField" destination="Jnf-Cf-esy" id="Etg-SU-C3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QN6-dU-BHd" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-363" y="517"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="camera_128.png" width="30" height="30"/>
+    </resources>
+</document>

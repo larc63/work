@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>TheMovieManager.xcscheme</key>
+		<key>OnTheMap.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,12 +12,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>A97281D81A8C38C900703354</key>
+		<key>F8F360BC1C063F7000AFA252</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F8C298E11C06146D00439489</key>
+		<key>F8F360D01C063F7000AFA252</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F8F360DB1C063F7000AFA252</key>
 		<dict>
 			<key>primary</key>
 			<true/>

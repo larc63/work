@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A97281D81A8C38C900703354"
-               BuildableName = "TheMovieManager.app"
-               BlueprintName = "TheMovieManager"
-               ReferencedContainer = "container:TheMovieManager.xcodeproj">
+               BlueprintIdentifier = "F8F360BC1C063F7000AFA252"
+               BuildableName = "OnTheMap.app"
+               BlueprintName = "OnTheMap"
+               ReferencedContainer = "container:OnTheMap.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,20 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F8C298E11C06146D00439489"
-               BuildableName = "TheMovieManagerTests.xctest"
-               BlueprintName = "TheMovieManagerTests"
-               ReferencedContainer = "container:TheMovieManager.xcodeproj">
+               BlueprintIdentifier = "F8F360D01C063F7000AFA252"
+               BuildableName = "OnTheMapTests.xctest"
+               BlueprintName = "OnTheMapTests"
+               ReferencedContainer = "container:OnTheMap.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F8F360DB1C063F7000AFA252"
+               BuildableName = "OnTheMapUITests.xctest"
+               BlueprintName = "OnTheMapUITests"
+               ReferencedContainer = "container:OnTheMap.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "F8F360BC1C063F7000AFA252"
+            BuildableName = "OnTheMap.app"
+            BlueprintName = "OnTheMap"
+            ReferencedContainer = "container:OnTheMap.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -65,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "F8F360BC1C063F7000AFA252"
+            BuildableName = "OnTheMap.app"
+            BlueprintName = "OnTheMap"
+            ReferencedContainer = "container:OnTheMap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -84,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "A97281D81A8C38C900703354"
-            BuildableName = "TheMovieManager.app"
-            BlueprintName = "TheMovieManager"
-            ReferencedContainer = "container:TheMovieManager.xcodeproj">
+            BlueprintIdentifier = "F8F360BC1C063F7000AFA252"
+            BuildableName = "OnTheMap.app"
+            BlueprintName = "OnTheMap"
+            ReferencedContainer = "container:OnTheMap.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
