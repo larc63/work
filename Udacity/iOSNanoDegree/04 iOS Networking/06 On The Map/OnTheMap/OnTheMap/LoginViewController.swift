@@ -35,16 +35,14 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTouched(sender: AnyObject) {
         UdacityClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
             if success {
-                //TODO: add the navigation to the main view controller here
 //                self.completeLogin()
                 print("login successful")
-                completeLogin()
+                self.completeLogin()
             } else {
                 //                self.displayError(errorString)
                 print("login failed")
             }
         }
-
     }
 
 }

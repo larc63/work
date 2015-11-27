@@ -9,22 +9,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/UdacityClient.swift"
-            timestampString = "470203097.491295"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "authenticateWithViewController(_:completionHandler:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "OnTheMapTests/OnTheMapTests.swift"
             timestampString = "470283705.478342"
             startingColumnNumber = "9223372036854775807"
@@ -42,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/UdacityClient.swift"
-            timestampString = "470296728.696232"
+            timestampString = "470344463.700378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "loginWithToken(_:password:completionHandler:)"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "authenticateWithViewController(_:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,126 +41,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/UdacityClient.swift"
-            timestampString = "470296735.83212"
+            filePath = "OnTheMap/LoginViewController.swift"
+            timestampString = "470344531.729237"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "loginWithToken(_:password:completionHandler:)"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "completeLogin()"
             landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnTheMap/UdacityClient.swift"
-            timestampString = "470296758.26157"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "loginWithToken(_:password:completionHandler:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnTheMap.UdacityClient.loginWithToken (OnTheMap.UdacityClient)(Swift.String, password : Swift.String, completionHandler : (success : Swift.Bool, errorString : Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "OnTheMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/x0148262/Documents/larc/work/Udacity/iOSNanoDegree/04%20iOS%20Networking/06%20On%20The%20Map/OnTheMap/OnTheMap/UdacityClient.swift"
-                  timestampString = "470297314.667473"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "61"
-                  endingLineNumber = "61"
-                  offsetFromSymbolStart = "62">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnTheMap.UdacityClient.(loginWithToken (OnTheMap.UdacityClient) -&gt; (Swift.String, password : Swift.String, completionHandler : (success : Swift.Bool, errorString : Swift.Optional&lt;Swift.String&gt;) -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "OnTheMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/x0148262/Documents/larc/work/Udacity/iOSNanoDegree/04%20iOS%20Networking/06%20On%20The%20Map/OnTheMap/OnTheMap/UdacityClient.swift"
-                  timestampString = "470297314.667735"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "63"
-                  endingLineNumber = "63"
-                  offsetFromSymbolStart = "26">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnTheMap/WebServiceHelpers.swift"
-            timestampString = "470296777.869526"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "taskForPOSTMethod(_:method:parameters:jsonBody:completionHandler:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnTheMap/WebServiceHelpers.swift"
-            timestampString = "470296779.751212"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "taskForPOSTMethod(_:method:parameters:jsonBody:completionHandler:)"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnTheMap.WebServiceHelpers.taskForPOSTMethod (OnTheMap.WebServiceHelpers)(Swift.String, method : Swift.String, parameters : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, jsonBody : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, completionHandler : (result : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; __ObjC.NSURLSessionDataTask"
-                  moduleName = "OnTheMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/x0148262/Documents/larc/work/Udacity/iOSNanoDegree/04%20iOS%20Networking/06%20On%20The%20Map/OnTheMap/OnTheMap/WebServiceHelpers.swift"
-                  timestampString = "470297314.670038"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "41"
-                  endingLineNumber = "41"
-                  offsetFromSymbolStart = "1497">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "OnTheMap.WebServiceHelpers.(taskForPOSTMethod (OnTheMap.WebServiceHelpers) -&gt; (Swift.String, method : Swift.String, parameters : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, jsonBody : Swift.Dictionary&lt;Swift.String, Swift.AnyObject&gt;, completionHandler : (result : Swift.ImplicitlyUnwrappedOptional&lt;Swift.AnyObject&gt;, error : Swift.Optional&lt;__ObjC.NSError&gt;) -&gt; ()) -&gt; __ObjC.NSURLSessionDataTask).(closure #1)"
-                  moduleName = "OnTheMap"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/x0148262/Documents/larc/work/Udacity/iOSNanoDegree/04%20iOS%20Networking/06%20On%20The%20Map/OnTheMap/OnTheMap/WebServiceHelpers.swift"
-                  timestampString = "470297314.670324"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "41">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
