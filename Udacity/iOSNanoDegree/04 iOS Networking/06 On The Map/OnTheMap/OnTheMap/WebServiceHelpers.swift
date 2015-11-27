@@ -26,18 +26,18 @@ class WebServiceHelpers : NSObject {
     
     // MARK: GET
     
-    func taskForGETMethod(baseURL: String, method: String, parameters: [String : AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
-        
-        /* 1. Set the parameters */
-        var mutableParameters = parameters
-//        mutableParameters[ParameterKeys.ApiKey] = Constants.ApiKey
-        
-        /* 2/3. Build the URL and configure the request */
-        let urlString = baseURL + method + WebServiceHelpers.escapedParameters(mutableParameters)
+    func taskForPOSTMethod(baseURL: String, method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+        /* 1. Build the URL and configure the request */
+        let urlString = baseURL + method + WebServiceHelpers.escapedParameters(parameters)
         let url = NSURL(string: urlString)!
-        let request = NSURLRequest(URL: url)
-        
-        /* 4. Make the request */
+        let request = NSMutableURLRequest(URL: url)
+        request.HTTPMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        do {
+            request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(jsonBody, options: .PrettyPrinted)
+        }
+        /* 2. Make the request */
         let task = session.dataTaskWithRequest(request) { (data, response, error) in
             
             /* GUARD: Was there an error? */
@@ -63,9 +63,11 @@ class WebServiceHelpers : NSObject {
                 print("No data was returned by the request!")
                 return
             }
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
-            WebServiceHelpers.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+            WebServiceHelpers.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
         }
         
         /* 7. Start the request */
@@ -73,7 +75,7 @@ class WebServiceHelpers : NSObject {
         
         return task
     }
-
+    
     // MARK: Helpers
     
     /* Helper: Substitute the key for the value that is contained within the method name */
@@ -119,15 +121,12 @@ class WebServiceHelpers : NSObject {
         
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
     }
-    
     // MARK: Shared Instance
     
-//    class func sharedInstance() -> TMDBClient {
-//        
-//        struct Singleton {
-//            static var sharedInstance = TMDBClient()
-//        }
-//        
-//        return Singleton.sharedInstance
-//    }
+    class func sharedInstance() -> WebServiceHelpers {
+        struct WebServiceHelpersSingleton {
+            static var sharedInstance = WebServiceHelpers()
+        }
+        return WebServiceHelpersSingleton.sharedInstance
+    }
 }

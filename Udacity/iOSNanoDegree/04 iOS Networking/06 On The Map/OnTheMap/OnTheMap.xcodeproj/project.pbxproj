@@ -12,7 +12,6 @@
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
 		F8F360C81C063F7000AFA252 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C71C063F7000AFA252 /* Assets.xcassets */; };
 		F8F360CB1C063F7000AFA252 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C91C063F7000AFA252 /* LaunchScreen.storyboard */; };
-		F8F360D61C063F7000AFA252 /* OnTheMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360D51C063F7000AFA252 /* OnTheMapTests.swift */; };
 		F8F360E11C063F7000AFA252 /* OnTheMapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360E01C063F7000AFA252 /* OnTheMapUITests.swift */; };
 		F8F360F21C0646BF00AFA252 /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360F11C0646BF00AFA252 /* WebServiceHelpers.swift */; };
 		F8F360F41C06475A00AFA252 /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360F31C06475A00AFA252 /* UdacityClient.swift */; };
@@ -45,7 +44,6 @@
 		F8F360CA1C063F7000AFA252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8F360CC1C063F7000AFA252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F360D11C063F7000AFA252 /* OnTheMapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8F360D51C063F7000AFA252 /* OnTheMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapTests.swift; sourceTree = "<group>"; };
 		F8F360D71C063F7000AFA252 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8F360DC1C063F7000AFA252 /* OnTheMapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OnTheMapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360E01C063F7000AFA252 /* OnTheMapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnTheMapUITests.swift; sourceTree = "<group>"; };
@@ -103,10 +101,10 @@
 		F8F360BF1C063F7000AFA252 /* OnTheMap */ = {
 			isa = PBXGroup;
 			children = (
+				F8F360C01C063F7000AFA252 /* AppDelegate.swift */,
 				F8F360F61C06626D00AFA252 /* Controller */,
 				F8F360F51C06626500AFA252 /* View */,
 				F8F360EE1C06457600AFA252 /* Model */,
-				F8F360C01C063F7000AFA252 /* AppDelegate.swift */,
 				F8F360C41C063F7000AFA252 /* Main.storyboard */,
 				F8F360C71C063F7000AFA252 /* Assets.xcassets */,
 				F8F360C91C063F7000AFA252 /* LaunchScreen.storyboard */,
@@ -118,7 +116,6 @@
 		F8F360D41C063F7000AFA252 /* OnTheMapTests */ = {
 			isa = PBXGroup;
 			children = (
-				F8F360D51C063F7000AFA252 /* OnTheMapTests.swift */,
 				F8F360D71C063F7000AFA252 /* Info.plist */,
 			);
 			path = OnTheMapTests;
@@ -317,7 +314,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8F360D61C063F7000AFA252 /* OnTheMapTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +530,7 @@
 				F8F360E71C063F7000AFA252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8F360E81C063F7000AFA252 /* Build configuration list for PBXNativeTarget "OnTheMapTests" */ = {
 			isa = XCConfigurationList;
@@ -542,6 +539,7 @@
 				F8F360EA1C063F7000AFA252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F8F360EB1C063F7000AFA252 /* Build configuration list for PBXNativeTarget "OnTheMapUITests" */ = {
 			isa = XCConfigurationList;
@@ -550,6 +548,7 @@
 				F8F360ED1C063F7000AFA252 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
