@@ -21,9 +21,22 @@ class MainviewController: UITabBarController {
         
     }
     
+    func popToLoginScreen(){
+        dispatch_async(dispatch_get_main_queue(), {
+            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
+            self.presentViewController(controller, animated: true, completion: nil)
+        })
+    }
+    
     func logOut() {
-        if let navigationController = self.navigationController {
-            navigationController.popToRootViewControllerAnimated(true)
+        UdacityClient.sharedInstance().logoutUser(){ (success, errorString) in
+            if success {
+                print("logout successful")
+                self.popToLoginScreen()
+            } else {
+                print("logout failed")
+                self.popToLoginScreen()
+            }
         }
     }
 }
