@@ -156,6 +156,7 @@
 		F854811A1BB0BDAB000DE3BF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0640;
 				ORGANIZATIONNAME = "Luis Antonio Rodriguez";
 				TargetAttributes = {
@@ -409,6 +410,7 @@
 				F85481431BB0BDAB000DE3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F85481441BB0BDAB000DE3BF /* Build configuration list for PBXNativeTarget "MYOATests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +419,7 @@
 				F85481461BB0BDAB000DE3BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

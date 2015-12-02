@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Login-->
@@ -120,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="1305" y="1313"/>
         </scene>
-        <!--Item 1-->
+        <!--Map View-->
         <scene sceneID="908-Ur-cQh">
             <objects>
-                <viewController id="OcT-Az-6Xq" sceneMemberID="viewController">
+                <viewController id="OcT-Az-6Xq" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bbq-Jk-nmV"/>
                         <viewControllerLayoutGuide type="bottom" id="UsX-iR-3ZE"/>
@@ -131,9 +132,23 @@
                     <view key="view" contentMode="scaleToFill" id="drE-yb-We9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-ec-L6V">
+                                <rect key="frame" x="4" y="64" width="592" height="480"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zeB-ec-L6V" firstAttribute="top" secondItem="bbq-Jk-nmV" secondAttribute="bottom" id="1u3-UK-XNQ"/>
+                            <constraint firstItem="zeB-ec-L6V" firstAttribute="leading" secondItem="drE-yb-We9" secondAttribute="leadingMargin" constant="-16" id="D76-5g-Tam"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zeB-ec-L6V" secondAttribute="trailing" constant="-16" id="glQ-1d-bxN"/>
+                            <constraint firstItem="UsX-iR-3ZE" firstAttribute="top" secondItem="zeB-ec-L6V" secondAttribute="bottom" id="yD9-Vx-05Y"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="1pY-IK-ivC"/>
+                    <tabBarItem key="tabBarItem" title="Map View" id="1pY-IK-ivC"/>
+                    <connections>
+                        <outlet property="mapView" destination="zeB-ec-L6V" id="z8R-xg-nZQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FBo-ZO-J3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -155,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="118" y="484"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Mainview Controller-->
         <scene sceneID="RTw-5O-J2U">
             <objects>
-                <tabBarController id="1fx-p7-AyI" sceneMemberID="viewController">
+                <tabBarController id="1fx-p7-AyI" customClass="MainviewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Bxg-be-8Hg"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="0UO-vC-0VE">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
