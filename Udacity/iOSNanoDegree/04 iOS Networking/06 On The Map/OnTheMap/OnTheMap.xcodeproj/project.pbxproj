@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F807BF9F1C0EDA1A008121D0 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BF9E1C0EDA1A008121D0 /* MapViewController.swift */; };
 		F807BFA21C0EE7F5008121D0 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA11C0EE7F5008121D0 /* ParseClient.swift */; };
+		F807BFA41C0F6804008121D0 /* UdacityStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA31C0F6804008121D0 /* UdacityStudent.swift */; };
 		F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C01C063F7000AFA252 /* AppDelegate.swift */; };
 		F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* LoginViewController.swift */; };
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		F807BF9E1C0EDA1A008121D0 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		F807BFA11C0EE7F5008121D0 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
+		F807BFA31C0F6804008121D0 /* UdacityStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityStudent.swift; sourceTree = "<group>"; };
 		F8F360BD1C063F7000AFA252 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360C01C063F7000AFA252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F360C21C063F7000AFA252 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				F8F360EF1C06457D00AFA252 /* Clients */,
+				F807BFA31C0F6804008121D0 /* UdacityStudent.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8F360F41C06475A00AFA252 /* UdacityClient.swift in Sources */,
+				F807BFA41C0F6804008121D0 /* UdacityStudent.swift in Sources */,
 				F807BF9F1C0EDA1A008121D0 /* MapViewController.swift in Sources */,
 				F807BFA21C0EE7F5008121D0 /* ParseClient.swift in Sources */,
 				F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */,

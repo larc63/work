@@ -24,21 +24,31 @@ class LoginViewController: UIViewController {
     }
     
     func completeLogin() {
-        dispatch_async(dispatch_get_main_queue(), {
-            self.debugTextLabel.text = ""
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
-            self.presentViewController(controller, animated: true, completion: nil)
-        })
+        ParseClient.sharedInstance().getUserLocations(){(success, errorString, values) in
+            //TODO store the user location daa somewhere
+            if success {
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.studentLocations = UdacityStudent.studentsFromResults(values as! [[String:AnyObject]])
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.debugTextLabel.text = ""
+                    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
+                    self.presentViewController(controller, animated: true, completion: nil)
+                })
+            }else {
+                //TODO: display the error to the user
+                print("An error occurred \(errorString)")
+            }
+        }
     }
     
 
     @IBAction func loginButtonTouched(sender: AnyObject) {
         UdacityClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
             if success {
-//                self.completeLogin()
                 print("login successful")
                 self.completeLogin()
             } else {
+                //TODO: display the error to the user
                 //                self.displayError(errorString)
                 print("login failed")
             }

@@ -58,11 +58,10 @@ class WebServiceHelpers : NSObject {
                 print("No data was returned by the request!")
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            print(NSString(data: data, encoding: NSUTF8StringEncoding))
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
-            WebServiceHelpers.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
+            WebServiceHelpers.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
         }
         
         /* 7. Start the request */

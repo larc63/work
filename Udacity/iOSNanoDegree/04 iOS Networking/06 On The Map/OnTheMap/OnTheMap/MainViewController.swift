@@ -10,15 +10,14 @@ import Foundation
 import UIKit
 
 class MainviewController: UITabBarController {
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem (
             title: "Log Out",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "logOut")
-        
     }
     
     func popToLoginScreen(){
