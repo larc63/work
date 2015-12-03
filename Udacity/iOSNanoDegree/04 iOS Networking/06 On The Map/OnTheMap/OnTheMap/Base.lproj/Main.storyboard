@@ -102,10 +102,10 @@
             </objects>
             <point key="canvasLocation" x="-696" y="515"/>
         </scene>
-        <!--Item 2-->
+        <!--List-->
         <scene sceneID="1nL-zT-YXI">
             <objects>
-                <viewController id="zla-Ys-yGb" sceneMemberID="viewController">
+                <viewController id="zla-Ys-yGb" customClass="TableViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="PFg-hg-MK9"/>
                         <viewControllerLayoutGuide type="bottom" id="9Ma-ge-Vmw"/>
@@ -113,15 +113,60 @@
                     <view key="view" contentMode="scaleToFill" id="Tl5-q6-3jL">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PFM-bp-LZQ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="gray" indentationWidth="10" reuseIdentifier="StudentLocationTableViewCell" textLabel="mXK-uz-rIk" detailTextLabel="ZUC-8q-wjy" style="IBUITableViewCellStyleSubtitle" id="Y3t-PH-beW">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y3t-PH-beW" id="yRG-7R-rdM">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mXK-uz-rIk">
+                                                    <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZUC-8q-wjy">
+                                                    <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zla-Ys-yGb" id="TG8-D3-RYS"/>
+                                    <outlet property="delegate" destination="zla-Ys-yGb" id="Efl-Dt-1MH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PFM-bp-LZQ" firstAttribute="top" secondItem="PFg-hg-MK9" secondAttribute="bottom" id="hL4-TV-QOH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PFM-bp-LZQ" secondAttribute="trailing" constant="-20" id="hNM-gu-CAG"/>
+                            <constraint firstItem="9Ma-ge-Vmw" firstAttribute="top" secondItem="PFM-bp-LZQ" secondAttribute="bottom" id="myZ-He-O6j"/>
+                            <constraint firstItem="PFM-bp-LZQ" firstAttribute="leading" secondItem="Tl5-q6-3jL" secondAttribute="leadingMargin" constant="-20" id="sEj-tu-qih"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Xuj-G7-3D3"/>
+                    <tabBarItem key="tabBarItem" title="List" id="Xuj-G7-3D3"/>
+                    <connections>
+                        <outlet property="tableView" destination="PFM-bp-LZQ" id="M3f-ag-zTA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rfB-7D-q90" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1305" y="1313"/>
         </scene>
-        <!--Map View-->
+        <!--Map-->
         <scene sceneID="908-Ur-cQh">
             <objects>
                 <viewController id="OcT-Az-6Xq" customClass="MapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,7 +190,7 @@
                             <constraint firstItem="UsX-iR-3ZE" firstAttribute="top" secondItem="zeB-ec-L6V" secondAttribute="bottom" id="yD9-Vx-05Y"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map View" id="1pY-IK-ivC"/>
+                    <tabBarItem key="tabBarItem" title="Map" id="1pY-IK-ivC"/>
                     <connections>
                         <outlet property="mapView" destination="zeB-ec-L6V" id="z8R-xg-nZQ"/>
                     </connections>
@@ -191,6 +236,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="camera_128.png" width="30" height="30"/>
+        <image name="camera_128.png" width="128" height="128"/>
     </resources>
 </document>

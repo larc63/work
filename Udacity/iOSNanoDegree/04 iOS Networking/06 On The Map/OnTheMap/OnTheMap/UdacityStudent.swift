@@ -26,14 +26,7 @@ struct UdacityStudent {
         name = (dictionary[ParseClient.JSONResponseKeys.FirstName] as! String) + " " + (dictionary[ParseClient.JSONResponseKeys.LastName] as! String)
         lat = dictionary[ParseClient.JSONResponseKeys.Latitude] as! Double
         lon = dictionary[ParseClient.JSONResponseKeys.Longitude] as! Double
-        
-        struct JSONResponseKeys {
-            static let FirstName = "firstName"
-            static let LastName = "lastName"
-            static let Latitude = "latitude"
-            static let Longitude = "longitude"
-            static let MediaUrl = "mediaURL"
-        }
+        mediaURL = dictionary[ParseClient.JSONResponseKeys.MediaUrl] as! String
     }
     /* Helper: Given an array of dictionaries, convert them to an array of TMDBMovie objects */
     static func studentsFromResults(results: [[String : AnyObject]]) -> [UdacityStudent] {

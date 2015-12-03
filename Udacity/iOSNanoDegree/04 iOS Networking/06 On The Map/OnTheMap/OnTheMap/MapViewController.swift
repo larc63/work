@@ -12,6 +12,7 @@ import MapKit
 
 class MapViewController: UIViewController, MKMapViewDelegate {
     @IBOutlet weak var mapView: MKMapView!
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
