@@ -31,8 +31,9 @@ class LoginViewController: UIViewController {
                 appDelegate.studentLocations = UdacityStudent.studentsFromResults(values as! [[String:AnyObject]])
                 dispatch_async(dispatch_get_main_queue(), {
                     self.debugTextLabel.text = ""
-                    let controller = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
-                    self.presentViewController(controller, animated: true, completion: nil)
+                    let nav = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
+//                    nav.refresh()
+                    self.presentViewController(nav, animated: true, completion: nil)
                 })
             }else {
                 //TODO: display the error to the user

@@ -58,7 +58,7 @@ class WebServiceHelpers : NSObject {
                 print("No data was returned by the request!")
                 return
             }
-            print(NSString(data: data, encoding: NSUTF8StringEncoding))
+            //print(NSString(data: data, encoding: NSUTF8StringEncoding))
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
             WebServiceHelpers.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)

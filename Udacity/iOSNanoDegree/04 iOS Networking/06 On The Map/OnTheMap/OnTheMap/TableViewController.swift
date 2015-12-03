@@ -15,10 +15,16 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        refreshValues()
+    }
+    
+    func refreshValues(){
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         locations = appDelegate.studentLocations
-        dispatch_async(dispatch_get_main_queue()) {
-            self.tableView.reloadData()
+        if (tableView != nil){
+            dispatch_async(dispatch_get_main_queue()) {
+                self.tableView.reloadData()
+            }
         }
     }
     
@@ -44,6 +50,6 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 60
     }
 }

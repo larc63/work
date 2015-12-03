@@ -18,6 +18,7 @@ class MainviewController: UITabBarController {
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "logOut")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh")
     }
     
     func popToLoginScreen(){
@@ -37,5 +38,32 @@ class MainviewController: UITabBarController {
                 self.popToLoginScreen()
             }
         }
+    }
+    
+    func refresh(){
+        //let list = self.storyboard!.instantiateViewControllerWithIdentifier("ListView") as! TableViewController
+        let map = self.storyboard!.instantiateViewControllerWithIdentifier("MapView") as! MapViewController
+        //list.clearValues()
+        map.clearValues()
+        
+        ParseClient.sharedInstance().getUserLocations(){(success, errorString, values) in
+            //TODO store the user location daa somewhere
+            if success {
+                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+                appDelegate.studentLocations = UdacityStudent.studentsFromResults(values as! [[String:AnyObject]])
+                self.refreshValues()
+            }else {
+                //TODO: display the error to the user
+                print("An error occurred \(errorString)")
+            }
+        }
+    }
+    
+    func refreshValues(){
+        let list = self.storyboard!.instantiateViewControllerWithIdentifier("ListView") as! TableViewController
+        let map = self.storyboard!.instantiateViewControllerWithIdentifier("MapView") as! MapViewController
+        list.refreshValues()
+        map.refreshValues()
+        //map.view.setNeedsDisplay()
     }
 }

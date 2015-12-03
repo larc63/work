@@ -21,9 +21,11 @@ class  ParseClient {
     }
     
     func getUserLocations(completionHandler: (success: Bool, errorString: String?, userLocations: NSArray) -> Void ){
+        print("getting user locations")
         WebServiceHelpers.sharedInstance().taskForGETMethod("https://api.parse.com/1/classes/", method: "StudentLocation", parameters: ["limit":"100", "order":"-updatedAt"], requestValues: ["X-Parse-Application-Id" : applicationID, "X-Parse-REST-API-Key" : APIKey]) {(result, errorString) in
-            print("result = \(result)")
+//            print("result = \(result)")
             let values = result["results"] as! NSArray
+            print("got \(values.count) entries")
             completionHandler(success: true, errorString: nil, userLocations: values)
         }
     }
