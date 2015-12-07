@@ -18,13 +18,21 @@ class MainviewController: UITabBarController {
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "logOut")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh")
+        
+        let locationButton = UIBarButtonItem(image: UIImage(named: "MapMarker"), style: UIBarButtonItemStyle.Plain, target: self, action: "checkin")
+        
+        self.navigationItem.rightBarButtonItems = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"),
+                                                    locationButton]
+    }
+    
+    func checkin(){
+        //TODO: present check in screen modally here\
+        print( "go to location entry")
     }
     
     func popToLoginScreen(){
         dispatch_async(dispatch_get_main_queue(), {
-            let controller = self.storyboard!.instantiateViewControllerWithIdentifier("LoginViewController") 
-            self.presentViewController(controller, animated: true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
         })
     }
     
@@ -41,13 +49,7 @@ class MainviewController: UITabBarController {
     }
     
     func refresh(){
-        //let list = self.storyboard!.instantiateViewControllerWithIdentifier("ListView") as! TableViewController
-        let map = self.storyboard!.instantiateViewControllerWithIdentifier("MapView") as! MapViewController
-        //list.clearValues()
-        map.clearValues()
-        
         ParseClient.sharedInstance().getUserLocations(){(success, errorString, values) in
-            //TODO store the user location daa somewhere
             if success {
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.studentLocations = UdacityStudent.studentsFromResults(values as! [[String:AnyObject]])
@@ -60,10 +62,18 @@ class MainviewController: UITabBarController {
     }
     
     func refreshValues(){
-        let list = self.storyboard!.instantiateViewControllerWithIdentifier("ListView") as! TableViewController
-        let map = self.storyboard!.instantiateViewControllerWithIdentifier("MapView") as! MapViewController
-        list.refreshValues()
-        map.refreshValues()
-        //map.view.setNeedsDisplay()
+        for vc in self.customizableViewControllers! {
+            if vc is MapViewController{
+                let v = vc as! MapViewController
+                dispatch_async(dispatch_get_main_queue()) {
+                v.refreshValues()
+                }
+            }else if vc is TableViewController {
+                let v = vc as! TableViewController
+                dispatch_async(dispatch_get_main_queue()) {
+                v.refreshValues()
+                }
+            }
+        }
     }
 }

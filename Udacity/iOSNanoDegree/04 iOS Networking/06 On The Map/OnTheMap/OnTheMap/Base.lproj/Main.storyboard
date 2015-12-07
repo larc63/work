@@ -129,14 +129,14 @@
                                                     <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZUC-8q-wjy">
                                                     <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -157,7 +157,7 @@
                             <constraint firstItem="PFM-bp-LZQ" firstAttribute="leading" secondItem="Tl5-q6-3jL" secondAttribute="leadingMargin" constant="-20" id="sEj-tu-qih"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="List" id="Xuj-G7-3D3"/>
+                    <tabBarItem key="tabBarItem" title="List" image="list" id="Xuj-G7-3D3"/>
                     <connections>
                         <outlet property="tableView" destination="PFM-bp-LZQ" id="M3f-ag-zTA"/>
                     </connections>
@@ -193,7 +193,7 @@
                             <constraint firstItem="UsX-iR-3ZE" firstAttribute="top" secondItem="zeB-ec-L6V" secondAttribute="bottom" id="yD9-Vx-05Y"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="1pY-IK-ivC"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="map" id="1pY-IK-ivC"/>
                     <connections>
                         <outlet property="mapView" destination="zeB-ec-L6V" id="z8R-xg-nZQ"/>
                     </connections>
@@ -240,5 +240,7 @@
     </scenes>
     <resources>
         <image name="camera_128.png" width="128" height="128"/>
+        <image name="list" width="32" height="32"/>
+        <image name="map" width="32" height="32"/>
     </resources>
 </document>
