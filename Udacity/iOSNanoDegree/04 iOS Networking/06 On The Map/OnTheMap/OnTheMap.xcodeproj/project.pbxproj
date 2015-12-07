@@ -11,6 +11,7 @@
 		F807BFA21C0EE7F5008121D0 /* ParseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA11C0EE7F5008121D0 /* ParseClient.swift */; };
 		F807BFA41C0F6804008121D0 /* UdacityStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA31C0F6804008121D0 /* UdacityStudent.swift */; };
 		F807BFA61C102246008121D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA51C102246008121D0 /* TableViewController.swift */; };
+		F8AFBA621C15F2AE00EA2670 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */; };
 		F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C01C063F7000AFA252 /* AppDelegate.swift */; };
 		F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* LoginViewController.swift */; };
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
@@ -44,6 +45,7 @@
 		F807BFA11C0EE7F5008121D0 /* ParseClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseClient.swift; sourceTree = "<group>"; };
 		F807BFA31C0F6804008121D0 /* UdacityStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityStudent.swift; sourceTree = "<group>"; };
 		F807BFA51C102246008121D0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
 		F8F360BD1C063F7000AFA252 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360C01C063F7000AFA252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F360C21C063F7000AFA252 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				F8F360F71C0662A700AFA252 /* MainViewController.swift */,
 				F807BF9E1C0EDA1A008121D0 /* MapViewController.swift */,
 				F807BFA51C102246008121D0 /* TableViewController.swift */,
+				F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -330,6 +333,7 @@
 				F8F360F21C0646BF00AFA252 /* WebServiceHelpers.swift in Sources */,
 				F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */,
 				F807BFA61C102246008121D0 /* TableViewController.swift in Sources */,
+				F8AFBA621C15F2AE00EA2670 /* CheckinViewController.swift in Sources */,
 				F8F360F81C0662A700AFA252 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
