@@ -24,7 +24,7 @@ class WebServiceHelpers : NSObject {
         super.init()
     }
     
-    func taskForGETMethod(baseURL: String, method: String, parameters: [String : AnyObject], requestValues: [String:String], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForGETMethod(baseURL: String, method: String, parameters: [String : AnyObject], requestValues: [String:String], needsTruncating: Bool, completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         /* 1. Build the URL and configure the request */
         let urlString = baseURL + method + WebServiceHelpers.escapedParameters(parameters)
         let url = NSURL(string: urlString)!
@@ -59,9 +59,11 @@ class WebServiceHelpers : NSObject {
                 return
             }
             //print(NSString(data: data, encoding: NSUTF8StringEncoding))
+            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+//            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
-            WebServiceHelpers.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
+            WebServiceHelpers.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
         }
         
         /* 7. Start the request */

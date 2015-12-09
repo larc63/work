@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         //TODO remove me!!!
-        completeLogin()
+//        completeLogin()
     }
 
     override func didReceiveMemoryWarning() {
