@@ -12,6 +12,7 @@
 		F807BFA41C0F6804008121D0 /* UdacityStudent.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA31C0F6804008121D0 /* UdacityStudent.swift */; };
 		F807BFA61C102246008121D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA51C102246008121D0 /* TableViewController.swift */; };
 		F8AFBA621C15F2AE00EA2670 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */; };
+		F8D5E25C1C17358400D2B2B5 /* EnterURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E25B1C17358400D2B2B5 /* EnterURLViewController.swift */; };
 		F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C01C063F7000AFA252 /* AppDelegate.swift */; };
 		F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* LoginViewController.swift */; };
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
@@ -46,6 +47,7 @@
 		F807BFA31C0F6804008121D0 /* UdacityStudent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UdacityStudent.swift; sourceTree = "<group>"; };
 		F807BFA51C102246008121D0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
+		F8D5E25B1C17358400D2B2B5 /* EnterURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterURLViewController.swift; sourceTree = "<group>"; };
 		F8F360BD1C063F7000AFA252 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360C01C063F7000AFA252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F360C21C063F7000AFA252 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				F807BF9E1C0EDA1A008121D0 /* MapViewController.swift */,
 				F807BFA51C102246008121D0 /* TableViewController.swift */,
 				F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */,
+				F8D5E25B1C17358400D2B2B5 /* EnterURLViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D5E25C1C17358400D2B2B5 /* EnterURLViewController.swift in Sources */,
 				F8F360F41C06475A00AFA252 /* UdacityClient.swift in Sources */,
 				F807BFA41C0F6804008121D0 /* UdacityStudent.swift in Sources */,
 				F807BF9F1C0EDA1A008121D0 /* MapViewController.swift in Sources */,
