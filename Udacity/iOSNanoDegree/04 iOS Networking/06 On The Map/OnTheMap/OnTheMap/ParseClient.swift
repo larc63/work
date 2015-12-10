@@ -23,10 +23,33 @@ class  ParseClient {
     func getUserLocations(completionHandler: (success: Bool, errorString: String?, userLocations: NSArray) -> Void ){
         print("getting user locations")
         WebServiceHelpers.sharedInstance().taskForGETMethod("https://api.parse.com/1/classes/", method: "StudentLocation", parameters: ["limit":"100", "order":"-updatedAt"], requestValues: ["X-Parse-Application-Id" : applicationID, "X-Parse-REST-API-Key" : APIKey], needsTruncating: false) {(result, errorString) in
-//            print("result = \(result)")
+            //            print("result = \(result)")
+            //TODO: add an if for the errorString!!!
             let values = result["results"] as! NSArray
             print("got \(values.count) entries")
             completionHandler(success: true, errorString: nil, userLocations: values)
+        }
+    }
+    
+    
+    
+    func postUserLocation(uniqueKey: String, firstName: String, lastName: String, placeName: String, mediaURL: String, latitude: Double, longitude: Double, completionHandler: (success: Bool, errorString: String?) -> Void ){
+        print("sending user locations")
+        let jsonBody:[String : AnyObject] = ["uniqueKey" : uniqueKey,
+            "firstName" : firstName,
+            "lastName"  : lastName,
+            "mapString" : placeName,
+            "mediaURL"  : mediaURL,
+            "latitude" : latitude,
+            "longitude" : longitude]
+        
+        WebServiceHelpers.sharedInstance().taskForPOSTMethod("https://api.parse.com/1/classes/", method: "StudentLocation", parameters: [:], jsonBody: jsonBody, requestValues: ["X-Parse-Application-Id" : applicationID, "X-Parse-REST-API-Key" : APIKey], needsTruncating: false){ (result, error) in
+            let success = result["objectId"] as! String?
+            if error != nil && success == nil {
+                completionHandler(success: false, errorString: "An error occured while posting your location")
+            }else{
+                completionHandler(success: true, errorString: nil)
+            }
         }
     }
     

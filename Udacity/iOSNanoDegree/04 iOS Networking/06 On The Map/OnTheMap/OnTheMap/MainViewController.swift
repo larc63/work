@@ -28,6 +28,9 @@ class MainviewController: UITabBarController {
     func checkin(){
         //TODO: present check in screen modally here\
         print( "go to location entry")
+        let nav = self.storyboard!.instantiateViewControllerWithIdentifier("CheckinViewController")
+        //                    nav.refresh()
+        self.presentViewController(nav, animated: true, completion: nil)
     }
     
     func popToLoginScreen(){

@@ -105,7 +105,7 @@
         <!--Checkin View Controller-->
         <scene sceneID="EHa-gK-yfC">
             <objects>
-                <viewController id="yoE-1K-dy6" customClass="CheckinViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CheckinViewController" id="yoE-1K-dy6" customClass="CheckinViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YU4-2M-uJh"/>
                         <viewControllerLayoutGuide type="bottom" id="vMl-XD-GmB"/>
@@ -138,6 +138,9 @@ today?</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deF-ln-Rdd">
                                 <rect key="frame" x="532" y="20" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="yoE-1K-dy6" eventType="touchUpInside" id="AOy-nO-yfo"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQ5-Ow-TB3">
                                 <rect key="frame" x="0.0" y="199" width="600" height="144"/>
@@ -220,6 +223,9 @@ to search</string>
                                     <constraint firstAttribute="width" constant="58" id="Vwh-CZ-v36"/>
                                 </constraints>
                                 <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancel:" destination="IU9-Qh-ajK" eventType="touchUpInside" id="JO4-O9-2Fs"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p2G-Ls-t0C">
                                 <rect key="frame" x="0.0" y="48" width="600" height="108"/>
@@ -323,10 +329,10 @@ link here</string>
                                 <exclude reference="yxd-e0-0pg"/>
                                 <exclude reference="n3a-lA-64Y"/>
                                 <exclude reference="vb7-pK-3ky"/>
-                                <exclude reference="8vO-D0-bm4"/>
-                                <exclude reference="ifm-DE-gbY"/>
                                 <exclude reference="4Ok-Ou-tvm"/>
                                 <exclude reference="rPF-Re-Ixo"/>
+                                <exclude reference="8vO-D0-bm4"/>
+                                <exclude reference="ifm-DE-gbY"/>
                             </mask>
                         </variation>
                     </view>

@@ -18,7 +18,6 @@ class WebServiceHelpers : NSObject {
     var userID : Int? = nil
     
     // MARK: Initializers
-    
     override init() {
         session = NSURLSession.sharedSession()
         super.init()
@@ -38,6 +37,7 @@ class WebServiceHelpers : NSObject {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 print("There was an error with your request: \(error)")
+                //TODO: call completionHandler
                 return
             }
             
@@ -50,20 +50,22 @@ class WebServiceHelpers : NSObject {
                 } else {
                     print("Your request returned an invalid response!")
                 }
+                //TODO: call completionHandler
                 return
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard var data = data else {
                 print("No data was returned by the request!")
+                //TODO: call completionHandler
                 return
             }
-            //print(NSString(data: data, encoding: NSUTF8StringEncoding))
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-//            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            if needsTruncating{
+                data = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            }
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
-            WebServiceHelpers.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
+            WebServiceHelpers.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
         }
         
         /* 7. Start the request */
@@ -74,7 +76,7 @@ class WebServiceHelpers : NSObject {
     
     // MARK: POST
     
-    func taskForPOSTMethod(baseURL: String, method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
+    func taskForPOSTMethod(baseURL: String, method: String, parameters: [String : AnyObject], jsonBody: [String:AnyObject], requestValues: [String : String], needsTruncating: Bool, completionHandler: (result: AnyObject!, error: NSError?) -> Void) -> NSURLSessionDataTask {
         /* 1. Build the URL and configure the request */
         let urlString = baseURL + method + WebServiceHelpers.escapedParameters(parameters)
         let url = NSURL(string: urlString)!
@@ -82,6 +84,9 @@ class WebServiceHelpers : NSObject {
         request.HTTPMethod = "POST"
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        for (key, value) in requestValues {
+            request.addValue(value, forHTTPHeaderField: key)
+        }
         do {
             request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(jsonBody, options: .PrettyPrinted)
         }
@@ -91,6 +96,7 @@ class WebServiceHelpers : NSObject {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 print("There was an error with your request: \(error)")
+                //TODO: call completionHandler
                 return
             }
             
@@ -103,19 +109,23 @@ class WebServiceHelpers : NSObject {
                 } else {
                     print("Your request returned an invalid response!")
                 }
+                //TODO: call completionHandler
                 return
             }
             
             /* GUARD: Was there any data returned? */
-            guard let data = data else {
+            guard var data = data else {
                 print("No data was returned by the request!")
+                //TODO: call completionHandler
                 return
             }
-            let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
-            print(NSString(data: newData, encoding: NSUTF8StringEncoding))
+            if needsTruncating{
+                data = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
+            }
+            //print(NSString(data: data, encoding: NSUTF8StringEncoding))
             
             /* 5/6. Parse the data and use the data (happens in completion handler) */
-            WebServiceHelpers.parseJSONWithCompletionHandler(newData, completionHandler: completionHandler)
+            WebServiceHelpers.parseJSONWithCompletionHandler(data, completionHandler: completionHandler)
         }
         
         /* 7. Start the request */
@@ -146,6 +156,7 @@ class WebServiceHelpers : NSObject {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 print("There was an error with your request: \(error)")
+                //TODO: call completionHandler
                 return
             }
             
@@ -158,12 +169,14 @@ class WebServiceHelpers : NSObject {
                 } else {
                     print("Your request returned an invalid response!")
                 }
+                //TODO: call completionHandler
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 print("No data was returned by the request!")
+                //TODO: call completionHandler
                 return
             }
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
@@ -175,7 +188,6 @@ class WebServiceHelpers : NSObject {
         
         /* 7. Start the request */
         task.resume()
-        
         return task
     }
     
@@ -206,22 +218,15 @@ class WebServiceHelpers : NSObject {
     
     /* Helper function: Given a dictionary of parameters, convert to a string for a url */
     class func escapedParameters(parameters: [String : AnyObject]) -> String {
-        
         var urlVars = [String]()
-        
         for (key, value) in parameters {
-            
             /* Make sure that it is a string value */
             let stringValue = "\(value)"
-            
             /* Escape it */
             let escapedValue = stringValue.stringByAddingPercentEncodingWithAllowedCharacters(NSCharacterSet.URLQueryAllowedCharacterSet())
-            
             /* Append it */
             urlVars += [key + "=" + "\(escapedValue!)"]
-            
         }
-        
         return (!urlVars.isEmpty ? "?" : "") + urlVars.joinWithSeparator("&")
     }
     // MARK: Shared Instance

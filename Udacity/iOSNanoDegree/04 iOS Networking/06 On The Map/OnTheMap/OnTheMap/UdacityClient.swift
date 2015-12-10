@@ -14,7 +14,7 @@ class  UdacityClient {
     var first_name:String? = nil
     // MARK: Authentication (POST) Method
     func authenticateWithViewController(hostViewController: LoginViewController, completionHandler: (success: Bool, errorString: String?) -> Void) {
-        WebServiceHelpers.sharedInstance().taskForPOSTMethod("https://www.udacity.com/api/", method: "session", parameters: [:], jsonBody: ["udacity":["username":hostViewController.username.text!, "password": hostViewController.password.text!]]) { (result, errorString) in
+        WebServiceHelpers.sharedInstance().taskForPOSTMethod("https://www.udacity.com/api/", method: "session", parameters: [:], jsonBody: ["udacity":["username":hostViewController.username.text!, "password": hostViewController.password.text!]], requestValues: [:], needsTruncating: true) { (result, errorString) in
             print("result = \(result)")
             let account = result["account"] as! NSDictionary
             let registered = account["registered"] as! Bool

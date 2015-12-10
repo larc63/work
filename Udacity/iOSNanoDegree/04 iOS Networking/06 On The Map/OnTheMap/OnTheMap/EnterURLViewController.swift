@@ -11,8 +11,19 @@ import UIKit
 
 class EnterURLViewController: UIViewController, UITextViewDelegate{
     var long:Double = 0, lat:Double = 0, radius:Double = 0
+    var placeName: String? = nil
     @IBOutlet weak var urlText: UITextView!
     @IBOutlet weak var submitButton: UIButton!
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default){action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
     //MARK: text view delegate overrides
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         textView.text = ""
@@ -20,10 +31,37 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func submitButtonTapped(sender: AnyObject) {
-        guard NSURL(string: urlText.text) != nil else {
-            print("URL was invalid")
-            return
+        if let uniqueKey = UdacityClient.sharedInstance().userId {
+            if let first_name = UdacityClient.sharedInstance().first_name {
+                if let last_name = UdacityClient.sharedInstance().last_name {
+                    if let mediaURL = urlText.text {
+                        if let placeName = placeName {
+                            ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: lat, longitude: long){ (success, errorString) in
+                                if let errorString = errorString {
+                                    self.showAlert(errorString)
+                                } else {
+                                    self.dismissViewControllerAnimated(true, completion: nil)
+                                }
+                            }
+                        }else { //placeName
+                            let placeName = "" /// setting the place name to an empty string if the geolocation fails to find it
+                            ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: lat, longitude: long){ (success, errorString) in
+                                if let errorString = errorString {
+                                    self.showAlert(errorString)
+                                } else {
+                                    self.dismissViewControllerAnimated(true, completion: nil)
+                                }
+                            }
+                        }
+                    } else { //mediaURL
+                        showAlert("Please enter a valid URL")
+                    }
+                }
+            }
         }
-        
+    }
+    
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 }

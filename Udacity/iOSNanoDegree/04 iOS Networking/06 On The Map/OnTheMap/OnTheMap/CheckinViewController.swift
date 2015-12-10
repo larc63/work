@@ -24,6 +24,7 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
             vc.long = (place!.location?.coordinate.longitude)!
             vc.lat = (place!.location?.coordinate.latitude)!
             vc.radius = (place!.location?.horizontalAccuracy)! + (place!.location?.verticalAccuracy)!
+            vc.placeName = place!.name
         }
     }
     
@@ -38,8 +39,14 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
     
     //MARK: text view delegate overrides
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        //TODO: remove me!!
         textView.text = "1 infinite Loop"
-        geocoder.geocodeAddressString(textView.text) { (placemarks: [CLPlacemark]?, error: NSError?) in
+        return true
+    }
+    
+    //MARK: actions
+    @IBAction func search(sender: AnyObject) {
+        geocoder.geocodeAddressString(searchText.text) { (placemarks: [CLPlacemark]?, error: NSError?) in
             if let error = error {
                 // alert the user!
                 self.showAlert("there was an error \(error)")
@@ -56,11 +63,9 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
                 }
             }
         }
-        return true
     }
     
-    //MARK: actions
-    @IBAction func search(sender: AnyObject) {
+    @IBAction func cancel(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
-    
 }

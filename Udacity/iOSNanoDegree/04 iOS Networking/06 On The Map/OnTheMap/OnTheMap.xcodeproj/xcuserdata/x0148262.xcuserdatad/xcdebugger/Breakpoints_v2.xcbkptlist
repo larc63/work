@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMapTests/OnTheMapTests.swift"
-            timestampString = "470283705.478342"
+            filePath = "OnTheMap/EnterURLViewController.swift"
+            timestampString = "471430872.542396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "dataTaskWithRequest(_:completionHandler:)"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "submitButtonTapped(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/CheckinViewController.swift"
-            timestampString = "471323935.831466"
+            filePath = "OnTheMap/ParseClient.swift"
+            timestampString = "471429052.387853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "prepareForSegue(_:sender:)"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "postUserLocation(_:firstName:lastName:placeName:mediaURL:latitude:longitude:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,29 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "OnTheMap/UdacityClient.swift"
-            timestampString = "471371634.517053"
+            filePath = "OnTheMap/ParseClient.swift"
+            timestampString = "471429624.146792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "getUserData(_:)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "OnTheMap/UdacityClient.swift"
-            timestampString = "471371634.517053"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
-            landmarkName = "authenticateWithViewController(_:completionHandler:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "postUserLocation(_:firstName:lastName:placeName:mediaURL:latitude:longitude:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -74,12 +58,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OnTheMap/WebServiceHelpers.swift"
-            timestampString = "471371904.542852"
+            timestampString = "471430872.542396"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "taskForGETMethod(_:method:parameters:requestValues:needsTruncating:completionHandler:)"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
+            landmarkName = "taskForPOSTMethod(_:method:parameters:jsonBody:requestValues:needsTruncating:completionHandler:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
