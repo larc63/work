@@ -15,10 +15,14 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var urlText: UITextView!
     @IBOutlet weak var submitButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default){action in
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
@@ -31,6 +35,11 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func submitButtonTapped(sender: AnyObject) {
+        if Helpers.isValidURL(urlText.text) {
+            showAlert("Please enter a valid URL")
+            return
+        }
+        
         if let uniqueKey = UdacityClient.sharedInstance().userId {
             if let first_name = UdacityClient.sharedInstance().first_name {
                 if let last_name = UdacityClient.sharedInstance().last_name {
@@ -62,6 +71,6 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

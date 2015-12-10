@@ -18,6 +18,11 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToAddURLSegue" {
             let vc = segue.destinationViewController as! EnterURLViewController
@@ -31,7 +36,6 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
     func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
         let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default){action in
-            self.dismissViewControllerAnimated(true, completion: nil)
         }
         alert.addAction(okAction)
         self.presentViewController(alert, animated: true, completion: nil)
@@ -66,6 +70,6 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func cancel(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
 }

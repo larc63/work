@@ -22,15 +22,19 @@ class MainviewController: UITabBarController {
         let locationButton = UIBarButtonItem(image: UIImage(named: "MapMarker"), style: UIBarButtonItemStyle.Plain, target: self, action: "checkin")
         
         self.navigationItem.rightBarButtonItems = [ UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Refresh, target: self, action: "refresh"),
-                                                    locationButton]
+            locationButton]
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
     func checkin(){
         //TODO: present check in screen modally here\
         print( "go to location entry")
         let nav = self.storyboard!.instantiateViewControllerWithIdentifier("CheckinViewController")
         //                    nav.refresh()
-        self.presentViewController(nav, animated: true, completion: nil)
+        self.navigationController?.pushViewController(nav, animated: true)
     }
     
     func popToLoginScreen(){
@@ -69,12 +73,12 @@ class MainviewController: UITabBarController {
             if vc is MapViewController{
                 let v = vc as! MapViewController
                 dispatch_async(dispatch_get_main_queue()) {
-                v.refreshValues()
+                    v.refreshValues()
                 }
             }else if vc is TableViewController {
                 let v = vc as! TableViewController
                 dispatch_async(dispatch_get_main_queue()) {
-                v.refreshValues()
+                    v.refreshValues()
                 }
             }
         }

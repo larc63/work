@@ -13,6 +13,9 @@
 		F807BFA61C102246008121D0 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F807BFA51C102246008121D0 /* TableViewController.swift */; };
 		F8AFBA621C15F2AE00EA2670 /* CheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */; };
 		F8D5E25C1C17358400D2B2B5 /* EnterURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E25B1C17358400D2B2B5 /* EnterURLViewController.swift */; };
+		F8D5E25F1C19842500D2B2B5 /* EnterURLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E25E1C19842500D2B2B5 /* EnterURLTest.swift */; };
+		F8D5E2611C1984A000D2B2B5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E2601C1984A000D2B2B5 /* Helpers.swift */; };
+		F8D5E2621C1985E300D2B2B5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E2601C1984A000D2B2B5 /* Helpers.swift */; };
 		F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C01C063F7000AFA252 /* AppDelegate.swift */; };
 		F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* LoginViewController.swift */; };
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
@@ -48,6 +51,9 @@
 		F807BFA51C102246008121D0 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		F8AFBA611C15F2AE00EA2670 /* CheckinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinViewController.swift; sourceTree = "<group>"; };
 		F8D5E25B1C17358400D2B2B5 /* EnterURLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterURLViewController.swift; sourceTree = "<group>"; };
+		F8D5E25D1C19842400D2B2B5 /* OnTheMapTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnTheMapTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		F8D5E25E1C19842500D2B2B5 /* EnterURLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterURLTest.swift; sourceTree = "<group>"; };
+		F8D5E2601C1984A000D2B2B5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		F8F360BD1C063F7000AFA252 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360C01C063F7000AFA252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F360C21C063F7000AFA252 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +135,7 @@
 				F8F360C71C063F7000AFA252 /* Assets.xcassets */,
 				F8F360C91C063F7000AFA252 /* LaunchScreen.storyboard */,
 				F8F360CC1C063F7000AFA252 /* Info.plist */,
+				F8D5E2601C1984A000D2B2B5 /* Helpers.swift */,
 			);
 			path = OnTheMap;
 			sourceTree = "<group>";
@@ -137,6 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				F8F360D71C063F7000AFA252 /* Info.plist */,
+				F8D5E25E1C19842500D2B2B5 /* EnterURLTest.swift */,
+				F8D5E25D1C19842400D2B2B5 /* OnTheMapTests-Bridging-Header.h */,
 			);
 			path = OnTheMapTests;
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 				F807BFA21C0EE7F5008121D0 /* ParseClient.swift in Sources */,
 				F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */,
 				F8F360F21C0646BF00AFA252 /* WebServiceHelpers.swift in Sources */,
+				F8D5E2611C1984A000D2B2B5 /* Helpers.swift in Sources */,
 				F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */,
 				F807BFA61C102246008121D0 /* TableViewController.swift in Sources */,
 				F8AFBA621C15F2AE00EA2670 /* CheckinViewController.swift in Sources */,
@@ -346,6 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8D5E25F1C19842500D2B2B5 /* EnterURLTest.swift in Sources */,
+				F8D5E2621C1985E300D2B2B5 /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,10 +511,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OnTheMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavacahacemu.OnTheMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTheMapTests/OnTheMapTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnTheMap.app/OnTheMap";
 			};
 			name = Debug;
@@ -511,10 +526,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = OnTheMapTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavacahacemu.OnTheMapTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "OnTheMapTests/OnTheMapTests-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OnTheMap.app/OnTheMap";
 			};
 			name = Release;
