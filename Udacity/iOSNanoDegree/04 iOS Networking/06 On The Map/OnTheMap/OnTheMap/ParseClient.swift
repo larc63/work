@@ -27,6 +27,7 @@ class  ParseClient {
             //TODO: add an if for the errorString!!!
             let values = result["results"] as! NSArray
             print("got \(values.count) entries")
+            print("got \(values)")
             completionHandler(success: true, errorString: nil, userLocations: values)
         }
     }

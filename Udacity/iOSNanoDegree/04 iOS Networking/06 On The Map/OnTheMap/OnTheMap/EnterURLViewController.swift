@@ -35,7 +35,7 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
     }
     
     @IBAction func submitButtonTapped(sender: AnyObject) {
-        if Helpers.isValidURL(urlText.text) {
+        if !Helpers.isValidURL(urlText.text) {
             showAlert("Please enter a valid URL")
             return
         }
@@ -49,7 +49,9 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
                                 if let errorString = errorString {
                                     self.showAlert(errorString)
                                 } else {
-                                    self.dismissViewControllerAnimated(true, completion: nil)
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                    self.navigationController?.popToRootViewControllerAnimated(true)
+                                    }
                                 }
                             }
                         }else { //placeName
@@ -58,7 +60,9 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
                                 if let errorString = errorString {
                                     self.showAlert(errorString)
                                 } else {
-                                    self.dismissViewControllerAnimated(true, completion: nil)
+                                    dispatch_async(dispatch_get_main_queue()) {
+                                    self.navigationController?.popToRootViewControllerAnimated(true)
+                                    }
                                 }
                             }
                         }

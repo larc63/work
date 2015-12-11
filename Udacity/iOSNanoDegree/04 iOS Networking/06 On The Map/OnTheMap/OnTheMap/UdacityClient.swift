@@ -37,7 +37,7 @@ class  UdacityClient {
     // MARK: User Data (GET) Method
     func getUserData(completionHandler: (success: Bool, errorString: String?) -> Void) {
         WebServiceHelpers.sharedInstance().taskForGETMethod("https://www.udacity.com/api/", method: "users/\(userId!)", parameters: [:], requestValues: [:], needsTruncating: true) { (result, errorString) in
-            print("result = \(result)")
+//            print("result = \(result)")
             let user = result["user"] as! NSDictionary
             self.last_name = user["last_name"] as! String?
             self.first_name = user["first_name"] as! String?

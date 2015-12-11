@@ -44,7 +44,7 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
     //MARK: text view delegate overrides
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         //TODO: remove me!!
-        textView.text = "1 infinite Loop"
+        textView.text = "Ensenada, Mexico"
         return true
     }
     

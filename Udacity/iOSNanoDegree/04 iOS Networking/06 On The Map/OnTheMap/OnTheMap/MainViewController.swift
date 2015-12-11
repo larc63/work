@@ -29,11 +29,9 @@ class MainviewController: UITabBarController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
     func checkin(){
-        //TODO: present check in screen modally here\
-        print( "go to location entry")
         let nav = self.storyboard!.instantiateViewControllerWithIdentifier("CheckinViewController")
-        //                    nav.refresh()
         self.navigationController?.pushViewController(nav, animated: true)
     }
     
