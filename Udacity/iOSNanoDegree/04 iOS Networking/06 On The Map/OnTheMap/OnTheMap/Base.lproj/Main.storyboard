@@ -251,6 +251,9 @@ link here</string>
                             </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LLI-Ly-y26">
                                 <rect key="frame" x="0.0" y="155" width="600" height="401"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IU9-Qh-ajK" id="Dl5-61-yqa"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8eW-X3-sZq">
                                 <rect key="frame" x="276" y="493" width="49" height="30"/>
@@ -337,6 +340,7 @@ link here</string>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="LLI-Ly-y26" id="iDZ-6E-PpU"/>
                         <outlet property="submitButton" destination="8eW-X3-sZq" id="bLd-Ne-JDN"/>
                         <outlet property="urlText" destination="p2G-Ls-t0C" id="StX-oF-gUX"/>
                     </connections>

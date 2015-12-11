@@ -7,10 +7,20 @@
 //
 
 import Foundation
+import UIKit
 
 class Helpers{
-//    static let urlMatchRegex = "/^(https?:\\/\\/)?([a-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\\/?$/"
     static let urlMatchRegex = "^(https?:\\/\\/)?((([a-z0-9]+[a-z0-9\\.-]*)*[a-z0-9])+\\.)+((([a-z0-9]+[a-z0-9\\.-]*)*[a-z0-9])+)+\\/?"
+    
+    class func showAlert(viewController: UIViewController, message: String) {
+        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default){action in
+        }
+        alert.addAction(okAction)
+        dispatch_async(dispatch_get_main_queue()) {
+            viewController.presentViewController(alert, animated: true, completion: nil)
+        }
+    }
     
     class func isValidURL(string: String) -> Bool{
         let range = string.rangeOfString(urlMatchRegex, options: .RegularExpressionSearch)

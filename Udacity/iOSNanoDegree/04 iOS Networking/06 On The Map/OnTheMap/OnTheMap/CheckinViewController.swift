@@ -26,8 +26,7 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "goToAddURLSegue" {
             let vc = segue.destinationViewController as! EnterURLViewController
-            vc.long = (place!.location?.coordinate.longitude)!
-            vc.lat = (place!.location?.coordinate.latitude)!
+            vc.coordinate = (place!.location?.coordinate)!
             vc.radius = (place!.location?.horizontalAccuracy)! + (place!.location?.verticalAccuracy)!
             vc.placeName = place!.name
         }

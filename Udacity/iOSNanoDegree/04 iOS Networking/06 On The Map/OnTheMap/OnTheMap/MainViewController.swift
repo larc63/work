@@ -48,6 +48,11 @@ class MainviewController: UITabBarController {
                 self.popToLoginScreen()
             } else {
                 print("logout failed")
+                if let errorString = errorString {
+                Helpers.showAlert(self, message: errorString)
+                } else {
+                    Helpers.showAlert(self, message: "An error occurred while logging out")
+                }
                 self.popToLoginScreen()
             }
         }

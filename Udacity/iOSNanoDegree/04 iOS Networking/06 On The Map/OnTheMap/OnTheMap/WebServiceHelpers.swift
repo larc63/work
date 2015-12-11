@@ -37,27 +37,33 @@ class WebServiceHelpers : NSObject {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 print("There was an error with your request: \(error)")
-                //TODO: call completionHandler
+                // call completionHandler
+                completionHandler(result: nil, error:error)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                var error: NSError
                 if let response = response as? NSHTTPURLResponse {
                     print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                    error = NSError(domain: "HTTPError", code: response.statusCode, userInfo: nil)
                 } else if let response = response {
                     print("Your request returned an invalid response! Response: \(response)!")
+                    error = NSError(domain: "HTTPError \(response)", code: 0, userInfo: nil)
                 } else {
                     print("Your request returned an invalid response!")
+                    error = NSError(domain: "HTTPError invalid response", code: 0, userInfo: nil)
                 }
-                //TODO: call completionHandler
+                completionHandler(result: nil, error: error)
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard var data = data else {
                 print("No data was returned by the request!")
-                //TODO: call completionHandler
+                let error = NSError(domain: "No data returned", code: 0, userInfo: nil)
+                completionHandler(result: nil, error: error)
                 return
             }
             if needsTruncating{
@@ -96,27 +102,33 @@ class WebServiceHelpers : NSObject {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 print("There was an error with your request: \(error)")
-                //TODO: call completionHandler
+                // call completionHandler
+                completionHandler(result: nil, error:error)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                var error: NSError
                 if let response = response as? NSHTTPURLResponse {
                     print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                    error = NSError(domain: "HTTPError", code: response.statusCode, userInfo: nil)
                 } else if let response = response {
                     print("Your request returned an invalid response! Response: \(response)!")
+                    error = NSError(domain: "HTTPError \(response)", code: 0, userInfo: nil)
                 } else {
                     print("Your request returned an invalid response!")
+                    error = NSError(domain: "HTTPError invalid response", code: 0, userInfo: nil)
                 }
-                //TODO: call completionHandler
+                completionHandler(result: nil, error: error)
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard var data = data else {
                 print("No data was returned by the request!")
-                //TODO: call completionHandler
+                let error = NSError(domain: "No data returned", code: 0, userInfo: nil)
+                completionHandler(result: nil, error: error)
                 return
             }
             if needsTruncating{
@@ -156,29 +168,36 @@ class WebServiceHelpers : NSObject {
             /* GUARD: Was there an error? */
             guard (error == nil) else {
                 print("There was an error with your request: \(error)")
-                //TODO: call completionHandler
+                // call completionHandler
+                completionHandler(result: nil, error:error)
                 return
             }
             
             /* GUARD: Did we get a successful 2XX response? */
             guard let statusCode = (response as? NSHTTPURLResponse)?.statusCode where statusCode >= 200 && statusCode <= 299 else {
+                var error: NSError
                 if let response = response as? NSHTTPURLResponse {
                     print("Your request returned an invalid response! Status code: \(response.statusCode)!")
+                    error = NSError(domain: "HTTPError", code: response.statusCode, userInfo: nil)
                 } else if let response = response {
                     print("Your request returned an invalid response! Response: \(response)!")
+                    error = NSError(domain: "HTTPError \(response)", code: 0, userInfo: nil)
                 } else {
                     print("Your request returned an invalid response!")
+                    error = NSError(domain: "HTTPError invalid response", code: 0, userInfo: nil)
                 }
-                //TODO: call completionHandler
+                completionHandler(result: nil, error: error)
                 return
             }
             
             /* GUARD: Was there any data returned? */
             guard let data = data else {
                 print("No data was returned by the request!")
-                //TODO: call completionHandler
+                let error = NSError(domain: "No data returned", code: 0, userInfo: nil)
+                completionHandler(result: nil, error: error)
                 return
             }
+            // since no other APIs except Udacity use this method, the boolean isn't necessary
             let newData = data.subdataWithRange(NSMakeRange(5, data.length - 5)) /* subset response data! */
             print(NSString(data: newData, encoding: NSUTF8StringEncoding))
             

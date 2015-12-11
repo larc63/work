@@ -8,24 +8,28 @@
 
 import Foundation
 import UIKit
+import MapKit
 
-class EnterURLViewController: UIViewController, UITextViewDelegate{
-    var long:Double = 0, lat:Double = 0, radius:Double = 0
+class EnterURLViewController: UIViewController, UITextViewDelegate, MKMapViewDelegate{
+    var radius:Double = 0
+    var coordinate:CLLocationCoordinate2D? = nil
     var placeName: String? = nil
     @IBOutlet weak var urlText: UITextView!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-        let okAction = UIAlertAction(title: "ok", style: UIAlertActionStyle.Default){action in
-        }
-        alert.addAction(okAction)
-        self.presentViewController(alert, animated: true, completion: nil)
+        
+        // Here we create the annotation and set its coordiate, title, and subtitle properties
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate!
+        annotation.title = placeName!
+        mapView.addAnnotation(annotation)
+        print("setting radius to \(radius)")
+        let oldRegion = mapView.regionThatFits(MKCoordinateRegionMakeWithDistance(coordinate!, radius*10, radius*10))
+        mapView.setRegion(oldRegion, animated: true)
     }
     
     //MARK: text view delegate overrides
@@ -34,9 +38,41 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
         return true
     }
     
+    // MARK: - MKMapViewDelegate
+    
+    // Here we create a view with a "right callout accessory view". You might choose to look into other
+    // decoration alternatives.
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        let reuseId = "pin"
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.pinTintColor = UIColor.redColor()
+            //            pinView!.rightCalloutAccessoryView = UIButton(type: .DetailDisclosure)
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        return pinView
+    }
+    
+    // This delegate method is implemented to respond to taps. It opens the system browser
+    // to the URL specified in the annotationViews subtitle property.
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        if control == view.rightCalloutAccessoryView {
+            let app = UIApplication.sharedApplication()
+            if let toOpen = view.annotation?.subtitle! {
+                app.openURL(NSURL(string: toOpen)!)
+            }
+        }
+    }
+    
+    // MARK: Actions for buttons
+    
     @IBAction func submitButtonTapped(sender: AnyObject) {
         if !Helpers.isValidURL(urlText.text) {
-            showAlert("Please enter a valid URL")
+            Helpers.showAlert(self, message:"Please enter a valid URL")
             return
         }
         
@@ -45,29 +81,29 @@ class EnterURLViewController: UIViewController, UITextViewDelegate{
                 if let last_name = UdacityClient.sharedInstance().last_name {
                     if let mediaURL = urlText.text {
                         if let placeName = placeName {
-                            ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: lat, longitude: long){ (success, errorString) in
+                            ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!){ (success, errorString) in
                                 if let errorString = errorString {
-                                    self.showAlert(errorString)
+                                    Helpers.showAlert(self, message:errorString)
                                 } else {
                                     dispatch_async(dispatch_get_main_queue()) {
-                                    self.navigationController?.popToRootViewControllerAnimated(true)
+                                        self.navigationController?.popToRootViewControllerAnimated(true)
                                     }
                                 }
                             }
                         }else { //placeName
                             let placeName = "" /// setting the place name to an empty string if the geolocation fails to find it
-                            ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: lat, longitude: long){ (success, errorString) in
+                            ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!){ (success, errorString) in
                                 if let errorString = errorString {
-                                    self.showAlert(errorString)
+                                    Helpers.showAlert(self, message:errorString)
                                 } else {
                                     dispatch_async(dispatch_get_main_queue()) {
-                                    self.navigationController?.popToRootViewControllerAnimated(true)
+                                        self.navigationController?.popToRootViewControllerAnimated(true)
                                     }
                                 }
                             }
                         }
                     } else { //mediaURL
-                        showAlert("Please enter a valid URL")
+                        Helpers.showAlert(self, message:"Please enter a valid URL")
                     }
                 }
             }

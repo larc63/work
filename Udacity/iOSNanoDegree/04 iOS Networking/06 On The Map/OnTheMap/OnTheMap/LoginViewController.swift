@@ -12,14 +12,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var debugTextLabel: UILabel!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //TODO remove me!!!
-//        completeLogin()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -34,29 +32,35 @@ class LoginViewController: UIViewController {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.debugTextLabel.text = ""
                     let nav = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController
-//                    nav.refresh()
+                    //                    nav.refresh()
                     self.presentViewController(nav, animated: true, completion: nil)
                 })
             }else {
-                //TODO: display the error to the user
-                print("An error occurred \(errorString)")
+                if let errorString = errorString {
+                    Helpers.showAlert(self, message: errorString)
+                }else{
+                    Helpers.showAlert(self, message: "An error occurred while logging you in")
+                }
             }
         }
     }
     
-
+    
     @IBAction func loginButtonTouched(sender: AnyObject) {
         UdacityClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
             if success {
                 print("login successful")
                 self.completeLogin()
             } else {
-                //TODO: display the error to the user
-                //                self.displayError(errorString)
                 print("login failed")
+                if let errorString = errorString {
+                    Helpers.showAlert(self, message: errorString)
+                }else{
+                    Helpers.showAlert(self, message: "An error occurred while logging you in")
+                }
             }
         }
     }
-
+    
 }
 
