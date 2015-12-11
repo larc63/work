@@ -12,10 +12,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var debugTextLabel: UILabel!
+    @IBOutlet weak var signUpLabel: tappableLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        signUpLabel.url = "https://www.udacity.com/account/auth#!/signin"
     }
     
     override func didReceiveMemoryWarning() {

@@ -16,6 +16,7 @@
 		F8D5E25F1C19842500D2B2B5 /* EnterURLTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E25E1C19842500D2B2B5 /* EnterURLTest.swift */; };
 		F8D5E2611C1984A000D2B2B5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E2601C1984A000D2B2B5 /* Helpers.swift */; };
 		F8D5E2621C1985E300D2B2B5 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E2601C1984A000D2B2B5 /* Helpers.swift */; };
+		F8D5E2641C1ADBF900D2B2B5 /* tappableLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D5E2631C1ADBF900D2B2B5 /* tappableLabel.swift */; };
 		F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C01C063F7000AFA252 /* AppDelegate.swift */; };
 		F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F360C21C063F7000AFA252 /* LoginViewController.swift */; };
 		F8F360C61C063F7000AFA252 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8F360C41C063F7000AFA252 /* Main.storyboard */; };
@@ -54,6 +55,7 @@
 		F8D5E25D1C19842400D2B2B5 /* OnTheMapTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "OnTheMapTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		F8D5E25E1C19842500D2B2B5 /* EnterURLTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnterURLTest.swift; sourceTree = "<group>"; };
 		F8D5E2601C1984A000D2B2B5 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		F8D5E2631C1ADBF900D2B2B5 /* tappableLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tappableLabel.swift; sourceTree = "<group>"; };
 		F8F360BD1C063F7000AFA252 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8F360C01C063F7000AFA252 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8F360C21C063F7000AFA252 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 		F8F360F51C06626500AFA252 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F8D5E2631C1ADBF900D2B2B5 /* tappableLabel.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				F807BF9F1C0EDA1A008121D0 /* MapViewController.swift in Sources */,
 				F807BFA21C0EE7F5008121D0 /* ParseClient.swift in Sources */,
 				F8F360C31C063F7000AFA252 /* LoginViewController.swift in Sources */,
+				F8D5E2641C1ADBF900D2B2B5 /* tappableLabel.swift in Sources */,
 				F8F360F21C0646BF00AFA252 /* WebServiceHelpers.swift in Sources */,
 				F8D5E2611C1984A000D2B2B5 /* Helpers.swift in Sources */,
 				F8F360C11C063F7000AFA252 /* AppDelegate.swift in Sources */,

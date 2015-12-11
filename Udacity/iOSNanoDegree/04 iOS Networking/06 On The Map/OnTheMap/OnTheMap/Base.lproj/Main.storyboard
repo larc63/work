@@ -18,8 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfA-64-asx">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VfA-64-asx">
                                 <rect key="frame" x="175" y="341" width="250" height="44"/>
+                                <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Igm-7A-SK2"/>
                                 </constraints>
@@ -30,7 +31,7 @@
                                     <action selector="loginButtonTouched:" destination="3SU-Xh-hRc" eventType="touchUpInside" id="uU7-8X-PQw"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please Log In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMP-4a-54H">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Login to Udacity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMP-4a-54H">
                                 <rect key="frame" x="198" y="188" width="206" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="qyh-ch-WrS"/>
@@ -39,7 +40,7 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="larc63@gmail.com" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-Cf-esy">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="larc63@gmail.com" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jnf-Cf-esy">
                                 <rect key="frame" x="175" y="237" width="250" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.86647050218169852" blue="0.64753390823884249" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -50,7 +51,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vacaloca" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAr-h9-b5I">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="vacaloca" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fAr-h9-b5I">
                                 <rect key="frame" x="175" y="289" width="250" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.86647050219999999" blue="0.64753390820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -59,17 +60,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera_128.png" translatesAutoresizingMaskIntoConstraints="NO" id="frD-ap-JPl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="udacity" translatesAutoresizingMaskIntoConstraints="NO" id="frD-ap-JPl">
                                 <rect key="frame" x="236" y="50" width="128" height="128"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXX-kl-mt5">
-                                <rect key="frame" x="175" y="393" width="250" height="44"/>
+                            <label opaque="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ncF-iJ-h6d" customClass="tappableLabel" customModule="OnTheMap" customModuleProvider="target">
+                                <rect key="frame" x="129" y="405" width="342" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="FTQ-ND-q7l"/>
-                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="250" id="xKL-ay-ZxL"/>
+                                    <constraint firstAttribute="height" constant="41" id="Sge-Fm-dxx"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Don't have an account? Sign Up">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="truncatingTail" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -83,18 +90,18 @@
                             <constraint firstAttribute="centerX" secondItem="frD-ap-JPl" secondAttribute="centerX" id="FOw-k2-3ED"/>
                             <constraint firstItem="fAr-h9-b5I" firstAttribute="top" secondItem="Jnf-Cf-esy" secondAttribute="bottom" constant="8" symbolic="YES" id="PVs-su-j5M"/>
                             <constraint firstAttribute="centerX" secondItem="VfA-64-asx" secondAttribute="centerX" id="RSa-Ek-OWT"/>
+                            <constraint firstItem="ncF-iJ-h6d" firstAttribute="top" secondItem="VfA-64-asx" secondAttribute="bottom" constant="20" id="Tsa-h9-sCZ"/>
                             <constraint firstItem="Jnf-Cf-esy" firstAttribute="top" secondItem="JMP-4a-54H" secondAttribute="bottom" constant="8" symbolic="YES" id="akQ-GM-Ulm"/>
-                            <constraint firstItem="RXX-kl-mt5" firstAttribute="width" secondItem="fAr-h9-b5I" secondAttribute="width" id="hJp-1R-jPE"/>
                             <constraint firstAttribute="centerX" secondItem="JMP-4a-54H" secondAttribute="centerX" id="hiv-YT-8VV"/>
                             <constraint firstItem="JMP-4a-54H" firstAttribute="top" secondItem="frD-ap-JPl" secondAttribute="bottom" constant="10" id="jHk-Tf-FnL"/>
-                            <constraint firstAttribute="centerX" secondItem="RXX-kl-mt5" secondAttribute="centerX" id="kqc-I0-dhf"/>
-                            <constraint firstItem="RXX-kl-mt5" firstAttribute="top" secondItem="VfA-64-asx" secondAttribute="bottom" constant="8" id="lJw-FI-iT3"/>
                             <constraint firstAttribute="centerX" secondItem="Jnf-Cf-esy" secondAttribute="centerX" id="sc9-H9-3gS"/>
+                            <constraint firstItem="ncF-iJ-h6d" firstAttribute="centerX" secondItem="Kjo-9h-yRk" secondAttribute="centerX" id="v1s-QF-P2J"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="debugTextLabel" destination="JMP-4a-54H" id="lK4-SJ-xu6"/>
                         <outlet property="password" destination="fAr-h9-b5I" id="rlo-if-wFx"/>
+                        <outlet property="signUpLabel" destination="ncF-iJ-h6d" id="GrI-AV-uga"/>
                         <outlet property="username" destination="Jnf-Cf-esy" id="YgR-SU-tjZ"/>
                     </connections>
                 </viewController>
@@ -491,8 +498,8 @@ link here</string>
     </scenes>
     <resources>
         <image name="MapMarker" width="32" height="32"/>
-        <image name="camera_128.png" width="128" height="128"/>
         <image name="list" width="32" height="32"/>
         <image name="map" width="32" height="32"/>
+        <image name="udacity" width="256" height="256"/>
     </resources>
 </document>
