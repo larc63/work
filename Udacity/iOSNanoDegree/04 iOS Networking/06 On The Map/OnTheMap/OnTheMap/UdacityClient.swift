@@ -32,7 +32,11 @@ class  UdacityClient {
                     completionHandler(success: false, errorString: "An error occurred while logging in, make sure that your username and password are correct")
                 }
             }else {
-                completionHandler(success: false, errorString: "An error occurred while logging in, there seems to be a connectivity issue")
+                if error!.code == 403 || error!.code == 400{
+                    completionHandler(success: false, errorString: "An error occurred while logging in, make sure that your username and password are correct")
+                }else{
+                    completionHandler(success: false, errorString: "An error occurred while logging in, there seems to be a connectivity issue")
+                }
             }
         }
     }
