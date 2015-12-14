@@ -8,16 +8,31 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: ViewControllerForKeyboard, UITextFieldDelegate {
+    @IBOutlet weak var udactityLogoTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var debugTextLabel: UILabel!
-    @IBOutlet weak var signUpLabel: tappableLabel!
+    @IBOutlet weak var signUpLabel: TappableLabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         signUpLabel.url = "https://www.udacity.com/account/auth#!/signin"
+        
+        tapRecognizer = UITapGestureRecognizer(target: self, action: "handleSingleTap:")
+        tapRecognizer?.numberOfTapsRequired = 1
+        view.addGestureRecognizer(tapRecognizer!)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name:UIKeyboardWillShowNotification, object: nil);
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name:UIKeyboardWillHideNotification, object: nil);
+    }
+    
+    // Unsubscribe to keyboard notifications here
+    override func viewDidDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,6 +40,50 @@ class LoginViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: textview delegate methods
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        let nextTage=textField.tag+1;
+        // Try to find next responder
+        let nextResponder=textField.superview?.viewWithTag(nextTage) as UIResponder!
+        
+        if (nextResponder != nil){
+            // Found next responder, so set it.
+            nextResponder?.becomeFirstResponder()
+        } else {
+            // Not found, so remove keyboard
+            textField.resignFirstResponder()
+        }
+        return false // We do not want UITextField to insert line-breaks.
+    }
+    
+    
+    // MARK: keyboard related methods
+    
+    func keyboardWillShow(notification: NSNotification){
+        if !isKeyboardVisible{
+            keyboardHeight = getKeyboardHeight(notification)
+            print(keyboardHeight)
+            view.frame.origin.y -= keyboardHeight
+            udactityLogoTopConstraint.constant -= keyboardHeight
+            isKeyboardVisible = true
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        if isKeyboardVisible{
+            print(keyboardHeight)
+            view.frame.origin.y += keyboardHeight
+            udactityLogoTopConstraint.constant += keyboardHeight
+            isKeyboardVisible = false
+        }
+    }
+    
+    func handleSingleTap(recognizer: UITapGestureRecognizer) {
+        print("End editing here")
+        view.endEditing(true)
+    }
+    
+    //MARK: the login logic
     func completeLogin() {
         ParseClient.sharedInstance().getUserLocations(){(success, errorString, values) in
             //TODO store the user location daa somewhere

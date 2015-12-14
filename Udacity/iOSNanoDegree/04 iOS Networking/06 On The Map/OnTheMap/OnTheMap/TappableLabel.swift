@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class tappableLabel:UILabel, UIGestureRecognizerDelegate{
+class TappableLabel:UILabel, UIGestureRecognizerDelegate{
     var url:String?
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
