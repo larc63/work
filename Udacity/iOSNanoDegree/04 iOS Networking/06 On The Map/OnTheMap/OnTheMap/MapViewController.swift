@@ -21,8 +21,6 @@
         func refreshValues() {
             // The "locations" array is an array of dictionary objects that are similar to the JSON
             // data that you can download from parse
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let locations = appDelegate.studentLocations
             if (self.mapView != nil) {
                 // We will create an MKPointAnnotation for each dictionary in "locations". The
                 // point annotations will be stored in this array, and then provided to the map view.
@@ -34,7 +32,7 @@
                 // to create map annotations. This would be more stylish if the dictionaries were being
                 // used to create custom structs. Perhaps StudentLocation structs.
                 
-                for dictionary in locations {
+                for dictionary in UdacityStudents.studentLocations {
                     // Notice that the float values are being used to create CLLocationDegree values.
                     // This is a version of the Double type.
                     let lat = CLLocationDegrees(dictionary.lat)

@@ -61,8 +61,7 @@ class MainviewController: UITabBarController {
     func refresh(){
         ParseClient.sharedInstance().getUserLocations(){(success, errorString, values) in
             if success {
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.studentLocations = UdacityStudent.studentsFromResults(values as! [[String:AnyObject]])
+                UdacityStudents.studentsFromResults(values as! [[String:AnyObject]])
                 self.refreshValues()
             }else {
                 //TODO: display the error to the user

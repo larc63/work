@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3SU-Xh-hRc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yoE-1K-dy6">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -158,14 +158,6 @@ today?</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="34"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-pA-Z9v">
-                                <rect key="frame" x="256" y="496" width="87" height="30"/>
-                                <color key="backgroundColor" red="0.81244081439393934" green="0.81244081439393934" blue="0.81244081439393934" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Find On Map"/>
-                                <connections>
-                                    <action selector="search:" destination="yoE-1K-dy6" eventType="touchUpInside" id="76x-BR-YiM"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deF-ln-Rdd">
                                 <rect key="frame" x="532" y="20" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
@@ -173,8 +165,8 @@ today?</string>
                                     <action selector="cancel:" destination="yoE-1K-dy6" eventType="touchUpInside" id="AOy-nO-yfo"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQ5-Ow-TB3">
-                                <rect key="frame" x="0.0" y="199" width="600" height="144"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQ5-Ow-TB3">
+                                <rect key="frame" x="0.0" y="199" width="600" height="97"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="144" id="rhC-8H-I3i"/>
@@ -194,6 +186,14 @@ to search</string>
                                     <outlet property="delegate" destination="yoE-1K-dy6" id="0Ac-vm-NDE"/>
                                 </connections>
                             </textView>
+                            <button opaque="NO" tag="1" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-pA-Z9v">
+                                <rect key="frame" x="257" y="322" width="87" height="30"/>
+                                <color key="backgroundColor" red="0.81244081439393934" green="0.81244081439393934" blue="0.81244081439393934" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Find On Map"/>
+                                <connections>
+                                    <action selector="search:" destination="yoE-1K-dy6" eventType="touchUpInside" id="76x-BR-YiM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -204,22 +204,22 @@ to search</string>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="top" secondItem="0IN-n1-jWE" secondAttribute="bottom" constant="8" id="KiM-HH-7mP"/>
                             <constraint firstItem="0IN-n1-jWE" firstAttribute="top" secondItem="YU4-2M-uJh" secondAttribute="bottom" constant="26" id="R8m-vI-1nc"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="leading" secondItem="HJN-RA-1i1" secondAttribute="leadingMargin" constant="-20" id="SRF-w8-u1e"/>
+                            <constraint firstItem="uG9-pA-Z9v" firstAttribute="top" secondItem="WQ5-Ow-TB3" secondAttribute="bottom" constant="26" id="VZK-Ez-vFi"/>
                             <constraint firstItem="uG9-pA-Z9v" firstAttribute="centerX" secondItem="HJN-RA-1i1" secondAttribute="centerX" id="gor-rf-x26"/>
                             <constraint firstItem="vMl-XD-GmB" firstAttribute="top" secondItem="uG9-pA-Z9v" secondAttribute="bottom" constant="30" id="nAa-Vd-0Df"/>
                             <constraint firstItem="0IN-n1-jWE" firstAttribute="leading" secondItem="HJN-RA-1i1" secondAttribute="leadingMargin" constant="-20" id="nB8-vh-FwI"/>
                             <constraint firstItem="deF-ln-Rdd" firstAttribute="trailing" secondItem="HJN-RA-1i1" secondAttribute="trailingMargin" id="qqY-Zs-8Ch"/>
                             <constraint firstItem="uG9-pA-Z9v" firstAttribute="centerX" secondItem="HJN-RA-1i1" secondAttribute="centerX" id="sS1-8v-r1O"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0IN-n1-jWE" secondAttribute="trailing" constant="-20" id="uY0-d1-ccH"/>
-                            <constraint firstItem="vMl-XD-GmB" firstAttribute="top" secondItem="uG9-pA-Z9v" secondAttribute="bottom" constant="30" id="xvI-EZ-TOX"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="top" secondItem="0IN-n1-jWE" secondAttribute="bottom" constant="20" id="z8K-nV-bju"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="DRz-xF-I5g"/>
                                 <exclude reference="z8K-nV-bju"/>
+                                <exclude reference="sS1-8v-r1O"/>
                                 <exclude reference="116-Hj-ltq"/>
                                 <exclude reference="nAa-Vd-0Df"/>
-                                <exclude reference="sS1-8v-r1O"/>
                             </mask>
                         </variation>
                     </view>
@@ -275,9 +275,9 @@ link here</string>
                                         </attributes>
                                     </fragment>
                                 </attributedString>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="URL"/>
+                                <textInputTraits key="textInputTraits" keyboardType="URL" returnKeyType="send"/>
                                 <connections>
-                                    <outlet property="delegate" destination="IU9-Qh-ajK" id="SGI-G8-gUv"/>
+                                    <outlet property="delegate" destination="IU9-Qh-ajK" id="l14-Ax-2V4"/>
                                 </connections>
                             </textView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LLI-Ly-y26">

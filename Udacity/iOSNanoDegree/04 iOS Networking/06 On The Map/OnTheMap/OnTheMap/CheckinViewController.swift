@@ -40,15 +40,7 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    //MARK: text view delegate overrides
-    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        //TODO: remove me!!
-        textView.text = "Ensenada, Mexico"
-        return true
-    }
-    
-    //MARK: actions
-    @IBAction func search(sender: AnyObject) {
+    func doSearch(){
         geocoder.geocodeAddressString(searchText.text) { (placemarks: [CLPlacemark]?, error: NSError?) in
             if let error = error {
                 // alert the user!
@@ -66,6 +58,27 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
                 }
             }
         }
+    }
+    
+    //MARK: text view delegate overrides
+    func textViewShouldBeginEditing(textView: UITextView) -> Bool {
+        //TODO: remove me!!
+        textView.text = "Ensenada, Mexico"
+        return true
+    }
+    
+    func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+        if text == "\n"{
+            view.endEditing(true)
+            doSearch()
+            return false
+        }
+        return true
+    }
+    
+    //MARK: actions
+    @IBAction func search(sender: AnyObject) {
+        doSearch()
     }
     
     @IBAction func cancel(sender: AnyObject) {

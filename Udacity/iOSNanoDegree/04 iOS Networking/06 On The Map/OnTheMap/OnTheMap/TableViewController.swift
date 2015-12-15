@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 class TableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
-    var locations:[UdacityStudent] = []
     @IBOutlet weak var tableView: UITableView!
     
     override func viewWillAppear(animated: Bool) {
@@ -19,8 +18,6 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func refreshValues(){
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        locations = appDelegate.studentLocations
         if (tableView != nil){
             dispatch_async(dispatch_get_main_queue()) {
                 self.tableView.reloadData()
@@ -32,7 +29,7 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
         
         /* Get cell type */
         let cellReuseIdentifier = "StudentLocationTableViewCell"
-        let student = locations[indexPath.row]
+        let student = UdacityStudents.studentLocations[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier(cellReuseIdentifier) as UITableViewCell!
         
         /* Set cell defaults */
@@ -42,11 +39,11 @@ class TableViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return UdacityStudents.studentLocations.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        UIApplication.sharedApplication().openURL(NSURL(string: locations[indexPath.row].mediaURL)!)
+        UIApplication.sharedApplication().openURL(NSURL(string: UdacityStudents.studentLocations[indexPath.row].mediaURL)!)
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

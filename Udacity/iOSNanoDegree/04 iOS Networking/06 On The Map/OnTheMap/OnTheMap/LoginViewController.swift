@@ -42,10 +42,9 @@ class LoginViewController: ViewControllerForKeyboard, UITextFieldDelegate {
     
     // MARK: textview delegate methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        let nextTage=textField.tag+1;
+        let nextTag = textField.tag + 1;
         // Try to find next responder
-        let nextResponder=textField.superview?.viewWithTag(nextTage) as UIResponder!
-        
+        let nextResponder=textField.superview?.viewWithTag(nextTag) as UIResponder!
         if (nextResponder != nil){
             // Found next responder, so set it.
             nextResponder?.becomeFirstResponder()
@@ -88,8 +87,8 @@ class LoginViewController: ViewControllerForKeyboard, UITextFieldDelegate {
         ParseClient.sharedInstance().getUserLocations(){(success, errorString, values) in
             //TODO store the user location daa somewhere
             if success {
-                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-                appDelegate.studentLocations = UdacityStudent.studentsFromResults(values as! [[String:AnyObject]])
+                //This call will convert results into an array that's stored in the UdacityStudents class
+                UdacityStudents.studentsFromResults(values as! [[String:AnyObject]])
                 dispatch_async(dispatch_get_main_queue(), {
                     self.debugTextLabel.text = ""
                     let nav = self.storyboard!.instantiateViewControllerWithIdentifier("MainNavigationController") as! UINavigationController

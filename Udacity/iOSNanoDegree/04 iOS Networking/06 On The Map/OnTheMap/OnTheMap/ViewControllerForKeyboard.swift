@@ -13,6 +13,7 @@ class ViewControllerForKeyboard:UIViewController{
     var tapRecognizer: UITapGestureRecognizer?
     var isKeyboardVisible:Bool = false
     var keyboardHeight:CGFloat = 0
+    var nudgeAmount:CGFloat = 180
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class ViewControllerForKeyboard:UIViewController{
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameBeginUserInfoKey] as! NSValue
         let height = keyboardSize.CGRectValue().height
-        return min(180, height)
+        return min(nudgeAmount, height)
     }
 
 }
