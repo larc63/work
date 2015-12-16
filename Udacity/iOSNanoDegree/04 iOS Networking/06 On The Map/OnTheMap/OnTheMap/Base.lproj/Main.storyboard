@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="yoE-1K-dy6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3SU-Xh-hRc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -98,6 +98,9 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="9ZT-bg-LKs">
+                                <rect key="frame" x="290" y="446" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.61895240252711714" blue="0.0019341921633865278" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -107,10 +110,12 @@
                             <constraint firstItem="ncF-iJ-h6d" firstAttribute="centerX" secondItem="Kjo-9h-yRk" secondAttribute="centerX" id="8a7-S7-ofd"/>
                             <constraint firstItem="JMP-4a-54H" firstAttribute="centerX" secondItem="Jnf-Cf-esy" secondAttribute="centerX" id="930-nc-7dg"/>
                             <constraint firstItem="VfA-64-asx" firstAttribute="top" secondItem="fAr-h9-b5I" secondAttribute="bottom" constant="8" id="DpC-5f-ZOa"/>
+                            <constraint firstItem="9ZT-bg-LKs" firstAttribute="centerX" secondItem="Kjo-9h-yRk" secondAttribute="centerX" id="GrQ-xd-D4R"/>
                             <constraint firstItem="fAr-h9-b5I" firstAttribute="centerY" secondItem="Kjo-9h-yRk" secondAttribute="centerY" id="I93-us-2K9"/>
                             <constraint firstItem="VfA-64-asx" firstAttribute="centerX" secondItem="Kjo-9h-yRk" secondAttribute="centerX" id="JOQ-Ky-Ks6"/>
                             <constraint firstItem="Jnf-Cf-esy" firstAttribute="centerX" secondItem="Kjo-9h-yRk" secondAttribute="centerX" id="V8i-tE-RVS"/>
                             <constraint firstItem="fAr-h9-b5I" firstAttribute="top" secondItem="Jnf-Cf-esy" secondAttribute="bottom" constant="8" id="daI-pL-Awe"/>
+                            <constraint firstItem="lrP-JK-bzh" firstAttribute="top" secondItem="9ZT-bg-LKs" secondAttribute="bottom" constant="134" id="fBi-I7-3YX"/>
                             <constraint firstItem="Jnf-Cf-esy" firstAttribute="top" secondItem="JMP-4a-54H" secondAttribute="bottom" constant="8" symbolic="YES" id="iCd-g0-N9i"/>
                             <constraint firstItem="frD-ap-JPl" firstAttribute="centerX" secondItem="Kjo-9h-yRk" secondAttribute="centerX" id="l2A-zE-Mvw"/>
                             <constraint firstItem="JMP-4a-54H" firstAttribute="top" secondItem="frD-ap-JPl" secondAttribute="bottom" constant="10" id="sND-Hy-FCK"/>
@@ -122,7 +127,9 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="9ZT-bg-LKs" id="4cH-JZ-HU8"/>
                         <outlet property="debugTextLabel" destination="JMP-4a-54H" id="lK4-SJ-xu6"/>
+                        <outlet property="loginButton" destination="VfA-64-asx" id="z0d-ka-umd"/>
                         <outlet property="password" destination="fAr-h9-b5I" id="rlo-if-wFx"/>
                         <outlet property="signUpLabel" destination="ncF-iJ-h6d" id="GrI-AV-uga"/>
                         <outlet property="udactityLogoTopConstraint" destination="7Wr-1k-mwe" id="ERK-AC-n9p"/>
@@ -186,6 +193,9 @@ to search</string>
                                     <outlet property="delegate" destination="yoE-1K-dy6" id="0Ac-vm-NDE"/>
                                 </connections>
                             </textView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-IW-KAp">
+                                <rect key="frame" x="290" y="360" width="20" height="20"/>
+                            </activityIndicatorView>
                             <button opaque="NO" tag="1" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-pA-Z9v">
                                 <rect key="frame" x="257" y="322" width="87" height="30"/>
                                 <color key="backgroundColor" red="0.81244081439393934" green="0.81244081439393934" blue="0.81244081439393934" alpha="1" colorSpace="calibratedRGB"/>
@@ -199,8 +209,10 @@ to search</string>
                         <constraints>
                             <constraint firstItem="deF-ln-Rdd" firstAttribute="top" secondItem="YU4-2M-uJh" secondAttribute="bottom" id="0Y1-QW-2V3"/>
                             <constraint firstItem="vMl-XD-GmB" firstAttribute="top" secondItem="uG9-pA-Z9v" secondAttribute="bottom" constant="30" id="116-Hj-ltq"/>
+                            <constraint firstItem="ZqO-IW-KAp" firstAttribute="centerX" secondItem="HJN-RA-1i1" secondAttribute="centerX" id="67f-Dx-P3T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WQ5-Ow-TB3" secondAttribute="trailing" constant="-20" id="CEB-bQ-vM7"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="top" secondItem="0IN-n1-jWE" secondAttribute="bottom" constant="20" id="DRz-xF-I5g"/>
+                            <constraint firstItem="ZqO-IW-KAp" firstAttribute="top" secondItem="uG9-pA-Z9v" secondAttribute="bottom" constant="8" id="Jj0-Hf-90M"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="top" secondItem="0IN-n1-jWE" secondAttribute="bottom" constant="8" id="KiM-HH-7mP"/>
                             <constraint firstItem="0IN-n1-jWE" firstAttribute="top" secondItem="YU4-2M-uJh" secondAttribute="bottom" constant="26" id="R8m-vI-1nc"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="leading" secondItem="HJN-RA-1i1" secondAttribute="leadingMargin" constant="-20" id="SRF-w8-u1e"/>
@@ -226,6 +238,7 @@ to search</string>
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ZqO-IW-KAp" id="0m0-7B-dPt"/>
                         <outlet property="cancelButton" destination="deF-ln-Rdd" id="bDL-zU-2Ms"/>
                         <outlet property="label" destination="0IN-n1-jWE" id="kEw-SP-nYK"/>
                         <outlet property="labelTopConstraint" destination="R8m-vI-1nc" id="PLK-r7-XaB"/>
@@ -296,6 +309,9 @@ link here</string>
                                     <action selector="submitButtonTapped:" destination="IU9-Qh-ajK" eventType="touchUpInside" id="WKl-5S-M3d"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ULM-BB-gWk">
+                                <rect key="frame" x="290" y="346" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -306,6 +322,7 @@ link here</string>
                             <constraint firstAttribute="trailingMargin" secondItem="p2G-Ls-t0C" secondAttribute="trailing" constant="-20" id="A0x-Wn-DCn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p2G-Ls-t0C" secondAttribute="trailing" constant="-20" id="A8d-lD-RhX"/>
                             <constraint firstItem="p2G-Ls-t0C" firstAttribute="centerX" secondItem="io9-AS-1wo" secondAttribute="centerX" id="CEo-Lb-9Fn"/>
+                            <constraint firstItem="ULM-BB-gWk" firstAttribute="centerX" secondItem="io9-AS-1wo" secondAttribute="centerX" id="FSd-Fm-512"/>
                             <constraint firstItem="p2G-Ls-t0C" firstAttribute="top" secondItem="LfI-re-uWI" secondAttribute="bottom" constant="28" id="G1v-7c-NwO"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p2G-Ls-t0C" secondAttribute="trailing" constant="-20" id="Iar-Nz-wxX"/>
                             <constraint firstItem="2mK-6b-u1c" firstAttribute="top" secondItem="LLI-Ly-y26" secondAttribute="bottom" id="LW3-Gp-xr9"/>
@@ -321,6 +338,7 @@ link here</string>
                             <constraint firstItem="p2G-Ls-t0C" firstAttribute="top" secondItem="io9-AS-1wo" secondAttribute="topMargin" constant="22" id="ZB7-if-sZZ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p2G-Ls-t0C" secondAttribute="trailing" constant="-20" id="ZdT-1H-mrj"/>
                             <constraint firstItem="p2G-Ls-t0C" firstAttribute="leading" secondItem="io9-AS-1wo" secondAttribute="leadingMargin" constant="-20" id="cII-Cj-lfs"/>
+                            <constraint firstItem="ULM-BB-gWk" firstAttribute="top" secondItem="p2G-Ls-t0C" secondAttribute="bottom" constant="190" id="eh4-bd-Kdp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="iuK-fA-nOV" secondAttribute="trailing" id="fR8-6R-Yi5"/>
                             <constraint firstItem="p2G-Ls-t0C" firstAttribute="top" secondItem="iuK-fA-nOV" secondAttribute="bottom" constant="-2" id="gZZ-A9-g6d"/>
                             <constraint firstItem="2mK-6b-u1c" firstAttribute="top" secondItem="LLI-Ly-y26" secondAttribute="bottom" id="ifm-DE-gbY"/>
@@ -365,14 +383,15 @@ link here</string>
                                 <exclude reference="yxd-e0-0pg"/>
                                 <exclude reference="n3a-lA-64Y"/>
                                 <exclude reference="vb7-pK-3ky"/>
-                                <exclude reference="4Ok-Ou-tvm"/>
-                                <exclude reference="rPF-Re-Ixo"/>
                                 <exclude reference="8vO-D0-bm4"/>
                                 <exclude reference="ifm-DE-gbY"/>
+                                <exclude reference="4Ok-Ou-tvm"/>
+                                <exclude reference="rPF-Re-Ixo"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ULM-BB-gWk" id="fxG-gd-rbG"/>
                         <outlet property="mapView" destination="LLI-Ly-y26" id="iDZ-6E-PpU"/>
                         <outlet property="submitButton" destination="8eW-X3-sZq" id="bLd-Ne-JDN"/>
                         <outlet property="urlText" destination="p2G-Ls-t0C" id="StX-oF-gUX"/>

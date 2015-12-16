@@ -44,11 +44,15 @@ class  ParseClient {
             "longitude" : longitude]
         
         WebServiceHelpers.sharedInstance().taskForPOSTMethod("https://api.parse.com/1/classes/", method: "StudentLocation", parameters: [:], jsonBody: jsonBody, requestValues: ["X-Parse-Application-Id" : applicationID, "X-Parse-REST-API-Key" : APIKey], needsTruncating: false){ (result, error) in
-            let success = result["objectId"] as! String?
-            if error != nil && success == nil {
-                completionHandler(success: false, errorString: error?.domain)
+            if error != nil {
+                let success = result["objectId"] as! String?
+                if success == nil {
+                    completionHandler(success: false, errorString: error?.localizedDescription)
+                }else{
+                    completionHandler(success: true, errorString: nil)
+                }
             }else{
-                completionHandler(success: true, errorString: nil)
+                completionHandler(success: false, errorString: error?.localizedDescription)
             }
         }
     }

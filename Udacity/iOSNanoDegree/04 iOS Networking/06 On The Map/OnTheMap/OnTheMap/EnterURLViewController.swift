@@ -18,10 +18,12 @@ class EnterURLViewController: ViewControllerForKeyboard, UITextViewDelegate, MKM
     @IBOutlet weak var submitButton: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
-        
+        submitButton.enabled = false
+        activityIndicator.hidden = true
         // Here we create the annotation and set its coordiate, title, and subtitle properties
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate!
@@ -39,14 +41,19 @@ class EnterURLViewController: ViewControllerForKeyboard, UITextViewDelegate, MKM
             Helpers.showAlert(self, message:"Please enter a valid URL")
             return
         }
-        
+        submitButton.enabled = false
+        activityIndicator.hidden = false
+        activityIndicator.startAnimating()
         if let uniqueKey = UdacityClient.sharedInstance().userId {
             if let first_name = UdacityClient.sharedInstance().first_name {
                 if let last_name = UdacityClient.sharedInstance().last_name {
                     if let mediaURL = urlText.text {
                         if let placeName = placeName {
                             ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!){ (success, errorString) in
+                                self.activityIndicator.hidden = true
+                                self.activityIndicator.stopAnimating()
                                 if let errorString = errorString {
+                                    self.submitButton.enabled = true
                                     Helpers.showAlert(self, message:errorString)
                                 } else {
                                     dispatch_async(dispatch_get_main_queue()) {
@@ -57,6 +64,9 @@ class EnterURLViewController: ViewControllerForKeyboard, UITextViewDelegate, MKM
                         }else { //placeName
                             let placeName = "" /// setting the place name to an empty string if the geolocation fails to find it
                             ParseClient.sharedInstance().postUserLocation(uniqueKey, firstName: first_name, lastName: last_name, placeName: placeName, mediaURL: mediaURL, latitude: (coordinate?.latitude)!, longitude: (coordinate?.longitude)!){ (success, errorString) in
+                                self.activityIndicator.hidden = true
+                                self.activityIndicator.stopAnimating()
+                                self.submitButton.enabled = true
                                 if let errorString = errorString {
                                     Helpers.showAlert(self, message:errorString)
                                 } else {
@@ -67,6 +77,9 @@ class EnterURLViewController: ViewControllerForKeyboard, UITextViewDelegate, MKM
                             }
                         }
                     } else { //mediaURL
+                        submitButton.enabled = true
+                        activityIndicator.hidden = true
+                        activityIndicator.stopAnimating()
                         Helpers.showAlert(self, message:"Please enter a valid URL")
                     }
                 }
@@ -79,11 +92,17 @@ class EnterURLViewController: ViewControllerForKeyboard, UITextViewDelegate, MKM
         textView.text = ""
         return true
     }
+    
     func textView(textView: UITextView, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
         if text == "\n"{
             view.endEditing(true)
             doPostInformation()
             return false
+        }
+        if urlText.text.characters.count > 0 {
+            submitButton.enabled = true
+        }else{
+            submitButton.enabled = false
         }
         return true
     }

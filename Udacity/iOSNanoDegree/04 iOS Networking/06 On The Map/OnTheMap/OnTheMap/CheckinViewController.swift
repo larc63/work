@@ -19,9 +19,12 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var labelTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var label: UITextView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchButton.enabled = false
+        activityIndicator.hidden = true
         navigationController?.setNavigationBarHidden(true, animated: true)
         nudgeAmount = labelTopConstraint.constant + label.frame.height
     }
@@ -44,8 +47,14 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
     }
     
     func doSearch(){
+        searchButton.enabled = false
+        activityIndicator.hidden = true
+        activityIndicator.startAnimating()
         geocoder.geocodeAddressString(searchText.text) { (placemarks: [CLPlacemark]?, error: NSError?) in
+            self.activityIndicator.hidden = true
+            self.activityIndicator.stopAnimating()
             if let error = error {
+                self.searchButton.enabled = true
                 // alert the user!
                 self.showAlert("there was an error \(error)")
                 print("there was an error \(error)")
@@ -55,6 +64,7 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
                     //goToAddURLSegue
                     self.performSegueWithIdentifier("goToAddURLSegue", sender: nil)
                 }else{
+                    self.searchButton.enabled = true
                     //alert the user that their search yielded no results
                     self.showAlert("the search yielded no results")
                     print("the search yielded no results")
@@ -65,8 +75,7 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
     
     //MARK: text view delegate overrides
     func textViewShouldBeginEditing(textView: UITextView) -> Bool {
-        //TODO: remove me!!
-        textView.text = "Ensenada, Mexico"
+        textView.text = ""
         return true
     }
     
@@ -76,6 +85,13 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
             doSearch()
             return false
         }
+        
+        if textView.text.characters.count > 0 {
+            searchButton.enabled = true
+        }else{
+            searchButton.enabled = false
+        }
+        
         return true
     }
     
