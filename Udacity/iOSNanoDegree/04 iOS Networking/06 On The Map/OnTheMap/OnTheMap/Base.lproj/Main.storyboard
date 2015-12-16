@@ -227,6 +227,8 @@ to search</string>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="cancelButton" destination="deF-ln-Rdd" id="bDL-zU-2Ms"/>
+                        <outlet property="label" destination="0IN-n1-jWE" id="kEw-SP-nYK"/>
+                        <outlet property="labelTopConstraint" destination="R8m-vI-1nc" id="PLK-r7-XaB"/>
                         <outlet property="searchButton" destination="uG9-pA-Z9v" id="Cks-4M-bo5"/>
                         <outlet property="searchText" destination="WQ5-Ow-TB3" id="Mzn-Sy-DIp"/>
                         <segue destination="IU9-Qh-ajK" kind="show" identifier="goToAddURLSegue" id="PRD-hU-J0N"/>

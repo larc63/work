@@ -10,17 +10,20 @@ import Foundation
 import UIKit
 import MapKit
 
-class CheckinViewController: UIViewController, UITextViewDelegate{
+class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
     var geocoder = CLGeocoder()
     var place:CLPlacemark? = nil
     // MARK: outlets
     @IBOutlet weak var searchText: UITextView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var labelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var label: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(true, animated: true)
+        nudgeAmount = labelTopConstraint.constant + label.frame.height
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -74,6 +77,27 @@ class CheckinViewController: UIViewController, UITextViewDelegate{
             return false
         }
         return true
+    }
+    
+    // MARK: keyboard related methods
+    
+    func keyboardWillShow(notification: NSNotification){
+        if !isKeyboardVisible{
+            keyboardHeight = getKeyboardHeight(notification)
+            print(keyboardHeight)
+            view.frame.origin.y -= keyboardHeight
+            labelTopConstraint.constant -= keyboardHeight
+            isKeyboardVisible = true
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification){
+        if isKeyboardVisible{
+            print(keyboardHeight)
+            view.frame.origin.y += keyboardHeight
+            labelTopConstraint.constant += keyboardHeight
+            isKeyboardVisible = false
+        }
     }
     
     //MARK: actions

@@ -40,6 +40,22 @@ class LoginViewController: ViewControllerForKeyboard, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func doLogin(){
+        UdacityClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
+            if success {
+                print("login successful")
+                self.completeLogin()
+            } else {
+                print("login failed")
+                if let errorString = errorString {
+                    Helpers.showAlert(self, message: errorString)
+                }else{
+                    Helpers.showAlert(self, message: "An error occurred while logging you in")
+                }
+            }
+        }
+    }
+    
     // MARK: textview delegate methods
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1;
@@ -54,7 +70,6 @@ class LoginViewController: ViewControllerForKeyboard, UITextFieldDelegate {
         }
         return false // We do not want UITextField to insert line-breaks.
     }
-    
     
     // MARK: keyboard related methods
     
@@ -107,19 +122,7 @@ class LoginViewController: ViewControllerForKeyboard, UITextFieldDelegate {
     
     
     @IBAction func loginButtonTouched(sender: AnyObject) {
-        UdacityClient.sharedInstance().authenticateWithViewController(self) { (success, errorString) in
-            if success {
-                print("login successful")
-                self.completeLogin()
-            } else {
-                print("login failed")
-                if let errorString = errorString {
-                    Helpers.showAlert(self, message: errorString)
-                }else{
-                    Helpers.showAlert(self, message: "An error occurred while logging you in")
-                }
-            }
-        }
+        doLogin()
     }
     
 }

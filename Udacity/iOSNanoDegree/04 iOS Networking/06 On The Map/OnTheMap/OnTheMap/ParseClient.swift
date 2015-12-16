@@ -28,7 +28,7 @@ class  ParseClient {
                 print("got \(values.count) entries")
                 completionHandler(success: true, errorString: nil, userLocations: values)
             }else{
-                completionHandler(success: false, errorString: error?.domain, userLocations: [])
+                completionHandler(success: false, errorString: error!.localizedDescription, userLocations: [])
             }
         }
     }
