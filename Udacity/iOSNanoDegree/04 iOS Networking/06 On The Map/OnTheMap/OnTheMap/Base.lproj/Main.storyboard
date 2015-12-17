@@ -165,6 +165,14 @@ today?</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="34"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-pA-Z9v">
+                                <rect key="frame" x="257" y="320" width="87" height="30"/>
+                                <color key="backgroundColor" red="0.81244081439393934" green="0.81244081439393934" blue="0.81244081439393934" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Find On Map"/>
+                                <connections>
+                                    <action selector="search:" destination="yoE-1K-dy6" eventType="touchUpInside" id="76x-BR-YiM"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="deF-ln-Rdd">
                                 <rect key="frame" x="532" y="20" width="48" height="30"/>
                                 <state key="normal" title="Cancel"/>
@@ -172,11 +180,11 @@ today?</string>
                                     <action selector="cancel:" destination="yoE-1K-dy6" eventType="touchUpInside" id="AOy-nO-yfo"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQ5-Ow-TB3">
-                                <rect key="frame" x="0.0" y="199" width="600" height="97"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQ5-Ow-TB3">
+                                <rect key="frame" x="0.0" y="199" width="600" height="95"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="144" id="rhC-8H-I3i"/>
+                                    <constraint firstAttribute="height" constant="95" id="rhC-8H-I3i"/>
                                 </constraints>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -193,17 +201,10 @@ to search</string>
                                     <outlet property="delegate" destination="yoE-1K-dy6" id="0Ac-vm-NDE"/>
                                 </connections>
                             </textView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-IW-KAp">
-                                <rect key="frame" x="290" y="360" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ZqO-IW-KAp">
+                                <rect key="frame" x="290" y="358" width="20" height="20"/>
+                                <color key="color" red="1" green="0.86647050219999999" blue="0.64753390820000001" alpha="1" colorSpace="calibratedRGB"/>
                             </activityIndicatorView>
-                            <button opaque="NO" tag="1" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uG9-pA-Z9v">
-                                <rect key="frame" x="257" y="322" width="87" height="30"/>
-                                <color key="backgroundColor" red="0.81244081439393934" green="0.81244081439393934" blue="0.81244081439393934" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Find On Map"/>
-                                <connections>
-                                    <action selector="search:" destination="yoE-1K-dy6" eventType="touchUpInside" id="76x-BR-YiM"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -212,7 +213,7 @@ to search</string>
                             <constraint firstItem="ZqO-IW-KAp" firstAttribute="centerX" secondItem="HJN-RA-1i1" secondAttribute="centerX" id="67f-Dx-P3T"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WQ5-Ow-TB3" secondAttribute="trailing" constant="-20" id="CEB-bQ-vM7"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="top" secondItem="0IN-n1-jWE" secondAttribute="bottom" constant="20" id="DRz-xF-I5g"/>
-                            <constraint firstItem="ZqO-IW-KAp" firstAttribute="top" secondItem="uG9-pA-Z9v" secondAttribute="bottom" constant="8" id="Jj0-Hf-90M"/>
+                            <constraint firstItem="ZqO-IW-KAp" firstAttribute="top" secondItem="uG9-pA-Z9v" secondAttribute="bottom" constant="8" id="Gbg-JY-d6z"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="top" secondItem="0IN-n1-jWE" secondAttribute="bottom" constant="8" id="KiM-HH-7mP"/>
                             <constraint firstItem="0IN-n1-jWE" firstAttribute="top" secondItem="YU4-2M-uJh" secondAttribute="bottom" constant="26" id="R8m-vI-1nc"/>
                             <constraint firstItem="WQ5-Ow-TB3" firstAttribute="leading" secondItem="HJN-RA-1i1" secondAttribute="leadingMargin" constant="-20" id="SRF-w8-u1e"/>

@@ -26,7 +26,7 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
         searchButton.enabled = false
         activityIndicator.hidden = true
         navigationController?.setNavigationBarHidden(true, animated: true)
-        nudgeAmount = labelTopConstraint.constant + label.frame.height
+        nudgeAmount = labelTopConstraint.constant * 2
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -48,7 +48,7 @@ class CheckinViewController: ViewControllerForKeyboard, UITextViewDelegate{
     
     func doSearch(){
         searchButton.enabled = false
-        activityIndicator.hidden = true
+        activityIndicator.hidden = false
         activityIndicator.startAnimating()
         geocoder.geocodeAddressString(searchText.text) { (placemarks: [CLPlacemark]?, error: NSError?) in
             self.activityIndicator.hidden = true

@@ -64,8 +64,12 @@ class MainviewController: UITabBarController {
                 UdacityStudents.studentsFromResults(values as! [[String:AnyObject]])
                 self.refreshValues()
             }else {
-                //TODO: display the error to the user
                 print("An error occurred \(errorString)")
+                if let errorString = errorString {
+                    Helpers.showAlert(self, message: errorString)
+                }else{
+                    Helpers.showAlert(self, message: "An error occurred while logging you in")
+                }
             }
         }
     }

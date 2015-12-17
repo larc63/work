@@ -44,7 +44,7 @@ class  ParseClient {
             "longitude" : longitude]
         
         WebServiceHelpers.sharedInstance().taskForPOSTMethod("https://api.parse.com/1/classes/", method: "StudentLocation", parameters: [:], jsonBody: jsonBody, requestValues: ["X-Parse-Application-Id" : applicationID, "X-Parse-REST-API-Key" : APIKey], needsTruncating: false){ (result, error) in
-            if error != nil {
+            if error == nil {
                 let success = result["objectId"] as! String?
                 if success == nil {
                     completionHandler(success: false, errorString: error?.localizedDescription)
