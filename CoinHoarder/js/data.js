@@ -1,0 +1,1831 @@
+var coinData = [{
+    "id": "mc82069808",
+    "coinTypeId": "ct28857485",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "03/06/2015",
+    "purchasePrice": "11.43",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc28911626",
+    "coinTypeId": "ct28857485",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "03/06/2015",
+    "purchasePrice": "10.98",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc84802066",
+    "coinTypeId": "ct28857485",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "03/06/2015",
+    "purchasePrice": "10.98",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc64939670",
+    "coinTypeId": "ct01021621",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "06/25/2015",
+    "purchasePrice": "26",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc61861890",
+    "coinTypeId": "ct08537300",
+    "active": true,
+    "premium": "2.8",
+    "purchaseDate": "06/25/2015",
+    "purchasePrice": "14",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc65507474",
+    "coinTypeId": "ct08537300",
+    "active": true,
+    "premium": "2.8",
+    "purchaseDate": "08/16/2015",
+    "purchasePrice": "20.50",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc89864479",
+    "coinTypeId": "ct27664483",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "09/03/2015",
+    "purchasePrice": "61",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc58484236",
+    "coinTypeId": "ct87596361",
+    "active": true,
+    "premium": "3.5",
+    "purchaseDate": "08/25/2015",
+    "purchasePrice": "24.95",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc89008713",
+    "coinTypeId": "ct65841055",
+    "active": true,
+    "premium": "2.5",
+    "purchaseDate": "08/26/2015",
+    "purchasePrice": "33",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc89201027",
+    "coinTypeId": "ct65841055",
+    "active": true,
+    "premium": "2.5",
+    "purchaseDate": "08/12/2015",
+    "purchasePrice": "38.99",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc30997038",
+    "coinTypeId": "ct21984109",
+    "active": true,
+    "premium": "5",
+    "purchaseDate": "08/29/2015",
+    "purchasePrice": "31",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc95062580",
+    "coinTypeId": "ct77688385",
+    "active": true,
+    "premium": "5",
+    "purchaseDate": "08/14/2015",
+    "purchasePrice": "43.80",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc81000131",
+    "coinTypeId": "ct03969878",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "03/25/2015",
+    "purchasePrice": "22.05",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc51751569",
+    "coinTypeId": "ct79036780",
+    "active": false,
+    "premium": "1.6",
+    "purchaseDate": "03/25/2015",
+    "purchasePrice": "21.06",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc78085933",
+    "coinTypeId": "ct19265545",
+    "active": false,
+    "premium": "1.2",
+    "purchaseDate": "05/10/2015",
+    "purchasePrice": "206",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc92685624",
+    "coinTypeId": "ct55652876",
+    "active": true,
+    "premium": "2.1",
+    "purchaseDate": "07/13/2015",
+    "purchasePrice": "13.27",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc30887908",
+    "coinTypeId": "ct55652876",
+    "active": true,
+    "premium": "2.1",
+    "purchaseDate": "07/13/2015",
+    "purchasePrice": "13.04",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc09894738",
+    "coinTypeId": "ct08254004",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc15239900",
+    "coinTypeId": "ct08254004",
+    "active": true,
+    "premium": "1.84",
+    "purchaseDate": "04/30/2015",
+    "purchasePrice": "027",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc66815059",
+    "coinTypeId": "ct08254004",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc54475666",
+    "coinTypeId": "ct08254004",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc00181273",
+    "coinTypeId": "ct08254004",
+    "active": true,
+    "premium": "1.84",
+    "purchaseDate": "04/30/2015",
+    "purchasePrice": "27",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc49091348",
+    "coinTypeId": "ct25537124",
+    "active": true,
+    "premium": "1.6",
+    "purchaseDate": "07/30/2015",
+    "purchasePrice": "43.63",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc03138227",
+    "coinTypeId": "ct36352600",
+    "active": true,
+    "premium": "1.41",
+    "purchaseDate": "07/16/2015",
+    "purchasePrice": "106.95",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc77348932",
+    "coinTypeId": "ct43305428",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "05/28/2015",
+    "purchasePrice": "204.62",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc91209541",
+    "coinTypeId": "ct89115132",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "07/30/2015",
+    "purchasePrice": "24.31",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc26971108",
+    "coinTypeId": "ct89115132",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "07/30/2015",
+    "purchasePrice": "24.31",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc92564551",
+    "coinTypeId": "ct44182242",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc43408405",
+    "coinTypeId": "ct22798609",
+    "active": true,
+    "premium": "1.25",
+    "purchaseDate": "03/28/2015",
+    "purchasePrice": "20.53",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc92237342",
+    "coinTypeId": "ct62921249",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc75367743",
+    "coinTypeId": "ct62921249",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc71643268",
+    "coinTypeId": "ct74472416",
+    "active": false,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc58286794",
+    "coinTypeId": "ct74472416",
+    "active": true,
+    "premium": "1.5",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc12522881",
+    "coinTypeId": "ct74472416",
+    "active": false,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc62845289",
+    "coinTypeId": "ct74472416",
+    "active": true,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc27931282",
+    "coinTypeId": "ct74472416",
+    "active": true,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc08846328",
+    "coinTypeId": "ct74472416",
+    "active": true,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc89760799",
+    "coinTypeId": "ct74472416",
+    "active": false,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc41730927",
+    "coinTypeId": "ct74472416",
+    "active": true,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc93330493",
+    "coinTypeId": "ct74472416",
+    "active": false,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc18297881",
+    "coinTypeId": "ct74472416",
+    "active": true,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc19487737",
+    "coinTypeId": "ct74472416",
+    "active": false,
+    "premium": "1.24",
+    "purchaseDate": "04/20/2015",
+    "purchasePrice": "18.7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc72107794",
+    "coinTypeId": "ct48297131",
+    "active": true,
+    "premium": "1.5",
+    "purchaseDate": "05/05/2015",
+    "purchasePrice": "23",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc12706481",
+    "coinTypeId": "ct17546876",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "07/16/2015",
+    "purchasePrice": "167.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc35783481",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc77678025",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc54467907",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc83715644",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc33663633",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc08904837",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc78573158",
+    "coinTypeId": "ct08254404",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc75325265",
+    "coinTypeId": "ct69138694",
+    "active": false,
+    "premium": "2",
+    "purchaseDate": "05/31/2015",
+    "purchasePrice": "26.36",
+    "saleDate": "06/07/2015",
+    "salePrice": "0",
+    "isPermaStack": false
+}, {
+    "id": "mc24954371",
+    "coinTypeId": "ct55273427",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "03/09/2015",
+    "purchasePrice": "18.93",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc45376491",
+    "coinTypeId": "ct71587476",
+    "active": true,
+    "premium": "1.5",
+    "purchaseDate": "04/05/2015",
+    "purchasePrice": "23",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc19215439",
+    "coinTypeId": "ct21764365",
+    "active": false,
+    "premium": "1.36",
+    "purchaseDate": "04/05/2015",
+    "purchasePrice": "20.505",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc66021321",
+    "coinTypeId": "ct11919037",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "09/28/2015",
+    "purchasePrice": "22.45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc49540121",
+    "coinTypeId": "ct17598979",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc09661846",
+    "coinTypeId": "ct97233002",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc89549119",
+    "coinTypeId": "ct98804651",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc61303898",
+    "coinTypeId": "ct08166697",
+    "active": true,
+    "premium": "3",
+    "purchaseDate": "10/24/2015",
+    "purchasePrice": "3.98",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc48220426",
+    "coinTypeId": "ct57657879",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc18602509",
+    "coinTypeId": "ct80375315",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc07142009",
+    "coinTypeId": "ct61705209",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc59390842",
+    "coinTypeId": "ct63569826",
+    "active": true,
+    "premium": "1.33",
+    "purchaseDate": "09/17/2015",
+    "purchasePrice": "82.24",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc08330028",
+    "coinTypeId": "ct77605757",
+    "active": true,
+    "premium": "1.73",
+    "purchaseDate": "09/27/2015",
+    "purchasePrice": "22.95",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc83597238",
+    "coinTypeId": "ct93859603",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc02146177",
+    "coinTypeId": "ct93859603",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc50924961",
+    "coinTypeId": "ct29783668",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc95025717",
+    "coinTypeId": "ct20206923",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc26205247",
+    "coinTypeId": "ct16757622",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc82793693",
+    "coinTypeId": "ct37914629",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc58933335",
+    "coinTypeId": "ct37914629",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc75664395",
+    "coinTypeId": "ct85253214",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc33758455",
+    "coinTypeId": "ct10847964",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc59870607",
+    "coinTypeId": "ct03395421",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc54294562",
+    "coinTypeId": "ct03395421",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc34104299",
+    "coinTypeId": "ct16288086",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc70732426",
+    "coinTypeId": "ct73704560",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "10/24/2015",
+    "purchasePrice": "16.54",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc99123991",
+    "coinTypeId": "ct59717514",
+    "active": true,
+    "premium": "1.645",
+    "purchaseDate": "04/02/2015",
+    "purchasePrice": "24",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc67888752",
+    "coinTypeId": "ct98328452",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc90213683",
+    "coinTypeId": "ct98328452",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc58523044",
+    "coinTypeId": "ct98328452",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc72868292",
+    "coinTypeId": "ct98328452",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc22908866",
+    "coinTypeId": "ct98328452",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc74878156",
+    "coinTypeId": "ct98328452",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc34352735",
+    "coinTypeId": "ct98328452",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc43267004",
+    "coinTypeId": "ct98328452",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc04888353",
+    "coinTypeId": "ct98328452",
+    "active": false,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc10001476",
+    "coinTypeId": "ct98328452",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "07/26/2015",
+    "purchasePrice": "20.85",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc39691341",
+    "coinTypeId": "ct63718583",
+    "active": true,
+    "premium": "1.65",
+    "purchaseDate": "05/04/2015",
+    "purchasePrice": "21.17",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc32997435",
+    "coinTypeId": "ct56306150",
+    "active": true,
+    "premium": "2.5",
+    "purchaseDate": "06/11/2015",
+    "purchasePrice": "26.21",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc49198302",
+    "coinTypeId": "ct95447310",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc57897074",
+    "coinTypeId": "ct20885143",
+    "active": true,
+    "premium": "8",
+    "purchaseDate": "04/14/2015",
+    "purchasePrice": "5.5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc86175846",
+    "coinTypeId": "ct20885143",
+    "active": true,
+    "premium": "8",
+    "purchaseDate": "04/14/2015",
+    "purchasePrice": "5.5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc60861917",
+    "coinTypeId": "ct20885143",
+    "active": true,
+    "premium": "8",
+    "purchaseDate": "04/14/2015",
+    "purchasePrice": "5.5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc51254115",
+    "coinTypeId": "ct20885143",
+    "active": true,
+    "premium": "8",
+    "purchaseDate": "04/14/2015",
+    "purchasePrice": "5.5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc37978100",
+    "coinTypeId": "ct20885143",
+    "active": true,
+    "premium": "8",
+    "purchaseDate": "04/14/2015",
+    "purchasePrice": "5.5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc49665162",
+    "coinTypeId": "ct20885143",
+    "active": true,
+    "premium": "8",
+    "purchaseDate": "04/14/2015",
+    "purchasePrice": "5.5",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc03765452",
+    "coinTypeId": "ct77483911",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc85209930",
+    "coinTypeId": "ct77483911",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc67172727",
+    "coinTypeId": "ct17114119",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc31129135",
+    "coinTypeId": "ct17114119",
+    "active": true,
+    "premium": "1.6",
+    "purchaseDate": "10/01/2015",
+    "purchasePrice": "18",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc60015797",
+    "coinTypeId": "ct17114119",
+    "active": true,
+    "premium": "1.6",
+    "purchaseDate": "10/01/2015",
+    "purchasePrice": "18",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc21825147",
+    "coinTypeId": "ct63873757",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc32019342",
+    "coinTypeId": "ct63873757",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc07177342",
+    "coinTypeId": "ct63874757",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc93044045",
+    "coinTypeId": "ct40145040",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc76604716",
+    "coinTypeId": "ct40145040",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc90285235",
+    "coinTypeId": "mc76180889",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc54738375",
+    "coinTypeId": "ct20170447",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc48347236",
+    "coinTypeId": "mc30447922",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc00633642",
+    "coinTypeId": "mc87359291",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc73710191",
+    "coinTypeId": "mc87359291",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc92489415",
+    "coinTypeId": "mc87359291",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc37592271",
+    "coinTypeId": "ct59330439",
+    "active": true,
+    "premium": "10",
+    "purchaseDate": "05/26/2015",
+    "purchasePrice": "7.90",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc75870898",
+    "coinTypeId": "ct59330439",
+    "active": true,
+    "premium": "10",
+    "purchaseDate": "08/30/2015",
+    "purchasePrice": "7.9",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc41951443",
+    "coinTypeId": "ct11451255",
+    "active": true,
+    "premium": "1.6",
+    "purchaseDate": "05/24/2015",
+    "purchasePrice": "49.49",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc97200021",
+    "coinTypeId": "ct63325213",
+    "active": true,
+    "premium": "7",
+    "purchaseDate": "10/09/2015",
+    "purchasePrice": "8.49",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc27760923",
+    "coinTypeId": "ct63335213",
+    "active": true,
+    "premium": "7",
+    "purchaseDate": "10/04/2015",
+    "purchasePrice": "12.95",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc45219489",
+    "coinTypeId": "ct63345213",
+    "active": true,
+    "premium": "13",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": "8.49",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc13805828",
+    "coinTypeId": "ct63345213",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc09856598",
+    "coinTypeId": "ct92063722",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc84006765",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc42707710",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc17679024",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc70021455",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc15799265",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc54339210",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc01201755",
+    "coinTypeId": "ct02099974",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc61108837",
+    "coinTypeId": "ct81285961",
+    "active": true,
+    "premium": "2.08",
+    "purchaseDate": "06/26/2015",
+    "purchasePrice": "60.43",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc89286862",
+    "coinTypeId": "ct70844198",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc57891778",
+    "coinTypeId": "ct30773496",
+    "active": true,
+    "premium": "10",
+    "purchaseDate": "05/20/2015",
+    "purchasePrice": "7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc87030298",
+    "coinTypeId": "ct30773496",
+    "active": true,
+    "premium": "10",
+    "purchaseDate": "05/20/2015",
+    "purchasePrice": "7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc67355145",
+    "coinTypeId": "ct30773496",
+    "active": true,
+    "premium": "10",
+    "purchaseDate": "05/20/2015",
+    "purchasePrice": "7",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc87351308",
+    "coinTypeId": "ct45860574",
+    "active": true,
+    "premium": "7",
+    "purchaseDate": "05/20/2015",
+    "purchasePrice": "10",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc13332386",
+    "coinTypeId": "ct45860574",
+    "active": true,
+    "premium": "7",
+    "purchaseDate": "05/20/2015",
+    "purchasePrice": "10",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc32531219",
+    "coinTypeId": "ct45860574",
+    "active": true,
+    "premium": "7",
+    "purchaseDate": "05/20/2015",
+    "purchasePrice": "10",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc43762070",
+    "coinTypeId": "ct69504395",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc14030832",
+    "coinTypeId": "ct65845301",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "07/18/2015",
+    "purchasePrice": "14.58",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc51576933",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc22438408",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "06/26/2015",
+    "purchasePrice": "19.47",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc72219021",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc02531969",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc61608602",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "06/26/2015",
+    "purchasePrice": "19.47",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc81411818",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "06/26/2015",
+    "purchasePrice": "19.47",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc70677492",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "06/26/2015",
+    "purchasePrice": "19.47",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc81171037",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1.4",
+    "purchaseDate": "06/26/2015",
+    "purchasePrice": "19.47",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc10756865",
+    "coinTypeId": "ct99542018",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "10/03/2015",
+    "purchasePrice": 19.5,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc32043882",
+    "coinTypeId": "ct37123672",
+    "active": true,
+    "premium": "1.6",
+    "purchaseDate": "07/18/2015",
+    "purchasePrice": "46",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc62975375",
+    "coinTypeId": "ct26414953",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "07/05/2015",
+    "purchasePrice": "6.34",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc39921710",
+    "coinTypeId": "ct26414953",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "07/05/2015",
+    "purchasePrice": "6.34",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc25522778",
+    "coinTypeId": "ct91069558",
+    "active": true,
+    "premium": "1.3",
+    "purchaseDate": "05/30/2015",
+    "purchasePrice": "45",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc03229222",
+    "coinTypeId": "ct57021566",
+    "active": true,
+    "premium": "1.3",
+    "purchaseDate": "05/30/2015",
+    "purchasePrice": "40",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc59854676",
+    "coinTypeId": "ct90311804",
+    "active": true,
+    "premium": "1.8",
+    "purchaseDate": "05/30/2015",
+    "purchasePrice": "25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc11232743",
+    "coinTypeId": "ct78096558",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "03/20/2015",
+    "purchasePrice": "32.92",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc23455576",
+    "coinTypeId": "ct78096558",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "05/28/2015",
+    "purchasePrice": "31.16",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc76912357",
+    "coinTypeId": "ct78096558",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "05/01/2015",
+    "purchasePrice": "31.13",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc38496502",
+    "coinTypeId": "ct78096558",
+    "active": true,
+    "premium": "2",
+    "purchaseDate": "04/28/2015",
+    "purchasePrice": "31.07",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc86154743",
+    "coinTypeId": "ct78297046",
+    "active": true,
+    "premium": "4",
+    "purchaseDate": "05/31/2015",
+    "purchasePrice": "14.975",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc83842583",
+    "coinTypeId": "ct78297046",
+    "active": true,
+    "premium": "4",
+    "purchaseDate": "05/31/2015",
+    "purchasePrice": "14.975",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc82837786",
+    "coinTypeId": "ct96533562",
+    "active": true,
+    "premium": "1.15",
+    "purchaseDate": "05/21/2015",
+    "purchasePrice": "107",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc73263144",
+    "coinTypeId": "ct65193802",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "07/30/2015",
+    "purchasePrice": "17.61",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc37081863",
+    "coinTypeId": "ct66226815",
+    "active": false,
+    "premium": "1.15",
+    "purchaseDate": "03/09/2015",
+    "purchasePrice": "19.92",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc79467271",
+    "coinTypeId": "ct32014901",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "04/05/2015",
+    "purchasePrice": "20.415",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc86644986",
+    "coinTypeId": "ct05959409",
+    "active": true,
+    "premium": "1.2",
+    "purchaseDate": "05/28/2015",
+    "purchasePrice": "17.52",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc12856394",
+    "coinTypeId": "ct21957452",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "05/28/2015",
+    "purchasePrice": "1.07",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": true
+}, {
+    "id": "mc09039342",
+    "coinTypeId": "ct38826467",
+    "active": true,
+    "premium": "1.5",
+    "purchaseDate": "05/28/2015",
+    "purchasePrice": "42.54",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc82235774",
+    "coinTypeId": "ct38826467",
+    "active": true,
+    "premium": "1.5",
+    "purchaseDate": "05/28/2015",
+    "purchasePrice": "42.54",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc12478030",
+    "coinTypeId": "ct34217442",
+    "active": true,
+    "premium": "1.35",
+    "purchaseDate": "08/26/2015",
+    "purchasePrice": "39.52",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc84950616",
+    "coinTypeId": "ct34217442",
+    "active": true,
+    "premium": "1.35",
+    "purchaseDate": "08/26/2015",
+    "purchasePrice": "39.52",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc56554354",
+    "coinTypeId": "ct34217442",
+    "active": true,
+    "premium": "1.35",
+    "purchaseDate": "08/26/2015",
+    "purchasePrice": "39.52",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc85679616",
+    "coinTypeId": "ct15191701",
+    "active": false,
+    "premium": "1.2",
+    "purchaseDate": "04/05/2015",
+    "purchasePrice": "19.505",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc91711979",
+    "coinTypeId": "ct51188092",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc80578436",
+    "coinTypeId": "ct51188092",
+    "active": true,
+    "premium": "1",
+    "purchaseDate": "",
+    "purchasePrice": 0,
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc94278210",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc18552311",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc30116549",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc31075440",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc99586430",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc25395095",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc94211312",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc36616499",
+    "coinTypeId": "ct30726160",
+    "active": true,
+    "premium": "1.45",
+    "purchaseDate": "04/24/2015",
+    "purchasePrice": "19.25",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}, {
+    "id": "mc75390478",
+    "coinTypeId": "ct24990040",
+    "active": false,
+    "premium": "1.2",
+    "purchaseDate": "04/05/2015",
+    "purchasePrice": "019.005",
+    "saleDate": "",
+    "salePrice": "",
+    "isPermaStack": false
+}];
