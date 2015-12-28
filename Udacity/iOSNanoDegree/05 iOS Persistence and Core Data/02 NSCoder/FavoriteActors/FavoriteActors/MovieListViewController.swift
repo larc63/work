@@ -12,6 +12,8 @@ import UIKit
 class MovieListViewController : UITableViewController {
     
     var actor: Person!
+    var actors: [Person]!
+    var actorsFilePath: String!
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
@@ -131,6 +133,7 @@ class MovieListViewController : UITableViewController {
         case .Delete:
             actor.movies.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            NSKeyedArchiver.archiveRootObject(actors, toFile: actorsFilePath)
         default:
             break
         }

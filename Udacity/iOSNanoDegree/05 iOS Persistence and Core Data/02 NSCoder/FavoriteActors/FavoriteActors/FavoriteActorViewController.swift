@@ -11,14 +11,17 @@ import UIKit
 class FavoriteActorViewController : UITableViewController, ActorPickerViewControllerDelegate {
     
     var actors = [Person]()
-    
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addActor")
+        
+        if NSFileManager.defaultManager().fileExistsAtPath(actorsFilePath) {
+            self.actors = NSKeyedUnarchiver.unarchiveObjectWithFile(actorsFilePath) as! [Person]
+        }
     }
     
     // Mark: - Actions
@@ -34,7 +37,7 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
     // MARK: - Actor Picker Delegate
     
     func actorPicker(actorPicker: ActorPickerViewController, didPickActor actor: Person?) {
-
+        
         if let newActor = actor {
             
             // Check to see if we already have this actor
@@ -46,9 +49,12 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
             
             // If we didn't find any, then add
             self.actors.append(newActor)
-
+            
             // And reload the table
             self.tableView.reloadData()
+            
+            // And, and... save a copy to disk
+            NSKeyedArchiver.archiveRootObject(actors, toFile: actorsFilePath)
         }
     }
     
@@ -73,9 +79,9 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         } else if actor.imagePath == "" {
             cell.actorImageView.image = UIImage(named: "personNoImage")
         }
-        
-        // If the above cases don't work, then we should download the image
-        
+            
+            // If the above cases don't work, then we should download the image
+            
         else {
             
             // Set the placeholder
@@ -83,7 +89,7 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
             
             let size = TheMovieDB.sharedInstance().config.profileSizes[1]
             let task = TheMovieDB.sharedInstance().taskForImageWithSize(size, filePath: actor.imagePath) { (imageData, error) -> Void in
-            
+                
                 if let data = imageData {
                     dispatch_async(dispatch_get_main_queue()) {
                         let image = UIImage(data: data)
@@ -95,13 +101,14 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
             
             cell.taskToCancelifCellIsReused = task
         }
-            
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let controller = storyboard!.instantiateViewControllerWithIdentifier("MovieListViewController") as! MovieListViewController
-        
+        controller.actors = actors
+        controller.actorsFilePath = actorsFilePath
         controller.actor = actors[indexPath.row]
         
         self.navigationController!.pushViewController(controller, animated: true)
