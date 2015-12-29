@@ -26,12 +26,12 @@ class MovieListViewController : UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        if actor.movies.isEmpty {
+        if actor.movies == nil || actor.movies!.isEmpty {
             
             let resource = TheMovieDB.Resources.PersonIDMovieCredits
-            let parameters = [TheMovieDB.Keys.ID : Int(actor.id)]
+            let parameters = [TheMovieDB.Keys.ID : actor.id]
             
-            TheMovieDB.sharedInstance().taskForResource(resource, parameters: parameters){ JSONResult, error  in
+            TheMovieDB.sharedInstance().taskForResource(resource, parameters: parameters) {(JSONResult: AnyObject!, error: NSError?) -> Void  in
                 if let error = error {
                     self.alertViewForError(error)
                 } else {
@@ -39,17 +39,24 @@ class MovieListViewController : UITableViewController {
                     if let moviesDictionaries = JSONResult.valueForKey("cast") as? [[String : AnyObject]] {
                         
                         // Parse the array of movies dictionaries
-                        let movies = moviesDictionaries.map() { (dictionary: [String : AnyObject]) -> Movie in
-                            return Movie(dictionary: dictionary, context: self.sharedContext)
+                        let _ = moviesDictionaries.map() { (dictionary: [String : AnyObject]) -> Movie in
+                            let movie = Movie(dictionary: dictionary, context: self.sharedContext)
+        
+                            movie.actor = self.actor
+                            
+                            return movie
                         }
-                        
-                        // Save the result
-                        self.actor.movies = movies
                         
                         // Update the table on the main thread
                         dispatch_async(dispatch_get_main_queue()) {
                             self.tableView.reloadData()
                         }
+                        
+                        // Save the Context
+                        do {
+                            try self.sharedContext.save()
+                        } catch _ {}
+                        
                     } else {
                         let error = NSError(domain: "Movie for Person Parsing. Cant find cast in \(JSONResult)", code: 0, userInfo: nil)
                         self.alertViewForError(error)
@@ -71,7 +78,7 @@ class MovieListViewController : UITableViewController {
     // MARK: - Table View
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return actor.movies.count
+        return actor.movies?.count ?? 0
     }
     
     /**
@@ -80,7 +87,7 @@ class MovieListViewController : UITableViewController {
     */
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let movie = actor.movies[indexPath.row]
+        let movie = actor.movies![indexPath.row]
         let CellIdentifier = "MovieCell"
         var posterImage = UIImage(named: "posterPlaceHoldr")
         
@@ -141,16 +148,9 @@ class MovieListViewController : UITableViewController {
         
         switch (editingStyle) {
         case .Delete:
-            let movie = actor.movies[indexPath.row]
-            
-            // Remove the movie from the actors array using the inverse relationship
-            movie.actor = nil
-            
-            // Remove the row from the table
+            actor.movies!.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
-            
-            // Remove the movie from the context
-            sharedContext.deleteObject(movie)        default:
+        default:
             break
         }
     }

@@ -12,26 +12,16 @@ import CoreData
 class FavoriteActorViewController : UITableViewController, ActorPickerViewControllerDelegate {
     
     var actors = [Person]()
-    func fetchAllActors() -> [Person] {
-        // Create the fetch request
-        let fetchRequest = NSFetchRequest(entityName: "Person")
-        
-        // Execute the Fetch Request
-        do {
-            return try sharedContext.executeFetchRequest(fetchRequest) as! [Person]
-        } catch let error as NSError {
-            print("Error in fetchAllActors(): \(error)")
-            return [Person]()
-        }
-    }
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        actors = fetchAllActors()
+        
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addActor")
+
+        actors = fetchAllActors()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -46,6 +36,29 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         return delegate.managedObjectContext
     }
+
+    /**
+     * This is the convenience method for fetching all persistent actors.
+     * Right now there are three actors pre-loaded into Core Data. Eventually
+     * Core Data will only store the actors that the users chooses.
+     *
+     * The method creates a "Fetch Request" and then executes the request on
+     * the shared context.
+     */
+    
+    func fetchAllActors() -> [Person] {
+        
+        // Create the Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        // Execute the Fetch Request
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Person]
+        } catch _ {
+            return [Person]()
+        }
+    }
+
     
     // Mark: - Actions
     
@@ -61,6 +74,7 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
     
     func actorPicker(actorPicker: ActorPickerViewController, didPickActor actor: Person?) {
         
+        
         if let newActor = actor {
             
             // Check to see if we already have this actor. If so, return.
@@ -70,7 +84,8 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
                 }
             }
             
-            // Create a dictionary from the actor. Careful, the imagePath can be nil.
+            // Create a dictionary from the actor. Careful, the imagePath can be hil.
+            
             var dictionary = [String : AnyObject]()
             dictionary[Person.Keys.ID] = newActor.id
             dictionary[Person.Keys.Name] = newActor.name
@@ -78,17 +93,17 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
             if let imagePath = newActor.imagePath {
                 dictionary[Person.Keys.ProfilePath] = imagePath
             }
-            
+
             // Insert the actor on the main thread
+            
             dispatch_async(dispatch_get_main_queue()) {
+             
                 // Init the Person, using the shared Context
                 let actorToBeAdded = Person(dictionary: dictionary, context: self.sharedContext)
-                
+
                 // Append the actor to the array
                 self.actors.append(actorToBeAdded)
             }
-            
-            
         }
     }
     
