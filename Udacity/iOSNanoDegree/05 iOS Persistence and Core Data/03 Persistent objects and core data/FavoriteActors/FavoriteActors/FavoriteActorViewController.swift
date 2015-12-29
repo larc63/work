@@ -12,12 +12,24 @@ import CoreData
 class FavoriteActorViewController : UITableViewController, ActorPickerViewControllerDelegate {
     
     var actors = [Person]()
+    func fetchAllActors() -> [Person] {
+        // Create the fetch request
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        // Execute the Fetch Request
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Person]
+        } catch let error as NSError {
+            print("Error in fetchAllActors(): \(error)")
+            return [Person]()
+        }
+    }
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        actors = fetchAllActors()
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addActor")
     }
@@ -28,7 +40,7 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         tableView.reloadData()
     }
     
-    // MARK: - Core Data Convenience. This will be useful for fetching. And for adding and saving objects as well. 
+    // MARK: - Core Data Convenience. This will be useful for fetching. And for adding and saving objects as well.
     
     var sharedContext: NSManagedObjectContext {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -58,7 +70,25 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
                 }
             }
             
-            self.actors.append(newActor)
+            // Create a dictionary from the actor. Careful, the imagePath can be nil.
+            var dictionary = [String : AnyObject]()
+            dictionary[Person.Keys.ID] = newActor.id
+            dictionary[Person.Keys.Name] = newActor.name
+            
+            if let imagePath = newActor.imagePath {
+                dictionary[Person.Keys.ProfilePath] = imagePath
+            }
+            
+            // Insert the actor on the main thread
+            dispatch_async(dispatch_get_main_queue()) {
+                // Init the Person, using the shared Context
+                let actorToBeAdded = Person(dictionary: dictionary, context: self.sharedContext)
+                
+                // Append the actor to the array
+                self.actors.append(actorToBeAdded)
+            }
+            
+            
         }
     }
     
