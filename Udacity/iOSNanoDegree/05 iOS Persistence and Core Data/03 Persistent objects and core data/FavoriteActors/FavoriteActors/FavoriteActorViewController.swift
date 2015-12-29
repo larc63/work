@@ -100,13 +100,14 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
              
                 // Init the Person, using the shared Context
                 let actorToBeAdded = Person(dictionary: dictionary, context: self.sharedContext)
-                do {
-                    try self.sharedContext.save()
-                } catch let error as NSError  {
-                    print("Error saving context: \(error.localizedDescription)")
-                }
+
                 // Append the actor to the array
                 self.actors.append(actorToBeAdded)
+                
+                // Save the context.
+                do {
+                    try self.sharedContext.save()
+                } catch _ {}
             }
         }
     }
