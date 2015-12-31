@@ -24,6 +24,29 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
     var events = [Event]()
 
+    
+    // MARK: - Core Data Convenience. This will be useful for fetching. And for adding and saving objects as well.
+    
+    var sharedContext: NSManagedObjectContext {
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        return delegate.managedObjectContext
+    }
+    
+    
+    func fetchAllEvents() -> [Event] {
+        
+        // Create the Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Event")
+        
+        // Execute the Fetch Request
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Event]
+        } catch _ {
+            return [Event]()
+        }
+    }
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -37,13 +60,26 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
 
         // Step 3: initialize the events array with the results of the fetchAllEvents() method
         // (see the initialization of the "actors" array in FavoreActorViewController for an example
+        events = fetchAllEvents()
     }
 
     func insertNewObject(sender: AnyObject) {
 
         // Step 4: Create an Event object (and append it to the events array.)
         // (see the actorPicker(:didPickActor:) method for an example with the Person object
-
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            // Init the Person, using the shared Context
+            let dateToAppend = Event(context: self.sharedContext)
+            
+            // Append the actor to the array
+            self.events.append(dateToAppend)
+            
+            // Save the context.
+            do {
+                try self.sharedContext.save()
+            } catch _ {}
+        }
         // Step 5: Save the context (and check for an error)
         // (see the actorPicker(:didPickActor:) method for an example
         
@@ -91,11 +127,5 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     // MARK: - Core Data Fetch Helpers
-
-    // Step 1: Add a "sharedContext" convenience property.
-    // (See the FavoriteActorViewController for an example)
-
-    // Step 2: Add a fetchAllEvents() method
-    // (See the fetchAllActors() method in FavoriteActorViewController for an example
 }
 
