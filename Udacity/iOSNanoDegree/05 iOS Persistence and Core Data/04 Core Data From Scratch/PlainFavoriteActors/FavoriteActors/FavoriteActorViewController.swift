@@ -20,12 +20,43 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Add, target: self, action: "addActor")
+        
+        actors = fetchAllActors()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
+    }
+    
+    // MARK: - Core Data Convenience. This will be useful for fetching. And for adding and saving objects as well.
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
+    /**
+     * This is the convenience method for fetching all persistent actors.
+     * Right now there are three actors pre-loaded into Core Data. Eventually
+     * Core Data will only store the actors that the users chooses.
+     *
+     * The method creates a "Fetch Request" and then executes the request on
+     * the shared context.
+     */
+    
+    func fetchAllActors() -> [Person] {
+        
+        // Create the Fetch Request
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        // Execute the Fetch Request
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [Person]
+        } catch  let error as NSError {
+            print("Error in fetchAllActors(): \(error)")
+            return [Person]()
+        }
     }
     
     // Mark: - Actions
@@ -55,11 +86,21 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
                 }
             }
             
-            // Here we add the actor object that comes from the ActorPickerViewController. Remember
-            // that we cannot do this directly once we incoporate Core Data. The ActorPickerViewController
-            // uses a "scratch" context. It fills its table with actors that have not been picked. We 
-            // need to create a new person object that is inserted into the shared context. 
-            self.actors.append(newActor)
+            let dictionary: [String : AnyObject] = [
+                Person.Keys.ID : newActor.id,
+                Person.Keys.Name : newActor.name,
+                Person.Keys.ProfilePath : newActor.imagePath ?? ""
+            ]
+            
+            // Now we create a new Person, using the shared Context
+            let actorToBeAdded = Person(dictionary: dictionary, context: sharedContext)
+            
+            // And add append the actor to the array as well
+            self.actors.append(actorToBeAdded)
+            
+            // Finally we save the shared context, using the convenience method in
+            // The CoreDataStackManager
+            CoreDataStackManager.sharedInstance().saveContext()
         }
     }
     
@@ -122,8 +163,17 @@ class FavoriteActorViewController : UITableViewController, ActorPickerViewContro
         
         switch (editingStyle) {
         case .Delete:
+            let actor = actors[indexPath.row]
+            
+            // Remove the actor from the array
             actors.removeAtIndex(indexPath.row)
+            
+            // Remove the row from the table
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Fade)
+            
+            // Remove the actor from the context
+            sharedContext.deleteObject(actor)
+            CoreDataStackManager.sharedInstance().saveContext()
         default:
             break
         }

@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class Person {
+import CoreData
+class Person : NSManagedObject {
 
     struct Keys {
         static let Name = "name"
@@ -16,16 +16,23 @@ class Person {
         static let ID = "id"
     }
 
-    var name: String
-    var id: Int
-    var imagePath: String?
-    var movies: [Movie] = [Movie]()
+    @NSManaged var name: String
+    @NSManaged var id: NSNumber
+    @NSManaged var imagePath: String?
+    @NSManaged var movies: [Movie]
 
-    init(dictionary: [String : AnyObject]) {
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
+    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+        let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext: context)!
+        super.init(entity: entity,insertIntoManagedObjectContext: context)
         name = dictionary[Keys.Name] as! String
         id = dictionary[Keys.ID] as! Int
         imagePath = dictionary[Keys.ProfilePath] as? String
     }
+
 
     var image: UIImage? {
         get { return TheMovieDB.Caches.imageCache.imageWithIdentifier(imagePath) }
