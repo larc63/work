@@ -8,7 +8,7 @@
 
 import UIKit
 import MapKit
-class ViewController: UIViewController, UIGestureRecognizerDelegate {
+class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
@@ -20,6 +20,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         longPressRecognizer.minimumPressDuration = 0.5
         longPressRecognizer.delegate = self
         mapView.addGestureRecognizer(longPressRecognizer)
+        mapView.delegate = self
+        
+        FlickrClient.sharedInstance().getPhotoSetForLocation(self, long: "-0.1275920", lat: "51.5034070"){(success, errorString) -> Void in
+            print(success)
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,6 +42,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate {
         let annot = MKPointAnnotation()
         annot.coordinate = touchMapCoordinate
         mapView.addAnnotation(annot)
+    }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
+        print("called didSelectAnnotationView")
     }
 }
 

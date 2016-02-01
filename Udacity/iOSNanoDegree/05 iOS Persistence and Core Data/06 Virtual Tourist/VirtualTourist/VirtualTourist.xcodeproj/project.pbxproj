@@ -15,6 +15,8 @@
 		F816B8391C5D6CD800339DB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F816B8371C5D6CD700339DB7 /* LaunchScreen.storyboard */; };
 		F816B8441C5D6CD800339DB7 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8431C5D6CD800339DB7 /* VirtualTouristTests.swift */; };
 		F816B84F1C5D70D900339DB7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F816B84E1C5D70D900339DB7 /* MapKit.framework */; };
+		F816B8531C5DE56F00339DB7 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8521C5DE56F00339DB7 /* FlickrClient.swift */; };
+		F816B8561C5DE5B100339DB7 /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		F816B8431C5D6CD800339DB7 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
 		F816B8451C5D6CD800339DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F816B84E1C5D70D900339DB7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F816B8521C5DE56F00339DB7 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrClient.swift; path = "../../../../04 iOS Networking/06 On The Map/OnTheMap/OnTheMap/FlickrClient.swift"; sourceTree = "<group>"; };
+		F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServiceHelpers.swift; path = "../../../../04 iOS Networking/06 On The Map/OnTheMap/OnTheMap/WebServiceHelpers.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 		F816B82A1C5D6CD700339DB7 /* VirtualTourist */ = {
 			isa = PBXGroup;
 			children = (
+				F816B8541C5DE59A00339DB7 /* Utils */,
+				F816B8511C5DE54C00339DB7 /* Model */,
 				F816B82B1C5D6CD700339DB7 /* AppDelegate.swift */,
 				F816B82D1C5D6CD700339DB7 /* ViewController.swift */,
 				F816B82F1C5D6CD700339DB7 /* Main.storyboard */,
@@ -101,6 +107,30 @@
 				F816B8451C5D6CD800339DB7 /* Info.plist */,
 			);
 			path = VirtualTouristTests;
+			sourceTree = "<group>";
+		};
+		F816B8501C5DE53000339DB7 /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				F816B8521C5DE56F00339DB7 /* FlickrClient.swift */,
+			);
+			name = Client;
+			sourceTree = "<group>";
+		};
+		F816B8511C5DE54C00339DB7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F816B8501C5DE53000339DB7 /* Client */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F816B8541C5DE59A00339DB7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -204,6 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F816B8561C5DE5B100339DB7 /* WebServiceHelpers.swift in Sources */,
+				F816B8531C5DE56F00339DB7 /* FlickrClient.swift in Sources */,
 				F816B82E1C5D6CD700339DB7 /* ViewController.swift in Sources */,
 				F816B82C1C5D6CD700339DB7 /* AppDelegate.swift in Sources */,
 				F816B8341C5D6CD700339DB7 /* VirtualTourist.xcdatamodeld in Sources */,
