@@ -16,9 +16,7 @@ class  FlickrClient {
     let DATA_FORMAT = "json"
     let NO_JSON_CALLBACK = "1"
 
-    
-    // MARK: Authentication (POST) Method
-    func getPhotoSetForLocation(hostViewController: ViewController, long: String, lat: String, completionHandler: (success: Bool, errorString: String?, photoData: NSDictionary?) -> Void) {
+    func getPhotoSetForLocation(long: String, lat: String, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
         let parameters = [
             "method": METHOD_NAME,
             "api_key": API_KEY,
@@ -37,7 +35,8 @@ class  FlickrClient {
                     completionHandler(success: false, errorString: errorString, photoData: nil)
                 }
                 print("result = \(result)")
-                let photos = result["photo"] as! NSDictionary
+                let data = result["photos"] as! NSDictionary
+                let photos = data["photo"] as! NSArray
                 completionHandler(success: true, errorString: nil, photoData: photos)
             }else {
                 if error!.code == 403 || error!.code == 400{
@@ -49,6 +48,37 @@ class  FlickrClient {
         }
     }
     
+    func getPhotoForId(photoId: String, completionHandler: (success: Bool, errorString: String?, photoData: NSData?) -> Void) {
+        let parameters = [
+            "method": "flickr.photos.getSizes",
+            "api_key": self.API_KEY,
+            "photo_id": photoId,
+            "format": self.DATA_FORMAT,
+            "nojsoncallback": self.NO_JSON_CALLBACK
+        ]
+
+        WebServiceHelpers.sharedInstance().taskForGETMethod(BASE_URL, method: "", parameters: parameters, requestValues: [:], needsTruncating: false) { (result, error) in
+            if error == nil {
+                /* GUARD: Did Flickr return an error (stat != ok)? */
+                if result["stat"] as? String != "ok"{
+                    let errorString = "Flickr API returned an error. Error code: \(result.code)"
+                    print(errorString)
+                    //return an error
+                    completionHandler(success: false, errorString: errorString, photoData: nil)
+                }
+                print("result = \(result)")
+                let data = result["sizes"] as! NSDictionary
+                let photos = data["size"] as! NSArray
+//                completionHandler(success: true, errorString: nil, photoData: photos)
+            }else {
+                if error!.code == 403 || error!.code == 400{
+                    completionHandler(success: false, errorString: "An error occurred while logging in, make sure that your username and password are correct", photoData: nil)
+                }else{
+                    completionHandler(success: false, errorString: "An error occurred while logging in, there seems to be a connectivity issue", photoData: nil)
+                }
+            }
+        }
+    }
     
     // MARK: Shared Instance
     

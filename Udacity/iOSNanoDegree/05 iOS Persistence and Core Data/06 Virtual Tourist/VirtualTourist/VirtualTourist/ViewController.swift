@@ -27,9 +27,10 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         FlickrClient.sharedInstance().getPhotoSetForLocation("-0.1275920", lat: "51.5034070"){(success, errorString, photosArray) -> Void in
             if(success){
                 var count = 0;
-                for p in photosArray!{
-                    let id = p["id"] as! String
-                    let title = p["title"] as! String
+                for p in photosArray! {
+                    let d = p as! NSDictionary
+                    let id = d["id"] as! String
+                    let title = d["title"] as! String
                     let newPhoto = Photo()
                     newPhoto.id = id
                     newPhoto.title = title

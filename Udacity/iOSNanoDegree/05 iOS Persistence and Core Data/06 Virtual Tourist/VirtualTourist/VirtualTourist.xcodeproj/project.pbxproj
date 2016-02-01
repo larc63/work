@@ -15,12 +15,12 @@
 		F816B8391C5D6CD800339DB7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F816B8371C5D6CD700339DB7 /* LaunchScreen.storyboard */; };
 		F816B8441C5D6CD800339DB7 /* VirtualTouristTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8431C5D6CD800339DB7 /* VirtualTouristTests.swift */; };
 		F816B84F1C5D70D900339DB7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F816B84E1C5D70D900339DB7 /* MapKit.framework */; };
-		F816B8531C5DE56F00339DB7 /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8521C5DE56F00339DB7 /* FlickrClient.swift */; };
-		F816B8561C5DE5B100339DB7 /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */; };
 		F816B8581C5EF1E400339DB7 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8571C5EF1E400339DB7 /* Pin.swift */; };
 		F816B85A1C5EF1F100339DB7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8591C5EF1F100339DB7 /* Photo.swift */; };
 		F816B85C1C5FEEA600339DB7 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B85B1C5FEEA600339DB7 /* PhotoAlbumViewController.swift */; };
 		F816B85E1C5FF55700339DB7 /* PhotoAlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */; };
+		F89B792C1C602170004BD46A /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B792B1C602170004BD46A /* FlickrClient.swift */; };
+		F89B792E1C60217F004BD46A /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B792D1C60217F004BD46A /* WebServiceHelpers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,12 +46,12 @@
 		F816B8431C5D6CD800339DB7 /* VirtualTouristTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualTouristTests.swift; sourceTree = "<group>"; };
 		F816B8451C5D6CD800339DB7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F816B84E1C5D70D900339DB7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F816B8521C5DE56F00339DB7 /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlickrClient.swift; path = "../../../../04 iOS Networking/06 On The Map/OnTheMap/OnTheMap/FlickrClient.swift"; sourceTree = "<group>"; };
-		F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServiceHelpers.swift; path = "../../../../04 iOS Networking/06 On The Map/OnTheMap/OnTheMap/WebServiceHelpers.swift"; sourceTree = "<group>"; };
 		F816B8571C5EF1E400339DB7 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		F816B8591C5EF1F100339DB7 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
 		F816B85B1C5FEEA600339DB7 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
 		F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewCell.swift; sourceTree = "<group>"; };
+		F89B792B1C602170004BD46A /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
+		F89B792D1C60217F004BD46A /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHelpers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +122,7 @@
 		F816B8501C5DE53000339DB7 /* Client */ = {
 			isa = PBXGroup;
 			children = (
-				F816B8521C5DE56F00339DB7 /* FlickrClient.swift */,
+				F89B792B1C602170004BD46A /* FlickrClient.swift */,
 			);
 			name = Client;
 			sourceTree = "<group>";
@@ -130,6 +130,7 @@
 		F816B8511C5DE54C00339DB7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F89B792D1C60217F004BD46A /* WebServiceHelpers.swift */,
 				F816B8501C5DE53000339DB7 /* Client */,
 				F816B8571C5EF1E400339DB7 /* Pin.swift */,
 				F816B8591C5EF1F100339DB7 /* Photo.swift */,
@@ -140,7 +141,6 @@
 		F816B8541C5DE59A00339DB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -248,13 +248,13 @@
 			files = (
 				F816B85A1C5EF1F100339DB7 /* Photo.swift in Sources */,
 				F816B85E1C5FF55700339DB7 /* PhotoAlbumViewCell.swift in Sources */,
-				F816B8561C5DE5B100339DB7 /* WebServiceHelpers.swift in Sources */,
-				F816B8531C5DE56F00339DB7 /* FlickrClient.swift in Sources */,
 				F816B85C1C5FEEA600339DB7 /* PhotoAlbumViewController.swift in Sources */,
 				F816B82E1C5D6CD700339DB7 /* ViewController.swift in Sources */,
 				F816B8581C5EF1E400339DB7 /* Pin.swift in Sources */,
 				F816B82C1C5D6CD700339DB7 /* AppDelegate.swift in Sources */,
 				F816B8341C5D6CD700339DB7 /* VirtualTourist.xcdatamodeld in Sources */,
+				F89B792E1C60217F004BD46A /* WebServiceHelpers.swift in Sources */,
+				F89B792C1C602170004BD46A /* FlickrClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +444,7 @@
 				F816B84A1C5D6CD800339DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F816B84B1C5D6CD800339DB7 /* Build configuration list for PBXNativeTarget "VirtualTouristTests" */ = {
 			isa = XCConfigurationList;
@@ -452,6 +453,7 @@
 				F816B84D1C5D6CD800339DB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

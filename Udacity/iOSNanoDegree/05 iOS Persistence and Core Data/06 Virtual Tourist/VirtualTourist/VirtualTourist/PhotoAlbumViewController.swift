@@ -54,6 +54,18 @@ class PhotoAlbumViewController: UICollectionViewController{
             cell.imageView.image = localImage
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
+//            let task = TheMovieDB.sharedInstance().taskForImageWithSize(size, filePath: actor.imagePath!) { (imageData, error) -> Void in
+//                
+//                if let data = imageData {
+//                    dispatch_async(dispatch_get_main_queue()) {
+//                        let image = UIImage(data: data)
+//                        actor.image = image
+//                        cell.actorImageView.image = image
+//                    }
+//                }
+//            }
+//            
+//            cell.taskToCancelifCellIsReused = task
         }
         return cell
     }
