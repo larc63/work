@@ -19,6 +19,8 @@
 		F816B8561C5DE5B100339DB7 /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */; };
 		F816B8581C5EF1E400339DB7 /* Pin.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8571C5EF1E400339DB7 /* Pin.swift */; };
 		F816B85A1C5EF1F100339DB7 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B8591C5EF1F100339DB7 /* Photo.swift */; };
+		F816B85C1C5FEEA600339DB7 /* PhotoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B85B1C5FEEA600339DB7 /* PhotoAlbumViewController.swift */; };
+		F816B85E1C5FF55700339DB7 /* PhotoAlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		F816B8551C5DE5B100339DB7 /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WebServiceHelpers.swift; path = "../../../../04 iOS Networking/06 On The Map/OnTheMap/OnTheMap/WebServiceHelpers.swift"; sourceTree = "<group>"; };
 		F816B8571C5EF1E400339DB7 /* Pin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pin.swift; sourceTree = "<group>"; };
 		F816B8591C5EF1F100339DB7 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		F816B85B1C5FEEA600339DB7 /* PhotoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewController.swift; sourceTree = "<group>"; };
+		F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,11 +99,13 @@
 				F816B8511C5DE54C00339DB7 /* Model */,
 				F816B82B1C5D6CD700339DB7 /* AppDelegate.swift */,
 				F816B82D1C5D6CD700339DB7 /* ViewController.swift */,
+				F816B85B1C5FEEA600339DB7 /* PhotoAlbumViewController.swift */,
 				F816B82F1C5D6CD700339DB7 /* Main.storyboard */,
 				F816B8351C5D6CD700339DB7 /* Assets.xcassets */,
 				F816B8371C5D6CD700339DB7 /* LaunchScreen.storyboard */,
 				F816B83A1C5D6CD800339DB7 /* Info.plist */,
 				F816B8321C5D6CD700339DB7 /* VirtualTourist.xcdatamodeld */,
+				F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */,
 			);
 			path = VirtualTourist;
 			sourceTree = "<group>";
@@ -241,8 +247,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F816B85A1C5EF1F100339DB7 /* Photo.swift in Sources */,
+				F816B85E1C5FF55700339DB7 /* PhotoAlbumViewCell.swift in Sources */,
 				F816B8561C5DE5B100339DB7 /* WebServiceHelpers.swift in Sources */,
 				F816B8531C5DE56F00339DB7 /* FlickrClient.swift in Sources */,
+				F816B85C1C5FEEA600339DB7 /* PhotoAlbumViewController.swift in Sources */,
 				F816B82E1C5D6CD700339DB7 /* ViewController.swift in Sources */,
 				F816B8581C5EF1E400339DB7 /* Pin.swift in Sources */,
 				F816B82C1C5D6CD700339DB7 /* AppDelegate.swift in Sources */,
@@ -377,6 +385,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavacahacemu.VirtualTourist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -388,6 +397,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lavacahacemu.VirtualTourist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
