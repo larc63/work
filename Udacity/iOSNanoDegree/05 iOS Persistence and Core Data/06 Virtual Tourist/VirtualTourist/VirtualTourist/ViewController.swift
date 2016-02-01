@@ -10,6 +10,8 @@ import UIKit
 import MapKit
 class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDelegate {
 
+    let photos:[Photo] = []
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +24,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         mapView.addGestureRecognizer(longPressRecognizer)
         mapView.delegate = self
         
-        FlickrClient.sharedInstance().getPhotoSetForLocation(self, long: "-0.1275920", lat: "51.5034070"){(success, errorString) -> Void in
-            print(success)
+        FlickrClient.sharedInstance().getPhotoSetForLocation(self, long: "-0.1275920", lat: "51.5034070"){(success, errorString, photosArray) -> Void in
+            
         }
     }
 
