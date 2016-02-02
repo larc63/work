@@ -8,10 +8,9 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class PhotoAlbumViewController: UICollectionViewController{
-    var photos:[Photo] = []
-    
+class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
@@ -20,6 +19,15 @@ class PhotoAlbumViewController: UICollectionViewController{
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
+        
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print("Unresolved error \(error)")
+            abort()
+        }
+        
+        fetchedResultsController.delegate = self
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -38,26 +46,60 @@ class PhotoAlbumViewController: UICollectionViewController{
     //                navigationController!.presentViewController(memeMakerViewController, animated: true, completion: nil)
     //    }
     
+    //
+    // This is the most important method. It adds and removes rows in the table, in response to changes in the data.
+    //
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            collectionView?.insertItemsAtIndexPaths([newIndexPath!])
+        case .Delete:
+            collectionView?.deleteItemsAtIndexPaths([indexPath!])
+        default:
+            return
+        }
+    }
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+
+    // MARK: - Fetched Results Controller
+    
+    lazy var fetchedResultsController: NSFetchedResultsController = {
+        
+        // Create the fetch request
+        let fetchRequest = NSFetchRequest(entityName: "Photo")
+        
+        // Add a sort descriptor.
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
+        
+        // Create the Fetched Results Controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        // Return the fetched results controller. It will be the value of the lazy variable
+        return fetchedResultsController
+    } ()
     
     // MARK: Collection View Related methods
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30   //photos.count
+        let sectionInfo = self.fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoAlbumViewCell", forIndexPath: indexPath) as! PhotoAlbumViewCell
-        let photo = photos[indexPath.row]
-        cell.title.text = photo.title!
+        let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
+        cell.title.text = photo.title
         
         if photo.image != nil {
             cell.imageView.image = photo.image!
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
-            //TODO: move this to where the pin is set, this information can/should be available before getting to this point and have this view controller be a NSFetchedResultsController
-            FlickrClient.sharedInstance().getPhotoForId(photo.id!){(success, errorString, photoSizes) -> Void in
+            FlickrClient.sharedInstance().getPhotoForId(photo.id){(success, errorString, photoSizes) -> Void in
                 if(success){
-                    //TODO: modify the Photo object to use the url
                     if let photoSizes = photoSizes{
                         for size in photoSizes{
                             let label = size["label"] as! String?
@@ -65,15 +107,16 @@ class PhotoAlbumViewController: UICollectionViewController{
                                 if label == "Square" {
                                     let url = size["source"] as! String?
                                     if let url = url{
-                                        photo.thumbnailURL = url
+                                        photo.thumbnailUrl = url
+                                        CoreDataStackManager.sharedInstance().saveContext()
                                     }
                                 }
                             }
                         }
                     }
                     
-                    if let url = photo.thumbnailURL {
-                        let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
+                    if photo.thumbnailUrl != "" {
+                        let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(photo.thumbnailUrl){ (imageData, error) -> Void in
                             if let data = imageData {
                                 dispatch_async(dispatch_get_main_queue()) {
                                     let image = UIImage(data: data)
@@ -92,9 +135,9 @@ class PhotoAlbumViewController: UICollectionViewController{
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
-    {
-        photos.removeAtIndex(indexPath.row)
-        collectionView.reloadData()
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath){
+        let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
+        sharedContext.deleteObject(photo)
+        CoreDataStackManager.sharedInstance().saveContext()
     }
 }

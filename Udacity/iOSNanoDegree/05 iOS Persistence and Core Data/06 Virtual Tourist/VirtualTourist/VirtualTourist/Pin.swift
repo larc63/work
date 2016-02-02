@@ -15,11 +15,9 @@ class Pin : NSManagedObject{
         static let Longitude = "longitude"
         static let Photos = "photos"
     }
-    @NSManaged var longitude: NSNumber
-    @NSManaged var latitude: NSNumber
-    
-    //TODO: add photos relationship
-    //@NSManaged var movies: [Movies]
+    @NSManaged var longitude: Double
+    @NSManaged var latitude: Double
+    @NSManaged var photos: [Photo]
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -28,7 +26,7 @@ class Pin : NSManagedObject{
     init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
         let entity =  NSEntityDescription.entityForName("Pin", inManagedObjectContext: context)!
         super.init(entity: entity,insertIntoManagedObjectContext: context)
-        longitude = dictionary[Keys.Longitude] as! NSNumber
-        latitude = dictionary[Keys.Latitude] as! NSNumber
+        longitude = dictionary[Keys.Longitude] as! Double
+        latitude = dictionary[Keys.Latitude] as! Double
     }
 }

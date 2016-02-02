@@ -16,12 +16,12 @@ class  FlickrClient {
     let DATA_FORMAT = "json"
     let NO_JSON_CALLBACK = "1"
     
-    func getPhotoSetForLocation(long: String, lat: String, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
+    func getPhotoSetForLocation(long: Double, lat: Double, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
         let parameters = [
             "method": METHOD_NAME,
             "api_key": API_KEY,
-            "lon": long,
-            "lat": lat,
+            "lon": "\(long)",
+            "lat": "\(lat)",
             "format": DATA_FORMAT,
             "nojsoncallback": NO_JSON_CALLBACK
         ]

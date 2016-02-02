@@ -8,19 +8,37 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class Photo{
-    var title:String?
-    var id:String?
+class Photo : NSManagedObject{
+    struct Keys {
+        static let Id = "id"
+        static let Title = "title"
+        static let ThumbnailURL = "thumbnailUrl"
+    }
+    @NSManaged var title : String
+    @NSManaged var id : String
+    @NSManaged var thumbnailUrl : String
+    @NSManaged var pin : Pin?
     
-    var thumbnailURL: String?
+    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
+        super.init(entity: entity, insertIntoManagedObjectContext: context)
+    }
+    
+    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
+        let entity =  NSEntityDescription.entityForName("Photo", inManagedObjectContext: context)!
+        super.init(entity: entity,insertIntoManagedObjectContext: context)
+        id = dictionary[Photo.Keys.Id] as! String
+        thumbnailUrl = dictionary[Photo.Keys.ThumbnailURL] as! String
+        title = dictionary[Photo.Keys.Title] as! String
+    }
     
     var image: UIImage? {
         get {
             return ImageCache.sharedInstance().imageWithIdentifier(id)
         }
         set {
-            ImageCache.sharedInstance().storeImage(image, withIdentifier: id!)
+            ImageCache.sharedInstance().storeImage(image, withIdentifier: id)
         }
     }
 }
