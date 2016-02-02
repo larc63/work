@@ -50,7 +50,7 @@ class PhotoAlbumViewController: UICollectionViewController{
         let photo = photos[indexPath.row]
         cell.title.text = photo.title!
         
-        if photo.imagePath != nil && photo.imagePath != "" {
+        if photo.image != nil {
             cell.imageView.image = photo.image!
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
@@ -85,7 +85,7 @@ class PhotoAlbumViewController: UICollectionViewController{
                         cell.taskToCancelifCellIsReused = task
                     }
                 }else{
-                    //TODO: hanle error here
+                    //TODO: handle error here
                 }
             };
         }
@@ -94,6 +94,7 @@ class PhotoAlbumViewController: UICollectionViewController{
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath)
     {
-        //TODO: show the full res version? maybe?
+        photos.removeAtIndex(indexPath.row)
+        collectionView.reloadData()
     }
 }

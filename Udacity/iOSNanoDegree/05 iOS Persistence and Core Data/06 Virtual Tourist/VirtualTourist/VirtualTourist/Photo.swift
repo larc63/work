@@ -12,18 +12,15 @@ import UIKit
 class Photo{
     var title:String?
     var id:String?
-    var imagePath:String?
     
     var thumbnailURL: String?
     
     var image: UIImage? {
         get {
-            return ImageCache.sharedInstance().imageWithIdentifier(imagePath)
+            return ImageCache.sharedInstance().imageWithIdentifier(id)
         }
         set {
-            if let imagePath = imagePath{
-                ImageCache.sharedInstance().storeImage(image, withIdentifier: imagePath)
-            }
+            ImageCache.sharedInstance().storeImage(image, withIdentifier: id!)
         }
     }
 }
