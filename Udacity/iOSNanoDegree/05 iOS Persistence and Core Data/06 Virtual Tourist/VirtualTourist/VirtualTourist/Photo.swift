@@ -14,18 +14,16 @@ class Photo{
     var id:String?
     var imagePath:String?
     
-    var thumbnailURL: String {
-        get {
-            return ""
-        }
-    }
+    var thumbnailURL: String?
     
     var image: UIImage? {
         get {
-            return nil//TheMovieDB.Caches.imageCache.imageWithIdentifier(imagePath)
+            return ImageCache.sharedInstance().imageWithIdentifier(imagePath)
         }
         set {
-//            TheMovieDB.Caches.imageCache.storeImage(image, withIdentifier: imagePath!)
+            if let imagePath = imagePath{
+                ImageCache.sharedInstance().storeImage(image, withIdentifier: imagePath)
+            }
         }
     }
 }

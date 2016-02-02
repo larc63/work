@@ -36,9 +36,22 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
                     newPhoto.title = title
                     self.photos.append(newPhoto)
                     if (count < 1){
-                        FlickrClient.sharedInstance().getPhotoForId(id){(success, errorString, photoData) -> Void in
+                        FlickrClient.sharedInstance().getPhotoForId(id){(success, errorString, photoSizes) -> Void in
                             if(success){
                                 //TODO: modify the Photo object to use the url
+                                if let photoSizes = photoSizes{
+                                    for size in photoSizes{
+                                        let label = size["label"] as! String?
+                                        if let label = label {
+                                            if label == "Square" {
+                                                let url = size["source"] as! String?
+                                                if let url = url{
+                                                    newPhoto.thumbnailURL = url
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }else{
                                 //TODO: hanle error here
                             }

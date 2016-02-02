@@ -41,7 +41,7 @@ class PhotoAlbumViewController: UICollectionViewController{
     
     // MARK: Collection View Related methods
     override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return 30   //photos.count
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -50,25 +50,44 @@ class PhotoAlbumViewController: UICollectionViewController{
         let photo = photos[indexPath.row]
         cell.title.text = photo.title!
         
-        if let localImage = photo.image{
-            cell.imageView.image = localImage
+        if photo.imagePath != nil && photo.imagePath != "" {
+            cell.imageView.image = photo.image!
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
-            FlickrClient.sharedInstance().getImage(photo.id!){ (success, errorString, data) -> Void in
-                
-            }
-            //            let task = TheMovieDB.sharedInstance().taskForImageWithSize(size, filePath: actor.imagePath!) { (imageData, error) -> Void in
-            //
-            //                if let data = imageData {
-            //                    dispatch_async(dispatch_get_main_queue()) {
-            //                        let image = UIImage(data: data)
-            //                        actor.image = image
-            //                        cell.actorImageView.image = image
-            //                    }
-            //                }
-            //            }
-            //
-            //            cell.taskToCancelifCellIsReused = task
+            //TODO: move this to where the pin is set, this information can/should be available before getting to this point and have this view controller be a NSFetchedResultsController
+            FlickrClient.sharedInstance().getPhotoForId(photo.id!){(success, errorString, photoSizes) -> Void in
+                if(success){
+                    //TODO: modify the Photo object to use the url
+                    if let photoSizes = photoSizes{
+                        for size in photoSizes{
+                            let label = size["label"] as! String?
+                            if let label = label {
+                                if label == "Square" {
+                                    let url = size["source"] as! String?
+                                    if let url = url{
+                                        photo.thumbnailURL = url
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    if let url = photo.thumbnailURL {
+                        let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
+                            if let data = imageData {
+                                dispatch_async(dispatch_get_main_queue()) {
+                                    let image = UIImage(data: data)
+                                    photo.image = image
+                                    cell.imageView.image = image
+                                }
+                            }
+                        }
+                        cell.taskToCancelifCellIsReused = task
+                    }
+                }else{
+                    //TODO: hanle error here
+                }
+            };
         }
         return cell
     }

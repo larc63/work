@@ -102,12 +102,12 @@
 				F816B82B1C5D6CD700339DB7 /* AppDelegate.swift */,
 				F816B82D1C5D6CD700339DB7 /* ViewController.swift */,
 				F816B85B1C5FEEA600339DB7 /* PhotoAlbumViewController.swift */,
+				F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */,
 				F816B82F1C5D6CD700339DB7 /* Main.storyboard */,
 				F816B8351C5D6CD700339DB7 /* Assets.xcassets */,
 				F816B8371C5D6CD700339DB7 /* LaunchScreen.storyboard */,
 				F816B83A1C5D6CD800339DB7 /* Info.plist */,
 				F816B8321C5D6CD700339DB7 /* VirtualTourist.xcdatamodeld */,
-				F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */,
 			);
 			path = VirtualTourist;
 			sourceTree = "<group>";

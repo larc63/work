@@ -14,7 +14,7 @@ class ImageCache {
     
     // MARK: - Retreiving images
     
-    func imageWithIdentifier(identifier: String?, fallbackUrl) -> UIImage? {
+    func imageWithIdentifier(identifier: String?) -> UIImage? {
         
         // If the identifier is nil, or empty, return nil
         if identifier == nil || identifier! == "" {
@@ -68,4 +68,12 @@ class ImageCache {
         
         return fullURL.path!
     }
+    
+    class func sharedInstance() -> ImageCache {
+        struct ImageCacheSingleton {
+            static var sharedInstance = ImageCache()
+        }
+        return ImageCacheSingleton.sharedInstance
+    }
+    
 }
