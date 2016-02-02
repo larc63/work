@@ -21,6 +21,7 @@
 		F816B85E1C5FF55700339DB7 /* PhotoAlbumViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */; };
 		F89B792C1C602170004BD46A /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B792B1C602170004BD46A /* FlickrClient.swift */; };
 		F89B792E1C60217F004BD46A /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B792D1C60217F004BD46A /* WebServiceHelpers.swift */; };
+		F89B79301C602803004BD46A /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B792F1C602803004BD46A /* ImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		F816B85D1C5FF55700339DB7 /* PhotoAlbumViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoAlbumViewCell.swift; sourceTree = "<group>"; };
 		F89B792B1C602170004BD46A /* FlickrClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		F89B792D1C60217F004BD46A /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHelpers.swift; sourceTree = "<group>"; };
+		F89B792F1C602803004BD46A /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 		F816B8541C5DE59A00339DB7 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				F89B792F1C602803004BD46A /* ImageCache.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F89B79301C602803004BD46A /* ImageCache.swift in Sources */,
 				F816B85A1C5EF1F100339DB7 /* Photo.swift in Sources */,
 				F816B85E1C5FF55700339DB7 /* PhotoAlbumViewCell.swift in Sources */,
 				F816B85C1C5FEEA600339DB7 /* PhotoAlbumViewController.swift in Sources */,

@@ -229,8 +229,6 @@ class WebServiceHelpers : NSObject {
         
         return task
     }
-
-    
     
     // MARK: Helpers
     

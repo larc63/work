@@ -14,6 +14,12 @@ class Photo{
     var id:String?
     var imagePath:String?
     
+    var thumbnailURL: String {
+        get {
+            return ""
+        }
+    }
+    
     var image: UIImage? {
         get {
             return nil//TheMovieDB.Caches.imageCache.imageWithIdentifier(imagePath)

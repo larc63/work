@@ -15,7 +15,7 @@ class  FlickrClient {
     let EXTRAS = "url_m"
     let DATA_FORMAT = "json"
     let NO_JSON_CALLBACK = "1"
-
+    
     func getPhotoSetForLocation(long: String, lat: String, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
         let parameters = [
             "method": METHOD_NAME,
@@ -47,8 +47,8 @@ class  FlickrClient {
             }
         }
     }
-    
-    func getPhotoForId(photoId: String, completionHandler: (success: Bool, errorString: String?, photoData: NSData?) -> Void) {
+
+    func getPhotoForId(photoId: String, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
         let parameters = [
             "method": "flickr.photos.getSizes",
             "api_key": self.API_KEY,
@@ -56,7 +56,7 @@ class  FlickrClient {
             "format": self.DATA_FORMAT,
             "nojsoncallback": self.NO_JSON_CALLBACK
         ]
-
+        
         WebServiceHelpers.sharedInstance().taskForGETMethod(BASE_URL, method: "", parameters: parameters, requestValues: [:], needsTruncating: false) { (result, error) in
             if error == nil {
                 /* GUARD: Did Flickr return an error (stat != ok)? */
@@ -69,7 +69,7 @@ class  FlickrClient {
                 print("result = \(result)")
                 let data = result["sizes"] as! NSDictionary
                 let photos = data["size"] as! NSArray
-//                completionHandler(success: true, errorString: nil, photoData: photos)
+                completionHandler(success: true, errorString: nil, photoData: photos)
             }else {
                 if error!.code == 403 || error!.code == 400{
                     completionHandler(success: false, errorString: "An error occurred while logging in, make sure that your username and password are correct", photoData: nil)
@@ -77,6 +77,15 @@ class  FlickrClient {
                     completionHandler(success: false, errorString: "An error occurred while logging in, there seems to be a connectivity issue", photoData: nil)
                 }
             }
+        }
+    }
+    
+    func getImage(id: String, completionHandler: (success: Bool, errorString: String?, data: NSData?) -> Void ){
+        
+        
+        WebServiceHelpers.sharedInstance().taskForImageWithUrl(id) { (imageData, error) in
+            
+            
         }
     }
     

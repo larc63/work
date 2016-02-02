@@ -33,10 +33,10 @@ class PhotoAlbumViewController: UICollectionViewController{
     }
     
     // MARK: Navigation button
-//    func addAMeme() {
-//                let memeMakerViewController = storyboard!.instantiateViewControllerWithIdentifier("MemeGeneratorViewController") as! MemeGeneratorViewController
-//                navigationController!.presentViewController(memeMakerViewController, animated: true, completion: nil)
-//    }
+    //    func addAMeme() {
+    //                let memeMakerViewController = storyboard!.instantiateViewControllerWithIdentifier("MemeGeneratorViewController") as! MemeGeneratorViewController
+    //                navigationController!.presentViewController(memeMakerViewController, animated: true, completion: nil)
+    //    }
     
     
     // MARK: Collection View Related methods
@@ -54,18 +54,21 @@ class PhotoAlbumViewController: UICollectionViewController{
             cell.imageView.image = localImage
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
-//            let task = TheMovieDB.sharedInstance().taskForImageWithSize(size, filePath: actor.imagePath!) { (imageData, error) -> Void in
-//                
-//                if let data = imageData {
-//                    dispatch_async(dispatch_get_main_queue()) {
-//                        let image = UIImage(data: data)
-//                        actor.image = image
-//                        cell.actorImageView.image = image
-//                    }
-//                }
-//            }
-//            
-//            cell.taskToCancelifCellIsReused = task
+            FlickrClient.sharedInstance().getImage(photo.id!){ (success, errorString, data) -> Void in
+                
+            }
+            //            let task = TheMovieDB.sharedInstance().taskForImageWithSize(size, filePath: actor.imagePath!) { (imageData, error) -> Void in
+            //
+            //                if let data = imageData {
+            //                    dispatch_async(dispatch_get_main_queue()) {
+            //                        let image = UIImage(data: data)
+            //                        actor.image = image
+            //                        cell.actorImageView.image = image
+            //                    }
+            //                }
+            //            }
+            //
+            //            cell.taskToCancelifCellIsReused = task
         }
         return cell
     }
