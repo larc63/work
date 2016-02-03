@@ -47,15 +47,6 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    //    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    //        if segue.identifier == "showPhotosForPin" {
-    //            let nav = segue.destinationViewController as! UINavigationController
-    //            let vc = nav.childViewControllers[0] as! PhotoAlbumViewController
-    //            vc.photos = photos
-    //        }
-    //    }
-    
-    
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldReceiveTouch touch: UITouch) -> Bool {
         return true
     }
@@ -82,9 +73,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         
         // And add append the actor to the array as well
         self.pins.append(pinToBeAdded)
-        
         CoreDataStackManager.sharedInstance().saveContext()
-        
         mapView.addAnnotation(annot)
     }
         
@@ -146,11 +135,9 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
                 }
             }
         }
-//        self.performSegueWithIdentifier("showPhotosForPin", sender: nil)
         let controller = storyboard!.instantiateViewControllerWithIdentifier("PhotoAlbumViewController") as! PhotoAlbumViewController
         controller.pin = pin
         self.navigationController!.pushViewController(controller, animated: true)
-//        self.navigationController?.pushViewController(PhotoAlbumViewController(), animated: true)
     }
 }
 

@@ -34,23 +34,8 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        //        navigationItem.rightBarButtonItem = UIBarButtonItem (
-        //            title: "+",
-        //            style: UIBarButtonItemStyle.Plain,
-        //            target: self,
-        //            action: "addAMeme")
         collectionView?.reloadData()
     }
-    
-    // MARK: Navigation button
-    //    func addAMeme() {
-    //                let memeMakerViewController = storyboard!.instantiateViewControllerWithIdentifier("MemeGeneratorViewController") as! MemeGeneratorViewController
-    //                navigationController!.presentViewController(memeMakerViewController, animated: true, completion: nil)
-    //    }
-    
-    //
-    // This is the most important method. It adds and removes rows in the table, in response to changes in the data.
-    //
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch type {
@@ -72,13 +57,10 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
     lazy var fetchedResultsController: NSFetchedResultsController = {
         // Create the fetch request
         let fetchRequest = NSFetchRequest(entityName: "Photo")
-        
         // Add a sort descriptor.
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: false)]
-        
         // Create the Fetched Results Controller
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
-        
         // Return the fetched results controller. It will be the value of the lazy variable
         return fetchedResultsController
     } ()
@@ -90,7 +72,6 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoAlbumViewCell", forIndexPath: indexPath) as! PhotoAlbumViewCell
         let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
         cell.title.text = photo.title
