@@ -29,4 +29,6 @@ class Pin : NSManagedObject{
         longitude = dictionary[Keys.Longitude] as! Double
         latitude = dictionary[Keys.Latitude] as! Double
     }
+    
+    
 }

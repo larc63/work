@@ -24,7 +24,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         mapView.addGestureRecognizer(longPressRecognizer)
         mapView.delegate = self
         var annotations = [MKAnnotation]()
-        pins = fetchAllPins()
+        pins = PinManager.fetchAllPins()
         for pin in pins{
             let lat = CLLocationDegrees(pin.latitude)
             let long = CLLocationDegrees(pin.longitude)
@@ -68,7 +68,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         let longitude = annot.coordinate.longitude as Double
         let latitude = annot.coordinate.latitude as Double
         //check that the pin doesn't exist, if it des, return
-        let filteredPins = findPinFromLatitude(latitude, andLongitude: longitude)
+        let filteredPins = PinManager.findPinFromLatitude(latitude, andLongitude: longitude)
         if filteredPins.count > 0 {
             return
         }
@@ -87,46 +87,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         
         mapView.addAnnotation(annot)
     }
-    // TODO: move to Pin class
-    func fetchAllPins() -> [Pin] {
-        // Create the Fetch Request
-        let fetchRequest = NSFetchRequest(entityName: "Pin")
-        // Execute the Fetch Request
-        do {
-            return try sharedContext.executeFetchRequest(fetchRequest) as! [Pin]
-        } catch  let error as NSError {
-            print("Error in fetchAllPins(): \(error)")
-            return [Pin]()
-        }
-    }
-    
-    
-    //    func fetchPhotoCount() -> Int {
-    //        // Create the Fetch Request
-    //        let fetchRequest = NSFetchRequest(entityName: "Pin")
-    //        // Execute the Fetch Request
-    //        let error = NSErrorPointer()
-    //        let count = sharedContext.countForFetchRequest(fetchRequest, error: error)
-    //        if error == nil{
-    //            return 0
-    //        }else{
-    //            return count
-    //        }
-    //    }
-    //
-    // TODO: move to Pin class
-    func findPinFromLatitude(latitude: Double, andLongitude longitude: Double) -> [Pin]{
-        let predicate = NSPredicate(format: "latitude == %lf AND longitude == %lf", latitude, longitude)
-        let fetchRequest = NSFetchRequest(entityName: "Pin")
-        fetchRequest.predicate = predicate
-        do {
-            return try sharedContext.executeFetchRequest(fetchRequest) as! [Pin]
-        } catch  let error as NSError {
-            print("Error in fetchAllPins(): \(error)")
-            return [Pin]()
-        }
-    }
-    
+        
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
@@ -135,11 +96,12 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         print("called didSelectAnnotationView")
         let latitude =  view.annotation!.coordinate.latitude
         let longitude = view.annotation!.coordinate.longitude
-        let filteredPins  = findPinFromLatitude(latitude, andLongitude: longitude)
+        let filteredPins  = PinManager.findPinFromLatitude(latitude, andLongitude: longitude)
         if filteredPins.count != 1 {
             return
         }
         let pin = filteredPins[0]
+        print("selected pin with latitude=\(pin.latitude) and longitude=\(pin.longitude)")
         if pin.photos.count == 0 {
             FlickrClient.sharedInstance().getPhotoSetForLocation(longitude, lat: latitude){(success, errorString, photosArray) -> Void in
                 if(success){
@@ -153,7 +115,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
                                     for size in photoSizes{
                                         let label = size["label"] as! String?
                                         if let label = label {
-                                            if label == "Square" {
+                                            if label == "Thumbnail" {
                                                 let url = size["source"] as! String?
                                                 if let url = url{
                                                     print(url)
@@ -184,7 +146,11 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
                 }
             }
         }
-        self.performSegueWithIdentifier("showPhotosForPin", sender: nil)
+//        self.performSegueWithIdentifier("showPhotosForPin", sender: nil)
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("PhotoAlbumViewController") as! PhotoAlbumViewController
+        controller.pin = pin
+        self.navigationController!.pushViewController(controller, animated: true)
+//        self.navigationController?.pushViewController(PhotoAlbumViewController(), animated: true)
     }
 }
 

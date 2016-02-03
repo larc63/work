@@ -11,6 +11,7 @@ import UIKit
 import CoreData
 
 class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
+    var pin:Pin?
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
@@ -19,7 +20,8 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
         flowLayout.minimumInteritemSpacing = space
         flowLayout.minimumLineSpacing = space
         flowLayout.itemSize = CGSizeMake(dimension, dimension)
-        
+        let predicate = NSPredicate(format: "pin == %@", pin!)
+        fetchedResultsController.fetchRequest.predicate = predicate
         do {
             try fetchedResultsController.performFetch()
         } catch {
@@ -68,7 +70,6 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
     // MARK: - Fetched Results Controller
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
-        
         // Create the fetch request
         let fetchRequest = NSFetchRequest(entityName: "Photo")
         

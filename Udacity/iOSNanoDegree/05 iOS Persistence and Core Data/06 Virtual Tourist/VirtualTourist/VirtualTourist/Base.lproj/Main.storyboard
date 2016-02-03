@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="tJ9-eW-1j3">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -30,14 +30,15 @@
                             <constraint firstItem="5tW-9O-94v" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="wXv-K3-fZE"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="0yP-zQ-b92"/>
                     <connections>
                         <outlet property="mapView" destination="5tW-9O-94v" id="aF2-hK-PMf"/>
-                        <segue destination="tJ9-eW-1j3" kind="show" identifier="showPhotosForPin" id="B5U-2h-vmu"/>
+                        <segue destination="9if-Id-ACY" kind="showDetail" identifier="showPhotosForPin" id="3ay-lT-nJe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="565" y="537"/>
+            <point key="canvasLocation" x="1315" y="768"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="byJ-iB-eh3">
@@ -48,17 +49,17 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="9if-Id-ACY" kind="relationship" relationship="rootViewController" id="SBm-8r-CJc"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="D8J-rJ-3ol"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dqd-a1-GpM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1488" y="524"/>
+            <point key="canvasLocation" x="608" y="768"/>
         </scene>
         <!--Photos-->
         <scene sceneID="fPZ-lg-JPQ">
             <objects>
-                <collectionViewController title="Photos" id="9if-Id-ACY" customClass="PhotoAlbumViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="PhotoAlbumViewController" title="Photos" id="9if-Id-ACY" customClass="PhotoAlbumViewController" customModule="VirtualTourist" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="zWr-Me-3Oy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +72,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoAlbumViewCell" id="VrW-XQ-Auy" customClass="PhotoAlbumViewCell" customModule="VirtualTourist" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="120" height="100"/>
+                                <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="120" height="100"/>
@@ -83,7 +84,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-5T-AT6">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Zy4-5T-AT6">
                                             <rect key="frame" x="8" y="8" width="104" height="63"/>
                                         </imageView>
                                     </subviews>
@@ -123,7 +124,7 @@
                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                 </collectionViewFlowLayout>
             </objects>
-            <point key="canvasLocation" x="2248" y="537"/>
+            <point key="canvasLocation" x="2054" y="768"/>
         </scene>
     </scenes>
 </document>

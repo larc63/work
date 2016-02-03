@@ -34,7 +34,7 @@ class  FlickrClient {
                     //return an error
                     completionHandler(success: false, errorString: errorString, photoData: nil)
                 }
-                print("result = \(result)")
+//                print("result = \(result)")
                 let data = result["photos"] as! NSDictionary
                 let photos = data["photo"] as! NSArray
                 completionHandler(success: true, errorString: nil, photoData: photos)
@@ -66,7 +66,7 @@ class  FlickrClient {
                     //return an error
                     completionHandler(success: false, errorString: errorString, photoSizes: nil)
                 }
-                print("result = \(result)")
+//                print("result = \(result)")
                 let data = result["sizes"] as! NSDictionary
                 let photos = data["size"] as! NSArray
                 completionHandler(success: true, errorString: nil, photoSizes: photos)
