@@ -10,8 +10,9 @@ import Foundation
 import UIKit
 import CoreData
 
-class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsControllerDelegate {
+class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, NSFetchedResultsControllerDelegate {
     var pin:Pin?
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
@@ -66,12 +67,12 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
     } ()
     
     // MARK: Collection View Related methods
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let sectionInfo = self.fetchedResultsController.sections![section]
         return sectionInfo.numberOfObjects
     }
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoAlbumViewCell", forIndexPath: indexPath) as! PhotoAlbumViewCell
         let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
         cell.title.text = photo.title
@@ -117,9 +118,14 @@ class PhotoAlbumViewController: UICollectionViewController, NSFetchedResultsCont
         return cell
     }
     
-    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath){
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath){
         let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
+        photo.pin = nil
         sharedContext.deleteObject(photo)
+        //TODO: delete underlying file
         CoreDataStackManager.sharedInstance().saveContext()
+    }
+    
+    @IBAction func newCollectionPressed(sender: AnyObject) {
     }
 }

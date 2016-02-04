@@ -92,41 +92,8 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
         let pin = filteredPins[0]
         print("selected pin with latitude=\(pin.latitude) and longitude=\(pin.longitude)")
         if pin.photos.count == 0 {
-            FlickrClient.sharedInstance().getPhotoSetForLocation(longitude, lat: latitude){(success, errorString, photosArray) -> Void in
+            FlickrClient.sharedInstance().getPhotoSetForLocation(pin, context: sharedContext){(success, errorString, photosArray) -> Void in
                 if(success){
-                    for p in photosArray! {
-                        let d = p as! NSDictionary
-                        let id = d["id"] as! String
-                        let title = d["title"] as! String
-                        FlickrClient.sharedInstance().getPhotoForId(id){(success, errorString, photoSizes) -> Void in
-                            if(success){
-                                if let photoSizes = photoSizes{
-                                    for size in photoSizes{
-                                        let label = size["label"] as! String?
-                                        if let label = label {
-                                            if label == "Thumbnail" {
-                                                let url = size["source"] as! String?
-                                                if let url = url{
-                                                    print(url)
-                                                    let dictionary: [String : AnyObject] = [
-                                                        Photo.Keys.Id : id,
-                                                        Photo.Keys.Title : title,
-                                                        Photo.Keys.ThumbnailURL : url
-                                                    ]
-                                                    self.sharedContext.performBlockAndWait(){
-                                                        let photo = Photo(dictionary: dictionary, context: self.sharedContext)
-                                                        photo.pin = pin
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }else{
-                                //TODO: handle error here
-                            }
-                        };
-                    }
                     self.sharedContext.performBlockAndWait(){
                         CoreDataStackManager.sharedInstance().saveContext()
                     }

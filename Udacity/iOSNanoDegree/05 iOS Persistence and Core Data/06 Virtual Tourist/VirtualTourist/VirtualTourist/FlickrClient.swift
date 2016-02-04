@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class  FlickrClient {
     let BASE_URL = "https://api.flickr.com/services/rest/"
@@ -16,12 +17,12 @@ class  FlickrClient {
     let DATA_FORMAT = "json"
     let NO_JSON_CALLBACK = "1"
     
-    func getPhotoSetForLocation(long: Double, lat: Double, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
+    func getPhotoSetForLocation(pin: Pin, context: NSManagedObjectContext, completionHandler: (success: Bool, errorString: String?, photoData: NSArray?) -> Void) {
         let parameters = [
             "method": METHOD_NAME,
             "api_key": API_KEY,
-            "lon": "\(long)",
-            "lat": "\(lat)",
+            "lon": "\(pin.longitude)",
+            "lat": "\(pin.latitude)",
             "format": DATA_FORMAT,
             "nojsoncallback": NO_JSON_CALLBACK
         ]
@@ -37,6 +38,39 @@ class  FlickrClient {
 //                print("result = \(result)")
                 let data = result["photos"] as! NSDictionary
                 let photos = data["photo"] as! NSArray
+                for p in photos {
+                    let d = p as! NSDictionary
+                    let id = d["id"] as! String
+                    let title = d["title"] as! String
+                    self.getPhotoForId(id){(success, errorString, photoSizes) -> Void in
+                        if(success){
+                            if let photoSizes = photoSizes{
+                                for size in photoSizes{
+                                    let label = size["label"] as! String?
+                                    if let label = label {
+                                        if label == "Thumbnail" {
+                                            let url = size["source"] as! String?
+                                            if let url = url{
+                                                print(url)
+                                                let dictionary: [String : AnyObject] = [
+                                                    Photo.Keys.Id : id,
+                                                    Photo.Keys.Title : title,
+                                                    Photo.Keys.ThumbnailURL : url
+                                                ]
+                                                context.performBlockAndWait(){
+                                                    let photo = Photo(dictionary: dictionary, context: context)
+                                                    photo.pin = pin
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }else{
+                            //TODO: handle error here
+                        }
+                    };
+                }
                 completionHandler(success: true, errorString: nil, photoData: photos)
             }else {
                 if error!.code == 403 || error!.code == 400{
