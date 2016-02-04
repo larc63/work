@@ -83,6 +83,7 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
     
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView) {
         print("called didSelectAnnotationView")
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("PhotoAlbumViewController") as! PhotoAlbumViewController
         let latitude =  view.annotation!.coordinate.latitude
         let longitude = view.annotation!.coordinate.longitude
         let filteredPins  = PinManager.findPinFromLatitude(latitude, andLongitude: longitude)
@@ -97,12 +98,14 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
                     self.sharedContext.performBlockAndWait(){
                         CoreDataStackManager.sharedInstance().saveContext()
                     }
+                    controller.enableNewCollectionButton = true
                 }else{
                     //                TODO: handle error
                 }
             }
+        }else{
+            controller.enableNewCollectionButton = true
         }
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("PhotoAlbumViewController") as! PhotoAlbumViewController
         controller.pin = pin
         self.navigationController!.pushViewController(controller, animated: true)
     }

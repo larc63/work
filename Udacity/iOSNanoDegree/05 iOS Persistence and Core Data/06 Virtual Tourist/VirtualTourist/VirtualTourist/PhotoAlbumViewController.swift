@@ -12,8 +12,10 @@ import CoreData
 
 class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, NSFetchedResultsControllerDelegate {
     var pin:Pin?
+    var enableNewCollectionButton = false
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+    @IBOutlet weak var newCollectionButton: UIButton!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
         let space: CGFloat = 3.0
@@ -31,6 +33,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         }
         
         fetchedResultsController.delegate = self
+        
+        newCollectionButton.enabled = enableNewCollectionButton
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -121,11 +125,30 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath){
         let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
         photo.pin = nil
+        photo.image = nil
         sharedContext.deleteObject(photo)
-        //TODO: delete underlying file
         CoreDataStackManager.sharedInstance().saveContext()
     }
     
     @IBAction func newCollectionPressed(sender: AnyObject) {
+        for photo in pin!.photos {
+            photo.pin = nil
+            photo.image = nil
+            sharedContext.deleteObject(photo)
+            sharedContext.performBlockAndWait(){
+                CoreDataStackManager.sharedInstance().saveContext()
+            }
+        }
+        FlickrClient.sharedInstance().getPhotoSetForLocation(pin!, context: sharedContext){(success, errorString, photosArray) -> Void in
+            if(success){
+                self.sharedContext.performBlockAndWait(){
+                    CoreDataStackManager.sharedInstance().saveContext()
+                }
+                
+                self.newCollectionButton.enabled = true
+            }else{
+                //                TODO: handle error
+            }
+        }
     }
 }

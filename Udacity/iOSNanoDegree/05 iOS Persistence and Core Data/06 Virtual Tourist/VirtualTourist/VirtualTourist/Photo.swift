@@ -38,7 +38,7 @@ class Photo : NSManagedObject{
             return ImageCache.sharedInstance().imageWithIdentifier(id)
         }
         set {
-            ImageCache.sharedInstance().storeImage(image, withIdentifier: id)
+            ImageCache.sharedInstance().storeImage(newValue, withIdentifier: id)
         }
     }
 }

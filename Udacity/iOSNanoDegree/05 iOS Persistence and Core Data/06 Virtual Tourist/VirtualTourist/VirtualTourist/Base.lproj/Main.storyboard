@@ -146,6 +146,7 @@
                     <connections>
                         <outlet property="collectionView" destination="thD-yF-fxB" id="BSh-oe-Kne"/>
                         <outlet property="flowLayout" destination="LbN-Rc-3Sz" id="dVA-ms-Rl4"/>
+                        <outlet property="newCollectionButton" destination="RJG-xM-Qv2" id="Eia-Xc-RpK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vgi-Ua-cJy" userLabel="First Responder" sceneMemberID="firstResponder"/>
