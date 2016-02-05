@@ -1,2 +1,0 @@
-Found gesture recognizer code from here http://stackoverflow.com/questions/3959994/how-to-add-a-push-pin-to-a-mkmapviewios-when-touching/3960754#3960754
-https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIGestureRecognizer_Class/

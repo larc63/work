@@ -98,15 +98,15 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
                     self.sharedContext.performBlockAndWait(){
                         CoreDataStackManager.sharedInstance().saveContext()
                     }
-                    controller.enableNewCollectionButton = true
                 }else{
                     //                TODO: handle error
                 }
             }
-        }else{
-            controller.enableNewCollectionButton = true
         }
         controller.pin = pin
+        for a in mapView.annotations{
+            mapView.deselectAnnotation(a, animated: false)
+        }
         self.navigationController!.pushViewController(controller, animated: true)
     }
 }

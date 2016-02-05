@@ -12,7 +12,6 @@ import CoreData
 
 class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, NSFetchedResultsControllerDelegate {
     var pin:Pin?
-    var enableNewCollectionButton = false
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var newCollectionButton: UIButton!
@@ -33,8 +32,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         }
         
         fetchedResultsController.delegate = self
-        
-        newCollectionButton.enabled = enableNewCollectionButton
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -144,8 +141,6 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                 self.sharedContext.performBlockAndWait(){
                     CoreDataStackManager.sharedInstance().saveContext()
                 }
-                
-                self.newCollectionButton.enabled = true
             }else{
                 //                TODO: handle error
             }
