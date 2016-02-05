@@ -1,0 +1,20 @@
+<html>
+
+<head>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+    <div id="tabs" data-bind="foreach: tabs">
+        <div class="tab" data-bind="css: {selected: $parent.selectedTab() == id()}, text: name, click: $parent.selectedTab.bind($parent, id())"></div>
+    </div>
+    <div id="tabContent" data-bind="foreach: tabs">
+        <div data-bind="if: $parent.selectedTab() == id()">
+            <span data-bind="text: text"></span>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
