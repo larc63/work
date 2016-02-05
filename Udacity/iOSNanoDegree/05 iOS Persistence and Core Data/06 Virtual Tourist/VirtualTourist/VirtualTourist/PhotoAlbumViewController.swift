@@ -18,11 +18,11 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
-        let space: CGFloat = 3.0
-        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-        flowLayout.minimumInteritemSpacing = space
-        flowLayout.minimumLineSpacing = space
-        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+//        let space: CGFloat = 3.0
+//        let dimension = (view.frame.size.width - (2 * space)) / 3.0
+//        flowLayout.minimumInteritemSpacing = space
+//        flowLayout.minimumLineSpacing = space
+//        flowLayout.itemSize = CGSizeMake(dimension, dimension)
         let predicate = NSPredicate(format: "pin == %@", pin!)
         fetchedResultsController.fetchRequest.predicate = predicate
         do {
@@ -85,46 +85,24 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
             cell.activityIndicator.startAnimating()
-            FlickrClient.sharedInstance().getPhotoForId(photo.id){(success, errorString, photoSizes) -> Void in
-                if(success){
-                    if let photoSizes = photoSizes{
-                        for size in photoSizes{
-                            let label = size["label"] as! String?
-                            if let label = label {
-                                if label == "Square" {
-                                    let url = size["source"] as! String?
-                                    if let url = url{
-                                        self.sharedContext.performBlockAndWait(){
-                                            photo.thumbnailUrl = url
-                                            CoreDataStackManager.sharedInstance().saveContext()
-                                        }
-                                    }
-                                }
-                            }
+            var url:String = ""
+            self.sharedContext.performBlockAndWait(){
+                url = photo.thumbnailUrl
+            }
+            if url != "" {
+                let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
+                    if let data = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: data)
+                            photo.image = image
+                            cell.imageView.image = image
+                            cell.activityIndicator.stopAnimating()
+                            cell.activityIndicator.hidden = true
                         }
                     }
-                    var url:String = ""
-                    self.sharedContext.performBlockAndWait(){
-                        url = photo.thumbnailUrl
-                    }
-                    if url != "" {
-                        let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
-                            if let data = imageData {
-                                dispatch_async(dispatch_get_main_queue()) {
-                                    let image = UIImage(data: data)
-                                    photo.image = image
-                                    cell.imageView.image = image
-                                    cell.activityIndicator.stopAnimating()
-                                    cell.activityIndicator.hidden = true
-                                }
-                            }
-                        }
-                        cell.taskToCancelifCellIsReused = task
-                    }
-                }else{
-                    //TODO: handle error here
                 }
-            };
+                cell.taskToCancelifCellIsReused = task
+            }
         }
         return cell
     }
