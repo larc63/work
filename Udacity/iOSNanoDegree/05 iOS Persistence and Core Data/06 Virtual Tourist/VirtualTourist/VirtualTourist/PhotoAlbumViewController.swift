@@ -15,6 +15,7 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var newCollectionButton: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
         let space: CGFloat = 3.0
@@ -80,8 +81,10 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
         
         if photo.image != nil {
             cell.imageView.image = photo.image!
+            cell.activityIndicator.stopAnimating()
         }else{
             cell.imageView.image = UIImage(named: "placeholder")
+            cell.activityIndicator.startAnimating()
             FlickrClient.sharedInstance().getPhotoForId(photo.id){(success, errorString, photoSizes) -> Void in
                 if(success){
                     if let photoSizes = photoSizes{
@@ -111,6 +114,8 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                                     let image = UIImage(data: data)
                                     photo.image = image
                                     cell.imageView.image = image
+                                    cell.activityIndicator.stopAnimating()
+                                    cell.activityIndicator.hidden = true
                                 }
                             }
                         }
