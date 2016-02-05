@@ -15,6 +15,7 @@ class PhotoAlbumViewCell: UICollectionViewCell{
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    @IBOutlet weak var backGround: UIImageView!
     
     var taskToCancelifCellIsReused: NSURLSessionTask? {
         didSet {

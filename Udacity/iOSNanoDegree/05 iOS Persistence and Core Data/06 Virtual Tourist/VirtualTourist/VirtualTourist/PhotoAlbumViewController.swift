@@ -13,16 +13,10 @@ import CoreData
 class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, NSFetchedResultsControllerDelegate {
     var pin:Pin?
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet var flowLayout: UICollectionViewFlowLayout!
+
     @IBOutlet weak var newCollectionButton: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     // MARK: View lifecycle methods
     override func viewDidLoad() {
-//        let space: CGFloat = 3.0
-//        let dimension = (view.frame.size.width - (2 * space)) / 3.0
-//        flowLayout.minimumInteritemSpacing = space
-//        flowLayout.minimumLineSpacing = space
-//        flowLayout.itemSize = CGSizeMake(dimension, dimension)
         let predicate = NSPredicate(format: "pin == %@", pin!)
         fetchedResultsController.fetchRequest.predicate = predicate
         do {
@@ -77,6 +71,10 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PhotoAlbumViewCell", forIndexPath: indexPath) as! PhotoAlbumViewCell
         let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
+        // set the background to be rounded
+        cell.backGround.layer.cornerRadius = 10.0
+        cell.backGround.clipsToBounds = true
+        
         cell.title.text = photo.title
         
         if photo.image != nil {
