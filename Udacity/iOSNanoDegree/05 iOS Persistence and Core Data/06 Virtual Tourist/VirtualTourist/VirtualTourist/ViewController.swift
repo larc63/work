@@ -52,31 +52,33 @@ class ViewController: UIViewController, UIGestureRecognizerDelegate, MKMapViewDe
     }
     
     func handleLongPress(recognizer: UILongPressGestureRecognizer) {
-        let touchPoint:CGPoint = recognizer.locationInView(mapView)// locationInView:self.mapView];
-        let touchMapCoordinate: CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
-        let annot = MKPointAnnotation()
-        annot.coordinate = touchMapCoordinate
-        let longitude = annot.coordinate.longitude as Double
-        let latitude = annot.coordinate.latitude as Double
-        //check that the pin doesn't exist, if it des, return
-        let filteredPins = PinManager.findPinFromLatitude(latitude, andLongitude: longitude)
-        if filteredPins.count > 0 {
-            return
+        if recognizer.state == .Ended{
+            let touchPoint:CGPoint = recognizer.locationInView(mapView)// locationInView:self.mapView];
+            let touchMapCoordinate: CLLocationCoordinate2D = mapView.convertPoint(touchPoint, toCoordinateFromView: mapView)
+            let annot = MKPointAnnotation()
+            annot.coordinate = touchMapCoordinate
+            let longitude = annot.coordinate.longitude as Double
+            let latitude = annot.coordinate.latitude as Double
+            //check that the pin doesn't exist, if it des, return
+            let filteredPins = PinManager.findPinFromLatitude(latitude, andLongitude: longitude)
+            if filteredPins.count > 0 {
+                return
+            }
+            
+            let dictionary: [String : AnyObject] = [
+                Pin.Keys.Longitude : longitude,
+                Pin.Keys.Latitude : latitude
+            ]
+            // Now we create a new Person, using the shared Context
+            let pinToBeAdded = Pin(dictionary: dictionary, context: sharedContext)
+            
+            // And add append the actor to the array as well
+            self.pins.append(pinToBeAdded)
+            CoreDataStackManager.sharedInstance().saveContext()
+            mapView.addAnnotation(annot)
         }
-        
-        let dictionary: [String : AnyObject] = [
-            Pin.Keys.Longitude : longitude,
-            Pin.Keys.Latitude : latitude
-        ]
-        // Now we create a new Person, using the shared Context
-        let pinToBeAdded = Pin(dictionary: dictionary, context: sharedContext)
-        
-        // And add append the actor to the array as well
-        self.pins.append(pinToBeAdded)
-        CoreDataStackManager.sharedInstance().saveContext()
-        mapView.addAnnotation(annot)
     }
-        
+    
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }

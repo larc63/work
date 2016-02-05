@@ -91,16 +91,21 @@ class PhotoAlbumViewController: UIViewController, UICollectionViewDataSource, UI
                                 if label == "Square" {
                                     let url = size["source"] as! String?
                                     if let url = url{
-                                        photo.thumbnailUrl = url
-                                        CoreDataStackManager.sharedInstance().saveContext()
+                                        self.sharedContext.performBlockAndWait(){
+                                            photo.thumbnailUrl = url
+                                            CoreDataStackManager.sharedInstance().saveContext()
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                    
-                    if photo.thumbnailUrl != "" {
-                        let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(photo.thumbnailUrl){ (imageData, error) -> Void in
+                    var url:String = ""
+                    self.sharedContext.performBlockAndWait(){
+                        url = photo.thumbnailUrl
+                    }
+                    if url != "" {
+                        let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
                             if let data = imageData {
                                 dispatch_async(dispatch_get_main_queue()) {
                                     let image = UIImage(data: data)
