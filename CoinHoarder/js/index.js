@@ -1,4 +1,4 @@
-/*global ko, coinData */
+/*global ko, coinData, Coin */
 var CURRENT_GOLD_SPOT = 1128.34;
 var CURRENT_SILVER_SPOT = 14.38;
 var CURRENT_PLATINUM_SPOT = 872.50;
@@ -73,8 +73,8 @@ function ViewModel() {
         this.coinTypes().sort(function (a, b) {
             var t1 = a,
                 t2 = b,
-                i1 = t1.id(),
-                i2 = t2.id(),
+                //                i1 = t1.id(),
+                //                i2 = t2.id(),
                 c1 = t1.country(),
                 c2 = t2.country(),
                 y1 = Number(t1.year()),
@@ -191,19 +191,20 @@ function ViewModel() {
     };
     this.exportCoins = function () {
         var coins = this.coins().map(function (c) {
-            var newCoin = {
-                id: c.id,
-                coinTypeId: c.coinTypeId,
-                active: c.active,
-                premium: c.premium,
-                purchaseDate: c.purchaseDate,
-                purchasePrice: c.purchasePrice,
-                saleDate: c.saleDate,
-                salePrice: c.salePrice,
-                isPermaStack: c.isPermaStack
-            };
-            return newCoin;
-        }), e;
+                var newCoin = {
+                    id: c.id,
+                    coinTypeId: c.coinTypeId,
+                    active: c.active,
+                    premium: c.premium,
+                    purchaseDate: c.purchaseDate,
+                    purchasePrice: c.purchasePrice,
+                    saleDate: c.saleDate,
+                    salePrice: c.salePrice,
+                    isPermaStack: c.isPermaStack
+                };
+                return newCoin;
+            }),
+            e;
         //        console.log(ko.toJSON(coins));
         //        console.log(ko.toJSON(this.coinTypes()));
         //        console.log(ko.toJSON(this.coins()));
@@ -377,7 +378,41 @@ function ViewModel() {
     this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 1));
     this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 2));
     this.currentSet.coins().push(this.findCoin(2014, "Mexico", "Libertad", "silver", 5));
-}
 
+    self.Tab = function (data) {
+        var tab = this;
+        tab.id = ko.observable(data.id);
+        tab.name = ko.observable(data.name);
+    };
+
+    self.selectedTab = ko.observable(1);
+    self.tabs = [];
+    //(id, name, url, text, selected
+    self.tabs.push(new self.Tab({
+        id: 1,
+        name: 'My Coins',
+        text: 'Welcome to my coins!'
+    }));
+    self.tabs.push(new self.Tab({
+        id: 2,
+        name: 'Coin Types',
+        text: 'Welcome to coin types'
+    }));
+    self.tabs.push(new self.Tab({
+        id: 3,
+        name: 'Sets',
+        text: 'These are the sets of coins'
+    }));
+    self.tabs.push(new self.Tab({
+        id: 4,
+        name: 'Sellable coins',
+        text: 'This is where the sellables go'
+    }));
+    self.tabs.push(new self.Tab({
+        id: 5,
+        name: 'Summary',
+        text: 'This is where the summary goes'
+    }));
+};
 var vm = new ViewModel();
 ko.applyBindings(vm);

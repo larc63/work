@@ -27,6 +27,7 @@ body {
     display: none;
     color: red;
 }
+
 .tab.selected {
     font-weight: bold;
     padding-top: 3px;

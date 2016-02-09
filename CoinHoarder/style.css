@@ -40,114 +40,52 @@ tr:hover {
     color: red;
 }
 
-.hidden {
+#tabs {
+    border: 1px solid black;
+    border-radius: 5px 5px 0 0;
+    padding: 3px 3px 1px 3px;
+    background: linear-gradient(silver, white 15%, black 80%);
+}
+
+
+.tab {
+    cursor: default;
+    border: 1px solid grey;
+    border-bottom: none;
+    border-radius: 4px 4px 0 0;
+    padding: 1px 10px 0 10px;
+    background: linear-gradient(silver 30%, maroon 100%);
+    color: white;
+    transition: all .25s ease;
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.hidden{
     display: none;
+    color: red;
+}
+.tab.selected {
+    font-weight: bold;
+    padding-top: 3px;
+    margin-top: 2px;
+    background: linear-gradient(white 30%, silver 90%, maroon 100%);
+    color: black;
+}
+
+.tab:hover {
+    background: linear-gradient(white 30%, silver 70%, maroon 100%);
+    color: black;
+}
+
+#tabContent {
+    text-align: center;
+    vertical-align: center;
+    border: 1px solid black;
+    border-top: none;
+    height: 250px;
 }
 
 .centered {
     text-align: center;
-}
-
-div.tabs {
-    min-height: 80rem;
-    /* No height: can grow if :target doesn't work */
-    
-    position: relative;
-    /* Establish a containing block */
-    
-    line-height: 1;
-    /* Easier to calculate with */
-    
-    z-index: 0;
-}
-/* So that we can put other things behind */
-
-div.tabs > div {
-    display: inline;
-}
-/* We want the buttons all on one line */
-
-div.tabs > div > a {
-    font-size: 1.5rem;
-    color: black;
-    /* Looks more like a button than a link */
-    
-    background: aliceblue;
-    /* Active tabs are light gray */
-    
-    padding: 0.5rem;
-    /* Some breathing space */
-    
-    border: 0.1rem outset #BBB;
-    /* Make it look like a button */
-    
-    border-bottom: 0.1em solid aliceblue;
-}
-/* Visually connect tab and tab body */
-
-div.tabs > div:not(:target) > a {
-    border-bottom: none;
-    /* Make the bottom border disappear */
-    
-    background: lightskyblue;
-}
-/* Inactive tabs are dark gray */
-
-div.tabs > div:target > a,
-/* Apply to the targeted item or... */
-
-:target #default2 > a {
-    /* ... to the default item */
-    
-    border-bottom: 0.1rem solid aliceblue;
-    /* Visually connect tab and tab body */
-    
-    background: aliceblue;
-}
-/* Active tab is light gray */
-
-div.tabs > div > div {
-    font-size: 14pt;
-    background: #FFF;
-    /* Light gray */
-    
-    z-index: -2;
-    /* Behind, because the borders overlap */
-    
-    left: 0;
-    top: 2.3rem;
-    /* The top needs some calculation... */
-    
-    bottom: 0;
-    right: 0;
-    /* Other sides flush with containing block */
-    
-    overflow: auto;
-    /* Scroll bar if needed */
-    
-    padding: 0.5rem;
-    /* Looks better */
-    
-    border: 0.1rem outset #BBB
-}
-/* 3D look */
-
-div.tabs > div:not(:target) > div {
-    /* Protect CSS1 & CSS2 browsers */
-    
-    position: absolute
-}
-/* All these DIVs overlap */
-
-div.tabs > div:target > div,
-:target #default2 > div {
-    position: absolute;
-    /* All these DIVs overlap */
-    
-    z-index: -1
-}
-/* Raise it above the others */
-
-div.tabs:target {
-    outline: none
 }

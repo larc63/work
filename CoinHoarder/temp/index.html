@@ -9,11 +9,106 @@
     <div id="tabs" data-bind="foreach: tabs">
         <div class="tab" data-bind="css: {selected: $parent.selectedTab() == id()}, text: name, click: $parent.selectedTab.bind($parent, id())"></div>
     </div>
-    <div id="tabContent" data-bind="foreach: tabs">
-        <div data-bind="css:{hidden: $parent.selectedTab() != id()}">
-            <span data-bind="html: text"></span>
+<!--    <div id="tabContent" data-bind="foreach: tabs">-->
+        <div data-bind="css:{hidden: selectedTab() != 1}">
+            
+                <div>
+                    <div data-bind="css: {hidden: stagedCoin() === undefined, numericalvalue: true}">
+                        You will see this message only when "staged" holds a true value.
+                        <div data-bind="with: stagedCoin">
+                            Id:
+                            <input data-bind="value: id" readonly/>
+                            <br/> Coin Type:
+                            <select data-bind="options: $parent.coinTypes, optionsText: function(item) {
+                                               var words = [];
+                                               words.push(item.year());
+                                               words.push(item.country());
+                                               words.push(item.metal());
+                                               words.push(item.series());
+                                               words.push(item.weight() + ' ozt');
+                                            return words.join(' ');
+                                        },
+                                        value: coinType"></select>
+                            <br/> Purchase Date:
+                            <input data-bind="value: purchaseDate"/>
+                            <br/> Purchase Price:
+                            <input data-bind="value: purchasePrice"/>
+                            <br/> Premium multiplier:
+                            <input data-bind="value: premium, valueUpdate: 'keyup'"/>
+                            <br/> Sell Date:
+                            <input data-bind="value: saleDate"/><span data-bind="text: currentPrice"></span>
+                            <br/> Sell Price:
+                            <input data-bind="value: salePrice"/>
+                            <br/> Active:
+                            <input type="checkbox" data-bind="checked: active"/>
+                            <br/> Part of the permanent stack:
+                            <input type="checkbox" data-bind="checked: isPermaStack"/>
+                            <br/>
+                            <button name="button" data-bind="click: $parent.commitCoin">Save</button>
+                            <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
+                        </div>
+                    </div>
+                    <table class="metals-table">
+                        <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <!--                                <th>Id</th>-->
+                                <th>Active</th>
+                                <th>Is Permanent</th>
+                                <th>Year</th>
+                                <th>Country</th>
+                                <th>Mint</th>
+                                <th>Series</th>
+                                <th>Metal</th>
+                                <th>Weight</th>
+                                <th>Diameter</th>
+                                <th>Width</th>
+                                <th>Purchase Price</th>
+                                <th>Melt Price</th>
+                                <th>Current Price</th>
+                            </tr>
+                        </thead>
+                        <tbody data-bind="foreach: coins">
+<!--                            <tr data-bind="css: {redborder: purchasePrice() <= 0}">-->
+                            <tr>
+                                <td>
+                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
+                                    <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
+                                    <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
+                                </td>
+                                <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
+                                <td class="centered" data-bind="css: {inactive: false}">
+                                    <input type="checkbox" data-bind="checked: active"></input>
+                                </td>
+                                <td class="centered" data-bind="css: {permastack: false}">
+                                    <input type="checkbox" data-bind="checked: isPermaStack"></input>
+                                </td>
+                                <td data-bind="text: coinType().year">--</td>
+                                <td data-bind="text: coinType().country">--</td>
+                                <td data-bind="text: coinType().mint">--</td>
+                                <td data-bind="text: coinType().series">--</td>
+                                <td data-bind="text: coinType().metal">--</td>
+                                <td data-bind="text: format4(coinType().weight())" class="numericalvalue">--</td>
+                                <td data-bind="text: coinType().diameter" class="numericalvalue">--</td>
+                                <td data-bind="text: coinType().width" class="numericalvalue">--</td>
+                                <td data-bind="text: formatCurrency(purchasePrice()), css: {numericalvalue: true}">--</td>
+                                <td data-bind="text: formatCurrency(meltPrice())" class="numericalvalue">--</td>
+                                <td data-bind="text: formatCurrency(currentPrice())" class="numericalvalue">--</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
         </div>
-    </div>
+        <div data-bind="css:{hidden: selectedTab() != 2}">
+            This is tab 2
+        </div>
+        <div data-bind="css:{hidden: selectedTab() != 3}">
+            This is tab 3
+        </div>
+        <div data-bind="css:{hidden: selectedTab() != 4}">
+            This is tab 4
+        </div>
+<!--    </div>-->
     <script src="script.js"></script>
 </body>
 

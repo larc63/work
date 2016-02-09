@@ -1,24 +1,25 @@
-<!doctype html>
 <html>
 
 <head>
     <meta charset="UTF-8">
     <title>Coin Hoarder</title>
-    <link href='style.css' rel='stylesheet' type='text/css'>
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
-    <div class="example">
-        <div class="tabs">
-            <div id="tab1"> <a href="#tab1">My Coins</a>
-                <div>
-                    <div data-bind="css: {hidden: stagedCoin() === undefined, numericalvalue: true}">
-                        You will see this message only when "staged" holds a true value.
-                        <div data-bind="with: stagedCoin">
-                            Id:
-                            <input data-bind="value: id" readonly></input>
-                            <br/> Coin Type:
-                            <select data-bind="options: $parent.coinTypes, optionsText: function(item) {
+    <div id="tabs" data-bind="foreach: tabs">
+        <div class="tab" data-bind="css: {selected: $parent.selectedTab() == id()}, text: name, click: $parent.selectedTab.bind($parent, id())"></div>
+    </div>
+    <div data-bind="css:{hidden: selectedTab() != 1}">
+
+        <div>
+            <div data-bind="css: {hidden: stagedCoin() === undefined, numericalvalue: true}">
+                You will see this message only when "staged" holds a true value.
+                <div data-bind="with: stagedCoin">
+                    Id:
+                    <input data-bind="value: id" readonly/>
+                    <br/> Coin Type:
+                    <select data-bind="options: $parent.coinTypes, optionsText: function(item) {
                                                var words = [];
                                                words.push(item.year());
                                                words.push(item.country());
@@ -28,250 +29,247 @@
                                             return words.join(' ');
                                         },
                                         value: coinType"></select>
-                            <br/> Purchase Date:
-                            <input data-bind="value: purchaseDate"></input>
-                            <br/> Purchase Price:
-                            <input data-bind="value: purchasePrice"></input>
-                            <br/> Premium multiplier:
-                            <input data-bind="value: premium, valueUpdate: 'keyup'"></input>
-                            <br/> Sell Date:
-                            <input data-bind="value: saleDate"></input><span data-bind="text: currentPrice"></span>
-                            <br/> Sell Price:
-                            <input data-bind="value: salePrice"></input>
-                            <br/> Active:
+                    <br/> Purchase Date:
+                    <input data-bind="value: purchaseDate" />
+                    <br/> Purchase Price:
+                    <input data-bind="value: purchasePrice" />
+                    <br/> Premium multiplier:
+                    <input data-bind="value: premium, valueUpdate: 'keyup'" />
+                    <br/> Sell Date:
+                    <input data-bind="value: saleDate" /><span data-bind="text: currentPrice"></span>
+                    <br/> Sell Price:
+                    <input data-bind="value: salePrice" />
+                    <br/> Active:
+                    <input type="checkbox" data-bind="checked: active" />
+                    <br/> Part of the permanent stack:
+                    <input type="checkbox" data-bind="checked: isPermaStack" />
+                    <br/>
+                    <button name="button" data-bind="click: $parent.commitCoin">Save</button>
+                    <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
+                </div>
+            </div>
+            <table class="metals-table">
+                <thead>
+                    <tr>
+                        <th>Actions</th>
+                        <!--                                <th>Id</th>-->
+                        <th>Active</th>
+                        <th>Is Permanent</th>
+                        <th>Year</th>
+                        <th>Country</th>
+                        <th>Mint</th>
+                        <th>Series</th>
+                        <th>Metal</th>
+                        <th>Weight</th>
+                        <th>Diameter</th>
+                        <th>Width</th>
+                        <th>Purchase Price</th>
+                        <th>Melt Price</th>
+                        <th>Current Price</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: coins">
+                    <!--                            <tr data-bind="css: {redborder: purchasePrice() <= 0}">-->
+                    <tr>
+                        <td>
+                            <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
+                            <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
+                            <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
+                        </td>
+                        <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
+                        <td class="centered" data-bind="css: {inactive: false}">
                             <input type="checkbox" data-bind="checked: active"></input>
-                            <br/> Part of the permanent stack:
+                        </td>
+                        <td class="centered" data-bind="css: {permastack: false}">
                             <input type="checkbox" data-bind="checked: isPermaStack"></input>
-                            <br/>
-                            <button name="button" data-bind="click: $parent.commitCoin">Save</button>
-                            <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
-                        </div>
-                    </div>
-                    <table class="metals-table">
-                        <thead>
-                            <tr>
-                                <th>Actions</th>
-                                <!--                                <th>Id</th>-->
-                                <th>Active</th>
-                                <th>Is Permanent</th>
-                                <th>Year</th>
-                                <th>Country</th>
-                                <th>Mint</th>
-                                <th>Series</th>
-                                <th>Metal</th>
-                                <th>Weight</th>
-                                <th>Diameter</th>
-                                <th>Width</th>
-                                <th>Purchase Price</th>
-                                <th>Melt Price</th>
-                                <th>Current Price</th>
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: coins">
-<!--                            <tr data-bind="css: {redborder: purchasePrice() <= 0}">-->
-                            <tr>
-                                <td>
-                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
-                                    <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
-                                    <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
-                                </td>
-                                <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
-                                <td class="centered" data-bind="css: {inactive: false}">
-                                    <input type="checkbox" data-bind="checked: active"></input>
-                                </td>
-                                <td class="centered" data-bind="css: {permastack: false}">
-                                    <input type="checkbox" data-bind="checked: isPermaStack"></input>
-                                </td>
-                                <td data-bind="text: coinType().year">--</td>
-                                <td data-bind="text: coinType().country">--</td>
-                                <td data-bind="text: coinType().mint">--</td>
-                                <td data-bind="text: coinType().series">--</td>
-                                <td data-bind="text: coinType().metal">--</td>
-                                <td data-bind="text: format4(coinType().weight())" class="numericalvalue">--</td>
-                                <td data-bind="text: coinType().diameter" class="numericalvalue">--</td>
-                                <td data-bind="text: coinType().width" class="numericalvalue">--</td>
-                                <td data-bind="text: formatCurrency(purchasePrice()), css: {numericalvalue: true}">--</td>
-                                <td data-bind="text: formatCurrency(meltPrice())" class="numericalvalue">--</td>
-                                <td data-bind="text: formatCurrency(currentPrice())" class="numericalvalue">--</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div id="tab2"> <a href="#tab2">Coin Types</a>
-                <div>
-                    <div data-bind="css: {hidden: stagedCoinType() === undefined, numericalvalue: true}">
-                        You will see this message only when "staged" holds a true value.
-                        <div data-bind="with: stagedCoinType">
-                            Id:
-                            <input data-bind="value: id" readonly></input>
-                            <br/> Year:
-                            <input data-bind="value: year"></input>
-                            <br/> Country:
-                            <input data-bind="value: country"></input>
-                            <br/> Mint:
-                            <input data-bind="value: mint"></input>
-                            <br/> Series:
-                            <input data-bind="value: series"></input>
-                            <br/> Metal:
-                            <input data-bind="value: metal"></input>
-                            <br/> Weight:
-                            <input data-bind="value: weight"></input>
-                            <br/> Diameter:
-                            <input data-bind="value: diameter"></input>
-                            <br/> Width:
-                            <input data-bind="value: width"></input>
-                            <br/>
-                            <button name="button" data-bind="click: $parent.commitCoinType">Save</button>
-                            <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
-                        </div>
-                    </div>
-                    <table class="metals-table" id="coin-types-view">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>ID</th>
-                                <!--                                <th>Id</th>-->
-                                <th>Year</th>
-                                <th>Country</th>
-                                <th>Mint</th>
-                                <th>Series</th>
-                                <th>Metal</th>
-                                <th>Weight</th>
-                                <th>Diameter</th>
-                                <th>Width</th>
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: coinTypes">
-                            <tr data-bind="css: {redborder: $index()>1 && $parent.coinTypes()[$index()].id() === id}">
-                                <td>
-                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editCoinType.bind($data, $index())" />
-                                    <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyCoinType" />
-                                    <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteCoinType.bind($data, $index())" />
-                                </td>
-                                <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
-                                <td data-bind="text: id">--</td>
-                                <td data-bind="text: year">--</td>
-                                <td data-bind="text: country">--</td>
-                                <td data-bind="text: mint">--</td>
-                                <td data-bind="text: series">--</td>
-                                <td data-bind="text: metal">--</td>
-                                <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
-                                <td data-bind="text: diameter" class="numericalvalue">--</td>
-                                <td data-bind="text: width" class="numericalvalue">--</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div id="tab3"> <a href="#tab3">Sets</a>
-                <div>
-                    <table class="metals-table">
-                        <thead>
-                            <tr>
-                                <th>Country</th>
-                                <th>Mint</th>
-                                <th>Series</th>
-                                <th>Metal</th>
-                                <th>Weight</th>
-                                <th>Diameter</th>
-                                <th>Width</th>
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: currentSet.coins">
-                            <tr>
-                                <td data-bind="text: country">--</td>
-                                <td data-bind="text: mint">--</td>
-                                <td data-bind="text: series">--</td>
-                                <td data-bind="text: metal">--</td>
-                                <td data-bind="text: weight" class="numericalvalue">--</td>
-                                <td data-bind="text: diameter" class="numericalvalue">--</td>
-                                <td data-bind="text: width" class="numericalvalue">--</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="tab4"> <a href="#tab4">Sellable Coins</a>
-                <div>
-                    <table class="metals-table">
-                        <thead>
-                            <tr>
-                                <th>Actions</th>
-                                <!--                                <th>Id</th>-->
-                                <th>Active</th>
-                                <th>Is Permanent</th>
-                                <th>Year</th>
-                                <th>Country</th>
-                                <th>Mint</th>
-                                <th>Series</th>
-                                <th>Metal</th>
-                                <th>Weight</th>
-                                <th>Diameter</th>
-                                <th>Width</th>
-                                <th>Purchase Price</th>
-                                <th>Melt Price</th>
-                                <th>Current Price</th>
-                            </tr>
-                        </thead>
-                        <tbody data-bind="foreach: sellableCoins">
-                            <tr data-bind="css: {redborder: purchasePrice() <= 0}">
-                                <td>
-                                    <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
-                                    <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
-                                    <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
-                                </td>
-                                <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
-                                <td class="centered" data-bind="css: {inactive: false}">
-                                    <input type="checkbox" data-bind="checked: active"></input>
-                                </td>
-                                <td class="centered" data-bind="css: {permastack: false}">
-                                    <input type="checkbox" data-bind="checked: isPermaStack"></input>
-                                </td>
-                                <td data-bind="text: coinType().year">--</td>
-                                <td data-bind="text: coinType().country">--</td>
-                                <td data-bind="text: coinType().mint">--</td>
-                                <td data-bind="text: coinType().series">--</td>
-                                <td data-bind="text: coinType().metal">--</td>
-                                <td data-bind="text: format4(coinType().weight())" class="numericalvalue">--</td>
-                                <td data-bind="text: coinType().diameter" class="numericalvalue">--</td>
-                                <td data-bind="text: coinType().width" class="numericalvalue">--</td>
-                                <td data-bind="text: formatCurrency(purchasePrice()), css: {numericalvalue: true}">--</td>
-                                <td data-bind="text: formatCurrency(meltPrice())" class="numericalvalue">--</td>
-                                <td data-bind="text: formatCurrency(currentPrice())" class="numericalvalue">--</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div id="default2"> <a href="#default2">Summary</a>
-                <div>
-                    <ul>
-                        <li data-bind="text: numberOfCoins"></li>
-                        <li data-bind="text: numberOfOunces"></li>
-                    </ul>
-                    <ul>
-                        <li data-bind="text: numberOfCoinsPermaStack"></li>
-                        <li data-bind="text: numberOfOuncesInPermaStack"></li>
-                        <li data-bind="text: 'permastack value: ' + permaStackValue()"></li>
-                    </ul>
-                    <ul>
-                        <li data-bind="text: numberOfCoinsNotPermaStack"></li>
-                        <li data-bind="text: numberOfOuncesNotInPermaStack"></li>
-                        <li data-bind="text: 'possible sale total: ' + possibleSale()"></li>
-                    </ul>
-                    <ul>
-                        <li data-bind="text: 'melt total: ' + meltTotal()"></li>
-                        <li data-bind="text: 'invested total: ' + investmentTotal()"></li>
-                    </ul>
-                </div>
-            </div>
+                        </td>
+                        <td data-bind="text: coinType().year">--</td>
+                        <td data-bind="text: coinType().country">--</td>
+                        <td data-bind="text: coinType().mint">--</td>
+                        <td data-bind="text: coinType().series">--</td>
+                        <td data-bind="text: coinType().metal">--</td>
+                        <td data-bind="text: format4(coinType().weight())" class="numericalvalue">--</td>
+                        <td data-bind="text: coinType().diameter" class="numericalvalue">--</td>
+                        <td data-bind="text: coinType().width" class="numericalvalue">--</td>
+                        <td data-bind="text: formatCurrency(purchasePrice()), css: {numericalvalue: true}">--</td>
+                        <td data-bind="text: formatCurrency(meltPrice())" class="numericalvalue">--</td>
+                        <td data-bind="text: formatCurrency(currentPrice())" class="numericalvalue">--</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <button name="button" data-bind="click: exportCoins">Export</button>
+    <div data-bind="css:{hidden: selectedTab() != 2}">
+        <div>
+            <div data-bind="css: {hidden: stagedCoinType() === undefined, numericalvalue: true}">
+                You will see this message only when "staged" holds a true value.
+                <div data-bind="with: stagedCoinType">
+                    Id:
+                    <input data-bind="value: id" readonly></input>
+                    <br/> Year:
+                    <input data-bind="value: year"></input>
+                    <br/> Country:
+                    <input data-bind="value: country"></input>
+                    <br/> Mint:
+                    <input data-bind="value: mint"></input>
+                    <br/> Series:
+                    <input data-bind="value: series"></input>
+                    <br/> Metal:
+                    <input data-bind="value: metal"></input>
+                    <br/> Weight:
+                    <input data-bind="value: weight"></input>
+                    <br/> Diameter:
+                    <input data-bind="value: diameter"></input>
+                    <br/> Width:
+                    <input data-bind="value: width"></input>
+                    <br/>
+                    <button name="button" data-bind="click: $parent.commitCoinType">Save</button>
+                    <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
+                </div>
+            </div>
+            <table class="metals-table" id="coin-types-view">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ID</th>
+                        <!--                                <th>Id</th>-->
+                        <th>Year</th>
+                        <th>Country</th>
+                        <th>Mint</th>
+                        <th>Series</th>
+                        <th>Metal</th>
+                        <th>Weight</th>
+                        <th>Diameter</th>
+                        <th>Width</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: coinTypes">
+                    <tr data-bind="css: {redborder: $index()>1 && $parent.coinTypes()[$index()].id() === id}">
+                        <td>
+                            <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editCoinType.bind($data, $index())" />
+                            <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyCoinType" />
+                            <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteCoinType.bind($data, $index())" />
+                        </td>
+                        <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
+                        <td data-bind="text: id">--</td>
+                        <td data-bind="text: year">--</td>
+                        <td data-bind="text: country">--</td>
+                        <td data-bind="text: mint">--</td>
+                        <td data-bind="text: series">--</td>
+                        <td data-bind="text: metal">--</td>
+                        <td data-bind="text: weight, css: {redborder: weight() <= 0, numericalvalue: true}">--</td>
+                        <td data-bind="text: diameter" class="numericalvalue">--</td>
+                        <td data-bind="text: width" class="numericalvalue">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div data-bind="css:{hidden: selectedTab() != 3}">
+        <div>
+            <table class="metals-table">
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>Mint</th>
+                        <th>Series</th>
+                        <th>Metal</th>
+                        <th>Weight</th>
+                        <th>Diameter</th>
+                        <th>Width</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: currentSet.coins">
+                    <tr>
+                        <td data-bind="text: country">--</td>
+                        <td data-bind="text: mint">--</td>
+                        <td data-bind="text: series">--</td>
+                        <td data-bind="text: metal">--</td>
+                        <td data-bind="text: weight" class="numericalvalue">--</td>
+                        <td data-bind="text: diameter" class="numericalvalue">--</td>
+                        <td data-bind="text: width" class="numericalvalue">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div data-bind="css:{hidden: selectedTab() != 4}">
+        <div>
+            <table class="metals-table">
+                <thead>
+                    <tr>
+                        <th>Actions</th>
+                        <!--                                <th>Id</th>-->
+                        <th>Active</th>
+                        <th>Is Permanent</th>
+                        <th>Year</th>
+                        <th>Country</th>
+                        <th>Mint</th>
+                        <th>Series</th>
+                        <th>Metal</th>
+                        <th>Weight</th>
+                        <th>Diameter</th>
+                        <th>Width</th>
+                        <th>Purchase Price</th>
+                        <th>Melt Price</th>
+                        <th>Current Price</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: sellableCoins">
+                    <tr data-bind="css: {redborder: purchasePrice() <= 0}">
+                        <td>
+                            <img src="images/edit.png" width="24px" height="24px" data-bind="click: $parent.editMyCoin.bind($data, $index())" />
+                            <img src="images/copy.png" width="24px" height="24px" data-bind="click: $parent.copyMyCoin" />
+                            <img src="images/delete.png" width="24px" height="24px" data-bind="click: $parent.deleteMyCoin.bind($data, $index())" />
+                        </td>
+                        <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
+                        <td class="centered" data-bind="css: {inactive: false}">
+                            <input type="checkbox" data-bind="checked: active"></input>
+                        </td>
+                        <td class="centered" data-bind="css: {permastack: false}">
+                            <input type="checkbox" data-bind="checked: isPermaStack"></input>
+                        </td>
+                        <td data-bind="text: coinType().year">--</td>
+                        <td data-bind="text: coinType().country">--</td>
+                        <td data-bind="text: coinType().mint">--</td>
+                        <td data-bind="text: coinType().series">--</td>
+                        <td data-bind="text: coinType().metal">--</td>
+                        <td data-bind="text: format4(coinType().weight())" class="numericalvalue">--</td>
+                        <td data-bind="text: coinType().diameter" class="numericalvalue">--</td>
+                        <td data-bind="text: coinType().width" class="numericalvalue">--</td>
+                        <td data-bind="text: formatCurrency(purchasePrice()), css: {numericalvalue: true}">--</td>
+                        <td data-bind="text: formatCurrency(meltPrice())" class="numericalvalue">--</td>
+                        <td data-bind="text: formatCurrency(currentPrice())" class="numericalvalue">--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div data-bind="css:{hidden: selectedTab() != 5}">
+        <div>
+            <ul>
+                <li data-bind="text: numberOfCoins"></li>
+                <li data-bind="text: numberOfOunces"></li>
+            </ul>
+            <ul>
+                <li data-bind="text: numberOfCoinsPermaStack"></li>
+                <li data-bind="text: numberOfOuncesInPermaStack"></li>
+                <li data-bind="text: 'permastack value: ' + permaStackValue()"></li>
+            </ul>
+            <ul>
+                <li data-bind="text: numberOfCoinsNotPermaStack"></li>
+                <li data-bind="text: numberOfOuncesNotInPermaStack"></li>
+                <li data-bind="text: 'possible sale total: ' + possibleSale()"></li>
+            </ul>
+            <ul>
+                <li data-bind="text: 'melt total: ' + meltTotal()"></li>
+                <li data-bind="text: 'invested total: ' + investmentTotal()"></li>
+            </ul>
+        </div>
+    </div>
+
+
+
     <script src="js/knockout-3.3.0.js"></script>
     <script src="js/coin.js"></script>
     <script src="js/cointype.js"></script>
