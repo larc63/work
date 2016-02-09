@@ -1,8 +1,8 @@
 <html>
 
 <head>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/knockout/2.2.1/knockout-min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <script src="../js/knockout-3.3.0.js"></script>
+    <link href="style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
@@ -10,8 +10,8 @@
         <div class="tab" data-bind="css: {selected: $parent.selectedTab() == id()}, text: name, click: $parent.selectedTab.bind($parent, id())"></div>
     </div>
     <div id="tabContent" data-bind="foreach: tabs">
-        <div data-bind="if: $parent.selectedTab() == id()">
-            <span data-bind="text: text"></span>
+        <div data-bind="css:{hidden: $parent.selectedTab() != id()}">
+            <span data-bind="html: text"></span>
         </div>
     </div>
     <script src="script.js"></script>

@@ -9,6 +9,7 @@ body {
     background: linear-gradient(silver, white 15%, black 80%);
 }
 
+
 .tab {
     cursor: default;
     border: 1px solid grey;
@@ -22,6 +23,10 @@ body {
     margin-top: 4px;
 }
 
+.hidden{
+    display: none;
+    color: red;
+}
 .tab.selected {
     font-weight: bold;
     padding-top: 3px;
