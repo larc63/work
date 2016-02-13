@@ -1,4 +1,4 @@
-/*global ko, coinData, Coin */
+/*global ko, data, Coin */
 var CURRENT_GOLD_SPOT = 1128.34;
 var CURRENT_SILVER_SPOT = 14.38;
 var CURRENT_PLATINUM_SPOT = 872.50;
@@ -127,20 +127,20 @@ function ViewModel() {
         });
     }
 
-    for (i = 0; i < coinTypeData.length; i += 1) {
-        this.coinTypes().push(new CoinType(coinTypeData[i]));
+    for (i = 0; i < data.coinTypes.length; i += 1) {
+        this.coinTypes().push(new CoinType(data.coinTypes[i]));
     }
 
     //for (i = 0; i < 2; i += 1) {
-    for (i = 0; i < coinData.length; i += 1) {
-        coinData[i].coinType = undefined;
+    for (i = 0; i < data.coins.length; i += 1) {
+        data.coins[i].coinType = undefined;
 
-        type = this.getCoinType(coinData[i]);
-        coinData[i].coinType = type;
-        if (localStorage.hasOwnProperty(coinData[i].id)) {
-            c = JSON.parse(localStorage.getItem(coinData[i].id));
+        type = this.getCoinType(data.coins[i]);
+        data.coins[i].coinType = type;
+        if (localStorage.hasOwnProperty(data.coins[i].id)) {
+            c = JSON.parse(localStorage.getItem(data.coins[i].id));
         } else {
-            c = new Coin(coinData[i]);
+            c = new Coin(data.coins[i]);
             //console.log("added ", c);
             //localStorage.setItem(c.id(), ko.toJSON(c));
         }
@@ -212,7 +212,7 @@ function ViewModel() {
             coins: ko.toJS(coins),
             coinTypes: ko.toJS(this.coinTypes())
         };
-        window.open('data:application/text,' + JSON.stringify(e));
+        window.open('data:application/text,' + "window.data=" + JSON.stringify(e) + ";");
     };
     this.stagedCoin = ko.observable();
 
