@@ -1400,6 +1400,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc70499353",
+        "coinTypeId": "ct74516526",
+        "active": true,
+        "premium": "3.5",
+        "purchaseDate": "11/18/205",
+        "purchasePrice": "2",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc71001861",
         "coinTypeId": "ct45860574",
         "active": true,
@@ -2560,6 +2570,16 @@ window.data = {
         "width": 3.29,
         "metal": "silver",
         "diameter": 38
+    }, {
+        "id": "ct74516526",
+        "country": "Mexico",
+        "year": "1782",
+        "mint": "Casa De Moneda",
+        "series": "1/2 Real",
+        "weight": "0.04122",
+        "width": "0.9",
+        "metal": "silver",
+        "diameter": "17.2"
     }, {
         "id": "mc76180889",
         "country": "Mexico",
