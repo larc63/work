@@ -191,16 +191,18 @@ function ViewModel() {
     };
     this.exportCoins = function () {
         var sortingFunction = function (a, b) {
-                if (a.id >= b.id) {
+                var ida = parseInt(a.id.substring(2)),
+                    idb = parseInt(b.id.substring(2));
+                if (ida >= idb) {
                     return 1;
                 }
-                if (a.id < b.id) {
+                if (ida < idb) {
                     return -1;
                 }
             },
             coins = this.coins().map(function (c) {
                 var newCoin = {
-                    id: c.id,
+                    id: c.id(),
                     coinTypeId: c.coinTypeId,
                     active: c.active,
                     premium: c.premium,
