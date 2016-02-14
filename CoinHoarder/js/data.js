@@ -1170,6 +1170,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc58860400",
+        "coinTypeId": "ct41912587",
+        "active": true,
+        "premium": "6.49",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "3",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc58863068",
         "coinTypeId": "ct08254404",
         "active": true,
@@ -1326,6 +1336,16 @@ window.data = {
         "premium": "1.8",
         "purchaseDate": "09/28/2015",
         "purchasePrice": "22.45",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc66677958",
+        "coinTypeId": "ct63325213",
+        "active": true,
+        "premium": "20",
+        "purchaseDate": "01/12/2016",
+        "purchasePrice": "10",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -1576,6 +1596,16 @@ window.data = {
         "premium": "2.8",
         "purchaseDate": "06/25/2015",
         "purchasePrice": "14",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc83764839",
+        "coinTypeId": "ct75736717",
+        "active": true,
+        "premium": "25",
+        "purchaseDate": "01/12/2016",
+        "purchasePrice": "18",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -2151,6 +2181,16 @@ window.data = {
         "metal": "silver",
         "diameter": "--"
     }, {
+        "id": "ct29189310",
+        "country": "Mexico",
+        "year": 2015,
+        "mint": "Casa De Moneda",
+        "series": "Libertad (proof)",
+        "weight": 0.05,
+        "width": 1,
+        "metal": "silver",
+        "diameter": 16
+    }, {
         "id": "ct29783668",
         "country": "Mexico",
         "year": 1953,
@@ -2260,6 +2300,16 @@ window.data = {
         "width": 3,
         "metal": "silver",
         "diameter": 40.6
+    }, {
+        "id": "ct41912587",
+        "country": "Mexico",
+        "year": "1950",
+        "mint": "Casa De Moneda",
+        "series": "25 centavos",
+        "weight": "0.03212115366065",
+        "width": "1",
+        "metal": "silver",
+        "diameter": "21"
     }, {
         "id": "ct43305428",
         "country": "Australia",
@@ -2580,6 +2630,16 @@ window.data = {
         "width": "0.9",
         "metal": "silver",
         "diameter": "17.2"
+    }, {
+        "id": "ct75736717",
+        "country": "Mexico",
+        "year": "2014",
+        "mint": "Casa De Moneda",
+        "series": "Libertad (proof)",
+        "weight": 0.05,
+        "width": 1,
+        "metal": "silver",
+        "diameter": 16
     }, {
         "id": "mc76180889",
         "country": "Mexico",
