@@ -130,6 +130,26 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc07648699",
+        "coinTypeId": "ct66931955",
+        "active": true,
+        "premium": "1",
+        "purchaseDate": "",
+        "purchasePrice": 0,
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
+        "id": "mc08060853",
+        "coinTypeId": "ct03395421",
+        "active": true,
+        "premium": "1.6",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "10",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc09330773",
         "coinTypeId": "ct03395421",
         "active": true,
@@ -340,6 +360,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc19036583",
+        "coinTypeId": "mc87359291",
+        "active": true,
+        "premium": "1.4",
+        "purchaseDate": "12/25/2015",
+        "purchasePrice": "18.2",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc19395577",
         "coinTypeId": "ct95447310",
         "active": true,
@@ -400,6 +430,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc20760440",
+        "coinTypeId": "ct03395421",
+        "active": true,
+        "premium": "1.6",
+        "purchaseDate": "02/13/2016",
+        "purchasePrice": "12",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc21320360",
         "coinTypeId": "ct02099974",
         "active": true,
@@ -419,6 +459,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
+    }, {
+        "id": "mc22229106",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
     }, {
         "id": "mc22247512",
         "coinTypeId": "ct74472416",
@@ -456,6 +506,16 @@ window.data = {
         "premium": "1.5",
         "purchaseDate": "05/05/2015",
         "purchasePrice": "23",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc23060716",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -549,6 +609,36 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
+    }, {
+        "id": "mc29182955",
+        "coinTypeId": "ct49264661",
+        "active": true,
+        "premium": "1.6",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "10",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
+        "id": "mc29345800",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc30194717",
+        "coinTypeId": "ct03395421",
+        "active": true,
+        "premium": "1.6",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "10",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
     }, {
         "id": "mc30262614",
         "coinTypeId": "ct30726160",
@@ -690,6 +780,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc37613416",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc38029716",
         "coinTypeId": "ct30773496",
         "active": true,
@@ -709,6 +809,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
+    }, {
+        "id": "mc38285763",
+        "coinTypeId": "ct19401019",
+        "active": true,
+        "premium": "1",
+        "purchaseDate": "11/18/2015",
+        "purchasePrice": "9",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
     }, {
         "id": "mc38291767",
         "coinTypeId": "ct87596361",
@@ -830,6 +940,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc44064439",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc44085891",
         "coinTypeId": "ct28857485",
         "active": true,
@@ -880,6 +1000,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc45257194",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc46592852",
         "coinTypeId": "ct03395421",
         "active": true,
@@ -889,16 +1019,6 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
-    }, {
-        "id": "mc47147851",
-        "coinTypeId": "ct63345213",
-        "active": true,
-        "premium": "1",
-        "purchaseDate": "",
-        "purchasePrice": 0,
-        "saleDate": "",
-        "salePrice": "",
-        "isPermaStack": true
     }, {
         "id": "mc47514270",
         "coinTypeId": "ct74472416",
@@ -1019,6 +1139,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
+    }, {
+        "id": "mc50556326",
+        "coinTypeId": "ct03395421",
+        "active": true,
+        "premium": "1.6",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "10",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
     }, {
         "id": "mc50988974",
         "coinTypeId": "ct30773496",
@@ -1280,6 +1410,26 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc59163874",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc59944960",
+        "coinTypeId": "ct03395421",
+        "active": true,
+        "premium": "1.6",
+        "purchaseDate": "11/18/2016",
+        "purchasePrice": "9.5",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
         "id": "mc60231442",
         "coinTypeId": "ct74472416",
         "active": true,
@@ -1400,6 +1550,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc65337398",
+        "coinTypeId": "mc87359291",
+        "active": true,
+        "premium": "1.4",
+        "purchaseDate": "12/25/2015",
+        "purchasePrice": "18.2",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc65529279",
         "coinTypeId": "ct98328452",
         "active": false,
@@ -1450,6 +1610,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc67406560",
+        "coinTypeId": "mc87359291",
+        "active": true,
+        "premium": "1.4",
+        "purchaseDate": "12/25/2015",
+        "purchasePrice": "18.2",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc68445155",
         "coinTypeId": "ct37123672",
         "active": true,
@@ -1466,6 +1636,16 @@ window.data = {
         "premium": "1.24",
         "purchaseDate": "04/20/2015",
         "purchasePrice": "18.7",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc69655355",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -1516,6 +1696,16 @@ window.data = {
         "premium": "3.5",
         "purchaseDate": "11/18/205",
         "purchasePrice": "2",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc70737965",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -1619,6 +1809,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
+    }, {
+        "id": "mc74610849",
+        "coinTypeId": "ct02099974",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "02/08/2016",
+        "purchasePrice": "20.25",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
     }, {
         "id": "mc75216031",
         "coinTypeId": "ct37549734",
@@ -1870,12 +2070,12 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
-        "id": "mc91411807",
-        "coinTypeId": "ct17114119",
+        "id": "mc91748954",
+        "coinTypeId": "ct03395421",
         "active": true,
-        "premium": "1",
-        "purchaseDate": "",
-        "purchasePrice": 0,
+        "premium": "1.6",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "10",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -2231,6 +2431,16 @@ window.data = {
         "metal": "silver",
         "diameter": 75.6
     }, {
+        "id": "ct19401019",
+        "country": "Mexico",
+        "year": "1977",
+        "mint": "Casa De Moneda",
+        "series": "100 Pesos",
+        "weight": 0.643,
+        "width": 2.9,
+        "metal": "silver",
+        "diameter": 40
+    }, {
         "id": "ct20170447",
         "country": "Mexico",
         "year": 2008,
@@ -2365,7 +2575,7 @@ window.data = {
         "country": "Mexico",
         "year": 1953,
         "mint": "Casa De Moneda",
-        "series": "5pPesos Año De Hidalgo",
+        "series": "5 Pesos Año De Hidalgo",
         "weight": 0.643,
         "width": 2.9,
         "metal": "silver",
@@ -2581,6 +2791,16 @@ window.data = {
         "metal": "silver",
         "diameter": 38
     }, {
+        "id": "ct49264661",
+        "country": "Mexico",
+        "year": 1968,
+        "mint": "Casa De Moneda",
+        "series": "25 pesos (Juarez)",
+        "weight": 0.5209,
+        "width": 2.5,
+        "metal": "silver",
+        "diameter": "38"
+    }, {
         "id": "ct51188092",
         "country": "USA",
         "year": 2014,
@@ -2790,6 +3010,16 @@ window.data = {
         "width": 3.2,
         "metal": "silver",
         "diameter": 39.3
+    }, {
+        "id": "ct66931955",
+        "country": "Mexico",
+        "year": "1993",
+        "mint": "Casa De Moneda",
+        "series": "20 Nuevos Pesos",
+        "weight": "0.5054917848301",
+        "width": 2.9,
+        "metal": "silver",
+        "diameter": "32"
     }, {
         "id": "ct69138694",
         "country": "España",
