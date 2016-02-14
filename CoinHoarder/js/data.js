@@ -1550,6 +1550,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc65132069",
+        "coinTypeId": "ct72580571",
+        "active": true,
+        "premium": "1.5",
+        "purchaseDate": "12/25/2015",
+        "purchasePrice": "18.20",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc65337398",
         "coinTypeId": "mc87359291",
         "active": true,
@@ -3150,6 +3160,16 @@ window.data = {
         "width": 3,
         "metal": "silver",
         "diameter": 38.61
+    }, {
+        "id": "ct72580571",
+        "country": "Mexico",
+        "year": "1990",
+        "mint": "Casa De Moneda",
+        "series": "Libertad",
+        "weight": 1,
+        "width": 4,
+        "metal": "silver",
+        "diameter": 36
     }, {
         "id": "ct72968879",
         "country": "Mexico",
