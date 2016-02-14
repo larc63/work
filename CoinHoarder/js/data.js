@@ -370,6 +370,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc20711999",
+        "coinTypeId": "ct11082869",
+        "active": true,
+        "premium": "1.3",
+        "purchaseDate": "",
+        "purchasePrice": 0,
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc21320360",
         "coinTypeId": "ct02099974",
         "active": true,
@@ -1420,6 +1430,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc70426087",
+        "coinTypeId": "ct42752934",
+        "active": true,
+        "premium": "1.3",
+        "purchaseDate": "",
+        "purchasePrice": 0,
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc70499353",
         "coinTypeId": "ct74516526",
         "active": true,
@@ -1496,6 +1516,16 @@ window.data = {
         "premium": "1",
         "purchaseDate": "05/28/2015",
         "purchasePrice": "1.07",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
+        "id": "mc75216031",
+        "coinTypeId": "ct37549734",
+        "active": true,
+        "premium": "1.3",
+        "purchaseDate": "",
+        "purchasePrice": 0,
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
@@ -1770,6 +1800,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc95150226",
+        "coinTypeId": "ct97175998",
+        "active": true,
+        "premium": "1.3",
+        "purchaseDate": "",
+        "purchasePrice": 0,
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc95694106",
         "coinTypeId": "ct02099974",
         "active": true,
@@ -1970,6 +2010,16 @@ window.data = {
         "width": 2.5,
         "metal": "silver",
         "diameter": 34.5
+    }, {
+        "id": "ct11082869",
+        "country": "USA",
+        "year": "1917",
+        "mint": "US Mint",
+        "series": "10 cents",
+        "weight": "0.07234494067715",
+        "width": "1",
+        "metal": "silver",
+        "diameter": "17.9"
     }, {
         "id": "ct11451255",
         "country": "Mexico",
@@ -2271,6 +2321,16 @@ window.data = {
         "metal": "silver",
         "diameter": "48"
     }, {
+        "id": "ct37549734",
+        "country": "USA",
+        "year": "1923",
+        "mint": "US Mint",
+        "series": "10 cents",
+        "weight": "0.07234494067715",
+        "width": "1",
+        "metal": "silver",
+        "diameter": "17.9"
+    }, {
         "id": "ct37914629",
         "country": "Mexico",
         "year": 1959,
@@ -2310,6 +2370,16 @@ window.data = {
         "width": "1",
         "metal": "silver",
         "diameter": "21"
+    }, {
+        "id": "ct42752934",
+        "country": "USA",
+        "year": "1916",
+        "mint": "US Mint",
+        "series": "10 cents",
+        "weight": "0.07234494067715",
+        "width": "1",
+        "metal": "silver",
+        "diameter": "17.9"
     }, {
         "id": "ct43305428",
         "country": "Australia",
@@ -2830,6 +2900,16 @@ window.data = {
         "width": "--",
         "metal": "gold",
         "diameter": "--"
+    }, {
+        "id": "ct97175998",
+        "country": "USA",
+        "year": "1945",
+        "mint": "US Mint",
+        "series": "10 cents",
+        "weight": "0.07234494067715",
+        "width": "1",
+        "metal": "silver",
+        "diameter": "17.9"
     }, {
         "id": "ct97233002",
         "country": "Mexico",
