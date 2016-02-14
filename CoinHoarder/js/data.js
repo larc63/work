@@ -1500,16 +1500,6 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
-        "id": "mc63004244",
-        "coinTypeId": "ct99542018",
-        "active": true,
-        "premium": "1.4",
-        "purchaseDate": "06/26/2015",
-        "purchasePrice": "19.47",
-        "saleDate": "",
-        "salePrice": "",
-        "isPermaStack": false
-    }, {
         "id": "mc63523583",
         "coinTypeId": "ct92063722",
         "active": true,
@@ -1569,6 +1559,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
+    }, {
+        "id": "mc66143718",
+        "coinTypeId": "ct72968879",
+        "active": true,
+        "premium": "1",
+        "purchaseDate": "",
+        "purchasePrice": 0,
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
     }, {
         "id": "mc66594324",
         "coinTypeId": "ct08254404",
@@ -3060,6 +3060,16 @@ window.data = {
         "width": 3,
         "metal": "silver",
         "diameter": 38.61
+    }, {
+        "id": "ct72968879",
+        "country": "Mexico",
+        "year": "2008",
+        "mint": "Casa De Moneda",
+        "series": "100 Pesos (Chihuahua)",
+        "weight": "1.009436995595",
+        "width": "3",
+        "metal": "silver",
+        "diameter": "39.04"
     }, {
         "id": "ct73704560",
         "country": "Mexico",
