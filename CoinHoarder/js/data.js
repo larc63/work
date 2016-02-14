@@ -110,6 +110,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc07342164",
+        "coinTypeId": "ct38676191",
+        "active": true,
+        "premium": "4",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "7",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc07544931",
         "coinTypeId": "ct63345213",
         "active": true,
@@ -146,6 +156,16 @@ window.data = {
         "premium": "1.3",
         "purchaseDate": "05/30/2015",
         "purchasePrice": "40",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
+        "id": "mc10567866",
+        "coinTypeId": "ct47283102",
+        "active": true,
+        "premium": "1",
+        "purchaseDate": "",
+        "purchasePrice": 0,
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
@@ -420,6 +440,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc22556917",
+        "coinTypeId": "ct77065970",
+        "active": true,
+        "premium": "1.8",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "5",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc23005058",
         "coinTypeId": "ct48297131",
         "active": true,
@@ -509,6 +539,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
+    }, {
+        "id": "mc28473209",
+        "coinTypeId": "ct77065970",
+        "active": true,
+        "premium": "1.8",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "5",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
     }, {
         "id": "mc30262614",
         "coinTypeId": "ct30726160",
@@ -679,6 +719,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
+    }, {
+        "id": "mc38426151",
+        "coinTypeId": "ct43829769",
+        "active": true,
+        "premium": "3",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "9",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
     }, {
         "id": "mc38857939",
         "coinTypeId": "ct08166697",
@@ -960,6 +1010,16 @@ window.data = {
         "salePrice": "",
         "isPermaStack": false
     }, {
+        "id": "mc50364519",
+        "coinTypeId": "ct77065970",
+        "active": true,
+        "premium": "1.8",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "5",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc50988974",
         "coinTypeId": "ct30773496",
         "active": true,
@@ -976,6 +1036,16 @@ window.data = {
         "premium": "1",
         "purchaseDate": "",
         "purchasePrice": 0,
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
+        "id": "mc51874676",
+        "coinTypeId": "ct02559777",
+        "active": true,
+        "premium": "2",
+        "purchaseDate": "02/13/2016",
+        "purchasePrice": "9",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": true
@@ -1480,6 +1550,26 @@ window.data = {
         "salePrice": "",
         "isPermaStack": true
     }, {
+        "id": "mc72401099",
+        "coinTypeId": "ct77065970",
+        "active": true,
+        "premium": "1.8",
+        "purchaseDate": "02/06/2016",
+        "purchasePrice": "5",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
+        "id": "mc72601263",
+        "coinTypeId": "ct97841652",
+        "active": true,
+        "premium": "1.73",
+        "purchaseDate": "11/18/2015",
+        "purchasePrice": "22",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
+    }, {
         "id": "mc72972797",
         "coinTypeId": "ct43305428",
         "active": true,
@@ -1496,6 +1586,16 @@ window.data = {
         "premium": "1.84",
         "purchaseDate": "04/30/2015",
         "purchasePrice": "027",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": false
+    }, {
+        "id": "mc73028784",
+        "coinTypeId": "ct61705209",
+        "active": true,
+        "premium": "2",
+        "purchaseDate": "02/13/2016",
+        "purchasePrice": "11",
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
@@ -1629,6 +1729,16 @@ window.data = {
         "saleDate": "",
         "salePrice": "",
         "isPermaStack": false
+    }, {
+        "id": "mc79823812",
+        "coinTypeId": "ct32247169",
+        "active": true,
+        "premium": "2",
+        "purchaseDate": "02/13/2016",
+        "purchasePrice": "9",
+        "saleDate": "",
+        "salePrice": "",
+        "isPermaStack": true
     }, {
         "id": "mc83764839",
         "coinTypeId": "ct75736717",
@@ -1931,6 +2041,16 @@ window.data = {
         "metal": "silver",
         "diameter": 40.6
     }, {
+        "id": "ct02559777",
+        "country": "Mexico",
+        "year": "1944",
+        "mint": "Casa De Moneda",
+        "series": "1 Peso",
+        "weight": "0.3856",
+        "width": "2.2",
+        "metal": "silver",
+        "diameter": "34.1"
+    }, {
         "id": "ct03395421",
         "country": "Mexico",
         "year": 1968,
@@ -1954,7 +2074,7 @@ window.data = {
         "id": "ct05959409",
         "country": "USA",
         "year": 2015,
-        "mint": "ProvidentMint",
+        "mint": "Provident Mint",
         "series": "Año De La Cabra",
         "weight": 1,
         "width": "--",
@@ -2154,7 +2274,7 @@ window.data = {
         "id": "ct21957452",
         "country": "USA",
         "year": 2015,
-        "mint": "ProvidentMint",
+        "mint": "Provident Mint",
         "series": "Año De La Cabra",
         "weight": 1,
         "width": "--",
@@ -2245,7 +2365,7 @@ window.data = {
         "country": "Mexico",
         "year": 1953,
         "mint": "Casa De Moneda",
-        "series": "5pesosañodeHidalgo",
+        "series": "5pPesos Año De Hidalgo",
         "weight": 0.643,
         "width": 2.9,
         "metal": "silver",
@@ -2284,17 +2404,27 @@ window.data = {
         "id": "ct32014901",
         "country": "USA",
         "year": "",
-        "mint": "ProvidentMint",
+        "mint": "Provident Mint",
         "series": "Dogecoin",
         "weight": 1,
         "width": "--",
         "metal": "silver",
         "diameter": 39
     }, {
+        "id": "ct32247169",
+        "country": "Mexico",
+        "year": "1938",
+        "mint": "Casa De Moneda",
+        "series": "1 Peso",
+        "weight": "0.3856",
+        "width": "2.2",
+        "metal": "silver",
+        "diameter": "34.1"
+    }, {
         "id": "ct34217442",
         "country": "USA",
         "year": 2015,
-        "mint": "ProvidentMint",
+        "mint": "Provident Mint",
         "series": "Privateer II",
         "weight": 2,
         "width": "--",
@@ -2341,10 +2471,20 @@ window.data = {
         "metal": "silver",
         "diameter": 34.5
     }, {
+        "id": "ct38676191",
+        "country": "Mexico",
+        "year": "1950",
+        "mint": "Casa De Moneda",
+        "series": "1 Peso",
+        "weight": "0.1285810745635",
+        "width": "2",
+        "metal": "silver",
+        "diameter": "32"
+    }, {
         "id": "ct38826467",
         "country": "USA",
         "year": 2015,
-        "mint": "ProvidentMint",
+        "mint": "Provident Mint",
         "series": "Privateer I",
         "weight": 2,
         "width": "--",
@@ -2391,6 +2531,16 @@ window.data = {
         "metal": "silver",
         "diameter": "85.6"
     }, {
+        "id": "ct43829769",
+        "country": "Mexico",
+        "year": "1947",
+        "mint": "Casa De Moneda",
+        "series": "1 Peso",
+        "weight": ".2250",
+        "width": "2",
+        "metal": "silver",
+        "diameter": "32"
+    }, {
         "id": "ct44182242",
         "country": "Australia",
         "year": 2015,
@@ -2410,6 +2560,16 @@ window.data = {
         "width": 1.4,
         "metal": "silver",
         "diameter": 20
+    }, {
+        "id": "ct47283102",
+        "country": "Mexico",
+        "year": "1943",
+        "mint": "Casa De Moneda",
+        "series": "1 Peso",
+        "weight": "0.3856",
+        "width": "2.2",
+        "metal": "silver",
+        "diameter": "34.1"
     }, {
         "id": "ct48297131",
         "country": "Canada",
@@ -2721,6 +2881,16 @@ window.data = {
         "metal": "silver",
         "diameter": 40.6
     }, {
+        "id": "ct77065970",
+        "country": "Mexico",
+        "year": "1943",
+        "mint": "Casa De Moneda",
+        "series": "50 Centavos",
+        "weight": "0.192842673869",
+        "width": "2",
+        "metal": "silver",
+        "diameter": "27"
+    }, {
         "id": "ct77483911",
         "country": "Mexico",
         "year": 1992,
@@ -2920,6 +3090,16 @@ window.data = {
         "width": "2.2",
         "metal": "silver",
         "diameter": "34.1"
+    }, {
+        "id": "ct97841652",
+        "country": "Mexico",
+        "year": "1948",
+        "mint": "Casa De Moneda",
+        "series": "5 Pesos Cuhahutemoc",
+        "weight": "0.8681392881258",
+        "width": "4",
+        "metal": "silver",
+        "diameter": 40
     }, {
         "id": "ct98328452",
         "country": "Mexico",
