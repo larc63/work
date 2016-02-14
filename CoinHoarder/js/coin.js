@@ -3,7 +3,7 @@ function Coin(data) {
     var generateID = function () {
         return "mc" + pad(Math.floor(Math.random() * 100000000), 8);
     }
-    this.id = ko.observable(generateID());
+    this.id = ko.observable(data.id ? data.id : generateID());
     this.active = ko.observable(data.active);
     this.coinType = ko.observable(data.coinType);
     this.coinTypeId = this.coinType().id();

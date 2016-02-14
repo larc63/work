@@ -190,7 +190,15 @@ function ViewModel() {
         self.coins.valueHasMutated();
     };
     this.exportCoins = function () {
-        var coins = this.coins().map(function (c) {
+        var sortingFunction = function (a, b) {
+                if (a.id >= b.id) {
+                    return 1;
+                }
+                if (a.id < b.id) {
+                    return -1;
+                }
+            },
+            coins = this.coins().map(function (c) {
                 var newCoin = {
                     id: c.id,
                     coinTypeId: c.coinTypeId,
@@ -203,16 +211,31 @@ function ViewModel() {
                     isPermaStack: c.isPermaStack
                 };
                 return newCoin;
-            }),
+            }).sort(sortingFunction),
+            coinTypes = this.coinTypes().map(function (c) {
+                var newCoinType = {
+                    id: c.id(),
+                    country: c.country(),
+                    year: c.year(),
+                    mint: c.mint(),
+                    series: c.series(),
+                    weight: c.weight(),
+                    width: c.width(),
+                    metal: c.metal(),
+                    diameter: c.diameter()
+                };
+                return newCoinType;
+            }).sort(sortingFunction),
             e;
         //        console.log(ko.toJSON(coins));
         //        console.log(ko.toJSON(this.coinTypes()));
         //        console.log(ko.toJSON(this.coins()));
         e = {
             coins: ko.toJS(coins),
-            coinTypes: ko.toJS(this.coinTypes())
+            coinTypes: ko.toJS(coinTypes)
         };
-        window.open('data:application/text,' + "window.data=" + JSON.stringify(e) + ";");
+        console.log("window.data=" + JSON.stringify(e) + ";");
+        //        window.open('data:application/text,' + "window.data=" + JSON.stringify(e) + ";");
     };
     this.stagedCoin = ko.observable();
 
