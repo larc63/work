@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		F848E4181C75713400404079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4171C75713400404079 /* AppDelegate.swift */; };
-		F848E41A1C75713400404079 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4191C75713400404079 /* ViewController.swift */; };
+		F848E41A1C75713400404079 /* RandomizerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4191C75713400404079 /* RandomizerViewController.swift */; };
 		F848E41D1C75713400404079 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F848E41B1C75713400404079 /* Main.storyboard */; };
 		F848E41F1C75713400404079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F848E41E1C75713400404079 /* Assets.xcassets */; };
 		F848E4221C75713400404079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F848E4201C75713400404079 /* LaunchScreen.storyboard */; };
 		F848E42D1C75713400404079 /* RecipeRandomizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E42C1C75713400404079 /* RecipeRandomizerTests.swift */; };
 		F848E4381C75713400404079 /* RecipeRandomizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4371C75713400404079 /* RecipeRandomizerUITests.swift */; };
+		F848E4471C77895E00404079 /* DefaultSearchTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4461C77895E00404079 /* DefaultSearchTerms.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		F848E4141C75713400404079 /* RecipeRandomizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeRandomizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F848E4171C75713400404079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F848E4191C75713400404079 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F848E4191C75713400404079 /* RandomizerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomizerViewController.swift; sourceTree = "<group>"; };
 		F848E41C1C75713400404079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F848E41E1C75713400404079 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F848E4211C75713400404079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		F848E4331C75713400404079 /* RecipeRandomizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeRandomizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F848E4371C75713400404079 /* RecipeRandomizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRandomizerUITests.swift; sourceTree = "<group>"; };
 		F848E4391C75713400404079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F848E4461C77895E00404079 /* DefaultSearchTerms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSearchTerms.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +99,9 @@
 		F848E4161C75713400404079 /* RecipeRandomizer */ = {
 			isa = PBXGroup;
 			children = (
+				F848E4451C77894500404079 /* Model */,
 				F848E4171C75713400404079 /* AppDelegate.swift */,
-				F848E4191C75713400404079 /* ViewController.swift */,
+				F848E4191C75713400404079 /* RandomizerViewController.swift */,
 				F848E41B1C75713400404079 /* Main.storyboard */,
 				F848E41E1C75713400404079 /* Assets.xcassets */,
 				F848E4201C75713400404079 /* LaunchScreen.storyboard */,
@@ -123,6 +126,14 @@
 				F848E4391C75713400404079 /* Info.plist */,
 			);
 			path = RecipeRandomizerUITests;
+			sourceTree = "<group>";
+		};
+		F848E4451C77894500404079 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F848E4461C77895E00404079 /* DefaultSearchTerms.swift */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +267,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F848E41A1C75713400404079 /* ViewController.swift in Sources */,
+				F848E41A1C75713400404079 /* RandomizerViewController.swift in Sources */,
+				F848E4471C77895E00404079 /* DefaultSearchTerms.swift in Sources */,
 				F848E4181C75713400404079 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
