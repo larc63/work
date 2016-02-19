@@ -1,7 +1,7 @@
 /*global ko, data, Coin */
-var CURRENT_GOLD_SPOT = 1128.34;
-var CURRENT_SILVER_SPOT = 14.38;
-var CURRENT_PLATINUM_SPOT = 872.50;
+var CURRENT_GOLD_SPOT = 1233.33;
+var CURRENT_SILVER_SPOT = 15.46;
+var CURRENT_PLATINUM_SPOT = 945.50;
 var CURRENT_COPPER_SPOT = 2.06;
 
 function pad(num, size) {
