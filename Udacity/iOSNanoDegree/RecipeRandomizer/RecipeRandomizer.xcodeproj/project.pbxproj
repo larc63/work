@@ -14,7 +14,9 @@
 		F848E4221C75713400404079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F848E4201C75713400404079 /* LaunchScreen.storyboard */; };
 		F848E42D1C75713400404079 /* RecipeRandomizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E42C1C75713400404079 /* RecipeRandomizerTests.swift */; };
 		F848E4381C75713400404079 /* RecipeRandomizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4371C75713400404079 /* RecipeRandomizerUITests.swift */; };
-		F848E4471C77895E00404079 /* DefaultSearchTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4461C77895E00404079 /* DefaultSearchTerms.swift */; };
+		F848E4491C77933D00404079 /* DefaultSearchTerms.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E4481C77933D00404079 /* DefaultSearchTerms.swift */; };
+		F848E44E1C77938900404079 /* WebServiceHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E44D1C77938900404079 /* WebServiceHelpers.swift */; };
+		F848E4501C77942B00404079 /* Food2ForkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = F848E44F1C77942B00404079 /* Food2ForkClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,7 +50,9 @@
 		F848E4331C75713400404079 /* RecipeRandomizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecipeRandomizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F848E4371C75713400404079 /* RecipeRandomizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRandomizerUITests.swift; sourceTree = "<group>"; };
 		F848E4391C75713400404079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F848E4461C77895E00404079 /* DefaultSearchTerms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultSearchTerms.swift; sourceTree = "<group>"; };
+		F848E4481C77933D00404079 /* DefaultSearchTerms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DefaultSearchTerms.swift; path = Model/DefaultSearchTerms.swift; sourceTree = "<group>"; };
+		F848E44D1C77938900404079 /* WebServiceHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServiceHelpers.swift; sourceTree = "<group>"; };
+		F848E44F1C77942B00404079 /* Food2ForkClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Food2ForkClient.swift; path = Model/Food2ForkClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		F848E4161C75713400404079 /* RecipeRandomizer */ = {
 			isa = PBXGroup;
 			children = (
+				F848E44C1C77938900404079 /* Helpers */,
 				F848E4451C77894500404079 /* Model */,
 				F848E4171C75713400404079 /* AppDelegate.swift */,
 				F848E4191C75713400404079 /* RandomizerViewController.swift */,
@@ -131,9 +136,18 @@
 		F848E4451C77894500404079 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				F848E4461C77895E00404079 /* DefaultSearchTerms.swift */,
+				F848E44F1C77942B00404079 /* Food2ForkClient.swift */,
+				F848E4481C77933D00404079 /* DefaultSearchTerms.swift */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		F848E44C1C77938900404079 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				F848E44D1C77938900404079 /* WebServiceHelpers.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,8 +281,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F848E4501C77942B00404079 /* Food2ForkClient.swift in Sources */,
+				F848E44E1C77938900404079 /* WebServiceHelpers.swift in Sources */,
 				F848E41A1C75713400404079 /* RandomizerViewController.swift in Sources */,
-				F848E4471C77895E00404079 /* DefaultSearchTerms.swift in Sources */,
+				F848E4491C77933D00404079 /* DefaultSearchTerms.swift in Sources */,
 				F848E4181C75713400404079 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
