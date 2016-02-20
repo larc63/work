@@ -1,6 +1,6 @@
 //
 //  WebServiceHelpers.swift
-//  OnTheMap
+//  RecipeRandomizer
 //
 //  Created by Luis Antonio Rodriguez on 11/25/15.
 //  Copyright © 2015 Luis Antonio Rodriguez. All rights reserved.
@@ -27,7 +27,7 @@ class WebServiceHelpers : NSObject {
         /* 1. Build the URL and configure the request */
         let urlString = baseURL + method + WebServiceHelpers.escapedParameters(parameters)
         let url = NSURL(string: urlString)!
-//        print(url)
+        print(url)
         let request = NSMutableURLRequest(URL: url)
         for (key, value) in requestValues {
             request.addValue(value, forHTTPHeaderField: key)

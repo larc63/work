@@ -1,34 +1,26 @@
 //
-//  Pin.swift
-//  VirtualTourist
+//  Recipe.swift
+//  RecipeRandomizer
 //
-//  Created by Luis Antonio Rodriguez on 1/31/16.
+//  Created by Luis Antonio Rodriguez on 2/19/16.
 //  Copyright © 2016 Luis Antonio Rodriguez. All rights reserved.
 //
 
 import Foundation
-import CoreData
 
-class Pin : NSManagedObject{
-    struct Keys {
-        static let Latitude = "latitude"
-        static let Longitude = "longitude"
-        static let Photos = "photos"
+class Recipe {
+    var id: String?
+    var title: String?
+    var source_url: String?
+    var image_url: String?
+    var publisher: String?
+    
+    
+    init(dictionary: [String : AnyObject]) {
+        id = dictionary[RecipeKeys.ID] as! String?
+        title = dictionary[RecipeKeys.TITLE] as! String?
+        source_url = dictionary[RecipeKeys.SOURCE_URL] as! String?
+        image_url = dictionary[RecipeKeys.IMAGE_URL] as! String?
+        publisher = dictionary[RecipeKeys.PUBLISHER] as! String?
     }
-    @NSManaged var longitude: Double
-    @NSManaged var latitude: Double
-    @NSManaged var photos: [Photo]
-    
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
-    }
-    
-    init(dictionary: [String : AnyObject], context: NSManagedObjectContext) {
-        let entity =  NSEntityDescription.entityForName("Pin", inManagedObjectContext: context)!
-        super.init(entity: entity,insertIntoManagedObjectContext: context)
-        longitude = dictionary[Keys.Longitude] as! Double
-        latitude = dictionary[Keys.Latitude] as! Double
-    }
-    
-    
 }
