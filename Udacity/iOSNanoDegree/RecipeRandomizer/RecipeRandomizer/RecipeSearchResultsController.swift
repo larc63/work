@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class RecipeSearchResultsController : UICollectionViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class RecipeSearchResultsController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var recipes:[Recipe] = []
     
     override func viewDidLoad() {

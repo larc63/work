@@ -49,12 +49,12 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
         return 1
     }
     @IBAction func searchButtonPressed(sender: AnyObject) {
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("RecipeSearchResultsController") as! RecipeSearchResultsController
         let term1:String = DefaultSearchTerms[self.pickerView1.selectedRowInComponent(0)]
         let term2:String = DefaultSearchTerms[self.pickerView2.selectedRowInComponent(0)]
         print("Searching for \(term1) and \(term2)")
         Food2ForkClient.sharedInstance().getRecipesForSearchTerms([term1, term2]) { (success, errorString, recipeData) -> Void in
             if success {
-                
                 //"publisher": "My Baking Addiction",
                 //"f2f_url": "http://food2fork.com/view/e7fdb2",
                 //"title": "Mac and Cheese with Roasted Chicken, Goat Cheese, and Rosemary",
@@ -63,6 +63,7 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
                 //"image_url": "http://static.food2fork.com/MacandCheese1122b.jpg",
                 //"social_rank": 100.0,
                 //"publisher_url": "http://www.mybakingaddiction.com"
+                
                 for recipe in recipeData!{
                     let id = recipe["recipe_id"] as! String
                     let title = recipe["title"] as! String
@@ -80,9 +81,10 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
                     self.recipes.append(recipeToAdd)
                 }
                 // perfom segue to view results
-                let controller = self.storyboard!.instantiateViewControllerWithIdentifier("RecipeSearchResultsController") as! RecipeSearchResultsController
-                controller.recipes = self.recipes
-                self.navigationController!.pushViewController(controller, animated: true)
+                dispatch_async(dispatch_get_main_queue(),{
+                    controller.recipes = self.recipes
+                    self.navigationController!.pushViewController(controller, animated: true)
+                })
             }else{
                 print("meh")
             }

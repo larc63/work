@@ -22,6 +22,7 @@
 		F89B07691C77F0D00096AE8B /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B07681C77F0D00096AE8B /* Recipe.swift */; };
 		F89B076B1C77F27D0096AE8B /* RecipeKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B076A1C77F27D0096AE8B /* RecipeKeys.swift */; };
 		F89B076D1C77F62F0096AE8B /* RecipeResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B076C1C77F62F0096AE8B /* RecipeResultsCell.swift */; };
+		F89B076F1C7866CC0096AE8B /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = F89B076E1C7866CC0096AE8B /* ImageCache.swift */; };
 		F8A17EEE1C77AE6A001C9041 /* PersistedRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A17EED1C77AE6A001C9041 /* PersistedRecipe.swift */; };
 		F8A17EF01C77AEE4001C9041 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8A17EEF1C77AEE4001C9041 /* CoreDataStackManager.swift */; };
 /* End PBXBuildFile section */
@@ -65,6 +66,7 @@
 		F89B07681C77F0D00096AE8B /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = Model/Recipe.swift; sourceTree = "<group>"; };
 		F89B076A1C77F27D0096AE8B /* RecipeKeys.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecipeKeys.swift; path = Model/RecipeKeys.swift; sourceTree = "<group>"; };
 		F89B076C1C77F62F0096AE8B /* RecipeResultsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeResultsCell.swift; sourceTree = "<group>"; };
+		F89B076E1C7866CC0096AE8B /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		F8A17EED1C77AE6A001C9041 /* PersistedRecipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PersistedRecipe.swift; path = Model/PersistedRecipe.swift; sourceTree = "<group>"; };
 		F8A17EEF1C77AEE4001C9041 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoreDataStackManager.swift; path = Model/CoreDataStackManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -166,6 +168,7 @@
 		F848E44C1C77938900404079 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F89B076E1C7866CC0096AE8B /* ImageCache.swift */,
 				F848E44D1C77938900404079 /* WebServiceHelpers.swift */,
 			);
 			path = Helpers;
@@ -303,6 +306,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F89B076D1C77F62F0096AE8B /* RecipeResultsCell.swift in Sources */,
+				F89B076F1C7866CC0096AE8B /* ImageCache.swift in Sources */,
 				F848E4501C77942B00404079 /* Food2ForkClient.swift in Sources */,
 				F848E44E1C77938900404079 /* WebServiceHelpers.swift in Sources */,
 				F89B07641C77E8B20096AE8B /* RecipeSearchResultsController.swift in Sources */,
