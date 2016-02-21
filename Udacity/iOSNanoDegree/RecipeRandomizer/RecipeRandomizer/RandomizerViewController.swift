@@ -13,6 +13,15 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var pickerView1: UIPickerView!
     @IBOutlet weak var pickerView2: UIPickerView!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        navigationController?.navigationBarHidden = false
+        super.viewWillDisappear(animated)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -48,11 +57,18 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 1
     }
-    @IBAction func searchButtonPressed(sender: AnyObject) {
-        let controller = storyboard!.instantiateViewControllerWithIdentifier("RecipeSearchResultsController") as! RecipeSearchResultsController
-        let term1:String = DefaultSearchTerms[self.pickerView1.selectedRowInComponent(0)]
-        let term2:String = DefaultSearchTerms[self.pickerView2.selectedRowInComponent(0)]
+    
+    func showAlert(message: String) {
+        let alert = UIAlertController(title: "D'oh!", message: message, preferredStyle: UIAlertControllerStyle.Alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){action in
+        }
+        alert.addAction(okAction)
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func doSearch(term1: String, term2: String){
         print("Searching for \(term1) and \(term2)")
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("RecipeSearchResultsController") as! RecipeSearchResultsController
         Food2ForkClient.sharedInstance().getRecipesForSearchTerms([term1, term2]) { (success, errorString, recipeData) -> Void in
             if success {
                 //"publisher": "My Baking Addiction",
@@ -80,15 +96,36 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
                     let recipeToAdd = Recipe(dictionary: dictionary)
                     self.recipes.append(recipeToAdd)
                 }
-                // perfom segue to view results
-                dispatch_async(dispatch_get_main_queue(),{
-                    controller.recipes = self.recipes
-                    self.navigationController!.pushViewController(controller, animated: true)
-                })
+                
+                if self.recipes.count == 0 {
+                    dispatch_async(dispatch_get_main_queue(),{
+                        self.showAlert("No recipes found for those search terms")
+                    })
+                }else{
+                    // perfom segue to view results
+                    dispatch_async(dispatch_get_main_queue(),{
+                        controller.recipes = self.recipes
+                        self.navigationController!.pushViewController(controller, animated: true)
+                    })
+                }
             }else{
                 print("meh")
             }
         }
+
+    }
+    
+    @IBAction func randomSearchPressed(sender: AnyObject) {
+        let max = UInt32(DefaultSearchTerms.count)
+        let term1:String = DefaultSearchTerms[Int(arc4random_uniform(max))]
+        let term2:String = DefaultSearchTerms[Int(arc4random_uniform(max))]
+        doSearch(term1, term2: term2)
+    }
+    
+    @IBAction func searchButtonPressed(sender: AnyObject) {
+        let term1:String = DefaultSearchTerms[self.pickerView1.selectedRowInComponent(0)]
+        let term2:String = DefaultSearchTerms[self.pickerView2.selectedRowInComponent(0)]
+        doSearch(term1, term2: term2)
     }
 }
 

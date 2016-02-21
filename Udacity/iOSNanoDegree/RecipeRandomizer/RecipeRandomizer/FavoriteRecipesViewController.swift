@@ -26,11 +26,18 @@ class FavoriteRecupesViewController : RecipeSearchResultsController {
         recipes = fetchAllRecipes()
         navigationController?.navigationBarHidden = true
         collectionView.reloadData()
+        if recipes.count == 0{
+                let alert = UIAlertController(title: "D'oh!", message: "You don't have any favorite recipes yet, go find some!", preferredStyle: UIAlertControllerStyle.Alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){action in
+                }
+                alert.addAction(okAction)
+                self.presentViewController(alert, animated: true, completion: nil)
+        }
+        
     }
     
     
     func fetchAllRecipes() -> [Recipe] {
-        
         // Create the Fetch Request
         let fetchRequest = NSFetchRequest(entityName: "Recipe")
         // Execute the Fetch Request

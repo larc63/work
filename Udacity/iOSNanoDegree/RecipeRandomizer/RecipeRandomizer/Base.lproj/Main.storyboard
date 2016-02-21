@@ -54,19 +54,45 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Sh8-wz-2mp">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi2-rt-qtb">
+                                <rect key="frame" x="146" y="64" width="309" height="44"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Recipe Randomizer">
+                                        <attributes>
+                                            <color key="NSColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <font key="NSFont" size="35" name="HelveticaNeue"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="2" height="3"/>
+                            </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-xx-RMe">
-                                <rect key="frame" x="0.0" y="81" width="600" height="216"/>
+                                <rect key="frame" x="0.0" y="125" width="600" height="216"/>
                                 <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="IUH-ud-UGc"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="g03-Tr-cSi"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shL-JQ-qsz">
-                                <rect key="frame" x="251" y="552" width="99" height="28"/>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-jP-Axh">
+                                <rect key="frame" x="0.0" y="348" width="600" height="216"/>
+                                <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="v57-eS-aoM"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dhZ-6G-JXh"/>
+                                </connections>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shL-JQ-qsz">
+                                <rect key="frame" x="46" y="515" width="99" height="28"/>
                                 <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="99" id="cqU-tJ-LNi"/>
+                                </constraints>
                                 <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="9" maxY="0.0"/>
                                 <size key="titleShadowOffset" width="5" height="5"/>
                                 <state key="normal">
@@ -84,29 +110,29 @@
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P7G-5s-0uy"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bi2-rt-qtb">
-                                <rect key="frame" x="146" y="20" width="309" height="44"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="Recipe Randomizer">
-                                        <attributes>
-                                            <color key="NSColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <font key="NSFont" size="35" name="HelveticaNeue"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="2" height="3"/>
-                            </label>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-jP-Axh">
-                                <rect key="frame" x="0.0" y="304" width="600" height="216"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ud-w6-7F6">
+                                <rect key="frame" x="436" y="515" width="127" height="28"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="127" id="KXh-S2-vLo"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="9" maxY="0.0"/>
+                                <size key="titleShadowOffset" width="5" height="5"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="Random!">
+                                            <attributes>
+                                                <color key="NSColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="24" name="HelveticaNeue"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="v57-eS-aoM"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dhZ-6G-JXh"/>
+                                    <action selector="randomSearchPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LKK-sA-fcG"/>
                                 </connections>
-                            </pickerView>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <accessibility key="accessibilityConfiguration">
@@ -115,18 +141,21 @@
                         <constraints>
                             <constraint firstItem="bi2-rt-qtb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="0GV-mk-Gj6"/>
                             <constraint firstItem="wnI-jP-Axh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="9CO-xf-7Sb"/>
+                            <constraint firstItem="shL-JQ-qsz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="26" id="CEq-Z0-iLi"/>
                             <constraint firstItem="wnI-jP-Axh" firstAttribute="top" secondItem="nlH-xx-RMe" secondAttribute="bottom" constant="7" id="GlP-0u-Ire"/>
                             <constraint firstItem="nlH-xx-RMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="RwS-xH-MLe"/>
-                            <constraint firstItem="Sh8-wz-2mp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="WIc-fL-2Gn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="wnI-jP-Axh" secondAttribute="trailing" constant="-20" id="Y3O-6B-FUP"/>
-                            <constraint firstItem="bi2-rt-qtb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-44" id="bjX-8s-SNk"/>
+                            <constraint firstItem="bi2-rt-qtb" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bjX-8s-SNk"/>
+                            <constraint firstItem="Sh8-wz-2mp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="evT-w3-Bo3"/>
                             <constraint firstItem="nlH-xx-RMe" firstAttribute="top" secondItem="bi2-rt-qtb" secondAttribute="bottom" constant="17" id="i6J-pR-K2s"/>
                             <constraint firstItem="Sh8-wz-2mp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="iWw-im-CMk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="nlH-xx-RMe" secondAttribute="trailing" constant="-20" id="oEH-Bc-5OC"/>
+                            <constraint firstItem="6Ud-w6-7F6" firstAttribute="leading" secondItem="shL-JQ-qsz" secondAttribute="trailing" priority="989" constant="111" id="r30-CD-Om3"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="6Ud-w6-7F6" secondAttribute="bottom" constant="8" id="rEp-eH-M9j"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Sh8-wz-2mp" secondAttribute="trailing" constant="-20" id="tSd-do-la6"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="shL-JQ-qsz" secondAttribute="bottom" constant="20" id="v7a-Sk-uj4"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6Ud-w6-7F6" secondAttribute="trailing" constant="17" id="uFv-Oe-tty"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="shL-JQ-qsz" secondAttribute="bottom" constant="8" id="v7a-Sk-uj4"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Sh8-wz-2mp" secondAttribute="bottom" id="wto-mE-bun"/>
-                            <constraint firstItem="shL-JQ-qsz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zHb-5D-cqg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Search" id="Swn-SN-j2V"/>
