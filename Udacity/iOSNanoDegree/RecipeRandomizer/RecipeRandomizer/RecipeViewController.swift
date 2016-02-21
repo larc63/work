@@ -52,5 +52,8 @@ class RecipeViewController:UIViewController{
     }
     
     @IBAction func linkPressed(sender: AnyObject) {
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("FullRecipeViewController") as! FullRecipeViewController
+        controller.requestURL = NSURLRequest(URL: NSURL(string: (recipe?.source_url)!)!)
+        self.navigationController!.pushViewController(controller, animated: true)
     }
 }

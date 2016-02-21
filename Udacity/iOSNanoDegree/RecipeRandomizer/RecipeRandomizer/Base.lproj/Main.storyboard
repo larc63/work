@@ -421,10 +421,10 @@ M M M M M M M </string>
             </objects>
             <point key="canvasLocation" x="2064" y="530"/>
         </scene>
-        <!--View Controller-->
+        <!--Full Recipe View Controller-->
         <scene sceneID="0V1-JQ-oIB">
             <objects>
-                <viewController id="Jaa-VA-FaN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FullRecipeViewController" id="Jaa-VA-FaN" customClass="FullRecipeViewController" customModule="RecipeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vqY-Ke-ePe"/>
                         <viewControllerLayoutGuide type="bottom" id="FMs-MN-I1f"/>
@@ -446,6 +446,9 @@ M M M M M M M </string>
                             <constraint firstItem="nch-iv-DEX" firstAttribute="leading" secondItem="C9L-It-qc0" secondAttribute="leadingMargin" constant="-20" id="sCk-VC-Uf8"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="nch-iv-DEX" id="DSy-t8-hgu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rci-YQ-D0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
