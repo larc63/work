@@ -15,14 +15,33 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="UPP-hp-rLm"/>
+                        <segue destination="vLR-sk-i25" kind="relationship" relationship="rootViewController" id="mWj-1B-OiO"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PhM-Va-txa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-138" y="522"/>
+            <point key="canvasLocation" x="-1059" y="914"/>
         </scene>
-        <!--Randomizer View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="CRN-hI-5VY">
+            <objects>
+                <tabBarController id="vLR-sk-i25" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="CfG-Cr-580"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="sbu-QP-DAd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="djD-2b-wDV"/>
+                        <segue destination="uY3-C8-Ynf" kind="relationship" relationship="viewControllers" id="1Kd-Jd-VFa"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="F5i-Jf-pcU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-323" y="914"/>
+        </scene>
+        <!--Search-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RandomizerViewController" customModule="RecipeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
@@ -34,10 +53,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Sh8-wz-2mp">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Sh8-wz-2mp">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
-                            <pickerView alpha="0.87" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-xx-RMe">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nlH-xx-RMe">
                                 <rect key="frame" x="0.0" y="81" width="600" height="216"/>
                                 <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -45,7 +64,7 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="g03-Tr-cSi"/>
                                 </connections>
                             </pickerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shL-JQ-qsz">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="shL-JQ-qsz">
                                 <rect key="frame" x="251" y="552" width="99" height="28"/>
                                 <color key="backgroundColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <inset key="contentEdgeInsets" minX="14" minY="0.0" maxX="9" maxY="0.0"/>
@@ -80,7 +99,7 @@
                                 <color key="shadowColor" red="0.29803922772407532" green="0.29803922772407532" blue="0.29803922772407532" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="2" height="3"/>
                             </label>
-                            <pickerView alpha="0.87" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-jP-Axh">
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnI-jP-Axh">
                                 <rect key="frame" x="0.0" y="304" width="600" height="216"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -110,6 +129,7 @@
                             <constraint firstItem="shL-JQ-qsz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zHb-5D-cqg"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Search" id="Swn-SN-j2V"/>
                     <navigationItem key="navigationItem" id="udR-Md-Aah"/>
                     <connections>
                         <outlet property="pickerView1" destination="nlH-xx-RMe" id="OhH-9s-H5x"/>
@@ -120,6 +140,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="597" y="530"/>
+        </scene>
+        <!--Favorites-->
+        <scene sceneID="eh1-S4-Xyn">
+            <objects>
+                <viewController id="uY3-C8-Ynf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sTj-GM-g75"/>
+                        <viewControllerLayoutGuide type="bottom" id="HpK-U8-k2n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="agi-fI-OSy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="lks-65-OL9"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pO8-Fi-cwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="569" y="1277"/>
         </scene>
         <!--Recipe Search Results Controller-->
         <scene sceneID="koR-Yp-4Is">
@@ -339,9 +378,6 @@ M M M M M M M </string>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZQ-ih-Yjp">
                                                 <rect key="frame" x="8" y="254" width="584" height="290"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="290" id="YtA-32-gzp"/>
-                                                </constraints>
                                                 <attributedString key="attributedText">
                                                     <fragment>
                                                         <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -356,17 +392,26 @@ M M M M M M M </string>
                                             </textView>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="VCS-nF-eu9" firstAttribute="top" secondItem="9JL-1h-Tkq" secondAttribute="top" id="3ix-n6-xHu"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="centerX" secondItem="VCS-nF-eu9" secondAttribute="centerX" id="7OR-Ni-Iux"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="top" secondItem="JsH-I6-CwL" secondAttribute="bottom" constant="2" id="T0X-Kj-YtK"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="leading" secondItem="JsH-I6-CwL" secondAttribute="leading" id="Vcl-wH-IJd"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leadingMargin" id="XqA-OA-nsq"/>
                                             <constraint firstItem="JsH-I6-CwL" firstAttribute="top" secondItem="VCS-nF-eu9" secondAttribute="bottom" constant="8" symbolic="YES" id="b2c-6p-PMt"/>
+                                            <constraint firstItem="VCS-nF-eu9" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leading" id="ebl-GN-AMW"/>
                                             <constraint firstAttribute="bottom" secondItem="QZQ-ih-Yjp" secondAttribute="bottom" constant="56" id="eoh-zT-lvY"/>
                                             <constraint firstItem="VCS-nF-eu9" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leading" id="eu6-fD-ItD"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="trailing" secondItem="9JL-1h-Tkq" secondAttribute="trailingMargin" id="gIW-yY-kgF"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="leading" secondItem="3ia-Bk-A54" secondAttribute="leading" id="n4n-Qd-llz"/>
+                                            <constraint firstItem="JsH-I6-CwL" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leading" constant="8" id="tR6-Hz-Nim"/>
                                             <constraint firstItem="JsH-I6-CwL" firstAttribute="top" secondItem="3ia-Bk-A54" secondAttribute="bottom" constant="19" id="yIG-WO-NVk"/>
                                         </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="eu6-fD-ItD"/>
+                                                <exclude reference="Vcl-wH-IJd"/>
+                                            </mask>
+                                        </variation>
                                     </view>
                                 </subviews>
                                 <constraints>
