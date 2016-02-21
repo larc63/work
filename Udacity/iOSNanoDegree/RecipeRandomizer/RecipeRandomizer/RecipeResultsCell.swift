@@ -13,6 +13,7 @@ class RecipeResultsCell : UICollectionViewCell{
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var title: UILabel!
+    @IBOutlet weak var publisher: UILabel!
     
     // used for when using a placeholder image while downloading the recipe images
     var taskToCancelifCellIsReused: NSURLSessionTask? {

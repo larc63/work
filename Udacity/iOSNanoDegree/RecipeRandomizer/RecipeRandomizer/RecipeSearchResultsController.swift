@@ -35,31 +35,27 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
         
         cell.title.text = recipe.title
         
-//        if recipe.image != nil {
-//            cell.image.image = recipe.image!
-//            cell.activityIndicator.stopAnimating()
-//        }else{
-//            cell.image.image = UIImage(named: "placeholder")
-//            cell.activityIndicator.startAnimating()
-//            var url:String = ""
-////            self.sharedContext.performBlockAndWait(){
-////                url = photo.thumbnailUrl
-////            }
-//            if url != "" {
-//                let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
-////                    if let data = imageData {
-////                        dispatch_async(dispatch_get_main_queue()) {
-////                            let image = UIImage(data: data)
-////                            photo.image = image
-////                            cell.imageView.image = image
-////                            cell.activityIndicator.stopAnimating()
-////                            cell.activityIndicator.hidden = true
-////                        }
-////                    }
-//                }
-//                cell.taskToCancelifCellIsReused = task
-//            }
-//        }
+        if recipe.image != nil {
+            cell.image.image = recipe.image!
+            cell.activityIndicator.stopAnimating()
+        }else{
+            cell.image.image = UIImage(named: "ImagePlaceholder")
+            cell.activityIndicator.startAnimating()
+            if let url = recipe.image_url {
+                let task = WebServiceHelpers.sharedInstance().taskForImageWithUrl(url){ (imageData, error) -> Void in
+                    if let data = imageData {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            let image = UIImage(data: data)
+                            recipe.image = image
+                            cell.image.image = image
+                            cell.activityIndicator.stopAnimating()
+                            cell.activityIndicator.hidden = true
+                        }
+                    }
+                }
+                cell.taskToCancelifCellIsReused = task
+            }
+        }
         return cell
     }
     
