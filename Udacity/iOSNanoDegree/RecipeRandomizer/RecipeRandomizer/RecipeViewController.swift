@@ -11,12 +11,21 @@ import UIKit
 
 class RecipeViewController:UIViewController{
     var recipe : Recipe?
-    
-
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var ingredients: UITextView!
     
+    override func viewDidLoad() {
+        if let recipe = recipe{
+            recipeImage.image = recipe.image
+            recipeTitle.text = recipe.title
+            var ingredientList = ""
+            for ingredient in recipe.ingredients!{
+                ingredientList += "⚜ " + (ingredient as! String) + "\n"
+            }
+            ingredients.text = ingredientList
+        }
+    }
     
     @IBAction func likePressed(sender: AnyObject) {
     }

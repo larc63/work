@@ -15,6 +15,7 @@ class Recipe {
     var source_url: String?
     var image_url: String?
     var publisher: String?
+    var ingredients: NSArray?
     
     
     init(dictionary: [String : AnyObject]) {

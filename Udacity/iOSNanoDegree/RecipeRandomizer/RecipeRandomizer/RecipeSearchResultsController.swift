@@ -34,6 +34,7 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
 //        cell.backGround.clipsToBounds = true
         
         cell.title.text = recipe.title
+        cell.publisher.text = recipe.publisher
         
         if recipe.image != nil {
             cell.image.image = recipe.image!
@@ -63,10 +64,18 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
         let recipe = self.recipes[indexPath.row]
         let controller = storyboard!.instantiateViewControllerWithIdentifier("RecipeViewController") as! RecipeViewController
         controller.recipe = recipe
-        
-        // perfom segue to view results
-        dispatch_async(dispatch_get_main_queue(),{
-            self.navigationController!.pushViewController(controller, animated: true)
-        })
+        Food2ForkClient.sharedInstance().getRecipeForId(recipe.id!) { (success, errorString, recipeData) -> Void in
+            if success {
+                let ingredients = recipeData!["ingredients"] as! NSArray
+                recipe.ingredients = ingredients
+                // perfom segue to view results
+                dispatch_async(dispatch_get_main_queue(),{
+                    self.navigationController!.pushViewController(controller, animated: true)
+                })
+
+            }else{
+                print("meh")
+            }
+        }
     }
 }
