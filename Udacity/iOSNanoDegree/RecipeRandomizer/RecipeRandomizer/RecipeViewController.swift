@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class RecipeViewController:UIViewController{
-//    var recipe : Recipe?
+    var recipe : Recipe?
     
 
     @IBOutlet weak var recipeImage: UIImageView!

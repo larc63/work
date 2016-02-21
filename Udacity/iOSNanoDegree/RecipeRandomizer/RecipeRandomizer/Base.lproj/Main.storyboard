@@ -242,7 +242,7 @@ M M M M M M M </string>
         <!--Recipe View Controller-->
         <scene sceneID="T3K-OM-ah5">
             <objects>
-                <viewController id="SaN-zy-6ky" customClass="RecipeViewController" customModule="RecipeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecipeViewController" id="SaN-zy-6ky" customClass="RecipeViewController" customModule="RecipeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="iEe-5B-ct7"/>
                         <viewControllerLayoutGuide type="bottom" id="Yrh-jz-BDY"/>

@@ -60,11 +60,13 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath:NSIndexPath){
-//        let recipe = self.recipes[indexPath.row]
-//        let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Recipe
-//        photo.pin = nil
-//        photo.image = nil
-//        sharedContext.deleteObject(photo)
-//        CoreDataStackManager.sharedInstance().saveContext()
+        let recipe = self.recipes[indexPath.row]
+        let controller = storyboard!.instantiateViewControllerWithIdentifier("RecipeViewController") as! RecipeViewController
+        controller.recipe = recipe
+        
+        // perfom segue to view results
+        dispatch_async(dispatch_get_main_queue(),{
+            self.navigationController!.pushViewController(controller, animated: true)
+        })
     }
 }
