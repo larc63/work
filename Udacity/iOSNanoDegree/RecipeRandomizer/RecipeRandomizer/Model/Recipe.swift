@@ -16,6 +16,7 @@ class Recipe {
     var image_url: String?
     var publisher: String?
     var ingredients: [String] = []
+    var isFavorite: Bool = false
     
     
     init(dictionary: [String : AnyObject]) {
@@ -24,6 +25,10 @@ class Recipe {
         source_url = dictionary[RecipeKeys.SOURCE_URL] as! String?
         image_url = dictionary[RecipeKeys.IMAGE_URL] as! String?
         publisher = dictionary[RecipeKeys.PUBLISHER] as! String?
+    }
+    
+    deinit{
+        image = nil
     }
     
     var image: UIImage? {
