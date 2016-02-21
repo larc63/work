@@ -17,6 +17,15 @@ class FavoriteRecupesViewController : RecipeSearchResultsController {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationController?.navigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        navigationController?.navigationBarHidden = false
+        super.viewWillDisappear(animated)
+    }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         recipes = fetchAllRecipes()
@@ -47,7 +56,9 @@ class FavoriteRecupesViewController : RecipeSearchResultsController {
                 RecipeKeys.PUBLISHER : p.publisher,
                 RecipeKeys.INGREDIENTS : p.ingredients
             ]
-            retVal.append(Recipe(dictionary: dictionary))
+            let recipeToAdd = Recipe(dictionary: dictionary)
+            recipeToAdd.isFavorite = true
+            retVal.append(recipeToAdd)
         }
         return retVal
     }

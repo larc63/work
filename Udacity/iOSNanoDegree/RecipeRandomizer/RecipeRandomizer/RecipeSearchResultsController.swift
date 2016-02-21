@@ -24,7 +24,7 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeViewCell", forIndexPath: indexPath) as! RecipeResultsCell
         let  recipe = self.recipes[indexPath.row]
-
+        
         cell.title.text = recipe.title
         cell.publisher.text = recipe.publisher
         
@@ -56,17 +56,19 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
         let recipe = self.recipes[indexPath.row]
         let controller = storyboard!.instantiateViewControllerWithIdentifier("RecipeViewController") as! RecipeViewController
         controller.recipe = recipe
-        Food2ForkClient.sharedInstance().getRecipeForId(recipe.id!) { (success, errorString, recipeData) -> Void in
-            if success {
-                let ingredients = recipeData!["ingredients"] as! [String]
-                recipe.ingredients = ingredients
-                // perfom segue to view results
-                dispatch_async(dispatch_get_main_queue(),{
-                    self.navigationController!.pushViewController(controller, animated: true)
-                })
-
-            }else{
-                print("meh")
+        if recipe.ingredients.count == 0{
+            Food2ForkClient.sharedInstance().getRecipeForId(recipe.id!) { (success, errorString, recipeData) -> Void in
+                if success {
+                    let ingredients = recipeData!["ingredients"] as! [String]
+                    recipe.ingredients = ingredients
+                    // perfom segue to view results
+                    dispatch_async(dispatch_get_main_queue(),{
+                        self.navigationController!.pushViewController(controller, animated: true)
+                    })
+                    
+                }else{
+                    print("meh")
+                }
             }
         }
     }
