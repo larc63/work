@@ -9,18 +9,22 @@
 import Foundation
 import UIKit
 
-class RecipeSearchResultsController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class RecipeSearchResultsController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     var recipes:[Recipe] = []
-
+    
     // MARK: Collection View Related methods
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return recipes.count
     }
     
+    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: 220)
+    }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeViewCell", forIndexPath: indexPath) as! RecipeResultsCell
         let  recipe = self.recipes[indexPath.row]
-        
+
         cell.title.text = recipe.title
         cell.publisher.text = recipe.publisher
         
