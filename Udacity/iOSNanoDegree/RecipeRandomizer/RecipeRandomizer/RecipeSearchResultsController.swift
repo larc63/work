@@ -66,7 +66,7 @@ class RecipeSearchResultsController : UIViewController, UICollectionViewDataSour
         controller.recipe = recipe
         Food2ForkClient.sharedInstance().getRecipeForId(recipe.id!) { (success, errorString, recipeData) -> Void in
             if success {
-                let ingredients = recipeData!["ingredients"] as! NSArray
+                let ingredients = recipeData!["ingredients"] as! [String]
                 recipe.ingredients = ingredients
                 // perfom segue to view results
                 dispatch_async(dispatch_get_main_queue(),{

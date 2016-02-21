@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 class RecipeViewController:UIViewController{
     var recipe : Recipe?
@@ -17,21 +18,37 @@ class RecipeViewController:UIViewController{
     @IBOutlet weak var titleWidthContraint: NSLayoutConstraint!
     @IBOutlet weak var publisher: UILabel!
     
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance().managedObjectContext
+    }
+    
     override func viewDidLoad() {
         titleWidthContraint.constant = view.frame.width - 100
         if let recipe = recipe{
             recipeImage.image = recipe.image
             recipeTitle.text = recipe.title
             var ingredientList = ""
-            for ingredient in recipe.ingredients!{
-                ingredientList += "⚜ " + (ingredient as! String) + "\n"
+            for ingredient in recipe.ingredients{
+                ingredientList += "⚜ " + (ingredient ) + "\n"
             }
-            ingredients.text = ingredientList
+            if ingredientList == "" {
+                ingredients.text = "Ingredients not available at the moment"
+            }else{
+                ingredients.text = ingredientList
+            }
             publisher.text = recipe.publisher
         }
     }
     
     @IBAction func likePressed(sender: AnyObject) {
+        sharedContext.performBlock { () -> Void in
+            let persistedRecipe = PersistedRecipe(recipe: self.recipe!, context: self.sharedContext)
+            for ingredient in self.recipe!.ingredients{
+                let persisted = PersistedIngredient(dictionary: [RecipeKeys.INGREDIENT: ingredient], context: self.sharedContext)
+                persisted.recipe = persistedRecipe
+            }
+            CoreDataStackManager.sharedInstance().saveContext()
+        }
     }
     
     @IBAction func linkPressed(sender: AnyObject) {

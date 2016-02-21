@@ -15,5 +15,6 @@ struct RecipeKeys {
     static let SOURCE_URL = "source_url"
     static let IMAGE_URL = "image_url"
     static let PUBLISHER = "publisher"
-    
+    static let INGREDIENTS = "ingredients"
+    static let INGREDIENT = "ingredient"
 }
