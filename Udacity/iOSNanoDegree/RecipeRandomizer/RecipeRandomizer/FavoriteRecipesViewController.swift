@@ -17,11 +17,6 @@ class FavoriteRecupesViewController : RecipeSearchResultsController {
         return CoreDataStackManager.sharedInstance().managedObjectContext
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBarHidden = true
-    }
-    
     override func viewWillDisappear(animated: Bool) {
         navigationController?.navigationBarHidden = false
         super.viewWillDisappear(animated)
@@ -29,6 +24,7 @@ class FavoriteRecupesViewController : RecipeSearchResultsController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         recipes = fetchAllRecipes()
+        navigationController?.navigationBarHidden = true
         collectionView.reloadData()
     }
     

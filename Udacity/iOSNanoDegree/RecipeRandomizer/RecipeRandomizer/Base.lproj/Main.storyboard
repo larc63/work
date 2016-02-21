@@ -157,7 +157,7 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-1p-dfZ">
-                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSP-sZ-JUS">
                                     <size key="itemSize" width="320" height="320"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -267,7 +267,7 @@ M M M M M M M </string>
                             <constraint firstAttribute="trailingMargin" secondItem="o1R-e1-4hb" secondAttribute="trailing" constant="-20" id="aee-Ii-7kc"/>
                             <constraint firstItem="o1R-e1-4hb" firstAttribute="leading" secondItem="agi-fI-OSy" secondAttribute="leadingMargin" constant="-20" id="p4p-Kl-1Kq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3lM-1p-dfZ" secondAttribute="trailing" constant="-20" id="qWo-Yz-bKW"/>
-                            <constraint firstItem="HpK-U8-k2n" firstAttribute="top" secondItem="3lM-1p-dfZ" secondAttribute="bottom" constant="-49" id="zYK-7K-Meg"/>
+                            <constraint firstItem="HpK-U8-k2n" firstAttribute="top" secondItem="3lM-1p-dfZ" secondAttribute="bottom" id="zYK-7K-Meg"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" id="lks-65-OL9"/>
@@ -420,20 +420,19 @@ M M M M M M M </string>
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vT3-ka-Slg">
-                                <rect key="frame" x="564" y="20" width="36" height="41"/>
-                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <rect key="frame" x="560" y="20" width="40" height="40"/>
+                                <color key="backgroundColor" red="0.90196079015731812" green="0.90196079015731812" blue="0.90196079015731812" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="9" maxY="0.0"/>
                                 <state key="normal">
                                     <attributedString key="attributedTitle">
-                                        <fragment content="🔪">
+                                        <fragment content="♡">
                                             <attributes>
-                                                <color key="NSColor" red="0.50196081399917603" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="31" name="AppleColorEmoji"/>
+                                                <font key="NSFont" size="30" name="ArialUnicodeMS"/>
                                                 <real key="NSKern" value="0.0"/>
                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" defaultTabInterval="36">
                                                     <tabStops/>
                                                 </paragraphStyle>
-                                                <color key="NSStrokeColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
-                                                <real key="NSStrokeWidth" value="0.0"/>
+                                                <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -442,8 +441,30 @@ M M M M M M M </string>
                                     <action selector="likePressed:" destination="SaN-zy-6ky" eventType="touchUpInside" id="H1B-j2-Dyg"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNx-9s-sdf">
+                                <rect key="frame" x="520" y="20" width="40" height="39.5"/>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="🔗">
+                                            <attributes>
+                                                <font key="NSFont" size="30" name="AppleColorEmoji"/>
+                                                <real key="NSKern" value="0.0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
+                                                    <tabStops/>
+                                                </paragraphStyle>
+                                                <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="linkPressed:" destination="SaN-zy-6ky" eventType="touchUpInside" id="8O2-K9-kHi"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1k8-Gp-UPt">
-                                <rect key="frame" x="5" y="28" width="37" height="24"/>
+                                <rect key="frame" x="5" y="28" width="37" height="23.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="517" id="17b-Vy-tEQ"/>
                                 </constraints>
@@ -461,10 +482,10 @@ M M M M M M M </string>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3bd-g1-FXJ">
-                                <rect key="frame" x="0.0" y="53" width="600" height="547"/>
+                                <rect key="frame" x="0.0" y="59" width="600" height="540.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9JL-1h-Tkq">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                        <rect key="frame" x="0.0" y="2" width="600" height="591"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VCS-nF-eu9">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="220"/>
@@ -473,7 +494,7 @@ M M M M M M M </string>
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ia-Bk-A54">
-                                                <rect key="frame" x="8" y="185" width="81" height="24"/>
+                                                <rect key="frame" x="8" y="176" width="80.5" height="23.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Publisher">
                                                         <attributes>
@@ -488,7 +509,7 @@ M M M M M M M </string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JsH-I6-CwL">
-                                                <rect key="frame" x="8" y="228" width="96" height="24"/>
+                                                <rect key="frame" x="8" y="219" width="95.5" height="23.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment content="Ingredients">
                                                         <attributes>
@@ -503,7 +524,7 @@ M M M M M M M </string>
                                                 <size key="shadowOffset" width="1" height="1"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZQ-ih-Yjp">
-                                                <rect key="frame" x="8" y="254" width="584" height="290"/>
+                                                <rect key="frame" x="8" y="244" width="584" height="290.5"/>
                                                 <attributedString key="attributedText">
                                                     <fragment>
                                                         <string key="content">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda. Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -523,7 +544,7 @@ M M M M M M M </string>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="top" secondItem="JsH-I6-CwL" secondAttribute="bottom" constant="2" id="T0X-Kj-YtK"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="leading" secondItem="JsH-I6-CwL" secondAttribute="leading" id="Vcl-wH-IJd"/>
                                             <constraint firstItem="QZQ-ih-Yjp" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leadingMargin" id="XqA-OA-nsq"/>
-                                            <constraint firstItem="JsH-I6-CwL" firstAttribute="top" secondItem="VCS-nF-eu9" secondAttribute="bottom" constant="8" symbolic="YES" id="b2c-6p-PMt"/>
+                                            <constraint firstItem="JsH-I6-CwL" firstAttribute="top" secondItem="VCS-nF-eu9" secondAttribute="bottom" constant="-1" id="b2c-6p-PMt"/>
                                             <constraint firstItem="VCS-nF-eu9" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leading" id="ebl-GN-AMW"/>
                                             <constraint firstAttribute="bottom" secondItem="QZQ-ih-Yjp" secondAttribute="bottom" constant="56" id="eoh-zT-lvY"/>
                                             <constraint firstItem="VCS-nF-eu9" firstAttribute="leading" secondItem="9JL-1h-Tkq" secondAttribute="leading" id="eu6-fD-ItD"/>
@@ -547,43 +568,22 @@ M M M M M M M </string>
                                     <constraint firstItem="9JL-1h-Tkq" firstAttribute="centerX" secondItem="3bd-g1-FXJ" secondAttribute="centerX" id="uHG-cc-YAa"/>
                                 </constraints>
                             </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNx-9s-sdf">
-                                <rect key="frame" x="525" y="20" width="39" height="41"/>
-                                <inset key="contentEdgeInsets" minX="8" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="🔗">
-                                            <attributes>
-                                                <font key="NSFont" size="31" name="AppleColorEmoji"/>
-                                                <real key="NSKern" value="0.0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" minimumLineHeight="16" defaultTabInterval="36">
-                                                    <tabStops/>
-                                                </paragraphStyle>
-                                                <color key="NSStrokeColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <action selector="linkPressed:" destination="SaN-zy-6ky" eventType="touchUpInside" id="8O2-K9-kHi"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GNx-9s-sdf" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" id="LnV-9i-cBJ"/>
                             <constraint firstItem="1k8-Gp-UPt" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" constant="8" id="N0D-Zk-w2d"/>
-                            <constraint firstItem="3bd-g1-FXJ" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" constant="33" id="PpS-Cd-Fry"/>
+                            <constraint firstItem="3bd-g1-FXJ" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" constant="39.5" id="PpS-Cd-Fry"/>
                             <constraint firstItem="Yrh-jz-BDY" firstAttribute="top" secondItem="3bd-g1-FXJ" secondAttribute="bottom" id="Qq3-qq-9JO"/>
                             <constraint firstItem="3bd-g1-FXJ" firstAttribute="leading" secondItem="HpC-Fz-qtm" secondAttribute="leading" id="Rf2-dJ-1hO"/>
                             <constraint firstItem="vT3-ka-Slg" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" id="bFf-ia-VSI"/>
                             <constraint firstItem="1k8-Gp-UPt" firstAttribute="leading" secondItem="HpC-Fz-qtm" secondAttribute="leading" constant="5" id="e4U-M6-zbc"/>
-                            <constraint firstItem="9JL-1h-Tkq" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" constant="33" id="fZx-Rb-PKB"/>
+                            <constraint firstItem="9JL-1h-Tkq" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" constant="41" id="fZx-Rb-PKB"/>
                             <constraint firstItem="Yrh-jz-BDY" firstAttribute="top" secondItem="HpC-Fz-qtm" secondAttribute="bottom" id="iMO-qi-Ptn"/>
                             <constraint firstItem="HpC-Fz-qtm" firstAttribute="top" secondItem="iEe-5B-ct7" secondAttribute="bottom" constant="-20" id="jse-oS-KR9"/>
                             <constraint firstItem="3bd-g1-FXJ" firstAttribute="trailing" secondItem="vT3-ka-Slg" secondAttribute="trailing" id="k41-D3-bbs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="HpC-Fz-qtm" secondAttribute="trailing" constant="-20" id="pu5-uC-7Hf"/>
-                            <constraint firstItem="Yrh-jz-BDY" firstAttribute="top" secondItem="9JL-1h-Tkq" secondAttribute="bottom" constant="-53" id="qLj-uw-WcP"/>
+                            <constraint firstItem="Yrh-jz-BDY" firstAttribute="top" secondItem="9JL-1h-Tkq" secondAttribute="bottom" constant="-52" id="qLj-uw-WcP"/>
                             <constraint firstItem="HpC-Fz-qtm" firstAttribute="leading" secondItem="P2e-Wx-YPS" secondAttribute="leadingMargin" constant="-20" id="sIu-Dj-tzT"/>
                             <constraint firstItem="3bd-g1-FXJ" firstAttribute="trailing" secondItem="HpC-Fz-qtm" secondAttribute="trailing" id="tKj-hU-QQb"/>
                             <constraint firstItem="vT3-ka-Slg" firstAttribute="leading" secondItem="GNx-9s-sdf" secondAttribute="trailing" id="vvm-1y-7M6"/>
@@ -592,6 +592,7 @@ M M M M M M M </string>
                     <connections>
                         <outlet property="ingredients" destination="QZQ-ih-Yjp" id="Ful-qu-Lap"/>
                         <outlet property="likedButton" destination="vT3-ka-Slg" id="WgU-xx-ji7"/>
+                        <outlet property="linkButton" destination="GNx-9s-sdf" id="HUR-rt-Cdp"/>
                         <outlet property="publisher" destination="3ia-Bk-A54" id="T6P-gb-WC3"/>
                         <outlet property="recipeImage" destination="VCS-nF-eu9" id="nNf-Vf-oSp"/>
                         <outlet property="recipeTitle" destination="1k8-Gp-UPt" id="5wG-fy-bhh"/>

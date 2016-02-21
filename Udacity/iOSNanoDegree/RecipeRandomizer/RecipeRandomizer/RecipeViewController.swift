@@ -18,6 +18,7 @@ class RecipeViewController:UIViewController{
     @IBOutlet weak var titleWidthContraint: NSLayoutConstraint!
     @IBOutlet weak var publisher: UILabel!
     @IBOutlet weak var likedButton: UIButton!
+    @IBOutlet weak var linkButton: UIButton!
     
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance().managedObjectContext
@@ -38,19 +39,29 @@ class RecipeViewController:UIViewController{
                 ingredients.text = ingredientList
             }
             publisher.text = recipe.publisher
+            likedButton.layer.cornerRadius = 10;
+            likedButton.layer.borderWidth = 1;
+            likedButton.layer.borderColor = UIColor.blackColor().CGColor
+            linkButton.layer.cornerRadius = 10;
+            linkButton.layer.borderWidth = 1;
+            linkButton.layer.borderColor = UIColor.blackColor().CGColor
             
             updateLikeButtonText()
         }
     }
     
     func updateLikeButtonText(){
-        if let recipe = recipe{
-            if recipe.isFavorite{
-                likedButton.titleLabel!.text = "🍳"
-                return
+        dispatch_async(dispatch_get_main_queue(),{
+            if let recipe = self.recipe{
+                if recipe.isFavorite{
+                    self.likedButton.titleLabel!.text = "♥"
+                    self.likedButton.setNeedsDisplay()
+                    return
+                }
             }
-        }
-        likedButton.titleLabel!.text = "🔪"
+            self.likedButton.titleLabel!.text = "♡"
+            self.likedButton.setNeedsDisplay()
+        })
     }
     
     @IBAction func likePressed(sender: AnyObject) {
@@ -84,9 +95,7 @@ class RecipeViewController:UIViewController{
             }
             recipe!.isFavorite = true
         }
-        dispatch_async(dispatch_get_main_queue(),{
-            self.updateLikeButtonText()
-        })
+        self.updateLikeButtonText()
     }
     
     @IBAction func linkPressed(sender: AnyObject) {
