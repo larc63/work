@@ -63,7 +63,7 @@ class RandomizerViewController: UIViewController, UIPickerViewDataSource, UIPick
                 //"image_url": "http://static.food2fork.com/MacandCheese1122b.jpg",
                 //"social_rank": 100.0,
                 //"publisher_url": "http://www.mybakingaddiction.com"
-                
+                self.recipes = []
                 for recipe in recipeData!{
                     let id = recipe["recipe_id"] as! String
                     let title = recipe["title"] as! String
