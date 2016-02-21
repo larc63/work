@@ -11,27 +11,15 @@ import UIKit
 
 class RecipeSearchResultsController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     var recipes:[Recipe] = []
-    
-    override func viewDidLoad() {
-//        let cv = view as! UICollectionView
-//        cv.delegate = self
-//        cv.dataSource = self
-    }
-    
+
     // MARK: Collection View Related methods
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        let sectionInfo = self.fetchedResultsController.sections![section]
-//        return sectionInfo.numberOfObjects
         return recipes.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RecipeViewCell", forIndexPath: indexPath) as! RecipeResultsCell
         let  recipe = self.recipes[indexPath.row]
-//        let photo = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Photo
-        // set the background to be rounded
-//        cell.backGround.layer.cornerRadius = 10.0
-//        cell.backGround.clipsToBounds = true
         
         cell.title.text = recipe.title
         cell.publisher.text = recipe.publisher

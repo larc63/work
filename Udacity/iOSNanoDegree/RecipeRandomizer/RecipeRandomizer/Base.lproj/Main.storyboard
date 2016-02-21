@@ -144,7 +144,7 @@
         <!--Favorites-->
         <scene sceneID="eh1-S4-Xyn">
             <objects>
-                <viewController id="uY3-C8-Ynf" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoriteRecupesViewController" id="uY3-C8-Ynf" customClass="FavoriteRecupesViewController" customModule="RecipeRandomizer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sTj-GM-g75"/>
                         <viewControllerLayoutGuide type="bottom" id="HpK-U8-k2n"/>
@@ -152,13 +152,125 @@
                     <view key="view" contentMode="scaleToFill" id="agi-fI-OSy">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="o1R-e1-4hb">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="3lM-1p-dfZ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gSP-sZ-JUS">
+                                    <size key="itemSize" width="320" height="320"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RecipeViewCell" id="DsL-1j-LgZ" customClass="RecipeResultsCell" customModule="RecipeRandomizer" customModuleProvider="target">
+                                        <rect key="frame" x="140" y="0.0" width="320" height="320"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wUD-hQ-u0d">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                                </imageView>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dVx-Zt-wLP">
+                                                    <rect key="frame" x="150" y="150" width="20" height="20"/>
+                                                </activityIndicatorView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="middleTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgc-ZW-xp0">
+                                                    <rect key="frame" x="8" y="194" width="304" height="71"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment>
+                                                            <string key="content">M M M M M M M M
+M M M M M M M M M M M M M M M
+M M M M M M M </string>
+                                                            <attributes>
+                                                                <color key="NSColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wft-S8-ohT">
+                                                    <rect key="frame" x="8" y="276" width="250" height="21"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Publisher">
+                                                            <attributes>
+                                                                <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="19" name="HelveticaNeue"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                    <nil key="highlightedColor"/>
+                                                    <color key="shadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="dVx-Zt-wLP" firstAttribute="centerY" secondItem="DsL-1j-LgZ" secondAttribute="centerY" id="8MN-Ir-sbZ"/>
+                                            <constraint firstItem="fgc-ZW-xp0" firstAttribute="leading" secondItem="DsL-1j-LgZ" secondAttribute="leadingMargin" id="DGb-IX-dx4"/>
+                                            <constraint firstItem="dVx-Zt-wLP" firstAttribute="centerY" secondItem="DsL-1j-LgZ" secondAttribute="centerY" id="Ljg-eG-b01"/>
+                                            <constraint firstItem="wUD-hQ-u0d" firstAttribute="leading" secondItem="DsL-1j-LgZ" secondAttribute="leadingMargin" constant="-8" id="NBz-3I-gwb"/>
+                                            <constraint firstItem="dVx-Zt-wLP" firstAttribute="centerX" secondItem="DsL-1j-LgZ" secondAttribute="centerX" id="NUC-ar-PAT"/>
+                                            <constraint firstItem="wUD-hQ-u0d" firstAttribute="top" secondItem="DsL-1j-LgZ" secondAttribute="topMargin" constant="-8" id="OCc-xl-Owq"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="wUD-hQ-u0d" secondAttribute="trailing" constant="-8" id="QFu-DM-Eta"/>
+                                            <constraint firstItem="wft-S8-ohT" firstAttribute="top" secondItem="fgc-ZW-xp0" secondAttribute="bottom" constant="11" id="UUZ-T3-hh0"/>
+                                            <constraint firstItem="wUD-hQ-u0d" firstAttribute="leading" secondItem="DsL-1j-LgZ" secondAttribute="leadingMargin" constant="-8" id="WrM-Hl-exQ"/>
+                                            <constraint firstItem="wft-S8-ohT" firstAttribute="leading" secondItem="DsL-1j-LgZ" secondAttribute="leadingMargin" id="X82-cH-oB5"/>
+                                            <constraint firstItem="fgc-ZW-xp0" firstAttribute="leading" secondItem="DsL-1j-LgZ" secondAttribute="leadingMargin" id="cr8-Lc-K2B"/>
+                                            <constraint firstItem="fgc-ZW-xp0" firstAttribute="trailing" secondItem="DsL-1j-LgZ" secondAttribute="trailingMargin" id="dap-mH-mJK"/>
+                                            <constraint firstItem="fgc-ZW-xp0" firstAttribute="trailing" secondItem="DsL-1j-LgZ" secondAttribute="trailingMargin" id="jyy-FH-3gU"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="wft-S8-ohT" secondAttribute="bottom" constant="15" id="kcA-43-JmX"/>
+                                            <constraint firstItem="wUD-hQ-u0d" firstAttribute="top" secondItem="DsL-1j-LgZ" secondAttribute="topMargin" constant="-8" id="nHs-bx-qbR"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="wUD-hQ-u0d" secondAttribute="bottom" constant="-8" id="olF-TT-zXv"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="wUD-hQ-u0d" secondAttribute="trailing" constant="-8" id="sjt-qe-kuO"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="wUD-hQ-u0d" secondAttribute="bottom" constant="-8" id="smq-0X-oFE"/>
+                                            <constraint firstItem="dVx-Zt-wLP" firstAttribute="centerX" secondItem="DsL-1j-LgZ" secondAttribute="centerX" id="yLV-xM-E47"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="fgc-ZW-xp0" secondAttribute="bottom" constant="47" id="zKq-6E-dbc"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="activityIndicator" destination="dVx-Zt-wLP" id="VPZ-fv-sbU"/>
+                                            <outlet property="image" destination="wUD-hQ-u0d" id="XN1-5F-g7B"/>
+                                            <outlet property="publisher" destination="wft-S8-ohT" id="ojM-xB-uBb"/>
+                                            <outlet property="title" destination="fgc-ZW-xp0" id="8Vw-GT-JrX"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="uY3-C8-Ynf" id="JuT-es-BzH"/>
+                                    <outlet property="delegate" destination="uY3-C8-Ynf" id="gVf-eQ-aW4"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3lM-1p-dfZ" firstAttribute="top" secondItem="sTj-GM-g75" secondAttribute="bottom" constant="-64" id="3l1-da-vNj"/>
+                            <constraint firstItem="HpK-U8-k2n" firstAttribute="top" secondItem="o1R-e1-4hb" secondAttribute="bottom" constant="-49" id="8ao-BV-sHn"/>
+                            <constraint firstItem="3lM-1p-dfZ" firstAttribute="leading" secondItem="agi-fI-OSy" secondAttribute="leadingMargin" constant="-20" id="AMg-63-rCq"/>
+                            <constraint firstItem="o1R-e1-4hb" firstAttribute="top" secondItem="sTj-GM-g75" secondAttribute="bottom" constant="-64" id="H1f-O3-vgU"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="o1R-e1-4hb" secondAttribute="trailing" constant="-20" id="aee-Ii-7kc"/>
+                            <constraint firstItem="o1R-e1-4hb" firstAttribute="leading" secondItem="agi-fI-OSy" secondAttribute="leadingMargin" constant="-20" id="p4p-Kl-1Kq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="3lM-1p-dfZ" secondAttribute="trailing" constant="-20" id="qWo-Yz-bKW"/>
+                            <constraint firstItem="HpK-U8-k2n" firstAttribute="top" secondItem="3lM-1p-dfZ" secondAttribute="bottom" constant="-49" id="zYK-7K-Meg"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Favorites" id="lks-65-OL9"/>
+                    <connections>
+                        <outlet property="collectionView" destination="3lM-1p-dfZ" id="IuL-H4-XUH"/>
+                        <segue destination="SaN-zy-6ky" kind="showDetail" id="vkJ-bl-V1s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pO8-Fi-cwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="569" y="1277"/>
+            <point key="canvasLocation" x="597" y="1267"/>
         </scene>
         <!--Recipe Search Results Controller-->
         <scene sceneID="koR-Yp-4Is">
@@ -513,4 +625,7 @@ M M M M M M M </string>
     <resources>
         <image name="Background" width="600" height="600"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="vkJ-bl-V1s"/>
+    </inferredMetricsTieBreakers>
 </document>
