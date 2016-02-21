@@ -14,8 +14,11 @@ class RecipeViewController:UIViewController{
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     @IBOutlet weak var ingredients: UITextView!
+    @IBOutlet weak var titleWidthContraint: NSLayoutConstraint!
+    @IBOutlet weak var publisher: UILabel!
     
     override func viewDidLoad() {
+        titleWidthContraint.constant = view.frame.width - 100
         if let recipe = recipe{
             recipeImage.image = recipe.image
             recipeTitle.text = recipe.title
@@ -24,6 +27,7 @@ class RecipeViewController:UIViewController{
                 ingredientList += "⚜ " + (ingredient as! String) + "\n"
             }
             ingredients.text = ingredientList
+            publisher.text = recipe.publisher
         }
     }
     
