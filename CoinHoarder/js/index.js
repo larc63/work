@@ -311,6 +311,33 @@ function ViewModel() {
         }
         return retVal + " Ounces";
     });
+    this.goldToSilverRatio = ko.computed(function () {
+        var goldTotal = 0,
+            silverTotal = 0,
+            activeGoldCoins = self.coins().filter(function (e) {
+                return e.active() && e.coinType().metal() == "gold";
+            }),
+            activeSilverCoins = self.coins().filter(function (e) {
+                return e.active() && e.coinType().metal() == "silver";
+            }),
+            ratio = 1.0,
+            adder = function (a, b) {
+                if (a instanceof Coin) {
+                    return Number(a.coinType().weight()) + Number(b.coinType().weight());
+                } else {
+                    return a + Number(b.coinType().weight());
+                }
+            };
+
+        if (activeSilverCoins.length > 0) {
+            goldTotal = activeGoldCoins.reduce(adder);
+            silverTotal = activeSilverCoins.reduce(adder);
+            ratio = 1 / goldTotal;
+            return "Silver:gold = " + format4(silverTotal * ratio) + ":1";
+        } else {
+            return "0:0";
+        }
+    });
     this.numberOfOuncesInPermaStack = ko.computed(function () {
         var retVal = 0,
             activeCoins = self.coins().filter(function (e) {

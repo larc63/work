@@ -78,10 +78,10 @@
                         </td>
                         <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
                         <td class="centered" data-bind="css: {inactive: false}">
-                            <input type="checkbox" data-bind="checked: active"></input>
+                            <input type="checkbox" data-bind="checked: active"/>
                         </td>
                         <td class="centered" data-bind="css: {permastack: false}">
-                            <input type="checkbox" data-bind="checked: isPermaStack"></input>
+                            <input type="checkbox" data-bind="checked: isPermaStack"/>
                         </td>
                         <td data-bind="text: coinType().year">--</td>
                         <td data-bind="text: coinType().country">--</td>
@@ -105,23 +105,23 @@
                 You will see this message only when "staged" holds a true value.
                 <div data-bind="with: stagedCoinType">
                     Id:
-                    <input data-bind="value: id" readonly></input>
+                    <input data-bind="value: id" readonly/>
                     <br/> Year:
-                    <input data-bind="value: year"></input>
+                    <input data-bind="value: year"/>
                     <br/> Country:
-                    <input data-bind="value: country"></input>
+                    <input data-bind="value: country"/>
                     <br/> Mint:
-                    <input data-bind="value: mint"></input>
+                    <input data-bind="value: mint"/>
                     <br/> Series:
-                    <input data-bind="value: series"></input>
+                    <input data-bind="value: series"/>
                     <br/> Metal:
-                    <input data-bind="value: metal"></input>
+                    <input data-bind="value: metal"/>
                     <br/> Weight:
-                    <input data-bind="value: weight"></input>
+                    <input data-bind="value: weight"/>
                     <br/> Diameter:
-                    <input data-bind="value: diameter"></input>
+                    <input data-bind="value: diameter"/>
                     <br/> Width:
-                    <input data-bind="value: width"></input>
+                    <input data-bind="value: width"/>
                     <br/>
                     <button name="button" data-bind="click: $parent.commitCoinType">Save</button>
                     <button name="button" data-bind="click: $parent.cancelCoinOperation">Cancel</button>
@@ -224,10 +224,10 @@
                         </td>
                         <!--                                <td data-bind="text: id" class="numericalvalue">--</td>-->
                         <td class="centered" data-bind="css: {inactive: false}">
-                            <input type="checkbox" data-bind="checked: active"></input>
+                            <input type="checkbox" data-bind="checked: active"/>
                         </td>
                         <td class="centered" data-bind="css: {permastack: false}">
-                            <input type="checkbox" data-bind="checked: isPermaStack"></input>
+                            <input type="checkbox" data-bind="checked: isPermaStack"/>
                         </td>
                         <td data-bind="text: coinType().year">--</td>
                         <td data-bind="text: coinType().country">--</td>
@@ -250,6 +250,7 @@
             <ul>
                 <li data-bind="text: numberOfCoins"></li>
                 <li data-bind="text: numberOfOunces"></li>
+                <li data-bind="text: goldToSilverRatio"></li>
             </ul>
             <ul>
                 <li data-bind="text: numberOfCoinsPermaStack"></li>
