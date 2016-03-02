@@ -13,7 +13,7 @@ function format4(value) {
     if (value instanceof String || typeof value === "string") {
         value = Number(value);
     }
-    //console.log(typeof value + " !!! " + value);
+//    console.log(typeof value + " !!! " + value);
     return value.toFixed(4);
 }
 
@@ -295,12 +295,16 @@ function ViewModel() {
             return e.active() && !e.isPermaStack();
         }).length + " Coins not in permastack";
     });
-    this.numberOfOunces = ko.computed(function () {
+    var getNumberOfOunces = function (metal){
         var retVal = 0,
             activeCoins = self.coins().filter(function (e) {
-                return e.active();
+                if(metal){
+                return e.active() && e.coinType().metal() == metal;
+                }else{
+                    return e.active();
+                }
             });
-        if (activeCoins.length > 0) {
+        if (activeCoins.length > 1) {
             retVal = format4(activeCoins.reduce(function (a, b) {
                 if (a instanceof Coin) {
                     return Number(a.coinType().weight()) + Number(b.coinType().weight());
@@ -308,8 +312,25 @@ function ViewModel() {
                     return a + Number(b.coinType().weight());
                 }
             }));
+        } else if (activeCoins.length == 1){
+            retVal = activeCoins[0].coinType().weight();
         }
         return retVal + " Ounces";
+    };
+    this.numberOfOunces = ko.computed(function () {
+        return getNumberOfOunces();
+    });
+    this.ouncesOfGold = ko.computed(function () {
+        return getNumberOfOunces("gold") + " in gold";
+    });
+    this.ouncesOfSilver = ko.computed(function () {
+        return getNumberOfOunces("silver") + " in silver";
+    });
+    this.ouncesOfPlatinum = ko.computed(function () {
+        return getNumberOfOunces("platinum") + " in platinum";
+    });
+    this.ouncesOfCopper = ko.computed(function () {
+        return getNumberOfOunces("copper") + " in copper";
     });
     this.goldToSilverRatio = ko.computed(function () {
         var goldTotal = 0,
